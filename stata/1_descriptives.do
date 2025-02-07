@@ -1,0 +1,92 @@
+/*******************************************************************************
+    Project: icfes referrals 
+    Author: Reha Tuncer
+    Date: 05.02.2025
+    Description: descriptives
+*******************************************************************************/
+
+//# preamble
+version 18
+clear all
+macro drop _all
+set more off
+set scheme s2color, permanently
+set maxvar 32767
+global graph_opts ///
+    graphregion(fcolor(white) lcolor(white)) ///
+    bgcolor(white) ///
+    plotregion(lcolor(white))
+
+// use sender receiver data here
+use "dataset_z.dta"
+describe *
+gsort own_id other_id
+
+preserve 
+keep if area==1 // verbal
+foreach v of varlist tie other_age other_female other_estrato z_other* {
+    display _newline
+    display as text "=== T-test for `v' ===" _newline
+    ttest `v', by(nomination) unequal
+	tabstat `v' if nomination == 1, stat(mean sd n)
+	tabstat `v', stat(mean sd n)
+}
+restore
+
+preserve 
+keep if area==2 // math
+foreach v of varlist tie other_age other_female other_estrato z_other* {
+    display _newline
+    display as text "=== T-test for `v' ===" _newline
+    ttest `v', by(nomination) unequal
+	tabstat `v' if nomination == 1, stat(mean sd n)
+	tabstat `v', stat(mean sd n)
+}
+restore
+
+
+
+keep if area==2 // math
+
+tabstat tie*  if nomination == 1, stat(mean sd)
+// hist tie if nomination == 1, percent bin(10
+tabstat tie* if nomination == 0, stat(mean sd)
+
+// descriptive table
+
+
+foreach v of varlist tie* {
+    display _newline
+    display as text "=== T-test for `v' ===" _newline
+    ttest `v', by(nomination) unequal
+// 	hist `v', $graph_opts percent bin(10) by(nomination) name(`v', replace)
+}
+
+describe *
+
+foreach v of varlist z_other* {
+    display _newline
+    display as text "=== T-test for `v' ===" _newline
+    ttest `v', by(nomination) unequal
+	hist `v', $graph_opts percent bin(10) by(nomination) name(`v', replace)
+}
+
+tabstat other_estrato   if nomination == 1 & own_estrato == 1 & treat == 1, stat(mean sd)
+ttest other_estrato if own_estrato == 1 & treat == 1, by(nomination) unequal
+
+tabstat other_estrato   if nomination == 1 & own_estrato == 1 & treat == 2, stat(mean sd)
+ttest other_estrato if own_estrato == 1 & treat == 2, by(nomination) unequal // extra bonus lowers mean strata --> more bias
+
+
+tabstat other_estrato   if nomination == 1 & own_estrato == 2  & treat == 1, stat(mean sd)
+ttest other_estrato if own_estrato == 2  & treat == 1, by(nomination) unequal
+
+tabstat other_estrato   if nomination == 1 & own_estrato == 2  & treat == 2, stat(mean sd)
+ttest other_estrato if own_estrato == 2  & treat == 2, by(nomination) unequal // treatment randomization issue??
+
+
+tabstat other_estrato   if nomination == 1 & own_estrato == 3 & treat == 1, stat(mean sd)
+ttest other_estrato if own_estrato == 3 & treat == 1, by(nomination) unequal
+
+tabstat other_estrato   if nomination == 1 & own_estrato == 3 & treat == 2, stat(mean sd)
+ttest other_estrato if own_estrato == 3 & treat == 2, by(nomination) unequal // extra bonus adds noise

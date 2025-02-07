@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex manuscript"] 1738680702.58036 "manuscript.aux" "manuscript.bbl" "manuscript" 1738681180.9021 0
+["bibtex manuscript"] 1738935125.20373 "manuscript.aux" "manuscript.bbl" "manuscript" 1738935126.68059 0
   "./referrals.bib" 1738226417.56641 28539 e435bb6020a7e4bcca88af35ba7d87b4 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "manuscript.aux" 1738681180.5842 1769 bbcb35b329e120354d4a6075938ca4ae "pdflatex"
+  "manuscript.aux" 1738935126.36464 2303 3b57564ee5899f8730df1c35a2f05ab0 "pdflatex"
   (generated)
   "manuscript.bbl"
   "manuscript.blg"
   (rewritten before read)
-["pdflatex"] 1738681179.636 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" "manuscript.pdf" "manuscript" 1738681180.90223 0
+["pdflatex"] 1738935125.40944 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" "manuscript.pdf" "manuscript" 1738935126.68073 0
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/bonus_structure.png" 1738673775.65403 97561 81ea56ff1484607da76c3bce264bfd1b ""
-  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" 1738681179.50061 25367 7a1b854c6040d65660938e6e41638511 ""
+  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" 1738935123.71048 27284 ca4a4238bbc8d1b29be2ba4999245ccd ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1136768653 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -41,6 +41,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1136768653 1332 1fde11373e221473104d6cc5993f046e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1136768653 1328 5442e22a7072966dbaf88ca900acf3f0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
@@ -61,6 +62,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm" 1136768653 764 c98a2af25c99b73a368cf7336e255190 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
@@ -177,10 +179,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729863227.02717 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729863127 8221430 5836b5d7628c44f5214ea245e1a11c59 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "manuscript.aux" 1738681180.5842 1769 bbcb35b329e120354d4a6075938ca4ae "pdflatex"
-  "manuscript.bbl" 1738680702.70334 49 0eba253fc001332e731e8aba3f23127b "bibtex manuscript"
-  "manuscript.out" 1738681180.58627 949 6f64528d0207d55ffb4502f135b5bfb2 "pdflatex"
-  "manuscript.tex" 1738681179.50061 25367 7a1b854c6040d65660938e6e41638511 ""
+  "manuscript.aux" 1738935126.36464 2303 3b57564ee5899f8730df1c35a2f05ab0 "pdflatex"
+  "manuscript.bbl" 1738935125.39709 49 0eba253fc001332e731e8aba3f23127b "bibtex manuscript"
+  "manuscript.out" 1738935126.36767 949 6f64528d0207d55ffb4502f135b5bfb2 "pdflatex"
+  "manuscript.tex" 1738935123.71048 27284 ca4a4238bbc8d1b29be2ba4999245ccd ""
   (generated)
   "manuscript.aux"
   "manuscript.log"
