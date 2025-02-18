@@ -47,7 +47,7 @@
 \usepackage[colorlinks=true, citecolor=blue, linkcolor=blue, urlcolor=blue,breaklinks]{hyperref}
 
 
-\title{Peer skill identification and social class:
+\title{Project ICFES:
 Evidence from a referral field experiment\footnote{We obtained Institutional Review Board approvals from NYU Abu Dhabi (HRPP 2024-50) and the University of Luxembourg (ERP 24–028). The study design was preregistered in the OSF Registries prior to data collection (see \url{https://doi.org/10.17605/OSF.IO/V9T3W}).} }
 % \\ \large Experimental Design \\
 % \title{Skills, Inequality, and Referrals}
@@ -61,7 +61,7 @@ Evidence from a referral field experiment\footnote{We obtained Institutional Rev
 
 
 \section*{Abstract}
-asd
+Lorem Ipsum \citep{beaman_job_2018}
 \medskip \\
 \textbf{JEL Classification:} C93, D03, D83, J24 \\
 \textbf{Keywords:} productivity beliefs, referrals, field experiment, skill identification, social class
@@ -87,74 +87,141 @@ asd
 \section{Results} \label{s5}
 
 \begin{table}[H]
-  \caption{Summary Statistics by Treatment Status}
   \centering
-  \begin{tabular}{lccc}
-  \hline
-  & Control & Treatment & $p$ \\
-  \hline
-  GPA (z-score) & 0.126 & 0.187 & 0.393 \\
-  & (0.959) & (0.963) & \\
-  [1ex]
-  Reading Score (z-score) & 0.212 & 0.320 & 0.116 \\
-  & (0.892) & (0.969) & \\
-  [1ex]
-  Math Score (z-score) & 0.285 & 0.307 & 0.753 \\
-  & (0.900) & (0.978) & \\
-  [1ex]
-  Tie Strength & 3.982 & 3.923 & 0.892 \\
-  & (6.041) & (5.613) & \\
-  [1ex]
-  Estrato & 1.670 & 1.693 & 0.623 \\
-  & (0.633) & (0.633) & \\
-  [1ex]
-  Age & 20.576 & 20.733 & 0.380 \\
-  & (2.410) & (2.423) & \\
-  [1ex]
-  Female & 0.529 & 0.531 & 0.947 \\
-  & (0.500) & (0.500) & \\
-  \hline
-  Observations & 382 & 352 & \\
-  \hline
-  \end{tabular}
-  \label{tab:treatment_stats}
-  \end{table}
+  \begin{threeparttable}
+  \caption{Selection into the experiment}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc c@{}}
+  \toprule
+  & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\
+  \midrule
+  Reading score (z-score) & 0.000 & 0.264 & 0.000 \\
+  Math score (z-score) & 0.000 & 0.295 & 0.000 \\
+  GPA (z-score) & 0.000 & 0.156 & 0.000 \\
+  Low-SES & 0.343 & 0.410 & 0.000 \\
+  Female & 0.567 & 0.530 & 0.060 \\
+  Age & 21.154 & 20.651 & 0.000 \\
+  \midrule
+  Observations & 4,417 & 734 & 5,151 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} This table compares characteristics between the full administrative sample and the experimental sample. $p$-values for binary outcomes (Low-SES, Female) are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. GPA and test scores are standardized to have mean zero and standard deviation one in the administrative sample.
+  \end{tablenotes}
+  \label{tab:selection}
+  \end{threeparttable}
+\end{table}
 
 \begin{table}[H]
-  \caption{Summary Statistics for Choice Set and Nominated Peers}
   \centering
-  \begin{tabular}{lcccc}
-  \hline
-  & \multicolumn{2}{c}{Verbal} & \multicolumn{2}{c}{Math} \\
-  \cline{2-5}
-  & Choice Set & Nominated & Choice Set & Nominated \\
-  \hline
-  GPA (z-score) & -0.140 & 0.579 & -0.147 & 0.580 \\
-  & (0.981) & (0.994) & (0.983) & (0.998) \\
-  [1ex]
-  Reading Score (z-score) & 0.167 & 0.547 & 0.166 & 0.501 \\
-  & (0.902) & (0.883) & (0.903) & (0.910) \\
-  [1ex]
-  Math Score (z-score) & 0.202 & 0.513 & 0.206 & 0.624 \\
-  & (0.883) & (0.918) & (0.885) & (0.941) \\
-  [1ex]
-  Tie Strength & 3.222 & 14.467 & 3.217 & 13.822 \\
-  & (4.625) & (9.382) & (4.632) & (9.291) \\
-  [1ex]
-  Estrato & 1.817 & 1.738 & 1.811 & 1.725 \\
-  & (0.672) & (0.648) & (0.672) & (0.647) \\
-  [1ex]
-  Age & 20.942 & 20.501 & 20.958 & 20.490 \\
-  & (2.180) & (2.698) & (2.187) & (2.559) \\
-  [1ex]
-  Female & 0.524 & 0.562 & 0.520 & 0.428 \\
-  & (0.499) & (0.497) & (0.500) & (0.495) \\
-  \hline
-  Observations & 128,847 & 673 & 128,150 & 669 \\
-  \hline
-  \end{tabular}
-  \label{tab:stats_by_area}
+  \begin{threeparttable}
+  \caption{Balance between treatments}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc c@{}}
+  \toprule
+    & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\ 
+  \midrule
+  Reading score (z-score) & 0.212 & 0.320 & \multicolumn{1}{c}{0.116} \\
+  Math score (z-score) & 0.285 & 0.307 & \multicolumn{1}{c}{0.753} \\
+  GPA (z-score) & 0.126 & 0.187 & \multicolumn{1}{c}{0.393} \\
+  \# connections & 346.80 & 353.75 & \multicolumn{1}{c}{0.574} \\
+  Tie strength & 3.665 & 3.565 & \multicolumn{1}{c}{0.798} \\
+  Low-SES & 0.419 & 0.401 & \multicolumn{1}{c}{0.615} \\
+  Female & 0.529 & 0.531 & \multicolumn{1}{c}{0.947} \\
+  Age & 20.576 & 20.733 & \multicolumn{1}{c}{0.380} \\
+  \midrule
+  Observations & 382 & 352 & 734 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} This table presents balance tests between \textbf{Baseline} and \textbf{Bonus} conditions. $p$-values for binary outcomes are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. GPA and test scores are standardized to have mean zero and standard deviation one in the administrative sample. Tie strength refers to the number of classes taken together. \# connections refers to the number of indiviuduals in referrer choice sets, otherwise called the ``network degree''. Low-SES is a binary variable indicating the share of participants in estrato 1 or 2.
+  \end{tablenotes}
+  \label{tab:balance}
+  \end{threeparttable}
   \end{table}
+
+
+
+  \begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \caption{Summary statistics for referred and not referred}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccc}
+    \toprule
+    & \multicolumn{2}{c}{Verbal} & \multicolumn{2}{c}{Math} \\
+    \cmidrule{2-5}
+    & Not Referred & Referred & Not Referred & Referred \\
+    \midrule
+    Reading score (z-score) & 0.165 & 0.547 & 0.164 & 0.501 \\
+    & (0.003) & (0.034) & (0.003) & (0.035) \\
+    [1ex]
+    Math score (z-score) & 0.201 & 0.513 & 0.204 & 0.624 \\
+    & (0.002) & (0.035) & (0.002) & (0.036) \\
+    [1ex]
+    GPA (z-score) & -0.144 & 0.579 & -0.151 & 0.580 \\
+    & (0.003) & (0.038) & (0.003) & (0.039) \\
+    Tie strength & 3.163 & 14.467 & 3.161 & 13.822 \\
+    & (0.013) & (0.362) & (0.013) & (0.359) \\
+    [1ex]
+    Low-SES & 0.334 & 0.374 & 0.338 & 0.384 \\
+    & (0.001) & (0.019) & (0.001) & (0.019) \\
+    [1ex]
+    Female & 0.524 & 0.562 & 0.520 & 0.428 \\
+    & (0.001) & (0.019) & (0.001) & (0.019) \\
+    [1ex]
+    Age & 20.945 & 20.501 & 20.961 & 20.490 \\
+    & (0.006) & (0.104) & (0.006) & (0.099) \\
+    \midrule
+    Observations & 128,174 & 673 & 127,481 & 669 \\
+    \bottomrule
+    \end{tabular*}
+    \begin{tablenotes}[flushleft]
+    \footnotesize
+    \item[] \textit{Note:} Standard errors in parentheses. All scores are standardized (z-scores). Tie strength measures the number of courses taken together. Low-SES indicates the share of participants in estrato 1 or 2. \# connections represents the size of the choice set.
+    \end{tablenotes}
+    \label{tab:stats_by_area}
+    \end{threeparttable}
+  \end{table}
+
+
+  
+  \begin{table}[H]
+    \caption{Math Referrals by own SES and Treatment}
+    \centering
+    \begin{tabular}{lcccc}
+    \hline
+    & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Bonus} \\
+    \cline{2-5}
+    & Choice Set & Nominated & Choice Set & Nominated \\
+    \hline
+    Low-SES & 0.358 & 0.483 & 0.368 & 0.508 \\
+    Middle-SES & 0.527 & 0.595 & 0.517 & 0.527 \\
+    High-SES  & 0.202 & 0.161 & 0.196 & 0.259 \\
+    \hline
+    Observations & 65,103 & 348 & 62,378 & 321 \\
+    \hline
+    \end{tabular}
+    \label{tab:social_class_nominations}
+\end{table}
+
+\begin{table}[H]
+    \caption{Verbal Referrals by own SES and Treatment}
+    \centering
+    \begin{tabular}{lcccc}
+    \hline
+    & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Bonus} \\
+    \cline{2-5}
+    & Choice Set & Nominated & Choice Set & Nominated \\
+    \hline
+    Low-SES  & 0.365 & 0.464 & 0.370 & 0.554 \\
+    Middle-SES & 0.527 & 0.570 & 0.513 & 0.512 \\
+    High-SES & 0.199 & 0.200 & 0.192 & 0.310 \\
+    \hline
+    Observations & 66,674 & 351 & 61,500 & 322 \\
+    \hline
+    \end{tabular}
+    \label{tab:social_class_nominations_verbal}
+\end{table}
 
 \section{Conclusion} \label{s6}
 
@@ -256,7 +323,7 @@ The instructions for this study are presented in the following video. Please wat
 
 \vspace{5mm}
 
-In this study, you will respond to three types of questions. First, are the belief questions. For belief questions, we will use as reference the results of the SABER 11 test that you and other students took to enter the university, focused on three areas of the exam: mathematics, reading, and English.
+\noindent In this study, you will respond to three types of questions. First, are the belief questions. For belief questions, we will use as reference the results of the SABER 11 test that you and other students took to enter the university, focused on three areas of the exam: mathematics, reading, and English.
 
 \vspace{5mm}
 

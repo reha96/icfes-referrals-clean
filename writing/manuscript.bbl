@@ -1,3 +1,31 @@
 \begin{thebibliography}{}
 
+\bibitem [\protect \citeauthoryear {%
+Beaman%
+, Keleher%
+\BCBL {}\ \BBA {} Magruder%
+}{%
+Beaman%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+beaman_job_2018}
+\APACinsertmetastar {%
+beaman_job_2018}%
+\begin{APACrefauthors}%
+Beaman, L.%
+, Keleher, N.%
+\BCBL {}\ \BBA {} Magruder, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Do {Job} {Networks} {Disadvantage} {Women}? {Evidence} from a {Recruitment} {Experiment} in {Malawi}} {Do {Job} {Networks} {Disadvantage} {Women}? {Evidence} from a {Recruitment} {Experiment} in {Malawi}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Labor Economics}{36}{1}{121--157}.
+\newblock
+\begin{APACrefDOI} \doi{10.1086/693869} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
 \end{thebibliography}
