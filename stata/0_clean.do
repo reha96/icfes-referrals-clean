@@ -48,7 +48,17 @@ foreach v of varlist other_gpa other_score_reading other_score_math {
 	gen z_`v' = (`v' - $`v'_mean)/$`v'_std
 }
 
-keep other_id z*
+foreach v of varlist z_other* {
+	xtile decile_`v' = `v', nq(10) 
+	gen top_`v' = decile_`v' == 10
+}
+
+sum top*,det
+desc top*
+describe top_z_other*, varlist
+
+
+keep other_id z* top*
 save "std.dta", replace
 
 clear all
@@ -59,10 +69,16 @@ keep own* treat tie
 rename own_id other_id
 merge 1:1 other_id using "std.dta" // own scores are standardized 
 drop _merge
+
 rename other_id own_id 
 rename z_other_gpa z_own_gpa
 rename z_other_score_math z_own_score_math
 rename z_other_score_reading z_own_score_reading
+
+rename top_z_other_gpa top_z_own_gpa
+rename top_z_other_score_math top_z_own_score_math
+rename top_z_other_score_reading top_z_own_score_reading
+
 
 // check if all good
 sum z_own_gpa z_own_score_math z_own_score_reading, det
@@ -72,7 +88,7 @@ corr own_gpa z_own_gpa own_score_math z_own_score_math own_score_reading z_own_s
 preserve
 keep if own_female != .
 // descriptives of referrers (n=734)
-foreach v of varlist tie own_age own_female own_estrato z_own* {
+foreach v of varlist tie own_age own_female own_estrato z_own*  top_z* {
     display _newline
     display as text "=== T-test for `v' ===" _newline
 	ttest `v' , by(treat) unequal
@@ -80,7 +96,7 @@ foreach v of varlist tie own_age own_female own_estrato z_own* {
 restore
 
 // save 4418 participants' z scores
-keep own_id z*
+keep own_id z* top_*
 save "own.dta", replace
 
 // merge with own (referrer) score
@@ -103,6 +119,14 @@ label variable z_own_score_math "Own Math Score (z-score)"
 label variable z_other_gpa "Other GPA (z-score)"
 label variable z_other_score_reading "Other Reading Score (z-score)"
 label variable z_other_score_math "Other Math Score (z-score)"
+
+label variable top_z_own_gpa "in top decile for own GPA (z-score)"
+label variable top_z_own_score_reading "in top decile for own Reading Score (z-score)"  
+label variable top_z_own_score_math "in top decile for own Math Score (z-score)"
+label variable top_z_other_gpa "in top decile for other GPA (z-score)"
+label variable top_z_other_score_reading "in top decile for other Reading Score (z-score)"
+label variable top_z_other_score_math "in top decile for other Math Score (z-score)"
+
 
 save "dataset_z.dta", replace
 rm "own.dta" 
