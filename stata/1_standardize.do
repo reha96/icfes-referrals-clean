@@ -1,0 +1,125 @@
+/*******************************************************************************
+    Project: icfes referrals 
+    Author: Reha Tuncer
+    Date: 10.03.2025
+    Description: standardize raw data
+*******************************************************************************/
+
+//# preamble
+version 18
+clear all
+macro drop _all
+set more off
+set scheme s2color, permanently
+set maxvar 32767
+global graph_opts ///
+    graphregion(fcolor(white) lcolor(white)) ///
+    bgcolor(white) ///
+    plotregion(lcolor(white))
+	
+// get a full dataset for standardizing
+clear all
+cls
+use "dataset_z.dta"
+describe *
+gsort own_id
+
+gen own_low_ses = own_estrato == 1
+gen own_med_ses = own_estrato == 2
+gen own_high_ses = own_estrato == 3
+gen other_low_ses = other_estrato == 1
+gen other_med_ses = other_estrato == 2
+gen other_high_ses = other_estrato == 3
+
+save "dataset_z.dta", replace
+
+/***
+// // network sizes differ slightly
+// bysort own_id: gen r_counter =_n if  area == 1
+// bysort own_id: gen m_counter =_n if  area == 2
+// bysort own_id: egen net_size_r = max(r_counter) if area == 1
+// bysort own_id: egen net_size_m = max(m_counter) if area == 2
+//
+// bysort own_id: egen __t = max(net_size_r)
+// replace   net_size_r = __t
+// drop __t
+//
+// bysort own_id: egen __t = max(net_size_m)
+// replace   net_size_m = __t
+// drop __t
+//
+// gen diff = net_size_m - net_size_r
+// tab diff
+// hist diff, bin(10) percent
+//
+// gen nom_r = nomination & area == 1
+// gen nom_m = nomination & area == 2
+// tab nom_r nom_m
+***/
+
+preserve 
+keep if nomination
+bysort own_id: gen counter =_n // first occurrence
+
+bysort own_id: egen __t = max(counter)
+replace   counter = __t
+drop __t
+tab area counter
+restore
+
+keep if area == 1
+bysort own_id: gen counter =_n // first occurrence
+
+// Standardize scores within each own_id's network
+foreach v of varlist other_gpa other_score_reading other_score_math tie {
+    egen mean_`v' = mean(`v'), by(own_id)
+    egen sd_`v' = sd(`v'), by(own_id)
+	
+	sum mean_`v' if counter == 1
+	local avgt = r(mean)
+	
+	sum sd_`v' if counter == 1
+	local sdt = r(mean)
+	gen z_`v' = (`v' - `avgt') / `sdt'
+}
+
+cls
+//# TABLE non-referred choice set VS referred VERBAL
+tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if !nomination, stat(mean sd semean n)
+tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if nomination, stat(mean sd semean n)
+save "reading.dta", replace
+
+
+
+
+// Basic regressions
+eststo clear
+eststo est1: clogit nomination i.other_estrato, group(own_id) vce(cluster own_id)
+eststo est2: clogit nomination i.other_estrato z_other_score_reading z_tie, group(own_id) vce(cluster own_id)
+
+
+
+clear all
+cls
+use "dataset_z.dta"
+
+keep if area == 2
+bysort own_id: gen counter =_n // first occurrence
+
+// Standardize scores within each own_id's network
+foreach v of varlist other_gpa other_score_reading other_score_math tie {
+    egen mean_`v' = mean(`v'), by(own_id)
+    egen sd_`v' = sd(`v'), by(own_id)
+	
+	sum mean_`v' if counter == 1
+	local avgt = r(mean)
+	
+	sum sd_`v' if counter == 1
+	local sdt = r(mean)
+	gen z_`v' = (`v' - `avgt') / `sdt'
+}
+cls
+//# TABLE non-referred choice set VS referred MATH
+tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if !nomination, stat(mean sd semean n)
+tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if nomination, stat(mean sd semean n)
+save "math.dta", replace

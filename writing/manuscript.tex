@@ -96,10 +96,12 @@ Lorem Ipsum \citep{beaman_job_2018}
   \toprule
   & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\
   \midrule
-  Reading score (z-score) & 0.000 & 0.264 & 0.000 \\
-  Math score (z-score) & 0.000 & 0.295 & 0.000 \\
-  GPA (z-score) & 0.000 & 0.156 & 0.000 \\
+  Reading score & 62.651 & 65.183 & 0.000 \\
+  Math score & 63.973 & 67.477 & 0.000 \\
+  GPA & 3.958 & 4.012 & 0.000 \\
   Low-SES & 0.343 & 0.410 & 0.000 \\
+  Med-SES & 0.505 & 0.499 & 0.763 \\
+  High-SES & 0.153 & 0.091 & 0.000 \\
   Female & 0.567 & 0.530 & 0.060 \\
   Age & 21.154 & 20.651 & 0.000 \\
   \midrule
@@ -108,7 +110,7 @@ Lorem Ipsum \citep{beaman_job_2018}
   \end{tabular*}
   \begin{tablenotes}[flushleft]
   \footnotesize
-  \item[] \textit{Note:} This table compares characteristics between the full administrative sample and the experimental sample. $p$-values for binary outcomes (Low-SES, Female) are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. GPA and test scores are standardized to have mean zero and standard deviation one in the administrative sample.
+  \item[] \textit{Note:} This table compares characteristics between the full administrative sample and the experimental sample. $p$-values for binary outcomes (Low-SES, Med-SES, High-SES, Female) are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed.
   \end{tablenotes}
   \label{tab:selection}
   \end{threeparttable}
@@ -120,14 +122,16 @@ Lorem Ipsum \citep{beaman_job_2018}
   \caption{Balance between treatments}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc c@{}}
   \toprule
-    & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\ 
+   & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\ 
   \midrule
-  Reading score (z-score) & 0.212 & 0.320 & \multicolumn{1}{c}{0.116} \\
-  Math score (z-score) & 0.285 & 0.307 & \multicolumn{1}{c}{0.753} \\
-  GPA (z-score) & 0.126 & 0.187 & \multicolumn{1}{c}{0.393} \\
-  \# connections & 346.80 & 353.75 & \multicolumn{1}{c}{0.574} \\
-  Tie strength & 3.665 & 3.565 & \multicolumn{1}{c}{0.798} \\
+  Reading score & 64.712 & 65.693 & \multicolumn{1}{c}{0.134} \\
+  Math score & 67.366 & 67.597 & \multicolumn{1}{c}{0.780} \\
+  GPA & 4.003 & 4.021 & \multicolumn{1}{c}{0.445} \\
+  \# connections & 173.40 & 176.88 & \multicolumn{1}{c}{0.574} \\
+  Tie strength & 3.939 & 3.719 & \multicolumn{1}{c}{0.443} \\
   Low-SES & 0.419 & 0.401 & \multicolumn{1}{c}{0.615} \\
+  Med-SES & 0.492 & 0.506 & \multicolumn{1}{c}{0.714} \\
+  High-SES & 0.089 & 0.094 & \multicolumn{1}{c}{0.824} \\
   Female & 0.529 & 0.531 & \multicolumn{1}{c}{0.947} \\
   Age & 20.576 & 20.733 & \multicolumn{1}{c}{0.380} \\
   \midrule
@@ -136,97 +140,162 @@ Lorem Ipsum \citep{beaman_job_2018}
   \end{tabular*}
   \begin{tablenotes}[flushleft]
   \footnotesize
-  \item[] \textit{Note:} This table presents balance tests between \textbf{Baseline} and \textbf{Bonus} conditions. $p$-values for binary outcomes are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. GPA and test scores are standardized to have mean zero and standard deviation one in the administrative sample. Tie strength refers to the number of classes taken together. \# connections refers to the number of indiviuduals in referrer choice sets, otherwise called the ``network degree''. Low-SES is a binary variable indicating the share of participants in estrato 1 or 2.
+  \item[] \textit{Note:} This table presents balance tests between \textbf{Baseline} and \textbf{Bonus} conditions. $p$-values for binary outcomes are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. Tie strength refers to the number of classes taken together. \# connections refers to the number of indiviuduals in referrer choice sets, otherwise called the ``network degree''. Low-SES, Med-SES, and High-SES are binary variables indicating the share of participants in estrato 1 and 2, 3 and 4, or 5 and 6, respectively.
   \end{tablenotes}
   \label{tab:balance}
   \end{threeparttable}
-  \end{table}
+\end{table}
 
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Distribution of referrals by area}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc}
+  \toprule
+  Area & Only one referral & Both areas & Total \\
+  \midrule
+  Verbal & 65 & 608 & 673 \\
+  Math & 61 & 608 & 669 \\
+  \midrule
+  Total & 126 & 1,216 & 1,342 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} The table shows how many referrers made referrals in only one area versus both areas. "Only one referral" indicates individuals who made referrals exclusively in that area. "Both areas" shows individuals who made referrals in both verbal and math areas. The majority of referrers (608) made referrals in both areas.
+  \end{tablenotes}
+  \label{tab:referral_distribution}
+  \end{threeparttable}
+\end{table}
 
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Summary statistics for network members by nomination status}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccc}
+  \toprule
+  & \multicolumn{2}{c}{Verbal} & \multicolumn{2}{c}{Math} \\
+  \cmidrule{2-3} \cmidrule{4-5}
+  & Not Referred & Referred & Not Referred & Referred \\
+  \midrule
+  Reading z-score & 0.070 & 0.509 & 0.079 & 0.465 \\
+  & (0.003) & (0.039) & (0.003) & (0.040) \\
+  [1ex]
+  Math z-score & 0.079 & 0.452 & 0.087 & 0.590 \\
+  & (0.003) & (0.042) & (0.003) & (0.043) \\
+  [1ex]
+  GPA z-score & -0.066 & 0.705 & -0.069 & 0.711 \\
+  & (0.003) & (0.041) & (0.003) & (0.041) \\
+  [1ex]
+  Tie strength z-score & -0.153 & 2.690 & -0.184 & 2.488 \\
+  & (0.003) & (0.091) & (0.003) & (0.090) \\
+  [1ex]
+  Low-SES & 0.334 & 0.374 & 0.338 & 0.384 \\
+  & (0.001) & (0.019) & (0.001) & (0.019) \\
+  [1ex]
+  Med-SES & 0.515 & 0.513 & 0.513 & 0.507 \\
+  & (0.001) & (0.019) & (0.001) & (0.019) \\
+  [1ex]
+  High-SES & 0.151 & 0.113 & 0.149 & 0.109 \\
+  & (0.001) & (0.012) & (0.001) & (0.012) \\
+  [1ex]
+  Female & 0.524 & 0.562 & 0.520 & 0.428 \\
+  & (0.001) & (0.019) & (0.001) & (0.019) \\
+  [1ex]
+  Age & 20.945 & 20.501 & 20.961 & 20.490 \\
+  & (0.006) & (0.104) & (0.006) & (0.099) \\
+  \midrule
+  Observations & 128,174 & 673 & 127,481 & 669 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Standard errors in parentheses. GPA, test scores, and tie strength are standardized at the network level. For each referrer's network, we first calculated the mean and standard deviation of each measure. We then computed the average of these means and standard deviations across all referrers. Each individual's score was standardized using these network-level statistics. The standardization formula is $z = (x - \bar{x}_{network}) / \sigma_{network}$, where $\bar{x}_{network}$ and $\sigma_{network}$ are the average of network means and standard deviations, respectively. Low-SES, Med-SES, and High-SES are binary variables indicating the share of participants in estrato 1 and 2, 3 and 4, or 5 and 6, respectively. Tie strength measures the number of connections between individuals.
+  \end{tablenotes}
+  \label{tab:stats_by_nomination}
+  \end{threeparttable}
+\end{table}
 
-  \begin{table}[H]
-    \centering
-    \begin{threeparttable}
-    \caption{Summary statistics for referred and not referred}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccc}
-    \toprule
-    & \multicolumn{2}{c}{Verbal} & \multicolumn{2}{c}{Math} \\
-    \cmidrule{2-5}
-    & Not Referred & Referred & Not Referred & Referred \\
-    \midrule
-    Reading score (z-score) & 0.165 & 0.547 & 0.164 & 0.501 \\
-    & (0.003) & (0.034) & (0.003) & (0.035) \\
-    [1ex]
-    Math score (z-score) & 0.201 & 0.513 & 0.204 & 0.624 \\
-    & (0.002) & (0.035) & (0.002) & (0.036) \\
-    [1ex]
-    GPA (z-score) & -0.144 & 0.579 & -0.151 & 0.580 \\
-    & (0.003) & (0.038) & (0.003) & (0.039) \\
-    Tie strength & 3.163 & 14.467 & 3.161 & 13.822 \\
-    & (0.013) & (0.362) & (0.013) & (0.359) \\
-    [1ex]
-    Low-SES & 0.334 & 0.374 & 0.338 & 0.384 \\
-    & (0.001) & (0.019) & (0.001) & (0.019) \\
-    [1ex]
-    Female & 0.524 & 0.562 & 0.520 & 0.428 \\
-    & (0.001) & (0.019) & (0.001) & (0.019) \\
-    [1ex]
-    Age & 20.945 & 20.501 & 20.961 & 20.490 \\
-    & (0.006) & (0.104) & (0.006) & (0.099) \\
-    \midrule
-    Observations & 128,174 & 673 & 127,481 & 669 \\
-    \bottomrule
-    \end{tabular*}
-    \begin{tablenotes}[flushleft]
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Comparison of math and verbal scores by SES group and data source}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc}
+  \toprule
+  & \multicolumn{3}{c}{Math} & \multicolumn{3}{c}{Verbal} \\
+  \cmidrule{2-4} \cmidrule{5-7}
+  & Network & Admin & Sample & Network & Admin & Sample \\
+  \midrule
+  Low-SES & 66.976 & 61.653 & 67.813 & 64.738 & 60.974 & 66.058 \\
+  & (0.052) & (0.346) & (0.694) & (0.043) & (0.274) & (0.574) \\
+  [1ex]
+  Mid-SES & 65.627 & 64.531 & 66.859 & 63.685 & 63.154 & 64.779 \\
+  & (0.039) & (0.224) & (0.580) & (0.032) & (0.183) & (0.436) \\
+  [1ex]
+  High-SES & 67.781 & 67.330 & 70.610 & 64.966 & 64.892 & 66.397 \\
+  & (0.077) & (0.416) & (1.295) & (0.063) & (0.341) & (1.214) \\
+  \midrule
+  Observations & 128,150 & 4,415 & 669 & 128,847 & 4,403 & 673 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} Standard errors in parentheses. The table presents mean scores with standard errors for math and verbal tests across the entire network, the admin data, and the sample. Admin data consistently shows lower scores than both network and the sample across all SES groups consistent with selection, with the largest gaps occurring for the Low-SES. Differences between network and sample scores are generally smaller than those between either and the admin data.
+  \end{tablenotes}
+  \label{tab:ses_scores_comparison}
+  \end{threeparttable}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \caption{Participant network size and tie strength by time spent at UNAB}\label{connections_class}
+  \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png}
+  \begin{tablenotes}
     \footnotesize
-    \item[] \textit{Note:} Standard errors in parentheses. All scores are standardized (z-scores). Tie strength measures the number of courses taken together. Low-SES indicates the share of participants in estrato 1 or 2.
-    \end{tablenotes}
-    \label{tab:stats_by_area}
-    \end{threeparttable}
-  \end{table}
+    \item[] \textit{Note:} This figure displays the average number of connections for referrers in blue and the average number of classes they have taken together with their connections in green across semesters spent at UNAB. The data shows an increase in the number of classes taken together as students progress in their programs, with the connections peaking around 7 semesters and dropping as certain students finish their bachelor's.
+  \end{tablenotes}
+\end{figure}
 
-
+\begin{figure}[H]
+  \centering
+  \caption{Top decile performer share across the sample, network and referals }\label{topdecile}
+  \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_comparison.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure displays the percentage share of individuals across three dimensions. First bar shows referrers in the top decile for math and reading based on admin data. Second bar is the share of top decile in their networks. Third column shows the share of top decile among the referrals made. We test differences between proportions across these three groups using two-sample tests of proportions. For both math and reading scores, the differences between Sample and Network ($p<0.001$), Sample and Referrals ($p<0.005$), and Network and Referrals ($p<0.001$) are all statistically significant.
+  \end{tablenotes}
+\end{figure}
 
   \begin{figure}[H]
     \centering
-    \caption{Distribution of performance by subject}\label{performance}
+    \caption{Participant network performance by subject and SES}\label{performance}
     \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png}
     \begin{tablenotes}
       \footnotesize
-      \item[] \textit{Note:} This figure displays the average standardized math and reading z-scores across socioeconomic status groups. We test differences between math and reading scores within each SES group using paired t-tests. No statistically significant differences were found between subjects for Low SES ($p$ = 0.495), Middle SES ($p$ = 0.734), or High SES students ($p$ = 0.124). While math scores are consistently higher than reading scores across all groups, these differences do not reach statistical significance. The data shows a clear socioeconomic gradient, with performance improving as SES increases for both subjects.
+      \item[] \textit{Note:} This figure displays the network average math and reading z-scores across referrer SES. We test differences between math and reading scores within using paired $t$-tests. For both math and reading scores, differences between Low and Middle SES ($p < 0.001$), Low and High SES ($p < 0.001$), and Middle and High SES ($p = 0.001$) are all statistically significant.
     \end{tablenotes}
   \end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \caption{Distribution of top decile performers by subject}\label{topdecile}
-    \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/strata_scores.png}
-    \begin{tablenotes}
-      \footnotesize
-      \item[] \textit{Note:} This figure displays the percentage of participants across SES who score in the top decile for math and reading. We test differences between math and reading proportions within each SES group using two-sample tests of proportions and find no statistically significant differences ($p > 0.28$). Middle-SES students show the highest representation in the top decile for both subjects in the sample.
-    \end{tablenotes}
-  \end{figure}
+  % \begin{figure}[H]
+  %   \centering
+  %   \caption{Distribution of top decile performers by subject}\label{topdecile}
+  %   \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/strata_scores.png}
+  %   \begin{tablenotes}
+  %     \footnotesize
+  %     \item[] \textit{Note:} This figure displays the percentage of participants across SES who score in the top decile for math and reading. We test differences between math and reading proportions within each SES group using two-sample tests of proportions and find no statistically significant differences ($p > 0.28$). Middle-SES students show the highest representation in the top decile for both subjects in the sample.
+  %   \end{tablenotes}
+  % \end{figure}
+
+
 
   \begin{figure}[H]
     \centering
-    \caption{Availability of SES groups}
-    \begin{subfigure}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png}
-        \caption{Referral Rates}
-        \label{fig:baseline_ses}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_top_shares.png}
-        \caption{Academic Performance of Referrals}
-        \label{fig:baseline_topses}
-    \end{subfigure}
-    \label{fig:baseline_combinedses}
-    \caption*{\footnotesize\textit{Note:} The figure on the left displays the availability of each SES group by SES backgrounds. Two-sample tests of proportions show all differences across SES groups are statistically significant ($p <$ 0.001). Low-SES students have 9.6 percentage points more connections with Low-SES peers than High-SES students do (36.5\% vs 26.8\%). In constrast, high-SES students have 6.3 percentage points more connections with High-SES peers than Low-SES students do (19.7\% vs 13.4\%).
+    \caption{Participant network composition by SES}
+    \includegraphics[width=0.6\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png}
+    \label{fig:baseline_ses}
+    \caption*{\footnotesize\textit{Note:} This figure displays the composition of networks by SES. We test differences in proportions of peer connections across SES groups using two-sample tests of proportions. All differences are statistically significant ($p <$ 0.001): Low SES students are more likely to connect with Low SES peers than Middle or High SES students; Middle SES students form more connections with Middle SES peers than Low SES students; and High SES students have the highest proportion of High SES connections. These patterns reveal strong homophily in network formation across all SES groups.
     }
-  \end{figure}
+\end{figure}
 
 
   \begin{figure}[H]

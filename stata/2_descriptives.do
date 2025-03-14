@@ -6,6 +6,7 @@
 *******************************************************************************/
 
 //# preamble
+cls
 version 18
 clear all
 macro drop _all
@@ -24,14 +25,15 @@ gsort own_id other_id
 
 bysort  own_id : gen counter =_n
 by own_id : egen size = max(counter)
+replace size = size/2 // average connections per network (verbal+math)/2
 
-gen own_low_ses = own_estrato == 1
+by  own_id : egen avg_tie = mean(tie) // average classes per network 
 
 
 //# TABLE Sample descriptives
 preserve 
 keep if counter==1
-foreach v of varlist tie own_age own_female own_low_ses z_own* size {
+foreach v of varlist avg_tie own_age own_female own_low_ses own_med_ses own_high_ses own_g* own_score_m* own_score_r*  size {
     display _newline
     display as text "=== Test for `v' ===" _newline
     
@@ -55,20 +57,23 @@ restore
 
 //# TABLE Selection into the experiment descriptives
 gen other_low_ses = other_estrato == 1
-
+gen other_med_ses = other_estrato == 2
+gen other_high_ses = other_estrato == 3
 
 preserve 
 bysort  other_id : gen counter2 =_n
 keep if counter2 == 1
-drop own* z_own*
+drop own*
 rename other_low_ses own_low_ses
+rename other_med_ses own_med_ses
+rename other_high_ses own_high_ses
 rename other_age own_age
 rename other_female own_female
-rename z_other_gpa z_own_gpa
-rename z_other_score_math z_own_score_math
-rename z_other_score_reading z_own_score_reading
+rename other_gpa own_gpa
+rename other_score_math own_score_math
+rename other_score_reading own_score_reading
 
-foreach v of varlist own_age own_female own_low_ses z_own*	 {
+foreach v of varlist own_age own_female own_low_ses own_med_ses own_high_ses own_gpa own_score_math own_score_reading	 {
     display _newline
 
     // summarize
@@ -77,7 +82,7 @@ foreach v of varlist own_age own_female own_low_ses z_own*	 {
     global admin_`v'_sd = r(sd)
    
     // Now we can test using stored values
-    if inlist("`v'", "own_female", "own_low_ses") {
+    if inlist("`v'", "own_female", "own_low_ses", "own_med_ses", "own_high_ses") {
         prtesti 4417 ${admin_`v'_mean} 734 ${exp_`v'_mean}
     }
     else {
@@ -87,29 +92,11 @@ foreach v of varlist own_age own_female own_low_ses z_own*	 {
 restore 
 
 
-//# TABLE non-referred choice set VS referred
-preserve 
-keep if area==1 // verbal
-foreach v of varlist tie other_age other_female other_low_ses z_other* {
-    display _newline
-    display as text "=== T-test for `v' ===" _newline
-    ttest `v', by(nomination) unequal
-//     ttest `v', by(treat) unequal
-}
-restore
 
-preserve 
-keep if area==2 // math
-foreach v of varlist tie other_age other_female other_low_ses z_other* {
-    display _newline
-    display as text "=== T-test for `v' ===" _newline
-    ttest `v', by(nomination) unequal
-// 	ttest `v', by(treat) unequal
-// 	tabstat `v' if nomination == 1, stat(mean sd n)
 
-}
-restore
 
+
+/// load STD datasets
 
 //# TABLE non-referred choice set VS referred by SES
 preserve
@@ -631,67 +618,151 @@ keep if area == 2 & treat == 2
 proportion other_estrato if nomination == 1, over(own_estrato)
 restore
 
-//# TABLE SES by SES
+//# TABLE/GRAPH SES by SES
+foreach own in low middle high {
+    foreach other in low middle high {
+        global prop_`own'_`other' = ""
+        global se_`own'_`other' = ""
+    }
+}
+
+// Calculate proportions for each SES group connection
+use dataset_z.dta, clear
 preserve
-proportion other_estrato if own_estrato == 1
-proportion other_estrato if own_estrato == 2
-proportion other_estrato if own_estrato == 3
+keep if own_estrato == 1
+proportion other_estrato
+matrix props_low = r(table)
+global prop_low_low = props_low[1,1]
+global prop_low_middle = props_low[1,2]
+global prop_low_high = props_low[1,3]
+global se_low_low = props_low[2,1]
+global se_low_middle = props_low[2,2]
+global se_low_high = props_low[2,3]
+tabstat other_estrato, stat(n) save
+matrix stats = r(StatTotal)
+global n_low = stats[1,1]
+restore
 
-* Compare Low SES peer connections across own SES groups
-prtesti 110142 .364829 127088 .3219029    // Low vs Middle (Low SES peers)
-prtesti 110142 .364829 19767 .2683766      // Low vs High (Low SES peers)
-prtesti 127088 .3219029 19767 .2683766    // Middle vs High (Low SES peers)
+preserve
+keep if own_estrato == 2
+proportion other_estrato
+matrix props_middle = r(table)
+global prop_middle_low = props_middle[1,1]
+global prop_middle_middle = props_middle[1,2]
+global prop_middle_high = props_middle[1,3]
+global se_middle_low = props_middle[2,1]
+global se_middle_middle = props_middle[2,2]
+global se_middle_high = props_middle[2,3]
+tabstat other_estrato, stat(n) save
+matrix stats = r(StatTotal)
+global n_middle = stats[1,1]
+restore
 
-* Compare Middle SES peer connections across own SES groups
-prtesti 110142 .5013256 127088 .5210956   // Low vs Middle (Middle SES peers)
-prtesti 110142 .5013256 19767 .5347802    // Low vs High (Middle SES peers)
-prtesti 127088 .5210956 19767 .5347802    // Middle vs High (Middle SES peers)
+preserve
+keep if own_estrato == 3
+proportion other_estrato
+matrix props_high = r(table)
+global prop_high_low = props_high[1,1]
+global prop_high_middle = props_high[1,2]
+global prop_high_high = props_high[1,3]
+global se_high_low = props_high[2,1]
+global se_high_middle = props_high[2,2]
+global se_high_high = props_high[2,3]
+tabstat other_estrato, stat(n) save
+matrix stats = r(StatTotal)
+global n_high = stats[1,1]
+restore
 
-* Compare High SES peer connections across own SES groups
-prtesti 110142 .1338454 127088 .1570014   // Low vs Middle (High SES peers)
-prtesti 110142 .1338454 19767 .1968432    // Low vs High (High SES peers)
-prtesti 127088 .1570014 19767 .1968432    // Middle vs High (High SES peers)
+// Compare Low SES peer connections across own SES groups
+prtesti ${n_low} ${prop_low_low} ${n_middle} ${prop_middle_low}    // Low vs Middle (Low SES peers)
+prtesti ${n_low} ${prop_low_low} ${n_high} ${prop_high_low}      // Low vs High (Low SES peers)
+prtesti ${n_middle} ${prop_middle_low} ${n_high} ${prop_high_low}    // Middle vs High (Low SES peers)
+
+// Compare Middle SES peer connections across own SES groups
+prtesti ${n_low} ${prop_low_middle} ${n_middle} ${prop_middle_middle}   // Low vs Middle (Middle SES peers)
+prtesti ${n_low} ${prop_low_middle} ${n_high} ${prop_high_middle}    // Low vs High (Middle SES peers)
+prtesti ${n_middle} ${prop_middle_middle} ${n_high} ${prop_high_middle}    // Middle vs High (Middle SES peers)
+
+// Compare High SES peer connections across own SES groups
+prtesti ${n_low} ${prop_low_high} ${n_middle} ${prop_middle_high}   // Low vs Middle (High SES peers)
+prtesti ${n_low} ${prop_low_high} ${n_high} ${prop_high_high}    // Low vs High (High SES peers)
+prtesti ${n_middle} ${prop_middle_high} ${n_high} ${prop_high_high}    // Middle vs High (High SES peers)
+
+// Multiply all proportions and standard errors by 100 for plotting
+foreach own in low middle high {
+    foreach other in low middle high {
+        global prop_`own'_`other' = ${prop_`own'_`other'} * 100
+        global se_`own'_`other' = ${se_`own'_`other'} * 100
+    }
+}
+// Create visualization dataset
+preserve
 clear
-// Create data structure
 set obs 9  // 3 own_SES × 3 other_SES
 gen own_ses = ceil(_n/3)
 gen other_ses = mod(_n-1, 3) + 1
+gen xpos = .
+
+// Set x-positions for each bar
+replace xpos = 0.7 if own_ses == 1 & other_ses == 1  // Low-Low
+replace xpos = 1.0 if own_ses == 1 & other_ses == 2  // Low-Middle
+replace xpos = 1.3 if own_ses == 1 & other_ses == 3  // Low-High
+
+replace xpos = 2.2 if own_ses == 2 & other_ses == 1  // Middle-Low
+replace xpos = 2.5 if own_ses == 2 & other_ses == 2  // Middle-Middle
+replace xpos = 2.8 if own_ses == 2 & other_ses == 3  // Middle-High
+
+replace xpos = 3.7 if own_ses == 3 & other_ses == 1  // High-Low
+replace xpos = 4.0 if own_ses == 3 & other_ses == 2  // High-Middle
+replace xpos = 4.3 if own_ses == 3 & other_ses == 3  // High-High
+
 gen proportion = .
+gen se = .
 
-// Fill in proportions based on your data
-// For Low SES (own_ses = 1)
-replace proportion = 0.364829*100 if own_ses==1 & other_ses==1  // Low-Low
-replace proportion = 0.5013256*100 if own_ses==1 & other_ses==2  // Low-Middle
-replace proportion = 0.1338454*100 if own_ses==1 & other_ses==3  // Low-High
+replace proportion = ${prop_low_low} if own_ses == 1 & other_ses == 1
+replace proportion = ${prop_low_middle} if own_ses == 1 & other_ses == 2
+replace proportion = ${prop_low_high} if own_ses == 1 & other_ses == 3
+replace se = ${se_low_low} if own_ses == 1 & other_ses == 1
+replace se = ${se_low_middle} if own_ses == 1 & other_ses == 2
+replace se = ${se_low_high} if own_ses == 1 & other_ses == 3
 
-// For Middle SES (own_ses = 2)
-replace proportion = 0.3219029*100 if own_ses==2 & other_ses==1  // Middle-Low
-replace proportion = 0.5210956*100 if own_ses==2 & other_ses==2  // Middle-Middle
-replace proportion = 0.1570014*100 if own_ses==2 & other_ses==3  // Middle-High
+replace proportion = ${prop_middle_low} if own_ses == 2 & other_ses == 1
+replace proportion = ${prop_middle_middle} if own_ses == 2 & other_ses == 2
+replace proportion = ${prop_middle_high} if own_ses == 2 & other_ses == 3
+replace se = ${se_middle_low} if own_ses == 2 & other_ses == 1
+replace se = ${se_middle_middle} if own_ses == 2 & other_ses == 2
+replace se = ${se_middle_high} if own_ses == 2 & other_ses == 3
 
-// For High SES (own_ses = 3)
-replace proportion = 0.2683766*100 if own_ses==3 & other_ses==1  // High-Low
-replace proportion = 0.5347802*100 if own_ses==3 & other_ses==2  // High-Middle
-replace proportion = 0.1968432*100 if own_ses==3 & other_ses==3  // High-High
+replace proportion = ${prop_high_low} if own_ses == 3 & other_ses == 1
+replace proportion = ${prop_high_middle} if own_ses == 3 & other_ses == 2
+replace proportion = ${prop_high_high} if own_ses == 3 & other_ses == 3
+replace se = ${se_high_low} if own_ses == 3 & other_ses == 1
+replace se = ${se_high_middle} if own_ses == 3 & other_ses == 2
+replace se = ${se_high_high} if own_ses == 3 & other_ses == 3
 
-// Label the groups
+gen ci_lower = proportion - 1.96*se
+gen ci_upper = proportion + 1.96*se
+
 label define ses_lab 1 "Low" 2 "Middle" 3 "High"
 label values own_ses ses_lab
 label values other_ses ses_lab
 
-// Create the graph
-graph bar proportion, over(other_ses) over(own_ses) ///
-    asyvars ///
-    bar(1, color("255 99 132")) ///    // Vibrant coral for Low SES others
-    bar(2, color("54 162 235")) ///    // Vibrant blue for Middle SES others
-    bar(3, color("75 192 112")) ///    // Vibrant green for High SES others
-    legend(ring(0) pos(12) rows(1) region(lcolor(none))) ///
-    ylabel(0(10)60, angle(0)) ///
-    ytitle("Percent") ///
-    title("Availability by SES") ///
-    graphregion(color(white)) bgcolor(white) ///
-    name(ses_distribution, replace)
-    
+twoway (bar proportion xpos if other_ses == 1, barw(0.25) color("255 99 132")) ///
+       (bar proportion xpos if other_ses == 2, barw(0.25) color("54 162 235")) ///
+       (bar proportion xpos if other_ses == 3, barw(0.25) color("75 192 112")) ///
+       (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
+       , ///
+       xlabel(1 "Low" 2.5 "Middle" 4 "High") ///
+       ylabel(0(10)60, angle(0) format(%9.0f)) ///
+       ytitle("Percent") ///
+       xtitle("") ///
+       title("Availability by SES") ///
+       legend(order(1 "Low" 2 "Middle" 3 "High") ///
+              ring(0) pos(12) rows(1) region(lcolor(none))) ///
+       graphregion(color(white)) bgcolor(white) ///
+       xscale(range(0.5 4.5)) ///
+       name(ses_distribution, replace)
+
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png", replace
 restore
 
@@ -999,52 +1070,145 @@ restore
 
 
 
-preserve
 
+
+
+//# table performance across admin network and sample
+use math.dta, clear
+cls
+preserve
+tabstat other_score_math, by(other_estrato) stat(n sd mean semean)
+restore
+preserve 
 bysort  other_id : gen counter2 =_n
 keep if counter2 == 1
-
-ttest z_other_score_math == z_other_score_reading if other_estrato == 1 // For Low SES
-ttest z_other_score_math == z_other_score_reading if other_estrato == 2 // For Middle SES
-ttest z_other_score_math == z_other_score_reading if other_estrato == 3 // For High SES
-
+tabstat other_score_math, by(other_estrato) stat(n sd mean semean)
 restore
+preserve 
+keep if counter == 1
+tabstat own_score_math, by(own_estrato) stat(n sd mean semean)
+restore
+
+use reading.dta, clear
+preserve
+tabstat other_score_reading, by(other_estrato) stat(n sd mean semean)
+restore
+preserve 
+bysort  other_id : gen counter2 =_n
+keep if counter2 == 1
+tabstat other_score_reading, by(other_estrato) stat(n sd mean semean)
+restore
+preserve 
+keep if counter == 1
+tabstat own_score_reading, by(own_estrato) stat(n sd mean semean)
+restore
+
+
+
+//# network performance by SES
+foreach ses in low middle high {
+    foreach type in math read {
+        global `type'_`ses' = ""
+        global `type'_`ses'_sd = ""
+        global `type'_`ses'_n = ""
+    }
+}
+
+use math.dta, clear
+
+foreach ses in 1 2 3 {
+    local ses_label = cond(`ses'==1, "low", cond(`ses'==2, "middle", "high"))
+    
+    preserve 
+    keep if own_estrato == `ses'
+    
+    tabstat z_other_score_math, stat(n mean sd) save
+    matrix stats = r(StatTotal)
+    
+    global math_`ses_label'_n = stats[1,1]
+    global math_`ses_label' = stats[2,1]
+    global math_`ses_label'_sd = stats[3,1]
+    
+    restore 
+}
+
+use reading.dta, clear
+
+foreach ses in 1 2 3 {
+    local ses_label = cond(`ses'==1, "low", cond(`ses'==2, "middle", "high"))
+    
+    preserve 
+    keep if own_estrato == `ses'
+    
+    tabstat z_other_score_reading, stat(n mean sd) save
+    matrix stats = r(StatTotal)
+    
+    global read_`ses_label'_n = stats[1,1]
+    global read_`ses_label' = stats[2,1]
+    global read_`ses_label'_sd = stats[3,1]
+    
+    restore 
+}
+
+ttesti ${math_low_n} ${math_low} ${math_low_sd} ${math_middle_n} ${math_middle} ${math_middle_sd}
+ttesti ${math_low_n} ${math_low} ${math_low_sd} ${math_high_n} ${math_high} ${math_high_sd}
+ttesti ${math_middle_n} ${math_middle} ${math_middle_sd} ${math_high_n} ${math_high} ${math_high_sd}
+
+ttesti ${read_low_n} ${read_low} ${read_low_sd} ${read_middle_n} ${read_middle} ${read_middle_sd}
+ttesti ${read_low_n} ${read_low} ${read_low_sd} ${read_high_n} ${read_high} ${read_high_sd}
+ttesti ${read_middle_n} ${read_middle} ${read_middle_sd} ${read_high_n} ${read_high} ${read_high_sd}
 
 preserve
 clear
-set obs 6  // 3 SES groups × 2 subjects
-gen own_ses = ceil(_n/2)
-gen subject = mod(_n-1, 2) + 1  // 1 = Math, 2 = Reading
+set obs 6
+
+gen ses = ceil(_n/2)
+gen subject = mod(_n-1, 2) + 1
+
+gen xpos = .
+replace xpos = 1 if ses == 1 & subject == 2     // Low SES, Reading (now first)
+replace xpos = 1.5 if ses == 1 & subject == 1   // Low SES, Math (now second)
+replace xpos = 2.5 if ses == 2 & subject == 2   // Middle SES, Reading (now first)
+replace xpos = 3 if ses == 2 & subject == 1     // Middle SES, Math (now second)
+replace xpos = 4 if ses == 3 & subject == 2     // High SES, Reading (now first)
+replace xpos = 4.5 if ses == 3 & subject == 1   // High SES, Math (now second)
+
 gen z_score = .
-// Fill in z-scores from your data
-// For Low SES (own_ses = 1)
-replace z_score = 0.1749664 if own_ses==1 & subject==1  // Low SES - Math
-replace z_score = 0.1295962 if own_ses==1 & subject==2  // Low SES - Reading
-// For Middle SES (own_ses = 2)
-replace z_score = 0.220885 if own_ses==2 & subject==1  // Middle SES - Math
-replace z_score = 0.1880923 if own_ses==2 & subject==2  // Middle SES - Reading
-// For High SES (own_ses = 3)
-replace z_score = 0.2582253 if own_ses==3 & subject==1  // High SES - Math
-replace z_score = 0.2314877 if own_ses==3 & subject==2  // High SES - Reading
-// Label the groups
-label define ses_lab 1 "Low" 2 "Middle" 3 "High"
-label values own_ses ses_lab
-label define subj_lab 1 "Math" 2 "Reading"
-label values subject subj_lab
-// Create the graph
-graph bar z_score, over(subject) over(own_ses) ///
-    asyvars ///
-    bar(1, color("136 132 216")) ///    // Purple for Math
-    bar(2, color("130 202 157")) ///    // Green for Reading
-    ylabel(0(0.05)0.30, angle(0)) ///
-    ytitle("z-score") ///
-    title("Peer Performance by Student SES") ///
-    legend(ring(0) pos(11) rows(2) region(lcolor(none))) ///
-    graphregion(color(white)) bgcolor(white) ///
-    name(ses_zscore, replace)
+gen se = .
+
+local r = 1
+foreach ses in low middle high {
+    foreach subj in math read {
+        local subj_num = cond("`subj'"=="math", 1, 2)
+        local ses_num = cond("`ses'"=="low", 1, cond("`ses'"=="middle", 2, 3))
+        
+        if `r' <= 6 {
+            replace z_score = ${`subj'_`ses'} if ses==`ses_num' & subject==`subj_num'
+            replace se = ${`subj'_`ses'_sd}/sqrt(${`subj'_`ses'_n}) if ses==`ses_num' & subject==`subj_num'
+        }
+        local r = `r' + 1
+    }
+}
+
+gen ci_lower = z_score - 1.96*se
+gen ci_upper = z_score + 1.96*se
+
+twoway (bar z_score xpos if subject==2, barw(0.45) color("130 202 157")) ///  // Reading (now first)
+       (bar z_score xpos if subject==1, barw(0.45) color("136 132 216")) ///  // Math (now second)
+       (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
+       , ///
+       xlabel(1.25 "Low" 2.75 "Middle" 4.25 "High") ///
+       ylabel(0(0.05)0.20, angle(0) format(%9.2f)) ///
+       ytitle("z-score") ///
+       xtitle("") ///
+       title("Network Performance by SES") ///
+       legend(order(1 "Reading" 2 "Math") ring(0) pos(11) rows(2) region(lcolor(none))) ///  // Update legend order
+       graphregion(color(white)) bgcolor(white) ///
+       xscale(range(0.5 5)) ///
+       name(ses_zscore, replace)
+
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png", replace
 restore
-
 
 // //# bar chart
 // preserve 
