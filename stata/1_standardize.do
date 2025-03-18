@@ -31,6 +31,22 @@ gen other_low_ses = other_estrato == 1
 gen other_med_ses = other_estrato == 2
 gen other_high_ses = other_estrato == 3
 
+bysort own_id: gen counter =_n // first occurrence
+
+// Standardize scores within each own_id's network
+foreach v of varlist tie {
+    egen mean_`v' = mean(`v'), by(own_id)
+    egen sd_`v' = sd(`v'), by(own_id)
+	
+	sum mean_`v' if counter == 1
+	local avgt = r(mean)
+	
+	sum sd_`v' if counter == 1
+	local sdt = r(mean)
+	gen z_`v' = (`v' - `avgt') / `sdt'
+}
+
+drop counter
 save "dataset_z.dta", replace
 
 /***
@@ -71,7 +87,7 @@ keep if area == 1
 bysort own_id: gen counter =_n // first occurrence
 
 // Standardize scores within each own_id's network
-foreach v of varlist other_gpa other_score_reading other_score_math tie {
+foreach v of varlist other_gpa other_score_reading other_score_math  {
     egen mean_`v' = mean(`v'), by(own_id)
     egen sd_`v' = sd(`v'), by(own_id)
 	
@@ -107,7 +123,7 @@ keep if area == 2
 bysort own_id: gen counter =_n // first occurrence
 
 // Standardize scores within each own_id's network
-foreach v of varlist other_gpa other_score_reading other_score_math tie {
+foreach v of varlist other_gpa other_score_reading other_score_math  {
     egen mean_`v' = mean(`v'), by(own_id)
     egen sd_`v' = sd(`v'), by(own_id)
 	
@@ -120,6 +136,6 @@ foreach v of varlist other_gpa other_score_reading other_score_math tie {
 }
 cls
 //# TABLE non-referred choice set VS referred MATH
-tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if !nomination, stat(mean sd semean n)
-tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if nomination, stat(mean sd semean n)
+tabstat z_other_gpa z_other_score_reading z_other_score_math  other_low_ses other_med_ses other_high_ses other_female other_age if !nomination, stat(mean sd semean n)
+tabstat z_other_gpa z_other_score_reading z_other_score_math  other_low_ses other_med_ses other_high_ses other_female other_age if nomination, stat(mean sd semean n)
 save "math.dta", replace

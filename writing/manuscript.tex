@@ -162,7 +162,7 @@ Lorem Ipsum \citep{beaman_job_2018}
   \end{tabular*}
   \begin{tablenotes}[flushleft]
   \footnotesize
-  \item[] \textit{Note:} The table shows how many referrers made referrals in only one area versus both areas. "Only one referral" indicates individuals who made referrals exclusively in that area. "Both areas" shows individuals who made referrals in both verbal and math areas. The majority of referrers (608) made referrals in both areas.
+  \item[] \textit{Note:} The table shows how many referrers made referrals in only one area versus both areas. ``Only one referral'' indicates individuals who made referrals exclusively in that area. ``Both areas'' shows individuals who made referrals in both verbal and math areas. The majority of referrers (608) made referrals in both areas.
   \end{tablenotes}
   \label{tab:referral_distribution}
   \end{threeparttable}
@@ -198,12 +198,12 @@ Lorem Ipsum \citep{beaman_job_2018}
   [1ex]
   High-SES & 0.151 & 0.113 & 0.149 & 0.109 \\
   & (0.001) & (0.012) & (0.001) & (0.012) \\
-  [1ex]
-  Female & 0.524 & 0.562 & 0.520 & 0.428 \\
-  & (0.001) & (0.019) & (0.001) & (0.019) \\
-  [1ex]
-  Age & 20.945 & 20.501 & 20.961 & 20.490 \\
-  & (0.006) & (0.104) & (0.006) & (0.099) \\
+  % [1ex]
+  % Female & 0.524 & 0.562 & 0.520 & 0.428 \\
+  % & (0.001) & (0.019) & (0.001) & (0.019) \\
+  % [1ex]
+  % Age & 20.945 & 20.501 & 20.961 & 20.490 \\
+  % & (0.006) & (0.104) & (0.006) & (0.099) \\
   \midrule
   Observations & 128,174 & 673 & 127,481 & 669 \\
   \bottomrule
@@ -258,13 +258,34 @@ Lorem Ipsum \citep{beaman_job_2018}
 
 \begin{figure}[H]
   \centering
+  \caption{Effect of the Bonus on Referrals}
+  \begin{subfigure}[t]{0.7\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
+      \caption{Reading}  
+      \label{fig:reading_combined}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.7\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
+      \caption{Math}
+      \label{fig:math_combined}
+  \end{subfigure}
+  \label{fig:both_combined}
+  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and fin that all differences are statistically significant ($p < 0.001$). The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and fin that all differences are statistically significant ($p < 0.001$). For both math and reading, referred students }
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
   \caption{Top decile performer share across the sample, network and referals }\label{topdecile}
   \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_comparison.png}
   \begin{tablenotes}
     \footnotesize
-    \item[] \textit{Note:} This figure displays the percentage share of individuals across three dimensions. First bar shows referrers in the top decile for math and reading based on admin data. Second bar is the share of top decile in their networks. Third column shows the share of top decile among the referrals made. We test differences between proportions across these three groups using two-sample tests of proportions. For both math and reading scores, the differences between Sample and Network ($p<0.001$), Sample and Referrals ($p<0.005$), and Network and Referrals ($p<0.001$) are all statistically significant.
+    \item[] \textit{Note:} This figure displays the percentage share of top decile individuals according to the admin data across three dimensions. First bar shows referrers in the sample of participants. Second bar is the share of top decile individuals in their networks. Third column shows the share of top decile among the referrals made. We test differences between proportions across these three groups using two-sample tests of proportions. For both math and reading scores, the differences between Sample and Network ($p<0.001$), Sample and Referrals ($p<0.005$), and Network and Referrals ($p<0.001$) are all statistically significant.
   \end{tablenotes}
 \end{figure}
+
 
   \begin{figure}[H]
     \centering
@@ -297,52 +318,68 @@ Lorem Ipsum \citep{beaman_job_2018}
     }
 \end{figure}
 
+\begin{figure}[H]
+  \centering
+  \caption{Participant network composition by SES}
+  \includegraphics[width=0.6\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/z_ses_tie_strength.png}
+  \label{fig:tie_ses}
+  \caption*{\footnotesize\textit{Note:} This figure displays the standardized tie strength by SES. We test differences in standardized tie strength across SES groups using two-sample $t$-tests. All differences are statistically significant ($p < 0.001$) except for the comparison between Middle and High SES students' connections to Low SES peers ($p = 0.65$). The standardized tie strength for High SES students with other High SES students is substantially positive (0.26), while all other tie strengths are negative or near zero. These patterns reveal strong homophily in network formation, particularly among High SES students, while Low SES students show moderate homophily patterns.}
+\end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \caption{Baseline Referral Patterns by SES}
-    \begin{subfigure}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_tie_strength.png}
-        \caption{Referral Rates}
-        \label{fig:tie_ses}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_top_tie_strength.png}
-        \caption{Academic Performance of Referrals}
-        \label{fig:tie_topses}
-    \end{subfigure}
-    \label{fig:tie_combinedses}
-    \caption*{\footnotesize\textit{Note:} The left panel shows the availability of SES groups across socioeconomic strata. The right panel shows the availability of top decile performers within each SES group.}
-  \end{figure}
+%   \begin{figure}[H]
+%     \centering
+%     \caption{Baseline Referral Patterns by SES}
+%     \begin{subfigure}[t]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_tie_strength.png}
+%         \caption{Referral Rates}
+%         \label{fig:tie_ses}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[t]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_top_tie_strength.png}
+%         \caption{Academic Performance of Referrals}
+%         \label{fig:tie_topses}
+%     \end{subfigure}
+%     \label{fig:tie_combinedses}
+%     \caption*{\footnotesize\textit{Note:} The left panel shows the availability of SES groups across socioeconomic strata. The right panel shows the availability of top decile performers within each SES group.}
+%   \end{figure}
 
 \pagebreak
 
+
+% \begin{figure}[H]
+%   \centering
+%   \caption{Participant network composition by SES}
+%   \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_baseline.png}
+%   \label{fig:baseline_combined}
+%   \caption*{\footnotesize\textit{Note:} This figure displays the standardized tie strength by SES. We test differences in z-score tie strength across SES groups using two-sample $t$-tests. All differences are statistically significant ($p < 0.001$) except for the comparison between Middle and High SES students' connections to Low SES peers ($p = 0.65$). The standardized tie strength for High SES students with other High SES students is substantially positive (0.26), while all other tie strengths are negative or near zero. These patterns reveal strong homophily in network formation, particularly among High SES students, while Low SES students show moderate homophily patterns.}
+% \end{figure}
+
   \begin{figure}[H]
     \centering
     \caption{Baseline Referral Patterns by SES}
     \begin{subfigure}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_rates.png}
-        \caption{Referral Rates}
+      \centering
+        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png}
+        \caption{Referral Rates}  
         \label{fig:baseline_rates}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
-        \centering
+      \centering
         \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png}
-        \caption{Academic Performance of Referrals}
+        \caption{Referral Performance}
         \label{fig:baseline_performance}
     \end{subfigure}
     \label{fig:baseline_combined}
-    \caption*{\footnotesize\textit{Note:} The left panel shows the distribution of referrals across socioeconomic strata in the baseline condition. The right panel shows the average standardized math and reading scores of referred students by referrer's SES.}
+    \caption*{\footnotesize\textit{Note:} The left panel shows the distribution of referrals across SES in the baseline condition. We test differences in SES shares across SES groups using two-sample tests of proportions. All differences are statistically significant ($p < 0.1$). The right panel shows the average standardized math and reading scores of referred students by referrer's SES. We test differences in z-scores across SES groups using two-sample $t$-tests and find no statistically significant differences in reading scores across SES groups (all $p > 0.36$). For math scores, we observe marginally significant differences between Low and High SES students ($p = 0.08$) and between Middle and High SES students ($p = 0.18$), with High SES referring peers with higher math performance.}
   \end{figure}
 
   \begin{figure}[H]
     \centering
-    \caption{Treatment Effects on Referral Patterns}
+    \caption{Effect of the Bonus}
     \label{fig:treat_combined}
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
@@ -354,15 +391,15 @@ Lorem Ipsum \citep{beaman_job_2018}
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png}
-        \caption{Changes in Academic Performance of Referrals}
+        \caption{Changes in Referral Performance}
         \label{fig:treat_performance}
     \end{subfigure}
-    \caption*{\footnotesize\textit{Note:} The left panel shows the changes in referral rates across socioeconomic strata (bonus minus baseline). The right panel shows the differences in average standardized math and reading scores of referred students by referrer's SES.}
+    \caption*{\footnotesize\textit{Note:} The left panel shows the changes in referral rates across SES. We test differences in SES shares across conditions using two-sample tests of proportions. For Low-SES, only the change in referral share of Middle-SES is statistically significant ($p = 0.034$). For Middle-SES, only the change in referral share of High-SES is statistically significant ($p = 0.027$). For High-SES, only the change in referral share of Middle-SES is statistically significant ($p = 0.059$). The right panel shows the differences in math and reading z-scores across SES. We test differences in SES shares across conditions using two-sample $t$-tests. For both reading and math scores, the only statistically significant difference is in the reading scores for Low-SES ($p = 0.026$).}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \caption{Treatment Effects on Tie Strength}
+  \caption{Effect of the Bonus on Tie Strength}
   \label{fig:treat_combined2}
   \begin{subfigure}[t]{0.49\textwidth}
       \centering
@@ -374,124 +411,11 @@ Lorem Ipsum \citep{beaman_job_2018}
   \begin{subfigure}[t]{0.49\textwidth}
       \centering
       \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png}
-      \caption{Changes in Academic Performance of Referrals}
+      \caption{Changes in Referral Performance}
       \label{fig:tietreat_performance}
   \end{subfigure}
   \caption*{\footnotesize\textit{Note:} The left panel shows the changes in referral rates across socioeconomic strata (bonus minus baseline). The right panel shows the differences in average standardized math and reading scores of referred students by referrer's SES.}
 \end{figure}
-
-  \begin{table}[H]
-    \caption{SES shares by SES and referral status}
-    \centering
-    \begin{tabular}{lcccc}
-    \hline
-    & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Bonus} \\
-    \cline{2-5}
-    & Not Referred & Referred & Not Referred & Referred \\
-    \hline
-    Low-SES & 0.361 & 0.473 & 0.368 & 0.531 \\
-    Middle-SES & 0.527 & 0.583 & 0.515 & 0.520 \\
-    High-SES & 0.201 & 0.180 & 0.193 & 0.286 \\
-    \hline
-    Observations & 131,777 & 699 & 123,878 & 643 \\
-    \hline
-    \end{tabular}
-    \label{tab:social_class_nominations_combined}
- \end{table}
-
-%  \begin{table}[H]
-%   \caption{SES shares by academic measure}
-%   \centering
-%   \begin{tabular}{lcccc}
-%   \hline
-%   & \multicolumn{2}{c}{Verbal} & \multicolumn{2}{c}{Math} \\
-%   \cline{2-5}
-%   & Referred & Top Decile & Referred & Top Decile \\
-%   \hline
-%   Low-SES & 0.495 & 0.301 & 0.505 & 0.318 \\
-%   Middle-SES & 0.562 & 0.460 & 0.541 & 0.445 \\
-%   High-SES & 0.207 & 0.239 & 0.254 & 0.237 \\
-%   \hline
-%   Observations & 275 & 385 & 283 & 355 \\
-%   \hline
-%   \end{tabular}
-%   \label{tab:ses_shares_by_measure}
-%   \end{table}
-
-\begin{table}[H]
-  \caption{SES shares in Verbal}
-  \centering
-  \begin{tabular}{lcccc}
-  \hline
-  & Top Decile & Availability & \multicolumn{2}{c}{Referred} \\
-  \cline{4-5}
-  & & & Baseline & Bonus \\
-  \hline
-  Low-SES & 0.301 & 0.398 & 0.483 & 0.508 \\
-  Middle-SES & 0.460 & 0.438 & 0.595 & 0.527 \\
-  High-SES & 0.239 & 0.282 & 0.161 & 0.259 \\
-  \hline
-  Observations & 385 & 25,196 & 147 & 128 \\
-  \hline
-  \end{tabular}
-  \label{tab:ses_shares_verbal}
-  \end{table}
-  
-  \begin{table}[H]
-  \caption{SES shares in Math}
-  \centering
-  \begin{tabular}{lcccc}
-  \hline
-  & Top Decile & Availability & \multicolumn{2}{c}{Referred} \\
-  \cline{4-5}
-  & & & Baseline & Bonus \\
-  \hline
-  Low-SES & 0.318 & 0.398 & 0.464 & 0.554 \\
-  Middle-SES & 0.445 & 0.428 & 0.570 & 0.512 \\
-  High-SES & 0.237 & 0.278 & 0.200 & 0.310 \\
-  \hline
-  Observations & 355 & 23,883 & 153 & 130 \\
-  \hline
-  \end{tabular}
-  \label{tab:ses_shares_math}
-  \end{table}
-
-    \begin{table}[H]
-      \caption{Verbal performance (z-score) of Referred Students}
-      \centering
-      \begin{tabular}{lccc}
-      \hline
-      & Baseline & Bonus & Total \\
-      \hline
-      Low-SES & 0.644 & 0.383 & 0.513 \\
-      Middle-SES & 0.551 & 0.509 & 0.530 \\
-      High-SES & 0.705 & 0.820 & 0.763 \\
-      \hline
-      Observations & 351 & 322 & 673 \\
-      \hline
-      \end{tabular}
-      \label{tab:performance_verbal}
-      \end{table}
-      
-      \begin{table}[H]
-      \caption{Math performance (z-score) of Referred Students }
-      \centering
-      \begin{tabular}{lccc}
-      \hline
-      & Baseline & Bonus & Total \\
-      \hline
-      Low-SES & 0.560 & 0.483 & 0.521 \\
-      Middle-SES & 0.683 & 0.647 & 0.665 \\
-      High-SES & 0.921 & 0.836 & 0.879 \\
-      \hline
-      Observations & 348 & 321 & 669 \\
-      \hline
-      \end{tabular}
-      \label{tab:performance_math}
-      \end{table}
-
-
-
 
 
 

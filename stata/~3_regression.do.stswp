@@ -1,0 +1,24 @@
+/*******************************************************************************
+    Project: icfes referrals 
+    Author: Reha Tuncer
+    Date: 18.03.2025
+    Description: regression
+*******************************************************************************/
+
+//# preamble
+cls
+version 18
+clear all
+macro drop _all
+set more off
+set scheme s2color, permanently
+set maxvar 32767
+global graph_opts ///
+    graphregion(fcolor(white) lcolor(white)) ///
+    bgcolor(white) ///
+    plotregion(lcolor(white))
+	
+// use sender receiver data here
+use "dataset_z.dta", clear
+describe *
+gsort own_id other_id
