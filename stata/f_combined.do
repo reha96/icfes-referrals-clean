@@ -9,65 +9,95 @@
 preserve
 use "reading.dta", clear
 keep if area == 1
-
 tabstat other_score_reading tie if treat == 1, by(nomination) stat(mean sd semean n) save
 matrix stats_reading_nobonus_notref = r(Stat1)
 global score_reading_nobonus_notref = stats_reading_nobonus_notref[1,1]
 global se_reading_nobonus_notref = stats_reading_nobonus_notref[3,1]
+global n_reading_nobonus_notref = stats_reading_nobonus_notref[4,1]
 global score_tie_reading_nobonus_notref = stats_reading_nobonus_notref[1,2]
 global se_tie_reading_nobonus_notref = stats_reading_nobonus_notref[3,2]
+global n_tie_reading_nobonus_notref = stats_reading_nobonus_notref[4,2]
 
 matrix stats_reading_nobonus_ref = r(Stat2)
 global score_reading_nobonus_ref = stats_reading_nobonus_ref[1,1]
 global se_reading_nobonus_ref = stats_reading_nobonus_ref[3,1]
+global n_reading_nobonus_ref = stats_reading_nobonus_ref[4,1]
 global score_tie_reading_nobonus_ref = stats_reading_nobonus_ref[1,2]
 global se_tie_reading_nobonus_ref = stats_reading_nobonus_ref[3,2]
+global n_tie_reading_nobonus_ref = stats_reading_nobonus_ref[4,2]
 
 tabstat other_score_reading tie if treat == 2, by(nomination) stat(mean sd semean n) save
 matrix stats_reading_bonus_notref = r(Stat1)
 global score_reading_bonus_notref = stats_reading_bonus_notref[1,1]
 global se_reading_bonus_notref = stats_reading_bonus_notref[3,1]
+global n_reading_bonus_notref = stats_reading_bonus_notref[4,1]
 global score_tie_reading_bonus_notref = stats_reading_bonus_notref[1,2]
 global se_tie_reading_bonus_notref = stats_reading_bonus_notref[3,2]
+global n_tie_reading_bonus_notref = stats_reading_bonus_notref[4,2]
 
 matrix stats_reading_bonus_ref = r(Stat2)
 global score_reading_bonus_ref = stats_reading_bonus_ref[1,1]
 global se_reading_bonus_ref = stats_reading_bonus_ref[3,1]
+global n_reading_bonus_ref = stats_reading_bonus_ref[4,1]
 global score_tie_reading_bonus_ref = stats_reading_bonus_ref[1,2]
 global se_tie_reading_bonus_ref = stats_reading_bonus_ref[3,2]
+global n_tie_reading_bonus_ref = stats_reading_bonus_ref[4,2]
 restore
 
 preserve
 use "math.dta", clear
 keep if area == 2
-
 tabstat other_score_math tie if treat == 1, by(nomination) stat(mean sd semean n) save
 matrix stats_math_nobonus_notref = r(Stat1)
 global score_math_nobonus_notref = stats_math_nobonus_notref[1,1]
 global se_math_nobonus_notref = stats_math_nobonus_notref[3,1]
+global n_math_nobonus_notref = stats_math_nobonus_notref[4,1]
 global score_tie_math_nobonus_notref = stats_math_nobonus_notref[1,2]
 global se_tie_math_nobonus_notref = stats_math_nobonus_notref[3,2]
+global n_tie_math_nobonus_notref = stats_math_nobonus_notref[4,2]
 
 matrix stats_math_nobonus_ref = r(Stat2)
 global score_math_nobonus_ref = stats_math_nobonus_ref[1,1]
 global se_math_nobonus_ref = stats_math_nobonus_ref[3,1]
+global n_math_nobonus_ref = stats_math_nobonus_ref[4,1]
 global score_tie_math_nobonus_ref = stats_math_nobonus_ref[1,2]
 global se_tie_math_nobonus_ref = stats_math_nobonus_ref[3,2]
+global n_tie_math_nobonus_ref = stats_math_nobonus_ref[4,2]
 
 tabstat other_score_math tie if treat == 2, by(nomination) stat(mean sd semean n) save
 matrix stats_math_bonus_notref = r(Stat1)
 global score_math_bonus_notref = stats_math_bonus_notref[1,1]
 global se_math_bonus_notref = stats_math_bonus_notref[3,1]
+global n_math_bonus_notref = stats_math_bonus_notref[4,1]
 global score_tie_math_bonus_notref = stats_math_bonus_notref[1,2]
 global se_tie_math_bonus_notref = stats_math_bonus_notref[3,2]
+global n_tie_math_bonus_notref = stats_math_bonus_notref[4,2]
 
 matrix stats_math_bonus_ref = r(Stat2)
 global score_math_bonus_ref = stats_math_bonus_ref[1,1]
 global se_math_bonus_ref = stats_math_bonus_ref[3,1]
+global n_math_bonus_ref = stats_math_bonus_ref[4,1]
 global score_tie_math_bonus_ref = stats_math_bonus_ref[1,2]
 global se_tie_math_bonus_ref = stats_math_bonus_ref[3,2]
+global n_tie_math_bonus_ref = stats_math_bonus_ref[4,2]
 restore
 
+// tests - ttesti n1 mean1 sd1 n2 mean2 sd2
+preserve
+use "reading.dta", clear
+keep if area == 1
+ttest other_score_reading if nomination, by(treat) // *
+ttest tie if nomination, by(treat) // 
+restore
+
+preserve
+use "math.dta", clear
+keep if area == 2
+ttest other_score_math if nomination, by(treat) // 
+ttest tie if nomination, by(treat) // 
+restore
+
+// plots
 preserve
 clear
 set obs 4
@@ -152,7 +182,7 @@ graph combine reading_score reading_tie, ///
        rows(1) ///
        name(reading_combined, replace)
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png", replace
-
+list treatment referral score_reading se_reading in 1/4
 restore
 
 

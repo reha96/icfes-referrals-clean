@@ -107,6 +107,10 @@ save "reading.dta", replace
 
 
 
+
+
+
+
 clear all
 cls
 use "dataset_z.dta"

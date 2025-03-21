@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  18 MAR 2025 15:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  21 MAR 2025 10:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -749,7 +749,7 @@ File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.
 Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png  used on input line 270.
 (pdftex.def)             Requested size: 292.77629pt x 212.90265pt.
  [7 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png>]
-Overfull \vbox (58.5052pt too high) has occurred while \output is active []
+Overfull \vbox (25.5052pt too high) has occurred while \output is active []
 
  [8 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>]
 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_comparison.png, id=111, 1221.56375pt x 888.31876pt>
@@ -801,11 +801,11 @@ File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png>
 Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png  used on input line 406.
 (pdftex.def)             Requested size: 204.9466pt x 170.7567pt.
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png, id=146, 1122.1925pt x 816.04875pt>
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png, id=146, 1221.56375pt x 1017.8025pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png>
 Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png  used on input line 413.
-(pdftex.def)             Requested size: 204.9466pt x 149.02415pt.
+(pdftex.def)             Requested size: 204.9466pt x 170.7567pt.
  [14 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png>] [15 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png>] (./manuscript.bbl) [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/bonus_structure.png, id=217, 451.6875pt x 244.915pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/bonus_structure.png Graphic file (type png)
@@ -829,7 +829,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  86i,11n,131p,921b,987s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on manuscript.pdf (31 pages, 1527645 bytes).
+Output written on manuscript.pdf (31 pages, 1550200 bytes).
 PDF statistics:
  349 PDF objects out of 1000 (max. 8388607)
  260 compressed objects within 3 object streams
