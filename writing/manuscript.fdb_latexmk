@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex manuscript"] 0 "manuscript.aux" "manuscript.bbl" "manuscript" 1742547895.40261 -1
+["bibtex manuscript"] 1742831046.04974 "manuscript.aux" "manuscript.bbl" "manuscript" 1742835759.84711 0
   "./referrals.bib" 1738226417.56641 28539 e435bb6020a7e4bcca88af35ba7d87b4 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "manuscript.aux" 1742547895.06374 6935 99a2817e9bd3ced75014195664ed1aac "pdflatex"
+  "manuscript.aux" 1742835759.52473 7189 ba46c2d837cfb9dfb1cd7a43e02ac87f "pdflatex"
   (generated)
   "manuscript.bbl"
   "manuscript.blg"
   (rewritten before read)
-["pdflatex"] 1742547891.31573 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" "manuscript.pdf" "manuscript" 1742547895.40282 0
+["pdflatex"] 1742835755.34384 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" "manuscript.pdf" "manuscript" 1742835759.84726 0
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png" 1742307037.09938 136033 47b69f16e802060f78c1e410b35cd9bd ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png" 1742372190.41239 134906 99b3c675db04d4d7e25647f3de96eba0 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/bonus_structure.png" 1738673775.65403 97561 81ea56ff1484607da76c3bce264bfd1b ""
@@ -18,11 +18,12 @@
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png" 1742304558.93085 127353 ae10497de94ea4a76a065e6e25cc1e66 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png" 1742305684.86782 154317 9e033ba531660e52b7c43927002ead68 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png" 1742306429.80087 165597 7e5fc5b6663add997f8de58ffd5b913f ""
+  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined.png" 1742830439.7625 479727 bc0b8a6e801f0bcc4252b4a968af3890 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png" 1742372191.44973 151431 90ca5a196a108205da8d62467c527642 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_comparison.png" 1742304353.62753 123793 90737d73e8a478c63cfedf158236b920 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png" 1742307347.5537 162759 e298bd32dc8c060a497a9fa11a8b6e86 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/z_ses_tie_strength.png" 1742305509.69026 126939 1ea212151ce0bb7de57232361348535c ""
-  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" 1742547891.15788 44670 5ac99b6d8a70872be9af6747e39fd276 ""
+  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/writing/manuscript.tex" 1742835754.55415 45279 11bd215ed43a58b9613b1d5a63574e03 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1136768653 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -199,10 +200,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729863227.02717 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729863127 8221430 5836b5d7628c44f5214ea245e1a11c59 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "manuscript.aux" 1742547895.06374 6935 99a2817e9bd3ced75014195664ed1aac "pdflatex"
-  "manuscript.bbl" 1742547588.55117 843 1c3875b2b5a704266e2bc7f7122091f5 "bibtex manuscript"
-  "manuscript.out" 1742547895.06766 1066 a464051b7f18e94d9af4abb6890cc8d5 "pdflatex"
-  "manuscript.tex" 1742547891.15788 44670 5ac99b6d8a70872be9af6747e39fd276 ""
+  "manuscript.aux" 1742835759.52473 7189 ba46c2d837cfb9dfb1cd7a43e02ac87f "pdflatex"
+  "manuscript.bbl" 1742831046.16936 843 1c3875b2b5a704266e2bc7f7122091f5 "bibtex manuscript"
+  "manuscript.out" 1742835759.52899 1066 a464051b7f18e94d9af4abb6890cc8d5 "pdflatex"
+  "manuscript.tex" 1742835754.55415 45279 11bd215ed43a58b9613b1d5a63574e03 ""
   (generated)
   "manuscript.aux"
   "manuscript.log"
