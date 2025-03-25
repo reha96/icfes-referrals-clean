@@ -35,7 +35,7 @@ esttab tie_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01)
 esttab score_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 
-// is there a SES bias > not against low-SES, yes to high-SES 
+//# is there a SES bias > not against low-SES, yes to high-SES 
 eststo clear
 foreach i in math reading {
     preserve
@@ -63,7 +63,7 @@ cls
 esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
-// is there a SES bias use binary low-SES > no bias for or against low-SES
+//# is there a SES bias use binary low-SES > no bias for or against low-SES
 eststo clear
 foreach i in math reading {
     preserve
@@ -91,7 +91,7 @@ cls
 esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
-// does GPA predict referrals > yes, better than exam scores
+//# does GPA predict referrals > yes, better than exam scores
 eststo clear
 foreach i in math reading {
     preserve
@@ -114,21 +114,14 @@ foreach i in math reading {
     eststo `i'_2: clogit nomination z_other_gpa z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
 	eststo `i'_3: clogit nomination z_other_gpa z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
 	eststo `i'_4: clogit nomination z_other_gpa z_other_score_`i' z_tie scoreXtie scoreXgpa gpaXtie scoreXtieXgpa, group(own_id) vce(cluster own_id)
-    restore
+    corr z_other_gpa z_other_score_`i'  // low-correlation with other
+	restore
 }
 cls
 esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
-use "dataset_z.dta",clear
-corr other_gpa other_score_reading other_score_math // low-correlation with other
-keep if nomination
-corr other_gpa other_score_reading other_score_math // low-correlation with other even for those who were referred
-clear all
-
-
-
-// is there in group homophily (same-ses) > yes for low-SES (moderately strong evidence)
+//# is there in group homophily (same-ses) > yes for low-SES (moderately strong evidence)
 eststo clear
 forvalues ses = 1/3 {
     preserve
@@ -144,7 +137,6 @@ forvalues ses = 1/3 {
 
 cls
 esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
 esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 // is there low-SES bias in a specific SES group > yes for low-SES (positive)
@@ -153,7 +145,7 @@ esttab binary_reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.0
 esttab binary_math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 
-// are low-SES better referrers controlling for network > NO, but network average matters
+//# are low-SES better referrers controlling for network > NO, but network average matters
 eststo clear
 foreach i in math reading {
     preserve
@@ -181,7 +173,7 @@ esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01)
 
 
 
-// is there in performance homophily (high performance - high performance) > significant but meaningless compared to the effect of network
+//# is there in performance homophily (high performance - high performance) > significant but meaningless compared to the effect of network
 eststo clear
 foreach i in math reading {
     preserve
@@ -197,7 +189,7 @@ esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.
 esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 
-// who has better network? > controlling for own scores, for every level of z-tie that matters, higher SES have better networks on average!
+//# who has better network? > controlling for own scores, for every level of z-tie that matters, higher SES have better networks on average!
 eststo clear
 forvalues x = 0/4	{
 	foreach i in math reading {
