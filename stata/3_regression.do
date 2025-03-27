@@ -191,17 +191,25 @@ esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01)
 
 //# who has better network? > controlling for own scores, for every level of z-tie that matters, higher SES have better networks on average!
 eststo clear
-forvalues x = 0/4	{
-	foreach i in math reading {
-		preserve
-		use "`i'.dta", clear
-		
-			keep if z_tie >= `x'  & nomination
-
-		eststo `i'_tie`x': reghdfe mean_other_score_`i' own_score_`i' i.own_estrato, group(own_id) vce(cluster own_id)		
-		restore
-		}
-	} 
+forvalues x = 2/3 {
+    foreach i in math reading {
+        preserve
+        use "`i'.dta", clear
+        
+        // Filter by tie strength
+        keep if z_tie >= `x'
+        
+        // Calculate average network score for each referrer
+        collapse (mean) other_score_`i' other_gpa own_gpa own_score_`i' own_low_ses, by(own_id)
+        sum *, det
+        // Run regression
+        //eststo `i'_tie`x': reg other_score_`i'  i.own_estrato
+		gen gpaXlses = own_gpa * own_low_ses
+		eststo `i'_tie`x'_own: reg other_score_`i' own_score_`i' i.own_low_ses
+		eststo `i'_tie`x'_own_gpa: reg other_score_`i' own_gpa own_score_`i' i.own_low_ses gpaXlses
+        restore
+    }
+}
 cls
 esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
