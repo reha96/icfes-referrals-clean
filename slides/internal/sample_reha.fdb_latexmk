@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743093441.45042 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/sample_reha.tex" "sample_reha.pdf" "sample_reha" 1743093446.18759 0
+["pdflatex"] 1743414884.14613 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/sample_reha.tex" "sample_reha.pdf" "sample_reha" 1743414888.94174 0
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png" 1742307037.09938 136033 47b69f16e802060f78c1e410b35cd9bd ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png" 1742372190.41239 134906 99b3c675db04d4d7e25647f3de96eba0 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png" 1741766189.82596 224274 466c5a5522bbf804242b6c99d8b87866 ""
@@ -9,10 +9,10 @@
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png" 1742304558.93085 127353 ae10497de94ea4a76a065e6e25cc1e66 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png" 1742305684.86782 154317 9e033ba531660e52b7c43927002ead68 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png" 1742306429.80087 165597 7e5fc5b6663add997f8de58ffd5b913f ""
-  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined.png" 1742997320.46728 383344 0d5f99830437e01804c0a9e6b3670df5 ""
+  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png" 1743406389.19251 235564 dc1fbb3bb6adec02b557551eb99971c5 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png" 1742372191.44973 151431 90ca5a196a108205da8d62467c527642 ""
   "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png" 1742307347.5537 162759 e298bd32dc8c060a497a9fa11a8b6e86 ""
-  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/sample_reha.tex" 1743093441.76855 35274 39153574a87839c0cce9a5e34da0470a ""
+  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/sample_reha.tex" 1743414883.96969 31081 23c10f42b174a90b91f9539bfbb34a3a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcss0900.tfm" 1136768653 1536 ba0169ee8bc017972775b933313cbbb0 ""
@@ -239,10 +239,10 @@
   "beamerfontthemeSimplePlus.sty" 1733750090 1020 513b8304d1567fbc6e3ba3835cc12b4c ""
   "beamerinnerthemeSimplePlus.sty" 1733750090 1847 11d3c1b4b8fac543a949317419e6aa11 ""
   "beamerthemeSimplePlus.sty" 1733750090 166 3d075d65299c757f0cfb8f7b6caa897e ""
-  "sample_reha.aux" 1743093446.0627 6756 f82af1dff7cc640f6f6edfd29afbf163 "pdflatex"
-  "sample_reha.nav" 1743093446.07223 2611 a88dcf3cc2e1ad722cbe3b0680c20276 "pdflatex"
-  "sample_reha.out" 1743093442.23482 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "sample_reha.tex" 1743093441.76855 35274 39153574a87839c0cce9a5e34da0470a ""
+  "sample_reha.aux" 1743414888.8048 7014 0bfd4799fd48fd0b8a155a7590f53083 "pdflatex"
+  "sample_reha.nav" 1743414888.80817 2797 60e2b8f089a222bf8f6a861779b511a1 "pdflatex"
+  "sample_reha.out" 1743414884.92957 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "sample_reha.tex" 1743414883.96969 31081 23c10f42b174a90b91f9539bfbb34a3a ""
   (generated)
   "sample_reha.aux"
   "sample_reha.log"

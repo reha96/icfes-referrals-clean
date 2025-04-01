@@ -191,7 +191,7 @@ esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01)
 
 //# who has better network? > controlling for own scores, for every level of z-tie that matters, higher SES have better networks on average!
 eststo clear
-forvalues x = 2/3 {
+forvalues x = 1/4 {
     foreach i in math reading {
         preserve
         use "`i'.dta", clear
@@ -205,8 +205,8 @@ forvalues x = 2/3 {
         // Run regression
         //eststo `i'_tie`x': reg other_score_`i'  i.own_estrato
 		gen gpaXlses = own_gpa * own_low_ses
-		eststo `i'_tie`x'_own: reg other_score_`i' own_score_`i' i.own_low_ses
-		eststo `i'_tie`x'_own_gpa: reg other_score_`i' own_gpa own_score_`i' i.own_low_ses gpaXlses
+// 		eststo `i'_tie`x'_own: reg other_score_`i' own_score_`i' i.own_low_ses
+		eststo `i'_tie`x'_own_gpa: reg other_gpa own_gpa i.own_low_ses
         restore
     }
 }

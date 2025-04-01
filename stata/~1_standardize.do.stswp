@@ -99,11 +99,11 @@ foreach v of varlist other_gpa other_score_reading other_score_math  {
 	gen z_`v' = (`v' - `avgt') / `sdt'
 }
 
-// sum avgscore if count_id == 1
-// local avgt = r(mean)
-// sum sdscore if count_id == 1
-// local sdt = r(mean)
-// gen score_std = (other_score - `avgt') / `sdt'
+sum avgscore if count_id == 1
+local avgt = r(mean)
+sum sdscore if count_id == 1
+local sdt = r(mean)
+gen score_std = (other_score - `avgt') / `sdt'
 
 cls
 //# TABLE non-referred choice set VS referred VERBAL
