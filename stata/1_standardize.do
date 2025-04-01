@@ -73,6 +73,9 @@ save "dataset_z.dta", replace
 // tab nom_r nom_m
 ***/
 
+use "dataset_z.dta", clear
+
+// table for reading and math referrers
 preserve 
 keep if nomination
 bysort own_id: gen counter =_n // first occurrence
@@ -83,10 +86,9 @@ drop __t
 tab area counter
 restore
 
+// standardize
 keep if area == 1
 bysort own_id: gen counter =_n // first occurrence
-
-// Standardize scores within each own_id's network
 foreach v of varlist other_gpa other_score_reading other_score_math  {
     egen mean_`v' = mean(`v'), by(own_id)
     egen sd_`v' = sd(`v'), by(own_id)
@@ -99,14 +101,11 @@ foreach v of varlist other_gpa other_score_reading other_score_math  {
 	gen z_`v' = (`v' - `avgt') / `sdt'
 }
 
-// sum avgscore if count_id == 1
-// local avgt = r(mean)
-// sum sdscore if count_id == 1
-// local sdt = r(mean)
-// gen score_std = (other_score - `avgt') / `sdt'
-
 cls
+tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie, stat(mean sd semean n)
+
 //# TABLE non-referred choice set VS referred VERBAL
+
 tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if !nomination, stat(mean sd semean n)
 tabstat z_other_gpa z_other_score_reading z_other_score_math z_tie other_low_ses other_med_ses other_high_ses other_female other_age if nomination, stat(mean sd semean n)
 save "reading.dta", replace

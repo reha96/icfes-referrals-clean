@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  31 MAR 2025 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  1 APR 2025 15:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -605,27 +605,31 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count349
 \l__pdf_internal_box=\box77
-) (./sample_reha.aux)
+) (./sample_reha.aux
+
+LaTeX Warning: Label `fig:net-performance' multiply defined.
+
+)
 \openout1 = `sample_reha.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -680,60 +684,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 37.
+Package hyperref Info: Link coloring OFF on input line 38.
  (./sample_reha.out) (./sample_reha.out)
 \@outlinefile=\write5
 \openout5 = `sample_reha.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 37.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 38.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 37.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 38.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 37.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 37.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 37.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 37.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 37.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 37.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 37.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 38.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 37.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 37.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 38.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 37.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 38.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 37.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 37.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 37.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 37.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 37.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 38.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 37.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 37.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 38.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 38.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 37.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 38.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 37.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 38.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 37.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 38.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -753,15 +757,15 @@ Package caption Info: End \AtBeginDocument code.
  (./sample_reha.nav) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 76.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 78.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [2
@@ -769,158 +773,125 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 ] [3
 
 ]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png, id=36, 1234.6125pt x 882.29625pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png  used on input line 129.
-(pdftex.def)             Requested size: 252.5437pt x 180.46802pt.
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png, id=37, 3011.25pt x 2190.1825pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png  used on input line 132.
+(pdftex.def)             Requested size: 242.3378pt x 176.25418pt.
  [4
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png  used on input line 129.
-(pdftex.def)             Requested size: 252.5437pt x 180.46802pt.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png, id=44, 839.135pt x 610.28pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png  used on input line 149.
+(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
  [5
 
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png, id=48, 1221.56375pt x 888.31876pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png  used on input line 147.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png, id=51, 839.135pt x 610.28pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png  used on input line 165.
+(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
  [6
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png  used on input line 147.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png, id=58, 1409.265pt x 1127.21124pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png  used on input line 182.
+(pdftex.def)             Requested size: 242.3378pt x 193.82495pt.
  [7
 
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png, id=63, 1221.56375pt x 888.31876pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png  used on input line 167.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png, id=66, 1221.56375pt x 888.31876pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png  used on input line 200.
 (pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
  [8
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png  used on input line 167.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png, id=75, 839.135pt x 610.28pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png  used on input line 217.
+(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
  [9
 
-]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png  used on input line 167.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png, id=82, 839.135pt x 610.28pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png  used on input line 234.
+(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
  [10
 
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png, id=80, 1221.56375pt x 888.31876pt>
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png, id=89, 1221.56375pt x 888.31876pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png  used on input line 185.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png  used on input line 252.
 (pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
  [11
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png  used on input line 185.
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png, id=96, 1221.56375pt x 888.31876pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png  used on input line 270.
 (pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
  [12
 
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png, id=92, 1221.56375pt x 888.31876pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png  used on input line 203.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png, id=103, 732.7375pt x 610.28pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png  used on input line 293.
+(pdftex.def)             Requested size: 185.14853pt x 154.19923pt.
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png, id=104, 732.7375pt x 610.28pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png  used on input line 293.
+(pdftex.def)             Requested size: 185.14853pt x 154.19923pt.
  [13
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png  used on input line 203.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
- [14
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png>]
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png  used on input line 329.
+(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{fig:net-performance}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.329 \end{frame}
+                  [14
+
+] [15
+
+] [16
+
+] [17
+
+] [18
 
 ]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png, id=105, 1221.56375pt x 1017.8025pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png  used on input line 226.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png, id=106, 1221.56375pt x 1017.8025pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png  used on input line 226.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
- [15
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 470.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Overfull \vbox (0.51854pt too high) detected at line 470
+ []
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png  used on input line 226.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png  used on input line 226.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
- [16
+[19
 
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png, id=119, 1221.56375pt x 1017.8025pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png  used on input line 249.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png, id=120, 1221.56375pt x 1017.8025pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png  used on input line 249.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
- [17
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \vbox (0.51854pt too high) detected at line 512
+ []
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png  used on input line 249.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png  used on input line 249.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
- [18
-
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png, id=133, 1221.56375pt x 1017.8025pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png  used on input line 272.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png, id=134, 1221.56375pt x 1017.8025pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png  used on input line 272.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
- [19
-
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png  used on input line 272.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png  used on input line 272.
-(pdftex.def)             Requested size: 185.14853pt x 154.26341pt.
- [20
+[20
 
 ] [21
 
@@ -934,156 +905,26 @@ Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/fig
 
 ] [26
 
-] [27
-
-] [28
-
-] [29
-
 ]
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 411.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmss.fd
-File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \vbox (0.51854pt too high) detected at line 411
- []
-
-[30
-
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \vbox (0.51854pt too high) detected at line 411
- []
-
-[31
-
-]
-Overfull \vbox (0.51854pt too high) detected at line 453
- []
-
-[32
-
-]
-Overfull \vbox (0.51854pt too high) detected at line 453
- []
-
-[33
-
-]
-Overfull \vbox (0.51854pt too high) detected at line 453
- []
-
-[34
-
-] [35
-
-] [36
-
-] [37
-
-] [38
-
-] [39
-
-] [40
-
-] [41
-
-] [42
-
-] [43
-
-] [44
-
-] [45
-
-] [46
-
-] [47
-
-] [48
-
-] [49
-
-] [50
-
-] [51
-
-] [52
-
-] [53
-
-] [54
-
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png, id=337, 1310.8975pt x 953.5625pt>
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png, id=191, 1310.8975pt x 953.5625pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png  used on input line 654.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png  used on input line 713.
 (pdftex.def)             Requested size: 229.58235pt x 166.99234pt.
- [55
+ [27
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png  used on input line 654.
-(pdftex.def)             Requested size: 229.58235pt x 166.99234pt.
- [56
-
-] [57
-
-] [58
-
-] [59
-
-] [60
-
-] [61
-
-] [62
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png>] [28
 
 ]
-Overfull \hbox (17.66199pt too wide) in alignment at lines 714--714
+Overfull \hbox (0.60367pt too wide) in alignment at lines 773--773
 [] [] [] [] []
  []
 
-[63
+[29
 
-]
-Overfull \hbox (17.66199pt too wide) in alignment at lines 714--714
-[] [] [] [] []
- []
+] [30
 
-[64
-
-]
-Overfull \hbox (17.66199pt too wide) in alignment at lines 714--714
-[] [] [] [] []
- []
-
-[65
-
-]
-Overfull \hbox (15.21889pt too wide) in alignment at lines 751--751
-[] [] [] [] []
- []
-
-[66
-
-]
-Overfull \hbox (15.21889pt too wide) in alignment at lines 751--751
-[] [] [] [] []
- []
-
-[67
-
-]
-Overfull \hbox (15.21889pt too wide) in alignment at lines 751--751
-[] [] [] [] []
- []
-
-[68
-
-] [69
+] [31
 
 ]
 \tf@nav=\write6
@@ -1100,22 +941,26 @@ Overfull \hbox (15.21889pt too wide) in alignment at lines 751--751
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `sample_reha.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23742 strings out of 474116
- 467773 string characters out of 5743681
+ 23654 strings out of 474116
+ 466735 string characters out of 5743681
  1941187 words of memory out of 5000000
- 45434 multiletter control sequences out of 15000+600000
- 570548 words of font info for 80 fonts, out of 8000000 for 9000
+ 45427 multiletter control sequences out of 15000+600000
+ 568887 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,13n,123p,475b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on sample_reha.pdf (69 pages, 1433786 bytes).
+ 128i,13n,123p,475b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb>
+Output written on sample_reha.pdf (31 pages, 1136511 bytes).
 PDF statistics:
- 516 PDF objects out of 1000 (max. 8388607)
- 395 compressed objects within 4 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 292 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 84 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

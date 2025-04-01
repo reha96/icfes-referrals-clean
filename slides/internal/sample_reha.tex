@@ -17,6 +17,7 @@
 \setbeamertemplate{itemize subitem}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
 
 \setbeamercovered{transparent}
+\renewcommand{\footnotesize}{\fontsize{8pt}{11pt}\selectfont}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -53,17 +54,18 @@
         \begin{column}{0.62\textwidth}  % Right column for the table
             \begin{table}
                 \centering
+                \footnotesize
                 \begin{threeparttable}
                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
                 \toprule
                 & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textbf{p}} \\
                 \midrule
-                Reading score & 62.651 & 65.183 & 0.000 \\
-                Math score & 63.973 & 67.477 & 0.000 \\
-                GPA & 3.958 & 4.012 & 0.000 \\
-                Low-SES & 0.343 & 0.410 & 0.000 \\
+                Reading score & 62.651 & 65.183 & $<0.001$ \\
+                Math score & 63.973 & 67.477 & $<0.001$ \\
+                GPA & 3.958 & 4.012 & $<0.001$ \\
+                Low-SES & 0.343 & 0.410 & $<0.001$ \\
                 Med-SES & 0.505 & 0.499 & 0.763 \\
-                High-SES & 0.153 & 0.091 & 0.000 \\
+                High-SES & 0.153 & 0.091 & $<0.001$ \\
                 \midrule
                 Observations & 4,417 & 734 & 5,151 \\
                 \bottomrule
@@ -86,6 +88,7 @@
         \begin{column}{0.62\textwidth}  % Right column for the table
             \begin{table}
                 \centering
+                \footnotesize
                 \begin{threeparttable}
                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
                 \toprule
@@ -115,53 +118,117 @@
         \begin{column}{0.38\textwidth}
             \vspace{2em}
             \begin{itemize}
-                \item Classes together increases over time
-                \pause
+                \item Classes taken together increases over time
+                % \pause
                 \item Connections peak around 7 semesters and decline as students graduate
             \end{itemize}
         \end{column}
         \begin{column}{0.62\textwidth}
             \centering
-            \includegraphics[width=0.99\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png}
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png}
             \label{fig:connections_class}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Referrer network composition by SES}
+
+\begin{frame}{Admin data performance by SES}
+    \begin{columns}[T]
+        \begin{column}{0.38\textwidth}
+            \vspace{2em}
+            \begin{itemize}
+                \item Performance increases with SES across math and reading
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \centering
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png}
+            \label{fig:admin-performance}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sample performance by SES}
+    \begin{columns}[T]
+        \begin{column}{0.38\textwidth}
+            \vspace{2em}
+            \begin{itemize}
+                \item Similar SES performance across math and reading
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \centering
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png}
+            \label{fig:sample-performance}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Network connections by SES}
+    \begin{columns}[T]
+        \begin{column}{0.38\textwidth}
+            \vspace{2em}
+            \begin{itemize}
+                \item Small monotonic decrease in connections across SES
+                % \pause
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \centering
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png}
+            \label{fig:composition_aggregate}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Network composition by SES}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
             \begin{itemize}
                 \item Monotonic increase in availability across SES
-                \pause
+                % \pause
                 \item All differences are statistically significant ($p < 0.001$)
             \end{itemize}
         \end{column}
         \begin{column}{0.62\textwidth}
             \centering
             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png}
+            \label{fig:composition_byses}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Network tie strength by SES}
+    \begin{columns}[T]
+        \begin{column}{0.38\textwidth}
+            \vspace{2em}
+            \begin{itemize}
+                \item Low and High SES take more classes with their own
+                % \pause
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \centering
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png}
             \label{fig:baseline_ses}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Referrer network performance by SES}
+
+\begin{frame}{Network performance by SES}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
             \begin{itemize}
-                \item Area specific network-level standardization
-                \pause
-                \item Performance increases with SES across math and reading
-                \pause
-                \item All differences are statistically significant ($p < 0.005$)
+                \item Similar SES performance across math and reading
             \end{itemize}
         \end{column}
         \begin{column}{0.62\textwidth}
             \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png}
-            \label{fig:performance}
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png}
+            \label{fig:net-performance}
         \end{column}
     \end{columns}
 \end{frame}
@@ -171,9 +238,9 @@
         \begin{column}{0.38\textwidth}
             \vspace{2em}
             \begin{itemize}
-                \item Referrals have higher reading scores and much higher tie strength on aggregate (all $p < 0.001$)
-                \pause
-                \item No treatment effect on reading score or on tie strength (all $p > 0.08$)
+                \item Referrals have higher reading scores and much higher tie strength
+                % \pause
+                \item No treatment effect on the referred for reading score or for tie strength (all $p > 0.08$)
             \end{itemize}
         \end{column}
         \begin{column}{0.62\textwidth}
@@ -189,9 +256,9 @@
         \begin{column}{0.38\textwidth}
             \vspace{2em}
             \begin{itemize}
-                \item Referrals have higher math scores and much higher tie strength on aggregate (all $p < 0.001$)
-                \pause
-                \item No treatment effect on math score or on tie strength (all $p > 0.1$)
+                \item Referrals have higher math scores and much higher tie strength
+                % \pause
+                \item No treatment effect on the referred for math score or for tie strength (all $p > 0.1$)
             \end{itemize}
         \end{column}
         \begin{column}{0.62\textwidth}
@@ -202,74 +269,66 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Baseline referrals}
+\begin{frame}{Referral distribution and performance by SES}
     \centering
     \begin{columns}
         \begin{column}{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png}
+            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png}
             \label{fig:baseline_rates}
         \end{column}
         \hfill
         \begin{column}{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png}
+            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png}
             \label{fig:baseline_performance}
         \end{column}
     \end{columns}
 
     \begin{itemize}
         \item Large monotonic differences in referral shares as SES increases (all $p < 0.1$)
-        \pause
+        % \pause
         \item Small differences in math and reading performance across SES (all $p > 0.08$)
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Treatment effects on referrals}
-    \centering
-    \begin{columns}
-        \begin{column}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png}
-            \label{fig:bonus_rates}
+\begin{frame}{Referral tie strength}
+    \begin{columns}[T]
+        \begin{column}{0.38\textwidth}
+            \vspace{2em}
+            \begin{itemize}
+                \item Similar SES performance across math and reading
+            \end{itemize}
         \end{column}
-        \hfill
-        \begin{column}{0.45\textwidth}
+        \begin{column}{0.62\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png}
-            \label{fig:bonus_performance}
-        \end{column}
-    \end{columns}
-
-    \begin{itemize}
-        \item No meaningful changes in referral shares with bonus
-        \pause
-        \item No meaningful changes in reading and math performance with bonus
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Treatment effect on referral tie strength}
-    \centering
-    \begin{columns}
-        \begin{column}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png}
-            \label{fig:baseline_tie}
-        \end{column}
-        \hfill
-        \begin{column}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png}
-            \label{fig:bonus_tie}
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png}
+            \label{fig:net-performance}
         \end{column}
     \end{columns}
+    % \centering
+    % \begin{columns}
+    %     \begin{column}{0.45\textwidth}
+    %         \centering
+    %         \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png}
+    %         \label{fig:baseline_tie}
+    %     \end{column}
+    %     \hfill
+    %     \begin{column}{0.45\textwidth}
+    %         \centering
+    %         \includegraphics[width=\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png}
+    %         \label{fig:bonus_tie}
+    %     \end{column}
+    % \end{columns}
 
-    \begin{itemize}
-        \item Small differences in referral tie strength at baseline
-        \pause
-        \item No meaningful changes in referral tie strength with bonus
-    \end{itemize}
+    % \begin{itemize}
+    %     \item Small differences in referral tie strength at baseline
+    %     % \pause
+    %     \item No meaningful changes in referral tie strength with bonus
+    % \end{itemize}
 \end{frame}
+
+
 
 \begin{frame}[plain]
     \vspace{3em}
@@ -281,7 +340,7 @@
 \begin{frame}{Empirical specification: referral choice}
     \begin{itemize}
         \item Model the referral choice using a mixed multinomial logit model for each referrer's choice set (average 175 potential nominees) [McFadden and Train, 2000]
-        \pause
+        % \pause
         
         \item The probability that student $i$ refers student $j \in N_i$ is given by
         $$\frac{e^{\beta_i x_{ij}}}{\sum_{j=1}^{N_i} e^{\beta_i x_{ij}}}$$
@@ -295,7 +354,7 @@
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->] % This creates incremental reveal for all items
+            \begin{itemize}% [<+->] % This creates incremental reveal for all items
                 \item Reading score and tie strength are strong predictors of referrals
                 \item No interaction between reading score and tie strength
                 \item No evidence for a Low-SES bias in referrals when controlling for referral score and tie strength
@@ -334,7 +393,7 @@
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Math score and tie strength are strong predictors of referrals
                 \item Significant but small interaction between math score and tie strength
                 \item No evidence for a Low-SES bias in referrals when controlling for referral score and tie strength
@@ -373,7 +432,7 @@
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item GPA correlates weakly with reading score ($\rho = 0.18$)
                 \item GPA is a better predictor of referrals when controlling for reading score and tie strength
             \end{itemize}
@@ -414,7 +473,7 @@
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Significant but small interactions between tie strength and both performance variables
                 \item GPA correlates weakly with math score ($\rho = 0.14$)
                 \item GPA is a better predictor of referrals when controlling for math score and tie strength
@@ -456,7 +515,7 @@
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Restrict sample by SES of referrer
                 \item Define homophily as same SES referrer-nominee dyad
                 \item Only Low-SES exhibit homophily for other Low-SES
@@ -496,7 +555,7 @@
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Restrict sample by SES of referrer
                 \item Define homophily as same SES referrer-nominee dyad
                 \item Only Low-SES exhibit homophily for other Low-SES
@@ -541,7 +600,7 @@
     \end{align*}
     
     \vspace{0.5em}
-    \begin{itemize}[<+->]
+    \begin{itemize}% [<+->]
         \item $\text{Score}_{ij}$: Test score of the nominee from referrer $i$ in subject $j$
         \item $\text{X}_{ij}$: SES of student $i$ or the test score of student $i$ in subject $j$
         \item $\text{Mean Score}_j$ and $\text{SD Score}_j$: Mean and SD of $i$'s network performance in subject $j$
@@ -549,7 +608,7 @@
     
     \vspace{0.5em}
     \textbf{Features:}
-    \begin{itemize}[<+->]
+    \begin{itemize}% [<+->]
         \item Sample restricted to nominated students only
         \item Controls for network-level performance differences
         \item Standard errors clustered at individual level
@@ -560,7 +619,7 @@
     \begin{columns}[T]
         \begin{column}{0.42\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item No evidence that Low-SES refer better in reading or math
                 \item Better referrals depend on average network performance
             \end{itemize}
@@ -597,7 +656,7 @@
     \begin{columns}[T]
         \begin{column}{0.42\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Significant but small effect of own test score on referral score
                 \item Very large difference between the average network test score versus referrer performance (about 6 times)
                 \item Performance homophily is nearly not as important as network composition
@@ -630,7 +689,7 @@
 \end{frame}
 
 \begin{frame}{Summary}
-    \begin{itemize}[<+->]
+    \begin{itemize}% [<+->]
     \item No evidence for a Low-SES bias in referrals
     \item Referrers pick nominees based on performance and tie strength
     \item Referral performance depends heavily on referrer network composition
@@ -641,7 +700,7 @@
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Which SES group has the better network?
                 \item Are Low-SES restrained w.r.t. their network referral choice set?
             \end{itemize}
@@ -661,7 +720,7 @@
     \end{align*}
     
     \vspace{0.5em} 
-    \begin{itemize}[<+->]
+    \begin{itemize}% [<+->]
         \item $\text{Mean Score}_{ij}$: Average network test score of referrer $i$ in subject $j$
         \item $\text{Score}_{ij}$: Test score of referrer $i$ in subject $j$
         \item $\text{Low-SES}_i$: Referrer $i$ is Low-SES
@@ -669,7 +728,7 @@
     
     \vspace{0.5em} 
     \textbf{Features:} 
-    \begin{itemize}[<+->]
+    \begin{itemize}% [<+->]
         \item Sample restricted to referrers only
         \item Estimated at relevant tie-strength z-score thresholds (z\_tie $\geq$ 0, 1, 2, 3)
         \item Standard errors clustered at individual level
@@ -680,7 +739,7 @@
     \begin{columns}[T]
         \begin{column}{0.35\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Average referral tie strength is around 2.7 SD for reading scores
                 \item Referrer reading score has a significant effect at thresholds $[0,2]$
                 \item Higher SES referrers have better networks across thresholds
@@ -717,7 +776,7 @@
     \begin{columns}[T]
         \begin{column}{0.35\textwidth}
             \vspace{2em}
-            \begin{itemize}[<+->]
+            \begin{itemize}% [<+->]
                 \item Average referral tie strength is around 2.5 SD for math
                 \item Referrer math score has a significant but small effect at each tie strength threshold
                 \item Higher SES referrers have much better networks at each tie strength threshold

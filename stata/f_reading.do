@@ -75,4 +75,4 @@ graph combine reading math, ///
       graphregion(color(white)) ///
       rows(1) ///
       name(tie_combined, replace)
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png", replace
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading.png", replace

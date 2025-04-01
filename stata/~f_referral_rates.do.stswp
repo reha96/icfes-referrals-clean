@@ -2,10 +2,35 @@
     Project: icfes referrals 
     Author: Reha Tuncer
     Date: 18.03.2025
-    Description: figure network composition by SES
+    Description: figure baseline referral rates 
 *******************************************************************************/
 
+global lowSES "255 99 132"    // Pink/red for low SES
+global medSES "54 162 235"    // Blue for medium SES
+global highSES "75 192 112"   // Green for high SES
+global reading "130 202 157" 
+global math "136 132 216"
+global path "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
+set scheme s2color, permanently
+
+
 clear all
+use "dataset_z.dta"
+
+preserve
+// low
+tab other_estrato if nomination == 1 & own_estrato == 1
+tab other_estrato if  nomination == 0 & own_estrato == 1
+// med
+tab other_estrato if nomination == 1 & own_estrato == 2
+tab other_estrato if nomination == 0 & own_estrato == 2
+// high
+tab other_estrato if nomination == 1 & own_estrato == 3
+tab other_estrato if nomination == 0 & own_estrato == 3
+restore
+
+// plot
+// Calculate referral proportions by SES and store statistics
 foreach own in low middle high {
     foreach other in low middle high {
         global prop_`own'_`other' = ""
@@ -13,10 +38,10 @@ foreach own in low middle high {
     }
 }
 
-// Calculate proportions for each SES group connection
-use dataset_z.dta, clear
 preserve
-keep if own_estrato == 1
+
+// Low SES own group
+keep if own_estrato == 1 & nomination
 proportion other_estrato
 matrix props_low = r(table)
 global prop_low_low = props_low[1,1]
@@ -31,7 +56,8 @@ global n_low = stats[1,1]
 restore
 
 preserve
-keep if own_estrato == 2
+// Middle SES own group
+keep if own_estrato == 2 & nomination
 proportion other_estrato
 matrix props_middle = r(table)
 global prop_middle_low = props_middle[1,1]
@@ -46,7 +72,8 @@ global n_middle = stats[1,1]
 restore
 
 preserve
-keep if own_estrato == 3
+// High SES own group
+keep if own_estrato == 3 & nomination
 proportion other_estrato
 matrix props_high = r(table)
 global prop_high_low = props_high[1,1]
@@ -60,6 +87,7 @@ matrix stats = r(StatTotal)
 global n_high = stats[1,1]
 restore
 
+// Run significance tests between SES groups
 // Compare Low SES peer connections across own SES groups
 prtesti ${n_low} ${prop_low_low} ${n_middle} ${prop_middle_low}    // Low vs Middle (Low SES peers)
 prtesti ${n_low} ${prop_low_low} ${n_high} ${prop_high_low}      // Low vs High (Low SES peers)
@@ -75,14 +103,7 @@ prtesti ${n_low} ${prop_low_high} ${n_middle} ${prop_middle_high}   // Low vs Mi
 prtesti ${n_low} ${prop_low_high} ${n_high} ${prop_high_high}    // Low vs High (High SES peers)
 prtesti ${n_middle} ${prop_middle_high} ${n_high} ${prop_high_high}    // Middle vs High (High SES peers)
 
-// Multiply all proportions and standard errors by 100 for plotting
-foreach own in low middle high {
-    foreach other in low middle high {
-        global prop_`own'_`other' = ${prop_`own'_`other'} * 100
-        global se_`own'_`other' = ${se_`own'_`other'} * 100
-    }
-}
-// Create visualization dataset
+// Create visualization dataset with confidence intervals
 preserve
 clear
 set obs 9  // 3 own_SES × 3 other_SES
@@ -103,9 +124,11 @@ replace xpos = 3.7 if own_ses == 3 & other_ses == 1  // High-Low
 replace xpos = 4.0 if own_ses == 3 & other_ses == 2  // High-Middle
 replace xpos = 4.3 if own_ses == 3 & other_ses == 3  // High-High
 
+// Fill in the proportions and standard errors
 gen proportion = .
 gen se = .
 
+// Low SES (own_ses = 1)
 replace proportion = ${prop_low_low} if own_ses == 1 & other_ses == 1
 replace proportion = ${prop_low_middle} if own_ses == 1 & other_ses == 2
 replace proportion = ${prop_low_high} if own_ses == 1 & other_ses == 3
@@ -113,6 +136,7 @@ replace se = ${se_low_low} if own_ses == 1 & other_ses == 1
 replace se = ${se_low_middle} if own_ses == 1 & other_ses == 2
 replace se = ${se_low_high} if own_ses == 1 & other_ses == 3
 
+// Middle SES (own_ses = 2)
 replace proportion = ${prop_middle_low} if own_ses == 2 & other_ses == 1
 replace proportion = ${prop_middle_middle} if own_ses == 2 & other_ses == 2
 replace proportion = ${prop_middle_high} if own_ses == 2 & other_ses == 3
@@ -120,6 +144,7 @@ replace se = ${se_middle_low} if own_ses == 2 & other_ses == 1
 replace se = ${se_middle_middle} if own_ses == 2 & other_ses == 2
 replace se = ${se_middle_high} if own_ses == 2 & other_ses == 3
 
+// High SES (own_ses = 3)
 replace proportion = ${prop_high_low} if own_ses == 3 & other_ses == 1
 replace proportion = ${prop_high_middle} if own_ses == 3 & other_ses == 2
 replace proportion = ${prop_high_high} if own_ses == 3 & other_ses == 3
@@ -127,6 +152,11 @@ replace se = ${se_high_low} if own_ses == 3 & other_ses == 1
 replace se = ${se_high_middle} if own_ses == 3 & other_ses == 2
 replace se = ${se_high_high} if own_ses == 3 & other_ses == 3
 
+// Multiply all proportions and standard errors by 100 for percentages
+replace proportion = proportion * 100
+replace se = se * 100
+
+// Calculate 95% confidence intervals
 gen ci_lower = proportion - 1.96*se
 gen ci_upper = proportion + 1.96*se
 
@@ -134,21 +164,23 @@ label define ses_lab 1 "Low" 2 "Middle" 3 "High"
 label values own_ses ses_lab
 label values other_ses ses_lab
 
+// Create the twoway bar graph with confidence intervals
 twoway (bar proportion xpos if other_ses == 1, barw(0.25) color("255 99 132")) ///
        (bar proportion xpos if other_ses == 2, barw(0.25) color("54 162 235")) ///
        (bar proportion xpos if other_ses == 3, barw(0.25) color("75 192 112")) ///
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2.5 "Middle" 4 "High") ///
-       ylabel(0(10)60, angle(0) format(%9.0f)) ///
+       ylabel(0(10)80, angle(0) format(%9.0f)) ///
        ytitle("Percent") ///
        xtitle("") ///
-       title("Availability by SES") ///
+       title("Referral Rates by SES") ///
        legend(order(1 "Low" 2 "Middle" 3 "High") ///
-              ring(0) pos(12) rows(1) region(lcolor(none))) ///
+              ring(0) pos(11) rows(3) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 4.5)) ///
-       name(ses_distribution, replace)
+	   xsize(6) ysize(5) ///
+       name(referral_rates, replace)
 
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png", replace
+graph export "${path}referral_rates.png", replace
 restore

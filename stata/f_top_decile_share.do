@@ -133,5 +133,5 @@ twoway `bar_cmds' ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 4.5)) ///
        name(top_decile_comparison, replace)
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_comparison.png", replace
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_share.png", replace
 restore

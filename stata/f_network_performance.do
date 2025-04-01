@@ -22,7 +22,7 @@ foreach ses in 1 2 3 {
     preserve 
     keep if own_estrato == `ses'
     
-    tabstat z_other_score_math, stat(n mean sd) save
+    tabstat other_score_math, stat(n mean sd) save
     matrix stats = r(StatTotal)
     
     global math_`ses_label'_n = stats[1,1]
@@ -40,7 +40,7 @@ foreach ses in 1 2 3 {
     preserve 
     keep if own_estrato == `ses'
     
-    tabstat z_other_score_reading, stat(n mean sd) save
+    tabstat other_score_reading, stat(n mean sd) save
     matrix stats = r(StatTotal)
     
     global read_`ses_label'_n = stats[1,1]
@@ -98,8 +98,8 @@ twoway (bar z_score xpos if subject==2, barw(0.45) color("130 202 157")) ///  //
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
        , ///
        xlabel(1.25 "Low" 2.75 "Middle" 4.25 "High") ///
-       ylabel(0(0.05)0.20, angle(0) format(%9.2f)) ///
-       ytitle("z-score") ///
+       ylabel(50(5)80, angle(0)) ///
+       ytitle("Score") ///
        xtitle("") ///
        title("Network Performance by SES") ///
        legend(order(1 "Reading" 2 "Math") ring(0) pos(11) rows(2) region(lcolor(none))) ///  // Update legend order
@@ -107,5 +107,5 @@ twoway (bar z_score xpos if subject==2, barw(0.45) color("130 202 157")) ///  //
        xscale(range(0.5 5)) ///
        name(ses_zscore, replace)
 
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png", replace
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png", replace
 restore
