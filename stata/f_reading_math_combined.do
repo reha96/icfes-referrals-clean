@@ -149,17 +149,18 @@ gen reading_ci_lower = score_reading - 1.96*se_reading
 gen tie_ci_upper = score_tie_reading + 1.96*se_tie_reading
 gen tie_ci_lower = score_tie_reading - 1.96*se_tie_reading
 
+
 twoway (bar score_reading group if treatment == "No bonus" & referral == "Not referred", barw(0.8) color("130 202 157")) ///
        (bar score_reading group if treatment == "No bonus" & referral == "Referred", barw(0.8) color("130 202 157")) ///
        (bar score_reading group if treatment == "Bonus" & referral == "Not referred", barw(0.8) color("130 202 157")) ///
        (bar score_reading group if treatment == "Bonus" & referral == "Referred", barw(0.8) color("130 202 157")) ///
-       (rcap reading_ci_upper reading_ci_lower group, color(black)), ///
+       (rcap reading_ci_upper reading_ci_lower group, color(black)), /// 
        xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
-       ylabel(50(5)80, angle(0)) ///
+       ylabel(50(5)80, angle(0) gmin gmax) ///
        ytitle("Score") ///
        xtitle("") ///
-       title("Reading", color(black)) ///
-       subtitle("		Baseline               	   	 Bonus	", position(12) span justification(center) color(black)) ///
+       title("Reading") ///
+	   subtitle("			Baseline                   Bonus	", position(12) span justification(center)) ///
        legend(off) ///
        graphregion(color(white)) bgcolor(white) ///
        name(reading_score, replace) nodraw
@@ -169,23 +170,22 @@ twoway (bar score_tie_reading group if treatment == "No bonus" & referral == "No
        (bar score_tie_reading group if treatment == "Bonus" & referral == "Not referred", barw(0.8) color("130 202 157")) ///
        (bar score_tie_reading group if treatment == "Bonus" & referral == "Referred", barw(0.8) color("130 202 157")) ///
        (rcap tie_ci_upper tie_ci_lower group, color(black)), ///
-       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") /// 
-       ylabel(0(3)18, angle(0)) ///
+       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
+       ylabel(0(3)18, angle(0) gmin gmax) ///
        ytitle("# Classes") ///
        xtitle("") ///
-       title("Tie Strength", color(black)) ///
-       subtitle("		Baseline               	   	 Bonus	", position(12) span justification(center) color(black)) ///
+       title("Tie Strength") ///
+	   subtitle("			Baseline                   Bonus	", position(12) span justification(center)) ///
        legend(off) ///
        graphregion(color(white)) bgcolor(white) ///
        name(reading_tie, replace) nodraw
-
+	   
 graph combine reading_score reading_tie, ///
-       graphregion(color(white)) ///
-       rows(1) ///
-       name(reading_combined, replace)
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png", replace
-list treatment referral score_reading se_reading in 1/4
-restore
+      graphregion(color(white)) ///
+      rows(1) ///
+      name(reading_combined, replace)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png", replace    
+restore 
 
 
 
@@ -245,10 +245,10 @@ twoway (bar score_math group if treatment == "No bonus" & referral == "Not refer
       (bar score_math group if treatment == "Bonus" & referral == "Referred", barw(0.8) color("136 132 216")) ///
       (rcap math_ci_upper math_ci_lower group, color(black)), ///
       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
-      ylabel(50(5)80, angle(0)) ///
+      ylabel(50(5)80, angle(0) gmin gmax) ///
       ytitle("Score") ///
-      title("Math", color(black)) ///
-      subtitle("		Baseline                   Bonus	", position(12) span justification(center) color(black)) ///
+      title("Math") ///
+      subtitle("		Baseline                   Bonus	", position(12) span justification(center)) ///
       legend(off) ///
       xtitle("") ///
       graphregion(color(white)) bgcolor(white) ///
@@ -260,10 +260,10 @@ twoway (bar score_tie_math group if treatment == "No bonus" & referral == "Not r
       (bar score_tie_math group if treatment == "Bonus" & referral == "Referred", barw(0.8) color("136 132 216")) ///
       (rcap tie_ci_upper tie_ci_lower group, color(black)), ///
       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
-      ylabel(0(3)18, angle(0)) ///
+      ylabel(0(3)18, angle(0) gmin gmax) ///
       ytitle("# Classes") ///
-      title("Tie Strength", color(black)) ///
-      subtitle("		Baseline                   Bonus	", position(12) span justification(center) color(black)) ///
+      title("Tie Strength") ///
+      subtitle("		Baseline                   Bonus	", position(12) span justification(center)) ///
       legend(off) ///
       xtitle("") ///
       graphregion(color(white)) bgcolor(white) ///

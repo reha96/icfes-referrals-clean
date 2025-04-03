@@ -25,14 +25,14 @@ collapse (mean) connections mean_tie, by(own_semester)
 twoway (area connections own_semester, color(lavender*.8)) ///
        (line mean_tie own_semester, yaxis(2) lcolor(teal) lwidth(medthick)), ///
        xlabel(1(2)11, nogrid) ///
-       ylabel(0(50)300, angle(0) grid gmin gmax) ///
+       ylabel(0(50)300, angle(0) grid gmin ) ///
        ylabel(0(2)10, angle(0) axis(2)) ///
        ytitle("Connections") ///
        ytitle("Classes taken", axis(2)) ///
        xtitle("Semesters") ///
        legend(order(1 "Connections" 2 "Classes taken") ///
-              ring(0) pos(11) rows(2) region(lcolor(none))) ///
+              ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        name(connection_tie, replace)
 
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png", replace width(3000)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png", replace

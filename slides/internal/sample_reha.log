@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  1 APR 2025 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  3 APR 2025 12:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -605,11 +605,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count349
 \l__pdf_internal_box=\box77
-) (./sample_reha.aux
-
-LaTeX Warning: Label `fig:net-performance' multiply defined.
-
-)
+) (./sample_reha.aux)
 \openout1 = `sample_reha.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -773,103 +769,98 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 ] [3
 
 ]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png, id=37, 3011.25pt x 2190.1825pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png  used on input line 132.
-(pdftex.def)             Requested size: 242.3378pt x 176.25418pt.
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png, id=37, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png  used on input line 132.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
  [4
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_tie.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png, id=44, 839.135pt x 610.28pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png  used on input line 149.
-(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
- [5
-
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png, id=51, 839.135pt x 610.28pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png  used on input line 165.
-(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
- [6
-
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png, id=58, 1409.265pt x 1127.21124pt>
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png, id=44, 1409.265pt x 1024.82875pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png>
 Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png  used on input line 182.
-(pdftex.def)             Requested size: 242.3378pt x 193.82495pt.
- [7
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [5
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png, id=66, 1221.56375pt x 888.31876pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png  used on input line 200.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png, id=51, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png  used on input line 200.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [6
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/availability.png, id=58, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/availability.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/availability.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/availability.png  used on input line 220.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [7
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/availability.png>]
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 238.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/fee_by_ses.png, id=68, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/fee_by_ses.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/fee_by_ses.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/fee_by_ses.png  used on input line 238.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
  [8
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png, id=75, 839.135pt x 610.28pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png  used on input line 217.
-(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
- [9
-
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png, id=82, 839.135pt x 610.28pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png  used on input line 234.
-(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
- [10
-
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png, id=89, 1221.56375pt x 888.31876pt>
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/fee_by_ses.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png, id=76, 1409.265pt x 1024.82875pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png  used on input line 252.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
- [11
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png  used on input line 276.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [9
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png, id=96, 1221.56375pt x 888.31876pt>
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png, id=83, 1409.265pt x 1024.82875pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png  used on input line 270.
-(pdftex.def)             Requested size: 242.3378pt x 176.2238pt.
- [12
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png  used on input line 294.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [10
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png, id=103, 732.7375pt x 610.28pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png  used on input line 293.
-(pdftex.def)             Requested size: 185.14853pt x 154.19923pt.
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png, id=104, 732.7375pt x 610.28pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png  used on input line 293.
-(pdftex.def)             Requested size: 185.14853pt x 154.19923pt.
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_rates.png, id=90, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_rates.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_rates.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_rates.png  used on input line 310.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [11
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_rates.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png, id=97, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png  used on input line 327.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [12
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png, id=104, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png  used on input line 345.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
  [13
 
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_rates.png> </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/referral_performance.png>]
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/network_performance.png  used on input line 329.
-(pdftex.def)             Requested size: 242.3378pt x 176.241pt.
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png, id=112, 1409.265pt x 1024.82875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png  used on input line 362.
+(pdftex.def)             Requested size: 242.3378pt x 176.22018pt.
+ [14
 
-pdfTeX warning (ext4): destination with the same identifier (name{fig:net-performance}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.329 \end{frame}
-                  [14
-
-] [15
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png>] [15
 
 ] [16
 
@@ -877,21 +868,9 @@ l.329 \end{frame}
 
 ] [18
 
-]
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 470.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmss.fd
-File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \vbox (0.51854pt too high) detected at line 470
- []
+] [19
 
-[19
-
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \vbox (0.51854pt too high) detected at line 512
- []
-
-[20
+] [20
 
 ] [21
 
@@ -902,29 +881,6 @@ Overfull \vbox (0.51854pt too high) detected at line 512
 ] [24
 
 ] [25
-
-] [26
-
-]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png, id=191, 1310.8975pt x 953.5625pt>
-File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png Graphic file (type png)
-<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png  used on input line 713.
-(pdftex.def)             Requested size: 229.58235pt x 166.99234pt.
- [27
-
- </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png>] [28
-
-]
-Overfull \hbox (0.60367pt too wide) in alignment at lines 773--773
-[] [] [] [] []
- []
-
-[29
-
-] [30
-
-] [31
 
 ]
 \tf@nav=\write6
@@ -941,26 +897,22 @@ Overfull \hbox (0.60367pt too wide) in alignment at lines 773--773
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `sample_reha.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23654 strings out of 474116
- 466735 string characters out of 5743681
+ 23709 strings out of 474116
+ 468809 string characters out of 5743681
  1941187 words of memory out of 5000000
- 45427 multiletter control sequences out of 15000+600000
- 568887 words of font info for 74 fonts, out of 8000000 for 9000
+ 45486 multiletter control sequences out of 15000+600000
+ 568892 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,13n,123p,475b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb>
-Output written on sample_reha.pdf (31 pages, 1136511 bytes).
+ 128i,13n,123p,475b,763s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
+Output written on sample_reha.pdf (25 pages, 1446647 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 202 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 

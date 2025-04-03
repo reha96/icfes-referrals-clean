@@ -140,7 +140,7 @@ twoway (bar proportion xpos if other_ses == 1, barw(0.25) color("255 99 132")) /
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2.5 "Middle" 4 "High") ///
-       ylabel(0(10)60, angle(0) format(%9.0f)) ///
+       ylabel(0(10)80, angle(0) format(%9.0f)) ///
        ytitle("Percent") ///
        xtitle("") ///
        title("Availability by SES") ///

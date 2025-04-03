@@ -12,20 +12,20 @@ graph drop _all
 
 use "reading.dta", clear
 preserve
-twoway (lpolyci z_other_score_reading z_tie if own_estrato==1 & z_tie <=5, degree(1) bwidth(1) lcolor("255 99 132") lwidth(thick) ///
+twoway (lpolyci other_score_reading tie if own_estrato==1 & tie <=20, degree(1) bwidth(1) lcolor("255 99 132") lwidth(thick) ///
         ciplot(rline) clpattern(dash) clcolor("255 99 132")) ///
-       (lpolyci z_other_score_reading z_tie if own_estrato==2 & z_tie <=5, degree(1) bwidth(1) lcolor("54 162 235") lwidth(thick) ///
+       (lpolyci other_score_reading tie if own_estrato==2 & tie <=20, degree(1) bwidth(1) lcolor("54 162 235") lwidth(thick) ///
         ciplot(rline) clpattern(dash) clcolor("54 162 235")) ///
-       (lpolyci z_other_score_reading z_tie if own_estrato==3 & z_tie <=5, degree(1) bwidth(1) lcolor("75 192 112") lwidth(thick) ///
+       (lpolyci other_score_reading tie if own_estrato==3 & tie <=20, degree(1) bwidth(1) lcolor("75 192 112") lwidth(thick) ///
         ciplot(rline) clpattern(dash) clcolor("75 192 112")), ///
-       ylabel(-0.25(0.25)1, grid) ///
-       xlabel(-1(1)5) ///
-       ytitle("Reading z-score") ///
-       xtitle("Tie Strength z-score") ///
+       ylabel(60(5)70, grid) ///
+       xlabel(5(5)25) ///
+       ytitle("Score") ///
+       xtitle("Tie Strength") ///
        legend(ring(0) pos(11) rows(3) order(1 "Low" 3 "Middle" 5 "High") region(lcolor(none))) ///
        title("Reading") ///
        graphregion(color(white)) bgcolor(white) ///
-       name(reading, replace)  nodraw
+       name(reading, replace)
        
 // graph export "tie_reading_by_ses.png", replace width(2000) height(1500)
 restore

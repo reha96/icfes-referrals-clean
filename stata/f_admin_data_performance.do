@@ -89,7 +89,7 @@ twoway (bar score xpos if subject==2, barw(0.45) color("130 202 157")) ///  // R
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
        , ///
        xlabel(1.25 "Low" 2.75 "Middle" 4.25 "High") ///
-       ylabel(50(5)80, angle(0)) ///
+       ylabel(50(5)80, angle(0) grid gmin gmax) ///
        ytitle("Score") ///
        xtitle("") ///
        title("Admin Data Performance by SES") ///

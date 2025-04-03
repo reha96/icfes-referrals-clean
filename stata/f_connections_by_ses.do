@@ -72,7 +72,6 @@ twoway (bar connections xpos, barwidth(0.7) color("${lowSES}")) ///
        legend(off) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) ///
-       xsize(5) ysize(4) ///
        name(connections_by_ses, replace)
        
 graph export "${path}connections_by_ses.png", replace

@@ -121,16 +121,17 @@ cls
 esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
-//# is there in group homophily (same-ses) > yes for low-SES (moderately strong evidence)
+//# is there by SES low-SES bias > ?
 eststo clear
 forvalues ses = 1/3 {
     preserve
 		foreach i in math reading {
 			use "`i'.dta", clear			
 			keep if own_estrato == `ses'
-			gen homophily = (own_estrato==other_estrato)
-			eststo `i'_`ses': clogit nomination i.homophily z_other_score_`i' z_tie  z_other_gpa, group(own_id) vce(cluster own_id)		
-			eststo binary_`i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie  z_other_gpa, group(own_id) vce(cluster own_id)		
+		//  gen homophily = (own_estrato==other_estrato)
+			gen scoreXtie = z_other_score_`i' * z_tie
+			eststo `i'_`ses': clogit nomination i.other_estrato z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)		
+ 			eststo binary_`i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie   scoreXtie, group(own_id) vce(cluster own_id)		
 		}
 	restore
 }
