@@ -5,6 +5,14 @@
     Description: figure network composition by SES
 *******************************************************************************/
 
+global lowSES "255 99 132"    // Pink/red for low SES
+global medSES "54 162 235"    // Blue for medium SES
+global highSES "75 192 112"   // Green for high SES
+global reading "130 202 157" 
+global math "136 132 216"
+global path "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
+set scheme s2color, permanently
+
 clear all
 foreach own in low middle high {
     foreach other in low middle high {
@@ -60,6 +68,17 @@ matrix stats = r(StatTotal)
 global n_high = stats[1,1]
 restore
 
+preserve
+bysort other_id: gen counter = _n
+keep if counter == 1
+proportion other_estrato
+matrix props_A = r(table)
+global prop_A_low = props_A[1,1]* 100
+global prop_A_middle = props_A[1,2]* 100
+global prop_A_high = props_A[1,3]* 100
+restore
+
+
 // Compare Low SES peer connections across own SES groups
 prtesti ${n_low} ${prop_low_low} ${n_middle} ${prop_middle_low}    // Low vs Middle (Low SES peers)
 prtesti ${n_low} ${prop_low_low} ${n_high} ${prop_high_low}      // Low vs High (Low SES peers)
@@ -82,6 +101,7 @@ foreach own in low middle high {
         global se_`own'_`other' = ${se_`own'_`other'} * 100
     }
 }
+
 // Create visualization dataset
 preserve
 clear
@@ -104,6 +124,7 @@ replace xpos = 4.0 if own_ses == 3 & other_ses == 2  // High-Middle
 replace xpos = 4.3 if own_ses == 3 & other_ses == 3  // High-High
 
 gen proportion = .
+gen proportionA = .
 gen se = .
 
 replace proportion = ${prop_low_low} if own_ses == 1 & other_ses == 1
@@ -130,6 +151,11 @@ replace se = ${se_high_high} if own_ses == 3 & other_ses == 3
 gen ci_lower = proportion - 1.96*se
 gen ci_upper = proportion + 1.96*se
 
+replace proportionA = ${prop_A_low} if other_ses == 1
+replace proportionA = ${prop_A_middle} if  other_ses == 2
+replace proportionA = ${prop_A_high} if  other_ses == 3
+
+
 label define ses_lab 1 "Low" 2 "Middle" 3 "High"
 label values own_ses ses_lab
 label values other_ses ses_lab
@@ -137,14 +163,17 @@ label values other_ses ses_lab
 twoway (bar proportion xpos if other_ses == 1, barw(0.25) color("255 99 132")) ///
        (bar proportion xpos if other_ses == 2, barw(0.25) color("54 162 235")) ///
        (bar proportion xpos if other_ses == 3, barw(0.25) color("75 192 112")) ///
-       (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
+	   (function y=15, range(0.5 4.5) lpattern(dash) lcolor("75 192 112")) ///
+       (function y=51, range(0.5 4.5) lpattern(dash) lcolor("54 162 235")) ///
+       (function y=34, range(0.5 4.5) lpattern(dash) lcolor("255 99 132")) ///
+	   (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2.5 "Middle" 4 "High") ///
-       ylabel(0(10)80, angle(0) format(%9.0f)) ///
+       ylabel(0(10)80, angle(0) format(%9.0f) gmin) ///
        ytitle("Percent") ///
        xtitle("") ///
-       title("Availability by SES") ///
-       legend(order(1 "Low" 2 "Middle" 3 "High") ///
+       title("Composition by SES") ///
+       legend(order(1 "Low" 2 "Middle" 3 "High" 5 "Admin") ///
               ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 4.5)) ///

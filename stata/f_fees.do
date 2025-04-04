@@ -93,8 +93,8 @@ label values own_estrato estrato_lab
 
 twoway (bar fee xpos, barwidth(0.7) color("${lowSES}")) ///
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
-	   (scatter feeA xpos, mcolor(gs4) lcolor(none)) ///
-	   (scatter feeS xpos, mcolor(teal) lcolor(none) msymbol(+) lcolor(none)) ///
+	   (scatter feeA xpos, mcolor(gs4) msize(large) lcolor(none)) ///
+	   (scatter feeS xpos, mcolor(gs4) msize(large) lcolor(none) msymbol(Dh) lcolor(none)) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High", noticks) ///
        ylabel(1800(100)2500, angle(0) format(%9.0f) grid gmin) ///

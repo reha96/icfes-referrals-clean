@@ -121,7 +121,7 @@ cls
 esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
-//# is there by SES low-SES bias > ?
+//# is there by SES low-SES bias > high-SES at 10 pcent
 eststo clear
 forvalues ses = 1/3 {
     preserve
@@ -144,6 +144,23 @@ esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01
 cls
 esttab binary_reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab binary_math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+
+//# is there by low-SES vs other low-SES bias ?
+eststo clear
+forvalues ses = 0/1 {
+    preserve
+		foreach i in math reading {
+			use "`i'.dta", clear			
+			keep if own_low_ses == `ses'
+			gen scoreXtie = z_other_score_`i' * z_tie
+			eststo `i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)				
+		}
+	restore
+}
+
+cls
+esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 
 //# are low-SES better referrers controlling for network > NO, but network average matters

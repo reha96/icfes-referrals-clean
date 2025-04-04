@@ -181,34 +181,12 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Referrer network performance}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Strongest selection w.r.t. performance for the Low-SES
-                \item Network performance represents selection for the Low-SES
-                \item Similar performance across the board
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png}
-            \label{fig:net_performance}
-        \end{column}
-    \end{columns}
-\end{frame}
-
 \begin{frame}{Referrer network SES composition}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
             \begin{itemize}
-                \item Admin data shows 34\% Low, 51\% Med, and 15\% High-SES
-                % \pause
-                \item Monotonic increase in availability across SES
-                % \pause
-                \item All differences are statistically significant ($p < 0.001$)
+                \item Monotonic increase in Middle and High SES shares as SES increases
             \end{itemize}
         \end{column}
         \begin{column}{0.62\textwidth}
@@ -224,7 +202,7 @@
         \begin{column}{0.38\textwidth}
             \vspace{2em}
             \begin{itemize}
-                \item Net average monthly salary around \$350
+                \item Net average monthly salary \$350 in Colombia
                 % \pause
                 \item Networks of Low-SES sort into more affordable programs
             \end{itemize}
@@ -236,6 +214,26 @@
         \end{column}
     \end{columns}
 \end{frame}
+
+\begin{frame}{Referrer network performance}
+    \begin{columns}[T]
+        \begin{column}{0.38\textwidth}
+            \vspace{2em}
+            \begin{itemize}
+                \item Strongest selection w.r.t. performance for the Low-SES
+                \item Network performance represents selection
+                \item Comparable performance across SES
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \centering
+            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png}
+            \label{fig:net_performance}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
 
 % \begin{frame}{Network tie strength by SES}
 %     \begin{columns}[T]
@@ -364,12 +362,12 @@
 
 
 
-\begin{frame}[plain]
-    \vspace{3em}
-    \begin{center}
-        \Huge\textbf{Regression Analysis}
-    \end{center}
-\end{frame}
+% \begin{frame}[plain]
+%     \vspace{3em}
+%     \begin{center}
+%         \Huge\textbf{Regression Analysis}
+%     \end{center}
+% \end{frame}
 
 % \begin{frame}{Empirical specification: referral choice}
 %     \begin{itemize}
@@ -384,7 +382,7 @@
 %     \end{itemize}
 % \end{frame}
 
-\begin{frame}{Empirical specification: referral decision}
+\begin{frame}{Is there a Low-SES bias in referrals?}
     
     \vspace{0.5em}
     \textbf{Conditional Logit Model:}
@@ -409,7 +407,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Is there a Low-SES bias in Reading referrals?}
+\begin{frame}{Reading}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -429,9 +427,9 @@
                 \toprule
                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                 \midrule
-                Middle & -0.143* & 0.007 & 0.007 \\
+                Middle-SES & -0.143* & 0.007 & 0.007 \\
                  & (0.086) & (0.101) & (0.102) \\
-                High & -0.436*** & -0.264* & -0.268* \\
+                High-SES & -0.436*** & -0.264* & -0.268* \\
                  & (0.134) & (0.155) & (0.156) \\
                 Reading Score  &  & 0.566*** & 0.513*** \\
                  &  & (0.044) & (0.048) \\
@@ -451,7 +449,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Is there a Low-SES bias in Math referrals?}
+\begin{frame}{Math}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -470,9 +468,9 @@
                 \toprule
                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                 \midrule
-                Middle & -0.161* & 0.013 & 0.015 \\
+                Middle-SES & -0.161* & 0.013 & 0.015 \\
                  & (0.086) & (0.099) & (0.100) \\
-                High & -0.470*** & -0.331** & -0.346** \\
+                High-SES & -0.470*** & -0.331** & -0.346** \\
                  & (0.136) & (0.154) & (0.156) \\
                 Math Score  &  & 0.662*** & 0.546*** \\
                  &  & (0.040) & (0.042) \\
@@ -575,7 +573,7 @@
 %     \end{columns}
 % \end{frame}
 
-\begin{frame}{Is there a Low-SES bias in Reading referrals?}
+\begin{frame}{Reading across SES}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -592,12 +590,12 @@
                 \begin{threeparttable}
                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
                 \toprule
-                & Low-SES & Med-SES & High-SES \\
+                & Low-SES & Middle-SES & High-SES \\
                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                 \midrule
-                Middle & -0.266* & 0.202 & 0.275 \\
+                Middle-SES & -0.266* & 0.202 & 0.275 \\
                  & (0.155) & (0.149) & (0.369) \\
-                High & -0.572** & -0.052 & -0.236 \\
+                High-SES & -0.572** & -0.052 & -0.236 \\
                  & (0.285) & (0.216) & (0.469) \\
                 Reading Score & 0.548*** & 0.483*** & 0.553*** \\
                  & (0.076) & (0.067) & (0.179) \\
@@ -617,7 +615,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Is there a Low-SES bias in Math referrals?}
+\begin{frame}{Math across SES}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -634,7 +632,7 @@
                 \begin{threeparttable}
                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
                 \toprule
-                & Low-SES & Med-SES & High-SES \\
+                & Low-SES & Middle-SES & High-SES \\
                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                 \midrule
                 Middle & -0.208 & 0.101 & 0.986** \\
@@ -759,11 +757,11 @@
 \begin{frame}{Conclusion}
     \begin{itemize}% [<+->]
     \item Referrers pick nominees based on performance and tie strength
-    \item Evidence for a bias against Low-SES only in Math referrals from High-SES
+    \item No support for a bias against Low-SES
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=alternate_regression]{Is there a Low-SES bias in Reading referrals? (Alt.)}
+\begin{frame}[label=alternate_regression]{Reading (Alt.)}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -803,7 +801,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}[label=alternate_regression2]{Is there a Low-SES bias in Math referrals? (Alt.)}
+\begin{frame}[label=alternate_regression2]{Math (Alt.)}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -843,7 +841,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}[label=alternate_regression3]{Is there a Low-SES bias in Reading referrals? (Alt.)}
+\begin{frame}[label=alternate_regression3]{Reading across SES (Alt.)}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -862,7 +860,7 @@
                 \begin{threeparttable}
                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
                 \toprule
-                 & Low-SES & Med-SES & High-SES \\
+                 & Low-SES & Middle-SES & High-SES \\
                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                 \midrule
                 Low-SES & 0.312** & -0.155 & -0.156 \\
@@ -885,7 +883,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}[label=alternate_regression4]{Is there a Low-SES bias in Math referrals? (Alt.)}
+\begin{frame}[label=alternate_regression4]{Math across SES (Alt.)}
     \begin{columns}[T]
         \begin{column}{0.38\textwidth}
             \vspace{2em}
@@ -904,7 +902,7 @@
                 \begin{threeparttable}
                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
                 \toprule
-                 & Low-SES & Med-SES & High-SES \\
+                 & Low-SES & Middle-SES & High-SES \\
                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                 \midrule
                 Low-SES & 0.296** & -0.041 & -0.916* \\

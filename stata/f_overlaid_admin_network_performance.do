@@ -148,15 +148,15 @@ gen ci_upper = z_score + 1.96*se
 twoway (bar z_score xpos if subject==2, barw(0.45) color("130 202 157")) ///  // Reading (now first)
        (bar z_score xpos if subject==1, barw(0.45) color("136 132 216")) ///  // Math (now second)
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
-	   (scatter z_scoreA xpos, mcolor(gs4) lcolor(none)) ///
-	   (scatter z_scoreS xpos, mcolor(red) lcolor(none) msymbol(+)) ///
+	   (scatter z_scoreA xpos, mcolor(gs4) lcolor(none) msize(large) ) ///
+	   (scatter z_scoreS xpos, mcolor(gs4) lcolor(none) msize(large) msymbol(Dh)) ///
        , ///
        xlabel(1.25 "Low" 2.75 "Middle" 4.25 "High") ///
        ylabel(50(5)80, angle(0) grid gmin gmax) ///
        ytitle("Score") ///
        xtitle("") ///
        title("Network Performance by SES") ///
-       legend(order(1 "Reading" 2 "Math" 4 "Admin Data" 5 "Sample") ring(0) pos(12) rows(1) region(lcolor(none))) ///  // Update legend order
+       legend(order(1 "Reading" 2 "Math" 4 "Admin" 5 "Sample") ring(0) pos(12) rows(1) region(lcolor(none))) ///  // Update legend order
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 5)) ///
        name(ses_zscore, replace)
