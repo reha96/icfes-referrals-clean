@@ -1,0 +1,47 @@
+/*******************************************************************************
+    Project: icfes referrals 
+    Author: Reha Tuncer
+    Date: 08.04.2025
+    Description: tie strength explained
+*******************************************************************************/
+
+global lowSES "255 99 132"    // Pink/red for low SES
+global medSES "54 162 235"    // Blue for medium SES
+global highSES "75 192 112"   // Green for high SES
+global reading "130 202 157" 
+global math "136 132 216"
+global path "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
+set scheme s2color, permanently
+
+// sample
+preserve
+use "dataset_z.dta",clear
+sort own_id other_id
+keep if area == 1
+keep if own_program == other_program
+tabstat tie, stat (mean n sd semean) save 
+restore 
+
+preserve
+use "dataset_z.dta",clear
+sort own_id other_id
+keep if area == 1
+keep if own_program != other_program
+tabstat tie, stat (mean n sd semean) save 
+restore 
+
+order tie own_program other_program
+gsort -tie
+
+preserve
+clear all
+use "dataset_z.dta", clear
+keep if area 
+gen same_program = (own_program == other_program)
+gen tie_star = 0
+replace tie_star = 1 if tie >= 35
+tab tie own_program if same_program & tie_star
+gen tie_programa = 0
+replace tie_programa = 1 if (own_program == 10 | own_program == 200 | own_program == 210 | own_program == 270) & same_program
+tabstat tie if tie_programa, stat (mean n sd semean) save 
+restore

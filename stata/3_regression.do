@@ -54,9 +54,9 @@ foreach i in math reading {
 	gen same_med = (other_med_ses==own_med_ses)
 	gen same_high = (other_high_ses==own_high_ses)
 
-    eststo `i'_1: clogit nomination i.other_estrato, group(own_id) vce(cluster own_id)
-    eststo `i'_2: clogit nomination i.other_estrato z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
-	eststo `i'_3: clogit nomination i.other_estrato z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
+    eststo `i'_1: clogit nomination ib(2).other_estrato, group(own_id) vce(cluster own_id)
+    eststo `i'_2: clogit nomination ib(2).other_estrato z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
+	eststo `i'_3: clogit nomination ib(2).other_estrato z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
     restore
 }
 cls
@@ -130,7 +130,7 @@ forvalues ses = 1/3 {
 			keep if own_estrato == `ses'
 		//  gen homophily = (own_estrato==other_estrato)
 			gen scoreXtie = z_other_score_`i' * z_tie
-			eststo `i'_`ses': clogit nomination i.other_estrato z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)		
+			eststo `i'_`ses': clogit nomination ib(2).other_estrato z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)		
  			eststo binary_`i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie   scoreXtie, group(own_id) vce(cluster own_id)		
 		}
 	restore

@@ -1,1050 +1,1090 @@
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND THEMES
-%----------------------------------------------------------------------------------------
-\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
-\usetheme{SimplePlus}
-\usecolortheme{default}
-\definecolor{grayedout}{RGB}{200,200,220}  % Choose whichever option you prefer
+    %----------------------------------------------------------------------------------------
+    %	PACKAGES AND THEMES
+    %----------------------------------------------------------------------------------------
+    \documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+    \usetheme{SimplePlus}
+    \usecolortheme{default}
+    \definecolor{grayedout}{RGB}{200,200,220}  % Choose whichever option you prefer
 
-\usepackage{threeparttable}
-\usepackage{hyperref}
-\usepackage{subfig}
-\usepackage{bbm}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+    \usepackage{threeparttable}
+    \usepackage{hyperref}
+    \usepackage{subfig}
+    \usepackage{bbm}
+    \usepackage{graphicx} % Allows including images
+    \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+    \usepackage{tikz}
 
-\setbeamertemplate{itemize item}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
-\setbeamertemplate{itemize subitem}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
+    \setbeamertemplate{itemize item}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
+    \setbeamertemplate{itemize subitem}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
 
-\setbeamercovered{transparent}
-\renewcommand{\footnotesize}{\fontsize{8pt}{11pt}\selectfont}
+    \setbeamercovered{transparent}
+    \renewcommand{\footnotesize}{\fontsize{8pt}{11pt}\selectfont}
 
-%----------------------------------------------------------------------------------------
-%	TITLE PAGE
-%----------------------------------------------------------------------------------------
+    %----------------------------------------------------------------------------------------
+    %	TITLE PAGE
+    %----------------------------------------------------------------------------------------
 
-\title[short title]{ICFES Referrals} % The short title appears at the bottom of every slide, the full title is only on the title page
-\subtitle{20-minute internal presentation for data analysis}
+    \title[short title]{Breaking the Bias: Referrals offset class differences in social networks} % The short title appears at the bottom of every slide, the full title is only on the title pages
+    \subtitle{1 hour internal presentation}
 
-\author[Pin-Yen] {Reha Tuncer - University of Luxembourg}
+    \author[Pin-Yen] {Reha Tuncer - University of Luxembourg}
 
-\date{4 April 2025} % Date, can be changed to a custom date
-
-
-%----------------------------------------------------------------------------------------
-%	PRESENTATION SLIDES
-%----------------------------------------------------------------------------------------
-
-\begin{document}
-
-\begin{frame}
-    % Print the title page as the first slide
-    \titlepage
-\end{frame}
-
-\begin{frame}{Selection into the experiment}
-    \begin{columns}[T]  % T option aligns the top of the columns
-        \begin{column}{0.38\textwidth}  % Left column for your comment
-            \vspace{2em}  % Add some space to align better with the table
-            \begin{itemize}
-                \item Higher performing students and Low-SES overrepresented
-                \item High-SES underrepresented
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}  % Right column for the table
-            \begin{table}
-                \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
-                \toprule
-                & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textbf{p}} \\
-                \midrule
-                Reading score & 62.651 & 65.183 & $<0.001$ \\
-                Math score & 63.973 & 67.477 & $<0.001$ \\
-                GPA & 3.958 & 4.012 & $<0.001$ \\
-                Low-SES & 0.343 & 0.410 & $<0.001$ \\
-                Med-SES & 0.505 & 0.499 & 0.763 \\
-                High-SES & 0.153 & 0.091 & $<0.001$ \\
-                \midrule
-                Observations & 4,417 & 734 & 5,151 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:selection}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Balance between treatments}
-    \begin{columns}[T]  % T option aligns the top of the columns
-        \begin{column}{0.38\textwidth}  % Left column for placeholder text
-            \vspace{2em}  % Add some space to align better with the table
-            \begin{itemize}
-                \item Successful randomization
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}  % Right column for the table
-            \begin{table}
-                \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
-                \toprule
-                & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} & \multicolumn{1}{c}{\textbf{p}} \\
-                \midrule
-                Reading score & 64.712 & 65.693 & 0.134 \\
-                Math score & 67.366 & 67.597 & 0.780 \\
-                GPA & 4.003 & 4.021 & 0.445 \\
-                \# connections & 173.40 & 176.88 & 0.574 \\
-                Tie strength & 3.939 & 3.719 & 0.443 \\
-                Low-SES & 0.419 & 0.401 & 0.615 \\
-                Med-SES & 0.492 & 0.506 & 0.714 \\
-                High-SES & 0.089 & 0.094 & 0.824 \\
-                \midrule
-                Observations & 382 & 352 & 734 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:balance}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Referrer network size and tie strength}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Classes taken with peers increase over time
-                % \pause
-                \item Connections peak around 7 semesters and decline as students change majors or graduate
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png}
-            \label{fig:connections_class}
-        \end{column}
-    \end{columns}
-\end{frame}
+    \date{4 April 2025} % Date, can be changed to a custom date
 
 
-% \begin{frame}{Admin data performance by SES}
-%     \begin{columns}[T]
-%         \begin{column}{0.38\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}
-%                 \item Performance increases with SES across math and reading
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.62\textwidth}
-%             \centering
-%             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png}
-%             \label{fig:admin-performance}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
+    %----------------------------------------------------------------------------------------
+    %	PRESENTATION SLIDES
+    %----------------------------------------------------------------------------------------
 
-% \begin{frame}{Sample performance by SES}
-%     \begin{columns}[T]
-%         \begin{column}{0.38\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}
-%                 \item Similar SES performance across math and reading
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.62\textwidth}
-%             \centering
-%             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png}
-%             \label{fig:sample-performance}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
+    \begin{document}
 
-\begin{frame}{Referrer network connections}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Connections decrease as SES increases
-                % \pause
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png}
-            \label{fig:composition_aggregate}
-        \end{column}
-    \end{columns}
-\end{frame}
+    \begin{frame}
+        % Print the title page as the first slide
+        \titlepage
+        \hideprogressbar
+    \end{frame}
 
-\begin{frame}{Referrer network SES composition}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Monotonic increase in Middle and High SES shares as SES increases
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/availability.png}
-            \label{fig:composition_byses}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Network-level program sorting}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Net average monthly salary \$350 in Colombia
-                % \pause
-                \item Networks of Low-SES sort into more affordable programs
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/fee_by_ses.png}
-            \label{fig:sorting_byses}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Referrer network performance}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Strongest selection w.r.t. performance for the Low-SES
-                \item Network performance represents selection
-                \item Comparable performance across SES
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png}
-            \label{fig:net_performance}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-
-
-% \begin{frame}{Network tie strength by SES}
-%     \begin{columns}[T]
-%         \begin{column}{0.38\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}
-%                 \item Low and High SES take more classes with their own
-%                 % \pause
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.62\textwidth}
-%             \centering
-%             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png}
-%             \label{fig:baseline_ses}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
-
-
-
-
-\begin{frame}{Referrals for Reading}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Referrals have higher reading scores and much higher tie strength
-                % \pause
-                \item No treatment effect on the referred (both $p > 0.08$)
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
-            \label{fig:read_combined}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Referrals for Math}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Referrals have higher math scores and much higher tie strength
-                % \pause
-                \item No treatment effect on the referred (both $p > 0.1$)
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
-            \label{fig:math_combined}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Referral SES composition}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Large monotonic differences in referral shares as SES increases (all $p < 0.1$)
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_rates.png}
-            \label{fig:ref-rates}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Referral performance}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Small differences in referral performance across SES (all $p > 0.08$)
-                % \pause
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png}
-            \label{fig:ref-performance}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Referral tie strength}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Low and High SES take more classes with their own SES
-                % \pause                 
-                \item Low and High SES refer from those with whom they take more classes
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png}
-            \label{fig:net-performance}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Referral performance and tie strength}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item High-SES referrers access slightly higher performing nominees
-                % \pause
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \centering
-            \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png}
-            \label{fig:ref-performance-bytie}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-
-
-
-% \begin{frame}[plain]
-%     \vspace{3em}
-%     \begin{center}
-%         \Huge\textbf{Regression Analysis}
-%     \end{center}
-% \end{frame}
-
-% \begin{frame}{Empirical specification: referral choice}
-%     \begin{itemize}
-%         \item Model the referral choice using a mixed multinomial logit model for each referrer's choice set (average 175 potential nominees) [McFadden and Train, 2000]
-%         % \pause
-        
-%         \item The probability that student $i$ refers student $j \in N_i$ is given by
-%         $$\frac{e^{\beta_i x_{ij}}}{\sum_{j=1}^{N_i} e^{\beta_i x_{ij}}}$$
-        
-%         where $x_{ij}$ is the vector of characteristics of $j$ (low-SES, test score, tie strength) and $\beta_i$ is a vector of individual-specific parameters comprising
-%         of a constant and a random component
-%     \end{itemize}
-% \end{frame}
-
-\begin{frame}{Is there a Low-SES bias in referrals?}
-    
-    \vspace{0.5em}
-    \textbf{Conditional Logit Model:}
-    \begin{align*}
-        \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Tie}_{ij} + \beta_4 \text{Score}_j \times \text{Tie}_{ij} + \alpha_i\right)
-    \end{align*}
-    
-    \vspace{0.5em}
-    \begin{itemize}% [<+->]
-        \item $\text{Refer}_{ij}$: Binary outcome indicating whether individual $i$ refers individual $j$
-        \item $\text{SES}_j$: Referral $j$ is Low, Middle, or High SES
-        \item $\text{Score}_j$: Math or Reading z-score of referral $j$
-        \item $\text{Tie}_{ij}$: z-score of number of classes taken together for $i$ and $j$
-        \item $\alpha_i$: Individual fixed effect for referrer $i$
-    \end{itemize}
-    
-    \vspace{0.5em}
-    \textbf{Features:}
-    \begin{itemize}% [<+->]
-        \item Control for referrer networks other unobservables with FE
-        \item Estimate separately for Math and Reading scores
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Reading}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Reading score and tie strength are strong predictors of referrals
-                \item No interaction between reading score and tie strength
-                \item No evidence for a Low-SES bias \hyperlink{alternate_regression}{\beamerbutton{Alt. Specification}}
-            \end{itemize}
+    \begin{frame}{Motivation}
+        \showprogressbar
+        \begin{itemize}% [<+->]
             
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
-                \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Middle-SES & -0.143* & 0.007 & 0.007 \\
-                 & (0.086) & (0.101) & (0.102) \\
-                High-SES & -0.436*** & -0.264* & -0.268* \\
-                 & (0.134) & (0.155) & (0.156) \\
-                Reading Score  &  & 0.566*** & 0.513*** \\
-                 &  & (0.044) & (0.048) \\
-                Tie &  & 0.949*** & 0.939*** \\
-                 &  & (0.031) & (0.032) \\
-                Score x Tie &  &  & 0.030 \\
-                 &  &  & (0.018) \\
-                \midrule
-                Observations & 128,847 & 128,847 & 128,847 \\
-                Individuals & 673 & 673 & 673 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:reading_regression}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Math}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
+            \item Understand persistent class differences in labor
+            market outcomes, like the underrepresentation of Low-SES researchers in academia [Stansbury and Rodriguez, 2024]
+            \item Focus on social class biases in referrals
             \begin{itemize}% [<+->]
-                \item Math score and tie strength are strong predictors of referrals
-                \item Significant but small interaction between math score and tie strength
-                \item No evidence for a Low-SES bias \hyperlink{alternate_regression2}{\beamerbutton{Alt. Specification}}
+                \item Numbers 1 
+                \item Numbers 2
             \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Procedures}
+        \begin{itemize}% [<+->]
+            \item Recruited participants by emailing 4500 students ($>$1st year)
+            \item Online experiment in Qualtrics
+            \item Average time spent 30 minutes
+            \item Randomly select 1 of every 10 for pay
+            \item Average payment of 80 USD (includes show-up fee)
+            \item 840 complete responses
+            \item Final sample 734 participants who referred someone they took a class with
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Selection into the experiment}
+        \begin{columns}[T]  % T option aligns the top of the columns
+            \begin{column}{0.38\textwidth}  % Left column for your comment
+                \vspace{2em}  % Add some space to align better with the table
+                \begin{itemize}
+                    \item Higher performing students overrepresented
+                    \item Low-SES overrepresented
+                    \item High-SES underrepresented
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}  % Right column for the table
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
+                    \toprule
+                    & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textbf{p}} \\
+                    \midrule
+                    Reading score & 62.651 & 65.183 & $<0.001$ \\
+                    Math score & 63.973 & 67.477 & $<0.001$ \\
+                    GPA & 3.958 & 4.012 & $<0.001$ \\
+                    Low-SES & 0.343 & 0.410 & $<0.001$ \\
+                    Med-SES & 0.505 & 0.499 & 0.763 \\
+                    High-SES & 0.153 & 0.091 & $<0.001$ \\
+                    \midrule
+                    Observations & 4,417 & 734 &  \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:selection}
+                    \end{threeparttable}
+                \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Balance between treatments}
+        \begin{columns}[T]  % T option aligns the top of the columns
+            \begin{column}{0.38\textwidth}  % Left column for placeholder text
+                \vspace{2em}  % Add some space to align better with the table
+                \begin{itemize}
+                    \item Successful randomization
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}  % Right column for the table
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
+                    \toprule
+                    & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} & \multicolumn{1}{c}{\textbf{p}} \\
+                    \midrule
+                    Reading score & 64.712 & 65.693 & 0.134 \\
+                    Math score & 67.366 & 67.597 & 0.780 \\
+                    GPA & 4.003 & 4.021 & 0.445 \\
+                    \# connections & 173.40 & 176.88 & 0.574 \\
+                    Tie strength & 3.939 & 3.719 & 0.443 \\
+                    Low-SES & 0.419 & 0.401 & 0.615 \\
+                    Med-SES & 0.492 & 0.506 & 0.714 \\
+                    High-SES & 0.089 & 0.094 & 0.824 \\
+                    \midrule
+                    Observations & 382 & 352 & 734 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:balance}
+                    \end{threeparttable}
+                \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Referrer network size and tie strength}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Classes taken with peers increase over time
+                    % \pause
+                    \item Connections peak around 7 semesters and decline as students change majors or graduate
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
                 \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Middle-SES & -0.161* & 0.013 & 0.015 \\
-                 & (0.086) & (0.099) & (0.100) \\
-                High-SES & -0.470*** & -0.331** & -0.346** \\
-                 & (0.136) & (0.154) & (0.156) \\
-                Math Score  &  & 0.662*** & 0.546*** \\
-                 &  & (0.040) & (0.042) \\
-                Tie &  & 0.885*** & 0.851*** \\
-                 &  & (0.029) & (0.029) \\
-                Score x Tie &  &  & 0.089*** \\
-                 &  &  & (0.019) \\
-                \midrule
-                Observations & 128,150 & 128,150 & 128,150 \\
-                Individuals & 669 & 669 & 669 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:math_regression}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png}
+                \label{fig:connections_class}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-% \begin{frame}{Do grades predict Reading referrals?}
-%     \begin{columns}[T]
-%         \begin{column}{0.38\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}% [<+->]
-%                 \item GPA correlates weakly with reading score ($\rho = 0.18$)
-%                 \item GPA is a better predictor of referrals when controlling for reading score and tie strength
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.62\textwidth}
-%             \begin{table}
-%                 \centering
-%                 \footnotesize
-%                 \begin{threeparttable}
-%                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-%                 \toprule
-%                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(4)} \\
-%                 \midrule
-%                 GPA & 0.759*** & 0.640*** & 0.578*** \\
-%                  & (0.044) & (0.059) & (0.070) \\
-%                 Reading Score &  & 0.407*** & 0.344*** \\
-%                  &  & (0.048) & (0.068) \\
-%                 Tie Strength &  & 0.936*** & 0.911*** \\
-%                  &  & (0.031) & (0.032) \\
-%                 Score × Tie &  &  & 0.010 \\
-%                  &  &  & (0.022) \\
-%                 Score × GPA &  &  & 0.017 \\
-%                  &  &  & (0.056) \\
-%                 GPA × Tie &  &  & 0.028 \\
-%                  &  &  & (0.026) \\
-%                 Score × Tie × GPA &  &  & 0.030* \\
-%                  &  &  & (0.018) \\
-%                 \bottomrule
-%                 \end{tabular*}
-%                 \label{tab:reading_gpa_regression}
-%                 \end{threeparttable}
-%             \end{table}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
 
-% \begin{frame}{Do grades predict Math referrals?}
-%     \begin{columns}[T]
-%         \begin{column}{0.38\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}% [<+->]
-%                 \item Significant but small interactions between tie strength and both performance variables
-%                 \item GPA correlates weakly with math score ($\rho = 0.14$)
-%                 \item GPA is a better predictor of referrals when controlling for math score and tie strength
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.62\textwidth}
-%             \begin{table}
-%                 \centering
-%                 \footnotesize
-%                 \begin{threeparttable}
-%                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-%                 \toprule
-%                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(4)} \\
-%                 \midrule
-%                 GPA & 0.765*** & 0.621*** & 0.500*** \\
-%                  & (0.044) & (0.059) & (0.068) \\
-%                 Math Score &  & 0.531*** & 0.400*** \\
-%                  &  & (0.044) & (0.065) \\
-%                 Tie Strength &  & 0.871*** & 0.808*** \\
-%                  &  & (0.029) & (0.030) \\
-%                 Score × Tie &  &  & 0.068*** \\
-%                  &  &  & (0.023) \\
-%                 Score × GPA &  &  & 0.026 \\
-%                  &  &  & (0.061) \\
-%                 GPA × Tie &  &  & 0.069*** \\
-%                  &  &  & (0.026) \\
-%                 Score × Tie × GPA &  &  & 0.034 \\
-%                  &  &  & (0.022) \\
-%                 \bottomrule
-%                 \end{tabular*}
-%                 \label{tab:math_gpa_regression}
-%                 \end{threeparttable}
-%             \end{table}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
+    % \begin{frame}{Admin data performance by SES}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item Performance increases with SES across math and reading
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/admin_performance.png}
+    %             \label{fig:admin-performance}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
-\begin{frame}{Reading across SES}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}% [<+->]
-                \item Restrict sample by referrer SES
-                \item Low-SES bias against other SES
-                \item No evidence for a bias against Low-SES \hyperlink{alternate_regression3}{\beamerbutton{Alt. Specification}}
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
+    % \begin{frame}{Sample performance by SES}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item Similar SES performance across math and reading
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sample_performance.png}
+    %             \label{fig:sample-performance}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    \begin{frame}{Referrer network connections}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Connections decrease as SES increases
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
                 \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                & Low-SES & Middle-SES & High-SES \\
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Middle-SES & -0.266* & 0.202 & 0.275 \\
-                 & (0.155) & (0.149) & (0.369) \\
-                High-SES & -0.572** & -0.052 & -0.236 \\
-                 & (0.285) & (0.216) & (0.469) \\
-                Reading Score & 0.548*** & 0.483*** & 0.553*** \\
-                 & (0.076) & (0.067) & (0.179) \\
-                Tie & 0.873*** & 0.991*** & 0.986*** \\
-                 & (0.046) & (0.046) & (0.128) \\
-                Score x Tie & 0.019 & 0.021 & 0.145** \\
-                 & (0.027) & (0.027) & (0.072) \\
-                \midrule
-                Observations & 54,611 & 64,596 & 9,640 \\
-                Individuals & 275 & 340 & 58 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:homophily_reading}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png}
+                \label{fig:composition_aggregate}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-\begin{frame}{Math across SES}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}% [<+->]
-                \item Restrict sample by referrer SES
-                \item Low-SES bias against High-SES
-                \item High-SES bias against Low-SES \hyperlink{alternate_regression4}{\beamerbutton{Alt. Specification}}
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
+    \begin{frame}{Referrer network SES composition}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Monotonic increase in Middle and High SES shares as SES increases
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
                 \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                & Low-SES & Middle-SES & High-SES \\
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Middle & -0.208 & 0.101 & 0.986** \\
-                 & (0.150) & (0.145) & (0.469) \\
-                High & -0.827*** & -0.212 & 0.718 \\
-                 & (0.288) & (0.220) & (0.576) \\
-                Math Score & 0.540*** & 0.526*** & 0.730*** \\
-                 & (0.064) & (0.060) & (0.128) \\
-                Tie & 0.814*** & 0.870*** & 0.929*** \\
-                 & (0.041) & (0.043) & (0.128) \\
-                Score x Tie & 0.067** & 0.096*** & 0.160 \\
-                 & (0.028) & (0.029) & (0.097) \\
-                \midrule
-                Observations & 55,531 & 62,492 & 10,127 \\
-                Individuals & 283 & 327 & 59 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:homophily_math}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/availability.png}
+                \label{fig:composition_byses}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-% \begin{frame}{Empirical Specification: referral performance}
-    
-%     \vspace{0.5em}
-%     \textbf{OLS Model:}
-%     \begin{align*}
-%         \text{Score}_{ij} = \beta_0 &+ \beta_1 \cdot \text{X}_i + \beta_2 \cdot \text{Mean Score}_j + \beta_3 \cdot \text{SD Score}_j + \varepsilon_{ij}
-%     \end{align*}
-    
-%     \vspace{0.5em}
-%     \begin{itemize}% [<+->]
-%         \item $\text{Score}_{ij}$: Test score of the nominee from referrer $i$ in subject $j$
-%         \item $\text{X}_{ij}$: SES of student $i$ or the test score of student $i$ in subject $j$
-%         \item $\text{Mean Score}_j$ and $\text{SD Score}_j$: Mean and SD of $i$'s network performance in subject $j$
-%     \end{itemize}
-    
-%     \vspace{0.5em}
-%     \textbf{Features:}
-%     \begin{itemize}% [<+->]
-%         \item Sample restricted to nominated students only
-%         \item Controls for network-level performance differences
-%         \item Standard errors clustered at individual level
-%     \end{itemize}
-% \end{frame}
-
-% \begin{frame}{Do Low-SES refer better?}
-%     \begin{columns}[T]
-%         \begin{column}{0.42\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}% [<+->]
-%                 \item No evidence that Low-SES refer better in reading or math
-%                 \item Better referrals depend on average network performance
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.58\textwidth}
-%             \begin{table}
-%                 \centering
-%                 \footnotesize
-%                 \begin{tabular}{lcc}
-%                 \toprule
-%                  & \multicolumn{1}{c}{Reading} & \multicolumn{1}{c}{Math} \\
-%                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
-%                 \midrule
-%                 Med-SES & -1.213** & -0.816 \\
-%                  & (0.607) & (0.731) \\
-%                 High-SES & 0.438 & 0.937 \\
-%                  & (1.085) & (1.287) \\
-%                 Mean Score & 1.250*** & 1.399*** \\
-%                  & (0.096) & (0.074) \\
-%                 SD Score & 0.233 & 0.163 \\
-%                  & (0.409) & (0.318) \\
-%                 Constant & -13.062 & -21.571*** \\
-%                  & (8.006) & (6.373) \\
-%                 \midrule
-%                 Observations & 673 & 669 \\
-%                 \bottomrule
-%                 \end{tabular}
-%             \end{table}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
-
-% \begin{frame}{Is there performance homophily in referrals?}
-%     \begin{columns}[T]
-%         \begin{column}{0.42\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}% [<+->]
-%                 \item Significant but small effect of own test score on referral score
-%                 \item Very large difference between the average network test score versus referrer performance (about 6 times)
-%                 \item Performance homophily is nearly not as important as network composition
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.58\textwidth}
-%             \begin{table}
-%                 \centering
-%                 \footnotesize
-%                 \begin{tabular}{lcc}
-%                 \toprule
-%                  & \multicolumn{1}{c}{Reading} & \multicolumn{1}{c}{Math} \\
-%                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
-%                 \midrule
-%                 Own Score & 0.177*** & 0.176*** \\
-%                  & (0.035) & (0.036) \\
-%                 Mean Score & 1.020*** & 1.186*** \\ 
-%                  & (0.101) & (0.082) \\
-%                 SD Score & 0.056 & 0.155 \\
-%                  & (0.398) & (0.310) \\
-%                 Constant & -9.126 & -19.835*** \\
-%                  & (7.835) & (6.240) \\
-%                 \midrule
-%                 Observations & 673 & 669 \\
-%                 \bottomrule
-%                 \end{tabular}
-%             \end{table}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
-
-\begin{frame}{Conclusion}
-    \begin{itemize}% [<+->]
-    \item Referrers pick nominees based on performance and tie strength
-    \item No support for a bias against Low-SES
-\end{itemize}
-\end{frame}
-
-\begin{frame}[label=alternate_regression]{Reading (Alt.)}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Alternative specification with binary Low-SES
-                \item No evidence for a Low-SES bias
-                \item Consistent with main model \hyperlink{tab:reading_regression}{\beamerbutton{Return}}
-            \end{itemize}
-           
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
+    \begin{frame}{Network-level program sorting}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Net average monthly salary \$350 in Colombia
+                    % \pause
+                    \item Networks of Low-SES sort into more affordable programs
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
                 \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Low-SES & 0.199** & 0.041 & 0.042 \\
-                 & (0.083) & (0.100) & (0.100) \\
-                Reading Score  &  & 0.561*** & 0.509*** \\
-                 &  & (0.044) & (0.048) \\
-                Tie &  & 0.951*** & 0.941*** \\
-                 &  & (0.031) & (0.032) \\
-                Score x Tie &  &  & 0.029 \\
-                 &  &  & (0.018) \\
-                \midrule
-                Observations & 128,847 & 128,847 & 128,847 \\
-                Individuals & 673 & 673 & 673 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:reading_regression_alt}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/fee_by_ses.png}
+                \label{fig:sorting_byses}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-\begin{frame}[label=alternate_regression2]{Math (Alt.)}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Alternative specification with binary Low-SES
-                \item No evidence for a Low-SES bias
-                \item Consistent with main model \hyperlink{tab:math_regression}{\beamerbutton{Return}}
-            \end{itemize}
-           
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
+    \begin{frame}{Referrer network performance}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Strongest selection w.r.t. performance for the Low-SES
+                    \item Network performance represents selection
+                    \item Comparable performance across SES
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
                 \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Low-SES & 0.220*** & 0.049 & 0.050 \\
-                 & (0.083) & (0.097) & (0.098) \\
-                Math Score  &  & 0.653*** & 0.538*** \\
-                 &  & (0.040) & (0.041) \\
-                Tie &  & 0.887*** & 0.854*** \\
-                 &  & (0.029) & (0.030) \\
-                Score x Tie &  &  & 0.088*** \\
-                 &  &  & (0.019) \\
-                \midrule
-                Observations & 128,150 & 128,150 & 128,150 \\
-                Individuals & 669 & 669 & 669 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:math_regression_alt}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png}
+                \label{fig:net_performance}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-\begin{frame}[label=alternate_regression3]{Reading across SES (Alt.)}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Alternative specification with binary Low-SES
-                \item Low-SES bias against other SES
-                \item No evidence for a bias against Low-SES
-                \item Consistent with main model \hyperlink{tab:reading_regression}{\beamerbutton{Return}}
-            \end{itemize}
-           
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
+
+
+    % \begin{frame}{Network tie strength by SES}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item Low and High SES take more classes with their own
+    %                 % \pause
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_strength.png}
+    %             \label{fig:baseline_ses}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+
+
+
+    \begin{frame}{Referrals for Reading}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Referrals have higher reading scores and much higher tie strength
+                    % \pause
+                    \item No treatment effect on the referred (both $p > 0.08$)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
                 \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                 & Low-SES & Middle-SES & High-SES \\
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Low-SES & 0.312** & -0.155 & -0.156 \\
-                 & (0.153) & (0.147) & (0.365) \\
-                Reading Score & 0.545*** & 0.479*** & 0.539*** \\
-                 & (0.076) & (0.066) & (0.180) \\
-                Tie & 0.876*** & 0.993*** & 0.987*** \\
-                 & (0.046) & (0.046) & (0.128) \\
-                Score x Tie & 0.019 & 0.020 & 0.137** \\
-                 & (0.027) & (0.027) & (0.069) \\
-                \midrule
-                Observations & 54,611 & 64,596 & 9,640 \\
-                Individuals & 275 & 340 & 58 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:reading_regression_alt2}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
+                \label{fig:read_combined}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-\begin{frame}[label=alternate_regression4]{Math across SES (Alt.)}
-    \begin{columns}[T]
-        \begin{column}{0.38\textwidth}
-            \vspace{2em}
-            \begin{itemize}
-                \item Alternative specification with binary Low-SES
-                \item Low-SES bias against High-SES
-                \item High-SES bias against Low-SES
-                \item Consistent with main model \hyperlink{tab:math_regression}{\beamerbutton{Return}}
-            \end{itemize}
-           
-        \end{column}
-        \begin{column}{0.62\textwidth}
-            \begin{table}
+    \begin{frame}{Referrals for Math}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Referrals have higher math scores and much higher tie strength
+                    % \pause
+                    \item No treatment effect on the referred (both $p > 0.1$)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
                 \centering
-                \footnotesize
-                \begin{threeparttable}
-                \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                \toprule
-                 & Low-SES & Middle-SES & High-SES \\
-                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                \midrule
-                Low-SES & 0.296** & -0.041 & -0.916* \\
-                 & (0.147) & (0.143) & (0.472) \\
-                Math Score & 0.533*** & 0.517*** & 0.721*** \\
-                 & (0.063) & (0.060) & (0.129) \\
-                Tie & 0.820*** & 0.872*** & 0.924*** \\
-                 & (0.042) & (0.043) & (0.129) \\
-                Score x Tie & 0.064** & 0.095*** & 0.158* \\
-                 & (0.028) & (0.029) & (0.095) \\
-                \midrule
-                Observations & 55,531 & 62,492 & 10,127 \\
-                Individuals & 283 & 327 & 59 \\
-                \bottomrule
-                \end{tabular*}
-                \label{tab:math_regression_alt2}
-                \end{threeparttable}
-            \end{table}
-        \end{column}
-    \end{columns}
-\end{frame}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
+                \label{fig:math_combined}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-% \begin{frame}{Prelude}
-%     \begin{columns}[T]
-%         \begin{column}{0.38\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}% [<+->]
-%                 \item Which SES group has the better network?
-%                 \item Are Low-SES restrained w.r.t. their network referral choice set?
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.62\textwidth}
-%             \centering
-%             \includegraphics[width=0.9\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
+    \begin{frame}{Referral SES composition}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Large monotonic differences in referral shares as SES increases (all $p < 0.1$)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_rates.png}
+                \label{fig:ref-rates}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-% \begin{frame}{Empirical Specification: network performance}
-%     \vspace{0.5em} 
-%     \textbf{OLS Model:} 
-%     \begin{align*} 
-%     \text{Mean Score}_{ij} = \beta_0 &+ \beta_1 \cdot \text{Score}_{ij} + \beta_2 \cdot \text{Low-SES}_i + \varepsilon_{ij} 
-%     \end{align*}
-    
-%     \vspace{0.5em} 
-%     \begin{itemize}% [<+->]
-%         \item $\text{Mean Score}_{ij}$: Average network test score of referrer $i$ in subject $j$
-%         \item $\text{Score}_{ij}$: Test score of referrer $i$ in subject $j$
-%         \item $\text{Low-SES}_i$: Referrer $i$ is Low-SES
-%     \end{itemize}
-    
-%     \vspace{0.5em} 
-%     \textbf{Features:} 
-%     \begin{itemize}% [<+->]
-%         \item Sample restricted to referrers only
-%         \item Estimated at relevant tie-strength z-score thresholds (z\_tie $\geq$ 0, 1, 2, 3)
-%         \item Standard errors clustered at individual level
-%     \end{itemize}
-% \end{frame}
+    \begin{frame}{Referral performance}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Small differences in referral performance across SES (all $p > 0.08$)
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png}
+                \label{fig:ref-performance}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-% \begin{frame}{Do Low-SES have worse networks in Reading?}
-%     \begin{columns}[T]
-%         \begin{column}{0.35\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}% [<+->]
-%                 \item Average referral tie strength is around 2.7 SD for reading scores
-%                 \item Referrer reading score has a significant effect at thresholds $[0,2]$
-%                 \item Higher SES referrers have better networks across thresholds
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.65\textwidth}
-%             \begin{table}
-%                 \centering
-%                 \footnotesize
-%                 \begin{threeparttable}
-%                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcccc@{}}
-%                 \toprule
-%                 & \multicolumn{1}{c}{Tie $\geq$ 0} & \multicolumn{1}{c}{Tie $\geq$ 1} & \multicolumn{1}{c}{Tie $\geq$ 2} & \multicolumn{1}{c}{Tie $\geq$ 3} \\
-%                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
-%                 \midrule
-%                 Score reading & 0.212*** & 0.233*** & 0.245*** & 0.313*** \\
-%                  & (0.017) & (0.020) & (0.024) & (0.029) \\
-%                 Low-SES & -1.295*** & -0.777** & -0.891** & -0.589 \\
-%                  & (0.304) & (0.358) & (0.427) & (0.517) \\
-%                 Constant & 50.629*** & 49.356*** & 48.777*** & 44.443*** \\
-%                  & (1.124) & (1.321) & (1.557) & (1.953) \\
-%                 \midrule
-%                 Observations & 673 & 651 & 560 & 471 \\
-%                 \bottomrule
-%                 \end{tabular*}
-%                 \label{tab:reading-regression}
-%                 \end{threeparttable}
-%             \end{table}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
+    \begin{frame}{Referral tie strength}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Low and High SES take more classes with their own SES
+                    % \pause                 
+                    \item Low and High SES refer from those with whom they take more classes
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png}
+                \label{fig:net-performance}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-% \begin{frame}{Do Low-SES have worse networks in Math?}
-%     \begin{columns}[T]
-%         \begin{column}{0.35\textwidth}
-%             \vspace{2em}
-%             \begin{itemize}% [<+->]
-%                 \item Average referral tie strength is around 2.5 SD for math
-%                 \item Referrer math score has a significant but small effect at each tie strength threshold
-%                 \item Higher SES referrers have much better networks at each tie strength threshold
-%             \end{itemize}
-%         \end{column}
-%         \begin{column}{0.65\textwidth}
-%             \begin{table}
-%                 \centering
-%                 \footnotesize
-%                 \begin{threeparttable}
-%                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcccc@{}}
-%                 \toprule
-%                 & \multicolumn{1}{c}{Tie $\geq$ 0} & \multicolumn{1}{c}{Tie $\geq$ 1} & \multicolumn{1}{c}{Tie $\geq$ 2} & \multicolumn{1}{c}{Tie $\geq$ 3} \\
-%                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
-%                 \midrule
-%                 Score math & 0.333*** & 0.356*** & 0.395*** & 0.391*** \\
-%                  & (0.019) & (0.022) & (0.025) & (0.032) \\
-%                 Low-SES & -1.847*** & -1.343*** & -1.122** & -1.321** \\
-%                  & (0.428) & (0.478) & (0.560) & (0.653) \\
-%                 Constant & 44.215*** & 42.696*** & 40.197*** & 40.698*** \\
-%                  & (1.326) & (1.490) & (1.756) & (2.195) \\
-%                 \midrule
-%                 Observations & 669 & 648 & 559 & 464 \\
-%                 \bottomrule
-%                 \end{tabular*}
-%                 \label{tab:math-regression}
-%                 \end{threeparttable}
-%             \end{table}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
+    \begin{frame}{Referral performance and tie strength}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item High-SES referrers access slightly higher performing nominees
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png}
+                \label{fig:ref-performance-bytie}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-% \begin{frame}{Conclusion}
-%     \begin{itemize}
-%     \item Referrers pick nominees based on performance and tie strength
-%     \item Referral performance depends heavily on referrer network composition
-%     \item No evidence for a Low-SES bias in referrals
-%     \item Network inequality may constrain Low-SES referral choices
-% \end{itemize}
-% \end{frame}
 
-\end{document}  
+
+
+    % \begin{frame}[plain]
+    %     \vspace{3em}
+    %     \begin{center}
+    %         \Huge\textbf{Regression Analysis}
+    %     \end{center}
+    % \end{frame}
+
+    % \begin{frame}{Empirical specification: referral choice}
+    %     \begin{itemize}
+    %         \item Model the referral choice using a mixed multinomial logit model for each referrer's choice set (average 175 potential nominees) [McFadden and Train, 2000]
+    %         % \pause
+            
+    %         \item The probability that student $i$ refers student $j \in N_i$ is given by
+    %         $$\frac{e^{\beta_i x_{ij}}}{\sum_{j=1}^{N_i} e^{\beta_i x_{ij}}}$$
+            
+    %         where $x_{ij}$ is the vector of characteristics of $j$ (low-SES, test score, tie strength) and $\beta_i$ is a vector of individual-specific parameters comprising
+    %         of a constant and a random component
+    %     \end{itemize}
+    % \end{frame}
+
+    \begin{frame}{Is there a Low-SES bias in referrals?}
+        
+        \vspace{0.5em}
+        \textbf{Conditional Logit Model:}
+        \begin{align*}
+            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Tie}_{ij} + \beta_4 \text{Score}_j \times \text{Tie}_{ij} + \alpha_i\right)
+        \end{align*}
+        
+        \vspace{0.5em}
+        \begin{itemize}% [<+->]
+            \item $\text{Refer}_{ij}$: Binary outcome indicating whether individual $i$ refers individual $j$
+            \item $\text{SES}_j$: Referral $j$ is Low, Middle, or High SES
+            \item $\text{Score}_j$: Standardized Math or Reading score of referral $j$
+            \item $\text{Tie}_{ij}$: Standardized number of classes taken together for $i$ and $j$
+            \item $\alpha_i$: Individual fixed effect for referrer $i$
+        \end{itemize}
+        
+        \vspace{0.5em}
+        \textbf{Features:}
+        \begin{itemize}% [<+->]
+            \item Control for referrer networks other unobservables with FE
+            \item Estimate separately for Math and Reading scores
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Reading}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Reading score and tie strength are strong predictors of referrals
+                    \item No interaction between reading score and tie strength
+                    \item No evidence for a Low-SES bias \hyperlink{alternate_regression}{\beamerbutton{Alt. Specification}}
+                \end{itemize}
+                
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.143* & -0.007 & -0.007 \\
+                    & (0.086) & (0.101) & (0.102) \\
+                    High-SES & -0.293** & -0.271* & -0.275** \\
+                    & (0.128) & (0.139) & (0.139) \\
+                    Reading score &  & 0.566*** & 0.513*** \\
+                    &  & (0.044) & (0.048) \\
+                    Tie &  & 0.949*** & 0.939*** \\
+                    &  & (0.031) & (0.032) \\
+                    Score x Tie &  &  & 0.030 \\
+                    &  &  & (0.018) \\
+                    \midrule
+                    Observations & 128847 & 128847 & 128847 \\
+                    Ind. & 673 & 673 & 673 \\
+                    Chi-test & 10.81 & 1117.46 & 1145.58 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:reading_regression}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Math}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}% [<+->]
+                    \item Math score and tie strength are strong predictors of referrals
+                    \item Significant but small interaction between math score and tie strength
+                    \item No evidence for a Low-SES bias \hyperlink{alternate_regression2}{\beamerbutton{Alt. Specification}}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.161* & -0.013 & -0.015 \\
+                    & (0.086) & (0.099) & (0.100) \\
+                    High-SES & -0.309** & -0.343** & -0.361** \\
+                    & (0.131) & (0.142) & (0.144) \\
+                    Math score &  & 0.662*** & 0.546*** \\
+                    &  & (0.040) & (0.042) \\
+                    Tie &  & 0.885*** & 0.851*** \\
+                    &  & (0.029) & (0.029) \\
+                    Score x Tie &  &  & 0.089*** \\
+                    &  &  & (0.019) \\
+                    \midrule
+                    Observations & 128150 & 128150 & 128150 \\
+                    Ind. & 669 & 669 & 669 \\
+                    Chi-test & 12.38 & 1122.75 & 1154.40 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:math_regression}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    % \begin{frame}{Do grades predict Reading referrals?}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item GPA correlates weakly with reading score ($\rho = 0.18$)
+    %                 \item GPA is a better predictor of referrals when controlling for reading score and tie strength
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{threeparttable}
+    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+    %                 \toprule
+    %                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(4)} \\
+    %                 \midrule
+    %                 GPA & 0.759*** & 0.640*** & 0.578*** \\
+    %                  & (0.044) & (0.059) & (0.070) \\
+    %                 Reading Score &  & 0.407*** & 0.344*** \\
+    %                  &  & (0.048) & (0.068) \\
+    %                 Tie Strength &  & 0.936*** & 0.911*** \\
+    %                  &  & (0.031) & (0.032) \\
+    %                 Score × Tie &  &  & 0.010 \\
+    %                  &  &  & (0.022) \\
+    %                 Score × GPA &  &  & 0.017 \\
+    %                  &  &  & (0.056) \\
+    %                 GPA × Tie &  &  & 0.028 \\
+    %                  &  &  & (0.026) \\
+    %                 Score × Tie × GPA &  &  & 0.030* \\
+    %                  &  &  & (0.018) \\
+    %                 \bottomrule
+    %                 \end{tabular*}
+    %                 \label{tab:reading_gpa_regression}
+    %                 \end{threeparttable}
+    %             \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    % \begin{frame}{Do grades predict Math referrals?}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item Significant but small interactions between tie strength and both performance variables
+    %                 \item GPA correlates weakly with math score ($\rho = 0.14$)
+    %                 \item GPA is a better predictor of referrals when controlling for math score and tie strength
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{threeparttable}
+    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+    %                 \toprule
+    %                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(4)} \\
+    %                 \midrule
+    %                 GPA & 0.765*** & 0.621*** & 0.500*** \\
+    %                  & (0.044) & (0.059) & (0.068) \\
+    %                 Math Score &  & 0.531*** & 0.400*** \\
+    %                  &  & (0.044) & (0.065) \\
+    %                 Tie Strength &  & 0.871*** & 0.808*** \\
+    %                  &  & (0.029) & (0.030) \\
+    %                 Score × Tie &  &  & 0.068*** \\
+    %                  &  &  & (0.023) \\
+    %                 Score × GPA &  &  & 0.026 \\
+    %                  &  &  & (0.061) \\
+    %                 GPA × Tie &  &  & 0.069*** \\
+    %                  &  &  & (0.026) \\
+    %                 Score × Tie × GPA &  &  & 0.034 \\
+    %                  &  &  & (0.022) \\
+    %                 \bottomrule
+    %                 \end{tabular*}
+    %                 \label{tab:math_gpa_regression}
+    %                 \end{threeparttable}
+    %             \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    \begin{frame}{Reading across SES}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}% [<+->]
+                    \item Restrict sample by referrer SES
+                    \item Low-SES bias against other SES
+                    \item No evidence for a bias against Low-SES \hyperlink{alternate_regression3}{\beamerbutton{Alt. Specification}}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & Low-SES & Middle-SES & High-SES \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.266* & -0.202 & -0.275 \\
+                    & (0.155) & (0.149) & (0.369) \\
+                    High-SES & -0.307 & -0.254 & -0.511 \\
+                    & (0.268) & (0.186) & (0.377) \\
+                    Reading score & 0.548*** & 0.483*** & 0.553*** \\
+                    & (0.076) & (0.067) & (0.179) \\
+                    Tie & 0.873*** & 0.991*** & 0.986*** \\
+                    & (0.046) & (0.046) & (0.128) \\
+                    Score x Tie & 0.019 & 0.021 & 0.145** \\
+                    & (0.027) & (0.027) & (0.072) \\
+                    \midrule
+                    Observations & 54611 & 64596 & 9640 \\
+                    Ind. & 275 & 340 & 58 \\
+                    Chi-test & 531.49 & 553.06 & 97.57 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:homophily_reading}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Math across SES}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}% [<+->]
+                    \item Restrict sample by referrer SES
+                    \item Low-SES bias against High-SES
+                    \item High-SES bias against Low-SES \hyperlink{alternate_regression4}{\beamerbutton{Alt. Specification}}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & Low-SES & Middle-SES & High-SES \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.208 & -0.101 & -0.986** \\
+                    & (0.150) & (0.145) & (0.469) \\
+                    High-SES & -0.619** & -0.313 & -0.269 \\
+                    & (0.283) & (0.195) & (0.381) \\
+                    Math score & 0.540*** & 0.526*** & 0.730*** \\
+                    & (0.064) & (0.060) & (0.128) \\
+                    Tie & 0.814*** & 0.870*** & 0.929*** \\
+                    & (0.041) & (0.043) & (0.128) \\
+                    Score x Tie & 0.067** & 0.096*** & 0.160 \\
+                    & (0.028) & (0.029) & (0.097) \\
+                    \midrule
+                    Observations & 55531 & 62492 & 10127 \\
+                    Ind. & 283 & 327 & 59 \\
+                    Chi-test & 525.71 & 561.64 & 110.76 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:homophily_math}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    % \begin{frame}{Empirical Specification: referral performance}
+        
+    %     \vspace{0.5em}
+    %     \textbf{OLS Model:}
+    %     \begin{align*}
+    %         \text{Score}_{ij} = \beta_0 &+ \beta_1 \cdot \text{X}_i + \beta_2 \cdot \text{Mean Score}_j + \beta_3 \cdot \text{SD Score}_j + \varepsilon_{ij}
+    %     \end{align*}
+        
+    %     \vspace{0.5em}
+    %     \begin{itemize}% [<+->]
+    %         \item $\text{Score}_{ij}$: Test score of the nominee from referrer $i$ in subject $j$
+    %         \item $\text{X}_{ij}$: SES of student $i$ or the test score of student $i$ in subject $j$
+    %         \item $\text{Mean Score}_j$ and $\text{SD Score}_j$: Mean and SD of $i$'s network performance in subject $j$
+    %     \end{itemize}
+        
+    %     \vspace{0.5em}
+    %     \textbf{Features:}
+    %     \begin{itemize}% [<+->]
+    %         \item Sample restricted to nominated students only
+    %         \item Controls for network-level performance differences
+    %         \item Standard errors clustered at individual level
+    %     \end{itemize}
+    % \end{frame}
+
+    % \begin{frame}{Do Low-SES refer better?}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.42\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item No evidence that Low-SES refer better in reading or math
+    %                 \item Better referrals depend on average network performance
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.58\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{tabular}{lcc}
+    %                 \toprule
+    %                  & \multicolumn{1}{c}{Reading} & \multicolumn{1}{c}{Math} \\
+    %                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+    %                 \midrule
+    %                 Med-SES & -1.213** & -0.816 \\
+    %                  & (0.607) & (0.731) \\
+    %                 High-SES & 0.438 & 0.937 \\
+    %                  & (1.085) & (1.287) \\
+    %                 Mean Score & 1.250*** & 1.399*** \\
+    %                  & (0.096) & (0.074) \\
+    %                 SD Score & 0.233 & 0.163 \\
+    %                  & (0.409) & (0.318) \\
+    %                 Constant & -13.062 & -21.571*** \\
+    %                  & (8.006) & (6.373) \\
+    %                 \midrule
+    %                 Observations & 673 & 669 \\
+    %                 \bottomrule
+    %                 \end{tabular}
+    %             \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    % \begin{frame}{Is there performance homophily in referrals?}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.42\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item Significant but small effect of own test score on referral score
+    %                 \item Very large difference between the average network test score versus referrer performance (about 6 times)
+    %                 \item Performance homophily is nearly not as important as network composition
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.58\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{tabular}{lcc}
+    %                 \toprule
+    %                  & \multicolumn{1}{c}{Reading} & \multicolumn{1}{c}{Math} \\
+    %                  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+    %                 \midrule
+    %                 Own Score & 0.177*** & 0.176*** \\
+    %                  & (0.035) & (0.036) \\
+    %                 Mean Score & 1.020*** & 1.186*** \\ 
+    %                  & (0.101) & (0.082) \\
+    %                 SD Score & 0.056 & 0.155 \\
+    %                  & (0.398) & (0.310) \\
+    %                 Constant & -9.126 & -19.835*** \\
+    %                  & (7.835) & (6.240) \\
+    %                 \midrule
+    %                 Observations & 673 & 669 \\
+    %                 \bottomrule
+    %                 \end{tabular}
+    %             \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    \begin{frame}{Conclusion}
+        \markconclusion
+        \begin{itemize}% [<+->]
+        \item Referrers pick nominees based on performance and tie strength
+        \item No support for a bias against Low-SES
+    \end{itemize}
+    \end{frame}
+
+    \hideprogressbar
+
+    \begin{frame}[label=alternate_regression]{Reading (Alt.)}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Alternative specification with binary Low-SES
+                    \item No evidence for a Low-SES bias
+                    \item Consistent with main model \hyperlink{tab:reading_regression}{\beamerbutton{Return}}
+                \end{itemize}
+            
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.199** & 0.041 & 0.042 \\
+                    & (0.083) & (0.100) & (0.100) \\
+                    Reading Score  &  & 0.561*** & 0.509*** \\
+                    &  & (0.044) & (0.048) \\
+                    Tie &  & 0.951*** & 0.941*** \\
+                    &  & (0.031) & (0.032) \\
+                    Score x Tie &  &  & 0.029 \\
+                    &  &  & (0.018) \\
+                    \midrule
+                    Observations & 128,847 & 128,847 & 128,847 \\
+                    Ind. & 673 & 673 & 673 \\
+                    Chi-test &  5.73 & 1100.40 & 1127.92  \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:reading_regression_alt}
+                    \end{threeparttable}
+                \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}[label=alternate_regression2]{Math (Alt.)}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Alternative specification with binary Low-SES
+                    \item No evidence for a Low-SES bias
+                    \item Consistent with main model \hyperlink{tab:math_regression}{\beamerbutton{Return}}
+                \end{itemize}
+            
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.220*** & 0.049 & 0.050 \\
+                    & (0.083) & (0.097) & (0.098) \\
+                    Math Score  &  & 0.653*** & 0.538*** \\
+                    &  & (0.040) & (0.041) \\
+                    Tie &  & 0.887*** & 0.854*** \\
+                    &  & (0.029) & (0.030) \\
+                    Score x Tie &  &  & 0.088*** \\
+                    &  &  & (0.019) \\
+                    \midrule
+                    Observations & 128,150 & 128,150 & 128,150 \\
+                    Ind. & 669 & 669 & 669 \\
+                    Chi-test &  7.02 & 1124.24 & 1156.08  \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:math_regression_alt}
+                    \end{threeparttable}
+                \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}[label=alternate_regression3]{Reading across SES (Alt.)}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Alternative specification with binary Low-SES
+                    \item Low-SES bias against other SES
+                    \item No evidence for a bias against Low-SES
+                    \item Consistent with main model \hyperlink{tab:reading_regression}{\beamerbutton{Return}}
+                \end{itemize}
+            
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc}
+                    \toprule
+                    & Low-SES & Other-SES \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+                    \midrule
+                    Low-SES & 0.312** & -0.160 \\
+                    & (0.153) & (0.137) \\
+                    Reading score & 0.545*** & 0.486*** \\
+                    & (0.076) & (0.062) \\
+                    Tie & 0.876*** & 0.996*** \\
+                    & (0.046) & (0.044) \\
+                    Score x Tie & 0.019 & 0.036 \\
+                    & (0.027) & (0.025) \\
+                    \midrule
+                    Observations & 54611 & 74236 \\
+                    Ind. & 275 & 398 \\
+                    Chi-test & 517.41 & 627.40 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:reading_regression_lowses}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}[label=alternate_regression4]{Math across SES (Alt.)}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Alternative specification with binary Low-SES
+                    \item Low-SES bias against other SES
+                    \item No evidence for a bias against Low-SES
+                    \item Consistent with main model \hyperlink{tab:math_regression}{\beamerbutton{Return}}
+                \end{itemize}
+            
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc}
+                    \toprule
+                    & Low-SES & Other-SES \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+                    \midrule
+                    Low-SES & 0.296** & -0.138 \\
+                    & (0.147) & (0.136) \\
+                    Math score & 0.533*** & 0.541*** \\
+                    & (0.063) & (0.055) \\
+                    Tie & 0.820*** & 0.882*** \\
+                    & (0.042) & (0.042) \\
+                    Score x Tie & 0.064** & 0.106*** \\
+                    & (0.028) & (0.027) \\
+                    \midrule
+                    Observations & 55531 & 72619 \\
+                    Ind. & 283 & 386 \\
+                    Chi-test & 523.84 & 647.99 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:math_regression_lowses}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    % \begin{frame}{Prelude}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item Which SES group has the better network?
+    %                 \item Are Low-SES restrained w.r.t. their network referral choice set?
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.9\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined_nosmooth.png}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    % \begin{frame}{Empirical Specification: network performance}
+    %     \vspace{0.5em} 
+    %     \textbf{OLS Model:} 
+    %     \begin{align*} 
+    %     \text{Mean Score}_{ij} = \beta_0 &+ \beta_1 \cdot \text{Score}_{ij} + \beta_2 \cdot \text{Low-SES}_i + \varepsilon_{ij} 
+    %     \end{align*}
+        
+    %     \vspace{0.5em} 
+    %     \begin{itemize}% [<+->]
+    %         \item $\text{Mean Score}_{ij}$: Average network test score of referrer $i$ in subject $j$
+    %         \item $\text{Score}_{ij}$: Test score of referrer $i$ in subject $j$
+    %         \item $\text{Low-SES}_i$: Referrer $i$ is Low-SES
+    %     \end{itemize}
+        
+    %     \vspace{0.5em} 
+    %     \textbf{Features:} 
+    %     \begin{itemize}% [<+->]
+    %         \item Sample restricted to referrers only
+    %         \item Estimated at relevant tie-strength z-score thresholds (z\_tie $\geq$ 0, 1, 2, 3)
+    %         \item Standard errors clustered at individual level
+    %     \end{itemize}
+    % \end{frame}
+
+    % \begin{frame}{Do Low-SES have worse networks in Reading?}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.35\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item Average referral tie strength is around 2.7 SD for reading scores
+    %                 \item Referrer reading score has a significant effect at thresholds $[0,2]$
+    %                 \item Higher SES referrers have better networks across thresholds
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.65\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{threeparttable}
+    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcccc@{}}
+    %                 \toprule
+    %                 & \multicolumn{1}{c}{Tie $\geq$ 0} & \multicolumn{1}{c}{Tie $\geq$ 1} & \multicolumn{1}{c}{Tie $\geq$ 2} & \multicolumn{1}{c}{Tie $\geq$ 3} \\
+    %                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
+    %                 \midrule
+    %                 Score reading & 0.212*** & 0.233*** & 0.245*** & 0.313*** \\
+    %                  & (0.017) & (0.020) & (0.024) & (0.029) \\
+    %                 Low-SES & -1.295*** & -0.777** & -0.891** & -0.589 \\
+    %                  & (0.304) & (0.358) & (0.427) & (0.517) \\
+    %                 Constant & 50.629*** & 49.356*** & 48.777*** & 44.443*** \\
+    %                  & (1.124) & (1.321) & (1.557) & (1.953) \\
+    %                 \midrule
+    %                 Observations & 673 & 651 & 560 & 471 \\
+    %                 \bottomrule
+    %                 \end{tabular*}
+    %                 \label{tab:reading-regression}
+    %                 \end{threeparttable}
+    %             \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    % \begin{frame}{Do Low-SES have worse networks in Math?}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.35\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item Average referral tie strength is around 2.5 SD for math
+    %                 \item Referrer math score has a significant but small effect at each tie strength threshold
+    %                 \item Higher SES referrers have much better networks at each tie strength threshold
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.65\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{threeparttable}
+    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcccc@{}}
+    %                 \toprule
+    %                 & \multicolumn{1}{c}{Tie $\geq$ 0} & \multicolumn{1}{c}{Tie $\geq$ 1} & \multicolumn{1}{c}{Tie $\geq$ 2} & \multicolumn{1}{c}{Tie $\geq$ 3} \\
+    %                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
+    %                 \midrule
+    %                 Score math & 0.333*** & 0.356*** & 0.395*** & 0.391*** \\
+    %                  & (0.019) & (0.022) & (0.025) & (0.032) \\
+    %                 Low-SES & -1.847*** & -1.343*** & -1.122** & -1.321** \\
+    %                  & (0.428) & (0.478) & (0.560) & (0.653) \\
+    %                 Constant & 44.215*** & 42.696*** & 40.197*** & 40.698*** \\
+    %                  & (1.326) & (1.490) & (1.756) & (2.195) \\
+    %                 \midrule
+    %                 Observations & 669 & 648 & 559 & 464 \\
+    %                 \bottomrule
+    %                 \end{tabular*}
+    %                 \label{tab:math-regression}
+    %                 \end{threeparttable}
+    %             \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    % \begin{frame}{Conclusion}
+    %     \begin{itemize}
+    %     \item Referrers pick nominees based on performance and tie strength
+    %     \item Referral performance depends heavily on referrer network composition
+    %     \item No evidence for a Low-SES bias in referrals
+    %     \item Network inequality may constrain Low-SES referral choices
+    % \end{itemize}
+    % \end{frame}
+
+    \end{document}  

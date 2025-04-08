@@ -97,7 +97,7 @@ twoway (bar fee xpos, barwidth(0.7) color("${lowSES}")) ///
 	   (scatter feeS xpos, mcolor(gs4) msize(large) lcolor(none) msymbol(Dh) lcolor(none)) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High", noticks) ///
-       ylabel(1500(100)2200, angle(0) format(%9.0f) grid gmin) ///
+       ylabel(1500(100)2, angle(0) format(%9.0f) grid gmin) ///
        ytitle("Fee (in Dollars)") ///
        xtitle("") ///
        title("Program Fees by SES") ///
