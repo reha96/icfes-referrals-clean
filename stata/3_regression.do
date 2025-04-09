@@ -13,6 +13,7 @@ macro drop _all
 set more off
 set scheme s2color, permanently
 set maxvar 32767
+global path = "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/stata/"
 global graph_opts ///
     graphregion(fcolor(white) lcolor(white)) ///
     bgcolor(white) ///
@@ -24,13 +25,12 @@ global graph_opts ///
 eststo clear
 foreach i in math reading {
     preserve
-    use "`i'.dta", clear
+    use "${path}`i'.dta", clear
     keep if nomination
     eststo tie_`i':reg z_tie i.treat, vce(cluster own_id)
     eststo score_`i':reg z_other_score_`i' i.treat, vce(cluster own_id)
     restore
 }
-cls
 esttab tie_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab score_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
@@ -169,7 +169,7 @@ foreach i in math reading {
     preserve
     use "`i'.dta", clear
 	keep if nomination == 1
-    eststo `i': reg other_score_`i' i.own_estrato mean_other_score_`i' sd_other_score_`i'
+    eststo `i': reg other_score_`i' ib(2).own_estrato mean_other_score_`i' sd_other_score_`i'
     restore
 }
 cls
@@ -231,3 +231,53 @@ forvalues x = 1/4 {
 cls
 esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+
+
+
+//# accuracy premium 1: 
+
+use "${path}math.dta", clear
+keep if nomination == 1
+gen score_premium = (other_score_math - mean_other_score_math)
+rename sd_other_score_math sd_other_score
+gen delta_own_belief = own_score - own_belief
+gen delta_other_belief = other_score_math - other_belief
+keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta*
+list in 1/6
+save "${path}math_tmp.dta", replace
+
+use "${path}reading.dta", clear
+keep if nomination == 1
+gen score_premium = (other_score_reading - mean_other_score_reading)
+rename sd_other_score_reading sd_other_score
+gen delta_own_belief = own_score - own_belief
+gen delta_other_belief = other_score_reading - other_belief
+keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta*
+list in 1/6
+save "${path}reading_tmp.dta", replace
+
+append using "${path}math_tmp.dta"
+sort own_id
+
+eststo clear
+eststo cmb1: reg score_premium own_score  own_belief other_belief
+eststo cmb2: reg score_premium own_score  own_belief other_belief i.treat  
+eststo cmb3: reg score_premium own_score  own_belief other_belief tie sd_other_score i.area i.treat ib(2).own_estrato  
+eststo cmb4: reg score_premium own_score  delta_own_belief delta_other_belief tie sd_other_score i.area i.treat ib(2).own_estrato  
+cls
+esttab cmb*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+
+vioplot score_premium, horiz
+histogram score_premium, percent bins(20)
+
+twoway (histogram score_premium, percent fcolor(gs10) bins(20) lcolor(gs4) lwidth(thin)) ///
+      , ///
+      xlabel(-40(10)40) ///
+      ylabel(0(5)20, angle(0)) ///
+      ytitle("Percent") ///
+      xtitle("") ///
+      title("Score Premium") ///
+      graphregion(color(white)) bgcolor(white) ///
+      name(score_premium, replace)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png", replace
+

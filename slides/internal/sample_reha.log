@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  8 APR 2025 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  9 APR 2025 15:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -925,31 +925,57 @@ Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/fig
 
 ] [18
 
-] [19
-
 ]
-Overfull \vbox (5.82928pt too high) detected at line 648
+Overfull \vbox (5.82928pt too high) detected at line 523
  []
 
-[20
+[19
+
+] [20
 
 ]
-Overfull \vbox (5.82928pt too high) detected at line 691
+Overfull \vbox (5.82928pt too high) detected at line 693
  []
 
 [21
 
 ] [22
 
-] [23
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 825.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 825.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 825.
+ [23
 
-] [24
+]
+Overfull \hbox (2.63707pt too wide) in alignment at lines 867--867
+[] [] [] []
+ []
+
+[24
 
 ] [25
 
 ] [26
 
+] [27
+
+] [28
+
+] [29
+
 ]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png, id=230, 1809.76125pt x 1315.91624pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png  used on input line 1065.
+(pdftex.def)             Requested size: 242.3378pt x 176.19531pt.
+ [30
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png>]
 \tf@nav=\write6
 \openout6 = `sample_reha.nav'.
 
@@ -968,18 +994,18 @@ Package rerunfilecheck Info: File `sample_reha.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26854 strings out of 474116
- 543039 string characters out of 5743681
- 1942187 words of memory out of 5000000
- 48588 multiletter control sequences out of 15000+600000
- 568597 words of font info for 73 fonts, out of 8000000 for 9000
+ 26921 strings out of 474116
+ 544597 string characters out of 5743681
+ 1941187 words of memory out of 5000000
+ 48635 multiletter control sequences out of 15000+600000
+ 572895 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,123p,479b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on sample_reha.pdf (26 pages, 1395706 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
+Output written on sample_reha.pdf (30 pages, 1512939 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 82 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 310 PDF objects out of 1000 (max. 8388607)
+ 233 compressed objects within 3 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
