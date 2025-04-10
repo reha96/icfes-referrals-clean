@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  9 APR 2025 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  10 APR 2025 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -951,8 +951,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
  [23
 
 ]
-Overfull \hbox (2.63707pt too wide) in alignment at lines 867--867
-[] [] [] []
+Overfull \vbox (0.88593pt too high) detected at line 909
  []
 
 [24
@@ -968,14 +967,30 @@ Overfull \hbox (2.63707pt too wide) in alignment at lines 867--867
 ] [29
 
 ]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png, id=230, 1809.76125pt x 1315.91624pt>
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png, id=232, 1276.77pt x 928.46875pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png  used on input line 1065.
-(pdftex.def)             Requested size: 242.3378pt x 176.19531pt.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png  used on input line 1108.
+(pdftex.def)             Requested size: 242.3378pt x 176.22672pt.
  [30
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png, id=239, 1276.77pt x 928.46875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png  used on input line 1126.
+(pdftex.def)             Requested size: 242.3378pt x 176.22672pt.
+ [31
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png, id=248, 1276.77pt x 928.46875pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png  used on input line 1144.
+(pdftex.def)             Requested size: 242.3378pt x 176.22672pt.
+ [32
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png>]
 \tf@nav=\write6
 \openout6 = `sample_reha.nav'.
 
@@ -994,18 +1009,18 @@ Package rerunfilecheck Info: File `sample_reha.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26921 strings out of 474116
- 544597 string characters out of 5743681
+ 26947 strings out of 474116
+ 545875 string characters out of 5743681
  1941187 words of memory out of 5000000
- 48635 multiletter control sequences out of 15000+600000
+ 48655 multiletter control sequences out of 15000+600000
  572895 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,123p,479b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on sample_reha.pdf (30 pages, 1512939 bytes).
+Output written on sample_reha.pdf (32 pages, 1601798 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
- 94 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
+ 100 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

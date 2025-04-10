@@ -802,13 +802,13 @@
         \vspace{0.5em}
         \textbf{OLS Model:}
         \begin{align*}
-            \text{Premium}_{ij} = \beta_0 + \beta_1 \text{Score}_i + \beta_2 \text{OwnBelief}_i + \beta_3 \text{OtherBelief}_i + \beta_4 \text{Treat}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
+            \text{Premium}_{ij} = \beta_0 + \beta_1 \text{Score}_i + \beta_2 \Delta\text{OwnBelief}_i + \beta_3 \Delta\text{OtherBelief}_i + \beta_4 \text{Treat}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
         \end{align*}
         
         \vspace{0.5em}
         \begin{itemize}% [<+->]
             \item $\text{Premium}_{i}$: Nominee $j$'s test score minus mean score of $i$'s network \hyperlink{fig:score-premium}{\beamerbutton{Distribution}}
-            \item $\text{OwnBelief}_i$, $\text{OtherBelief}_i$: $i$'s beliefs on own and nominee test scores
+            \item $\Delta\text{OwnBelief}_i$, $\Delta\text{OtherBelief}_i$: $i$'s beliefs on own and nominee test scores minus actual scores \hyperlink{fig:own_belief}{\beamerbutton{Distribution}}
             \item $\text{Score}_i$: Referrer $i$'s own test score 
             \item $\text{Treat}_i$: Referrer $i$'s treatment indicator (Baseline vs. Bonus)
         \end{itemize}
@@ -817,22 +817,64 @@
         \textbf{Controls:}
         \begin{itemize}% [<+->]
                 \item Referrer $i$'s socioeconomic status (Low, Middle, High)
-                \item Subject test area indicator (Math vs. Reading)
+                \item Test area indicator (Math vs. Reading)
                 \item Number of classes taken together for $i$ and nominee $j$
                 \item Standard deviation of test scores in $i$'s network
         \end{itemize}
     
     \end{frame}
 
-    \begin{frame}{Grades and beliefs bring in better referrals}
+    % \begin{frame}{Grades and beliefs predict better referrals}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item Referrer $i$'s score and beliefs predict premium
+    %                 \item Bonus for the nominee $j$ marginally reduces premium
+    %                 \item No effect of SES, area, tie strength, or network score variability
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{threeparttable}
+    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+    %                 \toprule
+    %                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+    %                 \midrule
+    %                 Score & 0.197*** & 0.197*** & 0.192*** \\
+    %                 & (0.025) & (0.025) & (0.025) \\
+    %                 Belief own score & -0.097*** & -0.097*** & -0.095*** \\
+    %                 & (0.015) & (0.015) & (0.015) \\
+    %                 Belief nominee score & 0.211*** & 0.210*** & 0.211*** \\
+    %                 & (0.016) & (0.016) & (0.016) \\
+    %                 Bonus & & -0.763* & -0.719* \\
+    %                 & & (0.415) & (0.415) \\
+    %                 Mean of dep. var. & -17.661*** & -17.337*** & -20.346*** \\
+    %                 & (1.557) & (1.566) & (2.696) \\
+    %                 \midrule
+    %                 Controls & No & No & Yes \\
+    %                 Observations & 1,342 & 1,342 & 1,342 \\
+    %                 \bottomrule
+    %                 \end{tabular*}
+    %                 \label{tab:referral_quality}
+    %                 \end{threeparttable}
+    %             \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    \begin{frame}{Referrer score and beliefs predict better referrals}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
-                \begin{itemize}% [<+->]
+                \begin{itemize}
                     \item Referrer $i$'s score predicts premium
-                    \item Beliefs about own score negatively related to premium
-                    \item Stronger belief in nominee $j$'s score yields higher premium
+                    \item Overestimating own scores increases premium
+                    \item Correcting nominee beliefs increases premium (as too optimistic)
                     \item Bonus for the nominee $j$ marginally reduces premium
+                    \item No effect of SES, area, tie strength, or network avarage variability
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -844,33 +886,34 @@
                     \toprule
                     & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                     \midrule
-                    Score & 0.197*** & 0.197*** & 0.192*** \\
-                    & (0.025) & (0.025) & (0.025) \\
-                    Belief own score & -0.097*** & -0.097*** & -0.095*** \\
+                    Score & 0.226*** & 0.228*** & 0.219*** \\
+                    & (0.021) & (0.021) & (0.021) \\
+                    $\Delta$ own belief & 0.117*** & 0.117*** & 0.118*** \\
                     & (0.015) & (0.015) & (0.015) \\
-                    Belief nominee score & 0.211*** & 0.210*** & 0.211*** \\
-                    & (0.016) & (0.016) & (0.016) \\
-                    Bonus & & -0.763* & -0.719* \\
-                    & & (0.415) & (0.415) \\
-                    Mean of dep. var. & -17.661*** & -17.337*** & -20.346*** \\
-                    & (1.557) & (1.566) & (2.696) \\
+                    $\Delta$ nominee belief  & -0.207*** & -0.207*** & -0.205*** \\
+                    & (0.017) & (0.017) & (0.017) \\
+                    Bonus & & -0.872** & -0.864** \\
+                    & & (0.416) & (0.416) \\
+                    Mean of dep. var. & -8.687*** & -8.364*** & -8.351*** \\
+                    & (1.402) & (1.409) & (2.555) \\
                     \midrule
                     Controls & No & No & Yes \\
                     Observations & 1,342 & 1,342 & 1,342 \\
                     \bottomrule
                     \end{tabular*}
-                    \label{tab:referral_quality}
+                    \label{tab:regression_results}
                     \end{threeparttable}
                 \end{table}
             \end{column}
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Conclusion}
+
+    \begin{frame}{Result 2: }
         \markconclusion
         \begin{itemize}% [<+->]
-        \item Referrers pick nominees based on performance and tie strength
-        \item No support for a bias against Low-SES
+        \item Referrers pick better nominees if they have higher scores
+        \item Accurate beliefs about nominee scores maximizes score premium
     \end{itemize}
     \end{frame}
 
@@ -1046,13 +1089,13 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Score Premium distribution}
+    \begin{frame}{Score Premium is positive overall}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
                     \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
-                    \item Referals are better than network average \hyperlink{good_refferals}{\beamerbutton{Return}}
+                    \item Referals fare better than their referrer's network average \hyperlink{good_refferals}{\beamerbutton{Return}}
                     % \pause
                 \end{itemize}
             \end{column}
@@ -1063,6 +1106,43 @@
             \end{column}
         \end{columns}
     \end{frame}
+
+    \begin{frame}{Beliefs about own score are accurate}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
+                    \item Beliefs centered around own scores show high accuracy \hyperlink{fig:other_belief}{\beamerbutton{Next}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png}
+                \label{fig:own_belief}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Beliefs about nominees reveal a positive bias}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
+                    \item Referrals perform slightly worse than expected \hyperlink{good_refferals}{\beamerbutton{Return}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png}
+                \label{fig:other_belief}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
 
     % \begin{frame}{Prelude}
     %     \begin{columns}[T]

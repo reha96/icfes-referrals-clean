@@ -239,38 +239,140 @@ esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01)
 use "${path}math.dta", clear
 keep if nomination == 1
 gen score_premium = (other_score_math - mean_other_score_math)
+drop other_score
 rename sd_other_score_math sd_other_score
-gen delta_own_belief = own_score - own_belief
-gen delta_other_belief = other_score_math - other_belief
-keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta*
+rename other_score_math other_score
+gen delta_own_belief = own_belief - own_score
+gen delta_other_belief = other_belief - other_score
+keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta* other_score
 list in 1/6
 save "${path}math_tmp.dta", replace
 
 use "${path}reading.dta", clear
 keep if nomination == 1
 gen score_premium = (other_score_reading - mean_other_score_reading)
+drop other_score
+rename other_score_reading other_score
 rename sd_other_score_reading sd_other_score
-gen delta_own_belief = own_score - own_belief
-gen delta_other_belief = other_score_reading - other_belief
-keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta*
+gen delta_own_belief = own_belief - own_score
+gen delta_other_belief = other_belief - other_score
+keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta*  other_score
 list in 1/6
 save "${path}reading_tmp.dta", replace
 
 append using "${path}math_tmp.dta"
-sort own_id
+save "${path}cmb_tmp.dta", replace
+rm "${path}math_tmp.dta" 
+rm "${path}reading_tmp.dta"
 
+use "${path}cmb_tmp.dta", clear
+sort own_id
+list in 1/6
+
+gen own_low_ses = (own_estrato == 1)
 eststo clear
 eststo cmb1: reg score_premium own_score  own_belief other_belief
 eststo cmb2: reg score_premium own_score  own_belief other_belief i.treat  
 eststo cmb3: reg score_premium own_score  own_belief other_belief tie sd_other_score i.area i.treat ib(2).own_estrato  
-eststo cmb4: reg score_premium own_score  delta_own_belief delta_other_belief tie sd_other_score i.area i.treat ib(2).own_estrato  
+
+
+gen delta_ownXlses = delta_own_belief * own_low_ses
+gen delta_otherXlses = delta_other_belief * own_low_ses
+eststo d1: reg score_premium own_score  delta_own_belief delta_other_belief
+eststo d2: reg score_premium own_score  delta_own_belief delta_other_belief i.treat  
+eststo d3: reg score_premium own_score  delta_own_belief delta_other_belief tie sd_other_score i.area i.treat ib(2).own_estrato  
+eststo d4: reg score_premium own_score  delta_other_belief delta_own_belief own_low_ses delta_ownXlses delta_otherXlses
 cls
 esttab cmb*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
+use "${path}cmb_tmp.dta", clear
+
+twoway (qfitci score_premium delta_own_belief if delta_own_belief >= -50 & delta_own_belief <= 50) (qfitci score_premium  if delta_other_belief >= -50 & delta_other_belief <= 50)
+
+
+
+eststo cmb3: reg score_premium own_score own_belief other_belief 
+quietly margins, at(own_belief=(0(25)100)) vsquish
+matrix own_belief_margins = r(b)'
+matrix own_belief_at = (0, 25, 50, 75, 100)'
+svmat own_belief_margins
+svmat own_belief_at
+
+quietly margins, at(other_belief=(0(25)100)) vsquish
+matrix other_belief_margins = r(b)'
+matrix other_belief_at = (0, 25, 50, 75, 100)'
+svmat other_belief_margins
+svmat other_belief_at
+
+twoway (line own_belief_margins1 own_belief_at1, lcolor("136 132 216") lwidth(thick)) ///
+       (line other_belief_margins1 other_belief_at1, lcolor("130 202 157") lwidth(thick)), ///
+       title("Effects of Beliefs on Score Premium", size(medium)) ///
+       ytitle("Linear Prediction") ///
+       xtitle("Beliefs") ///
+       xlabel(0(25)100) ///
+       legend(order(1 "Own" 2 "Nominee") ring(0) pos(4) rows(2) region(lcolor(none))) ///
+       graphregion(color(white)) bgcolor(white) ///
+       name(combined_beliefs_twoway, replace)
+
+
+preserve
+use "${path}cmb_tmp.dta", clear
+eststo cmb4: reg score_premium own_score delta_own_belief delta_other_belief
+quietly margins, at(delta_own_belief=(-25(5)25)) vsquish
+matrix delta_own_margins = r(b)'
+matrix delta_own_at = (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25)'
+svmat delta_own_margins
+svmat delta_own_at
+
+marginsplot
+
+quietly margins, at(delta_other_belief=(-25(5)25)) vsquish
+matrix delta_other_margins = r(b)'
+matrix delta_other_at = (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25)'
+svmat delta_other_margins
+svmat delta_other_at
+marginsplot
+
+twoway (line delta_own_margins1 delta_own_at1, lcolor("136 132 216") lwidth(thick)) ///
+       (line delta_other_margins1 delta_other_at1, lcolor("130 202 157") lwidth(thick)), ///
+       title("Effects of Belief Discrepancies on Score Premium", size(medium)) ///
+       ytitle("Linear Prediction") ///
+       xtitle("Δ Belief (positive = overestimation)") ///
+       xlabel(-25(5)25) ///
+       legend(order(1 "Own score" 2 "Nominee score") ring(1) pos(12) rows(1) region(lcolor(none))) ///
+       graphregion(color(white)) bgcolor(white) ///
+       name(combined_delta_twoway, replace)
+restore
+
+  
+  
+  
+  
 vioplot score_premium, horiz
 histogram score_premium, percent bins(20)
 
+
+preserve
+egen med = median(score_premium)
+egen lqt = pctile(score_premium), p(25)
+egen uqt = pctile(score_premium), p(75)
+egen iqr = iqr(score_premium)
+egen mean = mean(score_premium)
+gen ypos = -.75
+gen l = score_premium if(score_premium >= lqt-1.5*iqr)
+egen ls = min(l)
+gen u = score_premium if(score_premium <= uqt+1.5*iqr)
+egen us = max(u)
+
 twoway (histogram score_premium, percent fcolor(gs10) bins(20) lcolor(gs4) lwidth(thin)) ///
+		rbar lqt uqt ypos , horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+	   rbar med uqt ypos, horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+       rspike lqt ls ypos, horiz  lcolor(gs4) || ///
+       rspike uqt us ypos, horiz lcolor(gs4) || ///
+       rcap ls ls ypos,  horiz msize(*1) lcolor(gs4) || ///
+       rcap us us ypos,  horiz msize(*1) lcolor(gs4)|| ///
+       scatter ypos mean , msymbol(o) msize(*.5) fcolor(gs4) mcolor(gs4) legend(off) ///
       , ///
       xlabel(-40(10)40) ///
       ylabel(0(5)20, angle(0)) ///
@@ -280,4 +382,66 @@ twoway (histogram score_premium, percent fcolor(gs10) bins(20) lcolor(gs4) lwidt
       graphregion(color(white)) bgcolor(white) ///
       name(score_premium, replace)
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png", replace
+restore
 
+preserve
+egen med = median(delta_other_belief)
+egen lqt = pctile(delta_other_belief), p(25)
+egen uqt = pctile(delta_other_belief), p(75)
+egen iqr = iqr(delta_other_belief)
+egen mean = mean(delta_other_belief)
+gen ypos = -.75
+gen l = delta_other_belief if(delta_other_belief >= lqt-1.5*iqr)
+egen ls = min(l)
+gen u = delta_other_belief if(delta_other_belief <= uqt+1.5*iqr)
+egen us = max(u)
+
+twoway (histogram delta_other_belief, percent fcolor(gs10) bins(20) lcolor(gs4) lwidth(thin)) ///
+      		rbar lqt uqt ypos , horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+	   rbar med uqt ypos, horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+       rspike lqt ls ypos, horiz  lcolor(gs4) || ///
+       rspike uqt us ypos, horiz lcolor(gs4) || ///
+       rcap ls ls ypos,  horiz msize(*1) lcolor(gs4) || ///
+       rcap us us ypos,  horiz msize(*1) lcolor(gs4)|| ///
+       scatter ypos mean , msymbol(o) msize(*.5) fcolor(gs4) mcolor(gs4) legend(off) ///
+      , ///
+      xlabel(-80(20)80) ///
+      ylabel(0(5)20, gmax angle(0)) ///
+      ytitle("Percent") ///
+      xtitle("") ///
+      title("Δ Nominee Belief (positive = overestimation)") ///
+      graphregion(color(white)) bgcolor(white) ///
+      name(other_belief, replace)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png", replace
+restore
+
+preserve
+egen med = median(delta_own_belief)
+egen lqt = pctile(delta_own_belief), p(25)
+egen uqt = pctile(delta_own_belief), p(75)
+egen iqr = iqr(delta_own_belief)
+egen mean = mean(delta_own_belief)
+gen ypos = -.75
+gen l = delta_own_belief if(delta_own_belief >= lqt-1.5*iqr)
+egen ls = min(l)
+gen u = delta_own_belief if(delta_own_belief <= uqt+1.5*iqr)
+egen us = max(u)
+
+twoway (histogram delta_own_belief, percent fcolor(gs10) bins(20) lcolor(gs4) lwidth(thin)) ///
+      rbar lqt uqt ypos , horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+	   rbar med uqt ypos, horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+       rspike lqt ls ypos, horiz  lcolor(gs4) || ///
+       rspike uqt us ypos, horiz lcolor(gs4) || ///
+       rcap ls ls ypos,  horiz msize(*1) lcolor(gs4) || ///
+       rcap us us ypos,  horiz msize(*1) lcolor(gs4)|| ///
+       scatter ypos mean , msymbol(o) msize(*.5) fcolor(gs4) mcolor(gs4) legend(off) ///
+      , ///
+      xlabel(-100(20)80) ///
+      ylabel(0(5)20, angle(0) gmax) ///
+      ytitle("Percent") ///
+      xtitle("") ///
+      title("Δ Own Belief") ///
+      graphregion(color(white)) bgcolor(white) ///
+      name(own_belief, replace)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png", replace
+restore

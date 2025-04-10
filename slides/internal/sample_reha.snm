@@ -17,7 +17,7 @@
 \beamer@slide {tab:homophily_math}{21}
 \beamer@slide {good_refferals<1>}{23}
 \beamer@slide {good_refferals}{23}
-\beamer@slide {tab:referral_quality}{24}
+\beamer@slide {tab:regression_results}{24}
 \beamer@slide {alternate_regression<1>}{26}
 \beamer@slide {alternate_regression}{26}
 \beamer@slide {tab:reading_regression_alt}{26}
@@ -31,3 +31,5 @@
 \beamer@slide {alternate_regression4}{29}
 \beamer@slide {tab:math_regression_lowses}{29}
 \beamer@slide {fig:score-premium}{30}
+\beamer@slide {fig:own_belief}{31}
+\beamer@slide {fig:other_belief}{32}
