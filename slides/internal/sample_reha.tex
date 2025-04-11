@@ -199,6 +199,7 @@
                 \vspace{2em}
                 \begin{itemize}
                     \item Connections decrease as SES increases
+                    \item Differences do not stem from program choice
                     % \pause
                 \end{itemize}
             \end{column}
@@ -460,7 +461,7 @@
                     & (0.086) & (0.101) & (0.102) \\
                     High-SES & -0.293** & -0.271* & -0.275** \\
                     & (0.128) & (0.139) & (0.139) \\
-                    Reading score &  & 0.566*** & 0.513*** \\
+                    Nominee score &  & 0.566*** & 0.513*** \\
                     &  & (0.044) & (0.048) \\
                     Tie &  & 0.949*** & 0.939*** \\
                     &  & (0.031) & (0.032) \\
@@ -503,7 +504,7 @@
                     & (0.155) & (0.149) & (0.369) \\
                     High-SES & -0.307 & -0.254 & -0.511 \\
                     & (0.268) & (0.186) & (0.377) \\
-                    Reading score & 0.548*** & 0.483*** & 0.553*** \\
+                    Nominee score & 0.548*** & 0.483*** & 0.553*** \\
                     & (0.076) & (0.067) & (0.179) \\
                     Tie & 0.873*** & 0.991*** & 0.986*** \\
                     & (0.046) & (0.046) & (0.128) \\
@@ -545,7 +546,7 @@
                     & (0.086) & (0.099) & (0.100) \\
                     High-SES & -0.309** & -0.343** & -0.361** \\
                     & (0.131) & (0.142) & (0.144) \\
-                    Math score &  & 0.662*** & 0.546*** \\
+                    Nominee score &  & 0.662*** & 0.546*** \\
                     &  & (0.040) & (0.042) \\
                     Tie &  & 0.885*** & 0.851*** \\
                     &  & (0.029) & (0.029) \\
@@ -673,7 +674,7 @@
                     & (0.150) & (0.145) & (0.469) \\
                     High-SES & -0.619** & -0.313 & -0.269 \\
                     & (0.283) & (0.195) & (0.381) \\
-                    Math score & 0.540*** & 0.526*** & 0.730*** \\
+                    Nominee score & 0.540*** & 0.526*** & 0.730*** \\
                     & (0.064) & (0.060) & (0.128) \\
                     Tie & 0.814*** & 0.870*** & 0.929*** \\
                     & (0.041) & (0.043) & (0.128) \\
@@ -802,13 +803,13 @@
         \vspace{0.5em}
         \textbf{OLS Model:}
         \begin{align*}
-            \text{Premium}_{ij} = \beta_0 + \beta_1 \text{Score}_i + \beta_2 \Delta\text{OwnBelief}_i + \beta_3 \Delta\text{OtherBelief}_i + \beta_4 \text{Treat}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
+            \text{Premium}_{ij} = \beta_0 + \beta_1 \text{Score}_i + \beta_2 \Delta\text{OwnBlf}_i + \beta_3 \Delta\text{OtherBlf}_i + \beta_4 \text{Treat}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
         \end{align*}
         
         \vspace{0.5em}
         \begin{itemize}% [<+->]
             \item $\text{Premium}_{i}$: Nominee $j$'s test score minus mean score of $i$'s network \hyperlink{fig:score-premium}{\beamerbutton{Distribution}}
-            \item $\Delta\text{OwnBelief}_i$, $\Delta\text{OtherBelief}_i$: $i$'s beliefs on own and nominee test scores minus actual scores \hyperlink{fig:own_belief}{\beamerbutton{Distribution}}
+            \item $\Delta\text{OwnBlf}_i$, $\Delta\text{OtherBlf}_i$: $i$'s beliefs on own and nominee test scores minus actual scores \hyperlink{fig:own_belief}{\beamerbutton{Distribution}}
             \item $\text{Score}_i$: Referrer $i$'s own test score 
             \item $\text{Treat}_i$: Referrer $i$'s treatment indicator (Baseline vs. Bonus)
         \end{itemize}
@@ -816,7 +817,7 @@
         \vspace{0.5em}
         \textbf{Controls:}
         \begin{itemize}% [<+->]
-                \item Referrer $i$'s socioeconomic status (Low, Middle, High)
+                \item Referrer $i$'s socioeconomic status (Low, Middle, High)    
                 \item Test area indicator (Math vs. Reading)
                 \item Number of classes taken together for $i$ and nominee $j$
                 \item Standard deviation of test scores in $i$'s network
@@ -833,7 +834,7 @@
     %                 \item Bonus for the nominee $j$ marginally reduces premium
     %                 \item No effect of SES, area, tie strength, or network score variability
     %             \end{itemize}
-    %         \end{column}
+    %         \end{column}  
     %         \begin{column}{0.62\textwidth}
     %             \begin{table}
     %                 \centering
@@ -869,12 +870,12 @@
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
-                \begin{itemize}
+                \begin{itemize}% [<+->]
                     \item Referrer $i$'s score predicts premium
                     \item Overestimating own scores increases premium
-                    \item Correcting nominee beliefs increases premium (as too optimistic)
-                    \item Bonus for the nominee $j$ marginally reduces premium
-                    \item No effect of SES, area, tie strength, or network avarage variability
+                    \item Accurate nominee beliefs increases premium (too optimistic)
+                    \item Bonus for the nominee $j$ reduces premium
+                    \item No effect of SES, area, tie strength, or network avarage variability \textcolor{red}{cluster SE update table}
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -882,23 +883,23 @@
                     \centering
                     \footnotesize
                     \begin{threeparttable}
-                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc}
                     \toprule
-                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
                     \midrule
-                    Score & 0.226*** & 0.228*** & 0.219*** \\
-                    & (0.021) & (0.021) & (0.021) \\
-                    $\Delta$ own belief & 0.117*** & 0.117*** & 0.118*** \\
-                    & (0.015) & (0.015) & (0.015) \\
-                    $\Delta$ nominee belief  & -0.207*** & -0.207*** & -0.205*** \\
-                    & (0.017) & (0.017) & (0.017) \\
-                    Bonus & & -0.872** & -0.864** \\
-                    & & (0.416) & (0.416) \\
-                    Mean of dep. var. & -8.687*** & -8.364*** & -8.351*** \\
-                    & (1.402) & (1.409) & (2.555) \\
+                    Participant score & 0.228*** & 0.219*** \\
+                    & (0.021) & (0.021) \\
+                    $\Delta$ own belief & 0.117*** & 0.118*** \\
+                    & (0.015) & (0.015) \\
+                    $\Delta$ nominee belief  & -0.207*** & -0.205*** \\
+                    & (0.017) & (0.017) \\
+                    Bonus treatment & -0.872** & -0.864** \\
+                    & (0.416) & (0.416) \\
+                    Mean of dep. var. & -8.364*** & -8.351*** \\
+                    & (1.409) & (2.555) \\
                     \midrule
-                    Controls & No & No & Yes \\
-                    Observations & 1,342 & 1,342 & 1,342 \\
+                    Controls & No & Yes \\
+                    Observations & 1,342 & 1,342 \\
                     \bottomrule
                     \end{tabular*}
                     \label{tab:regression_results}
@@ -912,8 +913,9 @@
     \begin{frame}{Result 2: }
         \markconclusion
         \begin{itemize}% [<+->]
-        \item Referrers pick better nominees if they have higher scores
+        \item Referrers pick better nominees with higher scores
         \item Accurate beliefs about nominee scores maximizes score premium
+        \item Bonus for nominee reduces score premium
     \end{itemize}
     \end{frame}
 
@@ -941,7 +943,7 @@
                     \midrule
                     Low-SES & 0.199** & 0.041 & 0.042 \\
                     & (0.083) & (0.100) & (0.100) \\
-                    Reading Score  &  & 0.561*** & 0.509*** \\
+                    Nominee Score  &  & 0.561*** & 0.509*** \\
                     &  & (0.044) & (0.048) \\
                     Tie &  & 0.951*** & 0.941*** \\
                     &  & (0.031) & (0.032) \\
@@ -984,7 +986,7 @@
                     \midrule
                     Low-SES & 0.312** & -0.160 \\
                     & (0.153) & (0.137) \\
-                    Reading score & 0.545*** & 0.486*** \\
+                    Nominee score & 0.545*** & 0.486*** \\
                     & (0.076) & (0.062) \\
                     Tie & 0.876*** & 0.996*** \\
                     & (0.046) & (0.044) \\
@@ -1026,7 +1028,7 @@
                     \midrule
                     Low-SES & 0.220*** & 0.049 & 0.050 \\
                     & (0.083) & (0.097) & (0.098) \\
-                    Math Score  &  & 0.653*** & 0.538*** \\
+                    Nominee Score  &  & 0.653*** & 0.538*** \\
                     &  & (0.040) & (0.041) \\
                     Tie &  & 0.887*** & 0.854*** \\
                     &  & (0.029) & (0.030) \\
@@ -1070,7 +1072,7 @@
                     \midrule
                     Low-SES & 0.296** & -0.138 \\
                     & (0.147) & (0.136) \\
-                    Math score & 0.533*** & 0.541*** \\
+                    Nominee score & 0.533*** & 0.541*** \\
                     & (0.063) & (0.055) \\
                     Tie & 0.820*** & 0.882*** \\
                     & (0.042) & (0.042) \\
@@ -1095,6 +1097,7 @@
                 \vspace{2em}
                 \begin{itemize}
                     \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
+                    \item No difference between SES groups
                     \item Referals fare better than their referrer's network average \hyperlink{good_refferals}{\beamerbutton{Return}}
                     % \pause
                 \end{itemize}
@@ -1113,6 +1116,7 @@
                 \vspace{2em}
                 \begin{itemize}
                     \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
+                    \item No difference between SES groups
                     \item Beliefs centered around own scores show high accuracy \hyperlink{fig:other_belief}{\beamerbutton{Next}}
                     % \pause
                 \end{itemize}
@@ -1131,6 +1135,7 @@
                 \vspace{2em}
                 \begin{itemize}
                     \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
+                    \item No difference between SES groups
                     \item Referrals perform slightly worse than expected \hyperlink{good_refferals}{\beamerbutton{Return}}
                     % \pause
                 \end{itemize}
