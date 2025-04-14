@@ -506,17 +506,7 @@ restore
 use "${path}cmb_tmp.dta", clear
 tabstat delta_other_belief delta_own_belief score_premium, by(own_estrato) stat(mean semean)
 
-use "${path}dataset_z.dta", clear
-bysort other_id: gen c = _n
-keep if c == 1
-proportion  other_program
-proportion  other_program if other_estrato == 3
-proportion other_program other_estrato
-collapse (count) n=other_program , by(other_estrato)
-forvalues i = 1/3 {    
-    global n`i' = n[`i']
 
-} 
 
 // preserve
 // use "${path}cmb_tmp.dta", clear

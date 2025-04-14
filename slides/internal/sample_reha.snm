@@ -1,6 +1,7 @@
 \beamer@slide {tab:selection}{4}
 \beamer@slide {tab:balance}{5}
 \beamer@slide {fig:connections_class}{6}
+\beamer@slide {connections}{7}
 \beamer@slide {fig:composition_aggregate}{7}
 \beamer@slide {fig:composition_byses}{8}
 \beamer@slide {fig:sorting_byses}{9}
@@ -33,3 +34,4 @@
 \beamer@slide {fig:score-premium}{30}
 \beamer@slide {fig:own_belief}{31}
 \beamer@slide {fig:other_belief}{32}
+\beamer@slide {fig:program_share}{33}

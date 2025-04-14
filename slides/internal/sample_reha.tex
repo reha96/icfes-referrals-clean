@@ -193,13 +193,14 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Referrer network connections}
+    \begin{frame}\label{connections}{Referrer network connections}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
                     \item Connections decrease as SES increases
-                    \item Differences do not stem from program choice
+                    \item Differences do not stem from share in popular programs \hyperlink{fig:program_share}{\beamerbutton{Popularity}}
+                    \item But from how many common courses High-SES students take together \textcolor{red}{add tie strength}
                     % \pause
                 \end{itemize}
             \end{column}
@@ -209,7 +210,7 @@
                 \label{fig:composition_aggregate}
             \end{column}
         \end{columns}
-    \end{frame}
+        \end{frame}
 
     \begin{frame}{Referrer network SES composition}
         \begin{columns}[T]
@@ -234,7 +235,7 @@
                 \begin{itemize}
                     \item Net average monthly salary \$350 in Colombia
                     % \pause
-                    \item Networks of Low-SES sort into more affordable programs
+                    \item Low-SES sort into more affordable programs
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -792,6 +793,7 @@
 
     \begin{frame}{Result 1: No bias against Low-SES}
         \begin{itemize}% [<+->]
+        \item No meaningful differences in referrals across areas Math or Reading
         \item Referrers pick nominees based on performance and tie strength
         \item No support for a bias against Low-SES
         \item \textcolor{red}{add graph/visuals to illustrate?}
@@ -913,7 +915,7 @@
     \begin{frame}{Result 2: }
         \markconclusion
         \begin{itemize}% [<+->]
-        \item Referrers pick better nominees with higher scores
+        \item Referrers pick better nominees as their own scores get higher
         \item Accurate beliefs about nominee scores maximizes score premium
         \item Bonus for nominee reduces score premium
     \end{itemize}
@@ -1148,6 +1150,24 @@
         \end{columns}
     \end{frame}
 
+    \begin{frame}{Programs by popularity}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Top 5 most popular programs are Medicine, Law, Biomedical Engineering, Pharmacology, and Business Administration 
+                    \item Over 43\% of all students
+                    \item But 60\% of High-SES \hyperlink{connections}{\beamerbutton{Return}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_share.png}
+                \label{fig:program_share}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
     % \begin{frame}{Prelude}
     %     \begin{columns}[T]
