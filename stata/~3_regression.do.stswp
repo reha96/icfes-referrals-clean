@@ -277,7 +277,7 @@ gen tretXbown = delta_own_belief * t
 gen tretXbother =  delta_other_belief * t
 est clear
 eststo d1: reg score_premium own_score own_gpa_norm  delta_own_belief delta_other_belief i.t, vce(cluster own_id)
-eststo d2: reg score_premium own_score own_gpa_norm  delta_own_belief delta_other_belief i.t tie sd_other_score i.area ib(2).own_estrato  , vce(cluster own_id)
+eststo d2: reg score_premium own_score own_gpa  delta_own_belief delta_other_belief i.t tie sd_other_score i.area ib(2).own_estrato  , vce(cluster own_id)
 cls
 esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 

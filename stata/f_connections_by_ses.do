@@ -14,6 +14,7 @@ global path "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
 set scheme s2color, permanently
 
 
+// connections
 use "dataset_z.dta",clear
 sort own_id other_id
 bysort own_id: gen counter = _n
@@ -32,44 +33,92 @@ forvalues i = 1/3 {
     global conn_ci_upper`i' = connections[`i'] + 1.96*se[`i']
 }
 
+// ties
+use "dataset_z.dta",clear
+sort own_id other_id
+bysort own_id: gen counter = _n
+keep if counter == 1
+collapse (mean) tie (sd) sd_tie=tie (count) n_tie=tie (semean) se_tie=tie, by(own_estrato)
+
+forvalues i = 1/3 {
+    global tie_mean`i' = tie[`i']
+    global tie_sd`i' = sd_tie[`i']
+    global tie_n`i' = n_tie[`i']
+    global tie_se`i' = se_tie[`i']
+    global tie_ci_lower`i' = tie[`i'] - 1.96*se_tie[`i']
+    global tie_ci_upper`i' = tie[`i'] + 1.96*se_tie[`i']
+}
+
+
+
 clear
 set obs 3
 gen own_estrato = _n
-gen xpos = _n
+gen xpos = _n - 0.125
+gen xpos2 = _n + 0.125
 
 gen connections = .
+gen tie = .
 gen se = .
+gen se_tie = .
 gen ci_lower = .
 gen ci_upper = .
+gen ci_lower_tie = .
+gen ci_upper_tie = .
+
 
 replace connections = ${conn_mean1} if own_estrato == 1
 replace connections = ${conn_mean2} if own_estrato == 2
 replace connections = ${conn_mean3} if own_estrato == 3
 
+replace tie = ${tie_mean1} if own_estrato == 1
+replace tie = ${tie_mean2} if own_estrato == 2
+replace tie = ${tie_mean3} if own_estrato == 3
+
 replace se = ${conn_se1} if own_estrato == 1
 replace se = ${conn_se2} if own_estrato == 2
 replace se = ${conn_se3} if own_estrato == 3
+
+replace se_tie = ${tie_se1} if own_estrato == 1
+replace se_tie = ${tie_se2} if own_estrato == 2
+replace se_tie = ${tie_se3} if own_estrato == 3
+
 
 replace ci_lower = ${conn_ci_lower1} if own_estrato == 1
 replace ci_lower = ${conn_ci_lower2} if own_estrato == 2
 replace ci_lower = ${conn_ci_lower3} if own_estrato == 3
 
+replace ci_lower_tie = ${tie_ci_lower1} if own_estrato == 1
+replace ci_lower_tie = ${tie_ci_lower2} if own_estrato == 2
+replace ci_lower_tie = ${tie_ci_lower3} if own_estrato == 3
+
+
 replace ci_upper = ${conn_ci_upper1} if own_estrato == 1
 replace ci_upper = ${conn_ci_upper2} if own_estrato == 2
 replace ci_upper = ${conn_ci_upper3} if own_estrato == 3
 
+replace ci_upper_tie = ${tie_ci_upper1} if own_estrato == 1
+replace ci_upper_tie = ${tie_ci_upper2} if own_estrato == 2
+replace ci_upper_tie = ${tie_ci_upper3} if own_estrato == 3
+
+
 label define estrato_lab 1 "Low" 2 "Middle" 3 "High"
 label values own_estrato estrato_lab
 
-twoway (bar connections xpos, barwidth(0.7) color("${lowSES}")) ///
+twoway (bar connections xpos, barwidth(0.25) fcolor(gs8) lcolor(gs4)) ///
+		(bar tie xpos2, barwidth(0.25) fcolor(gs14) lcolor(gs4) yaxis(2)) ///
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
+	   (rcap ci_upper_tie ci_lower_tie xpos2, lcolor(gs4) yaxis(2)) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High", noticks) ///
        ylabel(0(50)250, angle(0) format(%9.0f) grid gmin gmax) ///
+	   ylabel(0(2)8, angle(0) format(%9.0f) axis(2)) ///
        ytitle("Connections") ///
+	   ytitle("Classess taken", axis(2)) ///
        xtitle("") ///
-       title("Network Connections by SES") ///
-       legend(off) ///
+       title("Network Connections and Classes taken by SES") ///
+       legend(order(1 "Connections" 3 "Classes taken") ///
+              ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) ///
        name(connections_by_ses, replace)
@@ -98,7 +147,7 @@ gen _index = _n
 gen top5 = (other_program  == 100 | other_program  == 200 | other_program  == 210 | other_program  == 340 | other_program  == 10)
 egen top5sum = sum(percent) if top5
 
-twoway  (bar percent _index, barwidth(0.7) fcolor(gs10) lcolor(gs4)) ///
+twoway  (bar percent _index, barwidth(0.7) fcolor(gs8) lcolor(gs4)) ///
 (scatteri 0 5.5 20 5.5, recast(line) clwid(medium) clpattern(dash) clcol(dknavy) text(13.5 11 "Top 5 share above 43%", color(dknavy)) ) , legend(off) ytitle("Percent") xlabel(1 "Med." 2 "Law" 3 "BioMed" 4 "Pharma." 5 "B. A.", angle(90) labsize(small)) graphregion(color(white)) bgcolor(white) title("Programs by popularity") ///
        name(program_share, replace)
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_share.png", replace
@@ -110,17 +159,53 @@ keep if c == 1
 gen top5 = (other_program  == 100 | other_program  == 200 | other_program  == 210 | other_program  == 340 | other_program  == 10)
 proportion  top5, over(other_estrato)
 
-// how about semesters?
+// how about semesters? ADMIN
 use "dataset_z.dta", clear
 bysort other_id: gen c = _n
 keep if c == 1
-gen top5 = (other_program  == 100 | other_program  == 200 | other_program  == 210 | other_program  == 340 | other_program  == 10)
-collapse top5  (mean) mean_tie, by(other_program)
-gsort -mean_tie
+tabstat  tie, by(other_estrato)
+keep if other_estrato == 3
 
-use "dataset_z.dta", clear
-bysort own_id: gen c = _n
-keep if c == 1
-collapse (mean) mean_tie, by(own_estrato)
-gsort -mean_tie
+
+preserve
+keep other_program
+duplicates drop
+gen class_index = _n
+sort other_program
+save temp_class_index, replace
+restore
+
+merge m:1 other_program using temp_class_index, nogen
+gen top5 = (other_program  == 100 | other_program  == 200 | other_program  == 210 | other_program  == 340 | other_program  == 10)
+
+collapse top5 (mean) tie  other_program (count) n=other_program, by(class_index)
+gen percent = (n/675)*100
+gsort -percent
+
+gen notmed = 100 - percent if other_program == 100
+gen dummy = (other_program == 100) 
+egen notmedtie = mean(tie), by(dummy)
+
+gen _index = _n
+keep if _index <4 // keep 100 medicina  10 admin_empresas 200 derecho
+gen xpos = _n - 0.125
+gen xpos2 = _n + 0.125
+
+
+twoway  (bar percent xpos, barwidth(0.25) fcolor(gs8) lcolor(gs4)) ///
+		(bar tie xpos2, barwidth(0.25) fcolor(gs14) lcolor(gs4) yaxis(2)) ///
+		, ///
+		ylabel(0(10)40, angle(0) gmin gmax format(%9.0f)) ///
+		ylabel(0(2)8, angle(0) format(%9.0f) axis(2)) ///
+		ytitle("Classess taken", axis(2)) ///
+		ytitle("Percent") ///
+		xlabel(1 "Medicine" 2 "B. Admin." 3 "Law" , angle(0) labsize(small) noticks) ///
+		xscale(range(0.5 3.5)) ///
+		graphregion(color(white)) bgcolor(white) ///
+		legend(order(1 "Share" 2 "Classes taken") ///
+              ring(0) pos(12) rows(1) region(lcolor(none))) ///
+		title("Popular programs for High-SES") ///
+		xtitle("") ///
+       name(program_tie_hses, replace)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_tie_hses.png", replace
 

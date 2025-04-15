@@ -148,7 +148,7 @@ twoway (bar proportion xpos, barw(0.25) fcolor(gs8) lcolor(gs4)) ///
 	   (function y=34, range(0.5 3.5) lpattern(dash) lcolor(dknavy)) ///
 	   (function y=15, range(0.5 3.5) lpattern(dash) lcolor(red)) ///
 	   (rcap ci_upper ci_lower xpos, color(gs4) text(32 3.4 "Low", color(dknavy))) ///
-	    (rcap ci_upper2 ci_lower2 xpos2, color(gs4) text(13 3.4 "High", color(red))) ///
+	    (rcap ci_upper2 ci_lower2 xpos2, color(gs4) text(13 3.4 "High", color(dknavy))) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High") ///
        ylabel(0(10)50, angle(0) format(%9.0f) gmin gmax) ///
