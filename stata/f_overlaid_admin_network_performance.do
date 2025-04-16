@@ -108,58 +108,95 @@ foreach ses in 1 2 3 {
 
 preserve
 clear
-set obs 6
-
-gen ses = ceil(_n/2)
-gen subject = mod(_n-1, 2) + 1
-
-gen xpos = .
-replace xpos = 1 if ses == 1 & subject == 2     // Low SES, Reading (now first)
-replace xpos = 1.5 if ses == 1 & subject == 1   // Low SES, Math (now second)
-replace xpos = 2.5 if ses == 2 & subject == 2   // Middle SES, Reading (now first)
-replace xpos = 3 if ses == 2 & subject == 1     // Middle SES, Math (now second)
-replace xpos = 4 if ses == 3 & subject == 2     // High SES, Reading (now first)
-replace xpos = 4.5 if ses == 3 & subject == 1   // High SES, Math (now second)
-
-gen z_score = .
-gen se = .
-gen z_scoreA = .
-gen z_scoreS = .
+set obs 3
+gen ses = _n  // 1=low, 2=middle, 3=high
+gen xpos = _n - 0.125  // Position for sample bars
+gen xpos2 = _n + 0.125  // Position for network bars
+gen score_sample = .  // Sample scores
+gen score_network = .  // Network scores
+gen se_sample = .  // Standard errors for sample
+gen se_network = .  // Standard errors for network
 
 local r = 1
 foreach ses in low middle high {
-    foreach subj in math read {
-        local subj_num = cond("`subj'"=="math", 1, 2)
-        local ses_num = cond("`ses'"=="low", 1, cond("`ses'"=="middle", 2, 3))
-        
-        if `r' <= 6 {
-            replace z_score = ${`subj'_`ses'} if ses==`ses_num' & subject==`subj_num'
-			replace z_scoreA = ${`subj'_`ses'A} if ses==`ses_num' & subject==`subj_num'
-			replace z_scoreS = ${`subj'_`ses'S} if ses==`ses_num' & subject==`subj_num'
-            replace se = ${`subj'_`ses'_sd}/sqrt(${`subj'_`ses'_n}) if ses==`ses_num' & subject==`subj_num'
-        }
-        local r = `r' + 1
-    }
+    local ses_num = cond("`ses'"=="low", 1, cond("`ses'"=="middle", 2, 3))
+
+    replace score_sample = ${read_`ses'S} if ses==`ses_num'
+    replace score_network = ${read_`ses'} if ses==`ses_num'
+    
+    replace se_sample = ${read_`ses'_sdS}/sqrt(${read_`ses'_nS}) if ses==`ses_num'
+    replace se_network = ${read_`ses'_sd}/sqrt(${read_`ses'_n}) if ses==`ses_num'
+    
+    local r = `r' + 1
 }
 
-gen ci_lower = z_score - 1.96*se
-gen ci_upper = z_score + 1.96*se
+gen ci_lower_sample = score_sample - 1.96*se_sample
+gen ci_upper_sample = score_sample + 1.96*se_sample
+gen ci_lower_network = score_network - 1.96*se_network
+gen ci_upper_network = score_network + 1.96*se_network
 
-twoway (bar z_score xpos if subject==2, barw(0.45) color("130 202 157")) ///  // Reading (now first)
-       (bar z_score xpos if subject==1, barw(0.45) color("136 132 216")) ///  // Math (now second)
-       (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
-	   (scatter z_scoreA xpos, mcolor(gs4) lcolor(none) msize(large) ) ///
-	   (scatter z_scoreS xpos, mcolor(gs4) lcolor(none) msize(large) msymbol(Dh)) ///
+twoway (bar score_sample xpos, barw(0.25) fcolor(gs8) lcolor(gs4)) ///
+		(bar score_network xpos2, barw(0.25) fcolor(gs14) lcolor(gs4)) ///
+       (rcap ci_upper_network ci_lower_network xpos2, lcolor(gs4)) ///
+	   (rcap ci_upper_sample ci_lower_sample xpos, lcolor(gs4)) ///
        , ///
-       xlabel(1.25 "Low" 2.75 "Middle" 4.25 "High") ///
+       xlabel(1 "Low" 2 "Middle" 3 "High") ///
        ylabel(50(5)80, angle(0) grid gmin gmax) ///
-       ytitle("Score") ///
+       ytitle("Reading Score") ///
        xtitle("") ///
-       title("Network Performance by SES") ///
-       legend(order(1 "Reading" 2 "Math" 4 "Admin" 5 "Sample") ring(0) pos(12) rows(1) region(lcolor(none))) ///  // Update legend order
+       title("Reading Performance") ///
+       legend(order(1 "Sample" 2 "Network") ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
-       xscale(range(0.5 5)) ///
-       name(ses_zscore, replace)
+       xscale(range(0.5 3.5)) ///
+       name(ses_reading_scores, replace)
 
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png", replace
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_reading_scores.png", replace
+restore
+
+preserve
+clear
+set obs 3
+gen ses = _n  // 1=low, 2=middle, 3=high
+gen xpos = _n - 0.125  // Position for sample bars
+gen xpos2 = _n + 0.125  // Position for network bars
+gen score_sample = .  // Sample scores
+gen score_network = .  // Network scores
+gen se_sample = .  // Standard errors for sample
+gen se_network = .  // Standard errors for network
+
+local r = 1
+foreach ses in low middle high {
+    local ses_num = cond("`ses'"=="low", 1, cond("`ses'"=="middle", 2, 3))
+
+    replace score_sample = ${math_`ses'S} if ses==`ses_num'
+    replace score_network = ${math_`ses'} if ses==`ses_num'
+    
+    replace se_sample = ${math_`ses'_sdS}/sqrt(${math_`ses'_nS}) if ses==`ses_num'
+    replace se_network = ${math_`ses'_sd}/sqrt(${math_`ses'_n}) if ses==`ses_num'
+    
+    local r = `r' + 1
+}
+
+gen ci_lower_sample = score_sample - 1.96*se_sample
+gen ci_upper_sample = score_sample + 1.96*se_sample
+gen ci_lower_network = score_network - 1.96*se_network
+gen ci_upper_network = score_network + 1.96*se_network
+
+
+twoway 	(bar score_sample xpos, barw(0.25) fcolor(gs8) lcolor(gs4)) ///
+		(bar score_network xpos2, barw(0.25) fcolor(gs14) lcolor(gs4)) ///
+       (rcap ci_upper_network ci_lower_network xpos2, lcolor(gs4)) ///
+	   (rcap ci_upper_sample ci_lower_sample xpos, lcolor(gs4)) ///
+       , ///
+       xlabel(1 "Low" 2 "Middle" 3 "High") ///
+       ylabel(50(5)80, angle(0) grid gmin gmax) ///
+       ytitle("Math Score") ///
+       xtitle("") ///
+       title("Math Performance") ///
+       legend(order(1 "Sample" 2 "Network") ring(0) pos(12) rows(1) region(lcolor(none))) ///
+       graphregion(color(white)) bgcolor(white) ///
+       xscale(range(0.5 3.5)) ///
+       name(ses_math_scores, replace)
+
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_math_scores.png", replace
 restore

@@ -110,7 +110,7 @@ twoway (bar connections xpos, barwidth(0.25) fcolor(gs8) lcolor(gs4)) ///
        (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
 	   (rcap ci_upper_tie ci_lower_tie xpos2, lcolor(gs4) yaxis(2)) ///
        , ///
-       xlabel(1 "Low" 2 "Middle" 3 "High", noticks) ///
+       xlabel(1 "Low" 2 "Middle" 3 "High") ///
        ylabel(0(50)250, angle(0) format(%9.0f) grid gmin gmax) ///
 	   ylabel(0(2)8, angle(0) format(%9.0f) axis(2)) ///
        ytitle("Connections") ///
@@ -157,14 +157,31 @@ use "dataset_z.dta", clear
 bysort other_id: gen c = _n
 keep if c == 1
 gen top5 = (other_program  == 100 | other_program  == 200 | other_program  == 210 | other_program  == 340 | other_program  == 10)
-proportion  top5, over(other_estrato)
+tab  other_program other_estrato if top5
+keep if top5
+collapse (mean) tie  (sem) se_tie=tie, by(other_program)
+
+global BA =  tie[1]
+global MED =  tie[2]
+global LAW =  tie[3]
+global IB =  tie[4]
+global PH =  tie[5]
+
+global BA_SE =  se_tie[1]
+global MED_SE =  se_tie[2]
+global LAW_SE =  se_tie[3]
+global IB_SE =  se_tie[4]
+global PH_SE =  se_tie[5]
+
 
 // how about semesters? ADMIN
 use "dataset_z.dta", clear
 bysort other_id: gen c = _n
 keep if c == 1
 tabstat  tie, by(other_estrato)
-keep if other_estrato == 3
+gen top5 = (other_program  == 100 | other_program  == 200 | other_program  == 210 | other_program  == 340 | other_program  == 10)
+keep if top5
+keep if other_estrato == 1
 
 
 preserve
@@ -176,31 +193,60 @@ save temp_class_index, replace
 restore
 
 merge m:1 other_program using temp_class_index, nogen
-gen top5 = (other_program  == 100 | other_program  == 200 | other_program  == 210 | other_program  == 340 | other_program  == 10)
+collapse other_program (count) n=other_program, by(class_index)
 
-collapse top5 (mean) tie  other_program (count) n=other_program, by(class_index)
-gen percent = (n/675)*100
-gsort -percent
-
-gen notmed = 100 - percent if other_program == 100
-gen dummy = (other_program == 100) 
-egen notmedtie = mean(tie), by(dummy)
+gen percent = (n/1513 )*100
+egen sdpr = sd(percent)
+gen se_pr = (sdpr/sqrt(percent))
+drop sdpr
 
 gen _index = _n
-keep if _index <4 // keep 100 medicina  10 admin_empresas 200 derecho
-gen xpos = _n - 0.125
-gen xpos2 = _n + 0.125
+
+gen ci_upper = percent + 1.96*se_pr
+gen ci_lower = percent - 1.96*se_pr
+
+gen ci_upper2 = .
+gen ci_lower2 = .
+
+gen xpos = _n
+gen xpos2 = _n
+
+gen tie = .
+
+replace tie = (${MED}) if xpos2 == 1 
+replace tie = (${BA}) if xpos2 == 2
+replace tie = (${LAW}) if xpos2 == 3
+replace tie = (${IB}) if xpos2 == 4
+replace tie = (${PH}) if xpos2 == 5
+
+
+replace ci_upper2 = (${MED} + 1.96 * ${MED_SE}) if xpos2 == 1 
+replace ci_upper2 = (${BA} + 1.96 * ${BA_SE}) if xpos2 == 2
+replace ci_upper2 = (${LAW} + 1.96 * ${LAW_SE}) if xpos2 == 3
+replace ci_upper2 = (${IB} + 1.96 * ${IB_SE}) if xpos2 == 4
+replace ci_upper2 = (${PH} + 1.96 * ${PH_SE}) if xpos2 == 5
+
+replace ci_lower2 = (${MED} - 1.96 * ${MED_SE}) if xpos2 == 1 
+replace ci_lower2 = (${BA} - 1.96 * ${BA_SE}) if xpos2 == 2
+replace ci_lower2 = (${LAW} - 1.96 * ${LAW_SE}) if xpos2 == 3
+replace ci_lower2 = (${IB} - 1.96 * ${IB_SE}) if xpos2 == 4
+replace ci_lower2 = (${PH} - 1.96 * ${PH_SE}) if xpos2 == 5
+
+replace xpos = xpos - 0.125
+replace xpos2 = xpos2 + 0.125
+
 
 
 twoway  (bar percent xpos, barwidth(0.25) fcolor(gs8) lcolor(gs4)) ///
 		(bar tie xpos2, barwidth(0.25) fcolor(gs14) lcolor(gs4) yaxis(2)) ///
+	   (rcap ci_upper2 ci_lower2 xpos2, lcolor(gs4) yaxis(2)) ///
 		, ///
 		ylabel(0(10)40, angle(0) gmin gmax format(%9.0f)) ///
-		ylabel(0(2)8, angle(0) format(%9.0f) axis(2)) ///
+		ylabel(0(2)10, angle(0) format(%9.0f) axis(2)) ///
 		ytitle("Classess taken", axis(2)) ///
 		ytitle("Percent") ///
-		xlabel(1 "Medicine" 2 "B. Admin." 3 "Law" , angle(0) labsize(small) noticks) ///
-		xscale(range(0.5 3.5)) ///
+		xlabel(1 "Medicine" 2 "B. Admin." 3 "Law" 4 "Bio. Med." 5 "Pharma.", angle(0) labsize(small) noticks) ///
+		xscale(range(0.5 5.5)) ///
 		graphregion(color(white)) bgcolor(white) ///
 		legend(order(1 "Share" 2 "Classes taken") ///
               ring(0) pos(12) rows(1) region(lcolor(none))) ///

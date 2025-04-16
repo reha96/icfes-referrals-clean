@@ -5,23 +5,22 @@
     Description: figure program fees by ses
 *******************************************************************************/
 
-global lowSES "255 99 132"    // Pink/red for low SES
-global medSES "54 162 235"    // Blue for medium SES
-global highSES "75 192 112"   // Green for high SES
-global reading "130 202 157" 
-global math "136 132 216"
-global path "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
+global dpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/stata/"
+global fpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
 set scheme s2color, permanently
 
 // sample
 preserve
-use "dataset_z.dta",clear
+use "${dpath}dataset_z.dta",clear
 sort own_id other_id
 bysort own_id: gen counter = _n
 keep if counter == 1
-collapse (mean) own_fee, by(own_estrato)
+collapse (mean) own_fee (sem) se=own_fee, by(own_estrato)
 forvalues i = 1/3 {
     global fee_mean`i'S = (own_fee[`i']/1000)*(0.240745)*17.5
+	global fee_se`i'S = (se[`i']/1000)*(0.240745)*17.5
+	global fee_ci_lower`i'S = (own_fee[`i']/1000)*(0.240745)*17.5 - 1.96*(se[`i']/1000)*(0.240745)*17.5
+    global fee_ci_upper`i'S = (own_fee[`i']/1000)*(0.240745)*17.5 + 1.96*(se[`i']/1000)*(0.240745)*17.5
 } 
 restore 
 
@@ -34,6 +33,9 @@ keep if counter == 1
 collapse (mean) other_fee (sd) sd_fee=other_fee (count) n=other_fee (semean) se=other_fee, by(own_estrato)
 forvalues i = 1/3 {
     global fee_mean`i'A = (other_fee[`i']/1000)*(0.240745)*17.5
+	global fee_se`i'A = (se[`i']/1000)*(0.240745)*17.5
+	global fee_ci_lower`i'A = (other_fee[`i']/1000)*(0.240745)*17.5 - 1.96*(se[`i']/1000)*(0.240745)*17.5
+    global fee_ci_upper`i'A = (other_fee[`i']/1000)*(0.240745)*17.5 + 1.96*(se[`i']/1000)*(0.240745)*17.5
 } 
 restore 
 
@@ -61,8 +63,8 @@ gen fee = .
 gen feeA = .
 gen feeS = .
 gen se = .
-gen ci_lower = .
-gen ci_upper = .
+gen ci_lowerS = .
+gen ci_upperS = .
 
 replace fee = ${fee_mean1} if own_estrato == 1
 replace fee = ${fee_mean2} if own_estrato == 2
@@ -76,34 +78,29 @@ replace feeS = ${fee_mean1S} if own_estrato == 1
 replace feeS = ${fee_mean2S} if own_estrato == 2
 replace feeS = ${fee_mean3S} if own_estrato == 3
 
-replace se = ${fee_se1} if own_estrato == 1
-replace se = ${fee_se2} if own_estrato == 2
-replace se = ${fee_se3} if own_estrato == 3
 
-replace ci_lower = ${fee_ci_lower1} if own_estrato == 1
-replace ci_lower = ${fee_ci_lower2} if own_estrato == 2
-replace ci_lower = ${fee_ci_lower3} if own_estrato == 3
+replace ci_lowerS = ${fee_ci_lower1S} if own_estrato == 1
+replace ci_lowerS = ${fee_ci_lower2S} if own_estrato == 2
+replace ci_lowerS = ${fee_ci_lower3S} if own_estrato == 3
 
-replace ci_upper = ${fee_ci_upper1} if own_estrato == 1
-replace ci_upper = ${fee_ci_upper2} if own_estrato == 2
-replace ci_upper = ${fee_ci_upper3} if own_estrato == 3
+replace ci_upperS = ${fee_ci_upper1S} if own_estrato == 1
+replace ci_upperS = ${fee_ci_upper2S} if own_estrato == 2
+replace ci_upperS = ${fee_ci_upper3S} if own_estrato == 3
 
 label define estrato_lab 1 "Low" 2 "Middle" 3 "High"
 label values own_estrato estrato_lab
 
-twoway (bar fee xpos, barwidth(0.7) color("${lowSES}")) ///
-       (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
-	   (scatter feeA xpos, mcolor(gs4) msize(large) lcolor(none)) ///
-	   (scatter feeS xpos, mcolor(gs4) msize(large) lcolor(none) msymbol(Dh) lcolor(none)) ///
+twoway (bar feeS xpos, barwidth(0.5) fcolor(gs8) lcolor(gs4)) ///
+       (rcap ci_upperS ci_lowerS xpos, lcolor(gs4)) ///
        , ///
-       xlabel(1 "Low" 2 "Middle" 3 "High", noticks) ///
-       ylabel(1500(100)2200, angle(0) format(%9.0f) grid gmin) ///
+       xlabel(1 "Low" 2 "Middle" 3 "High") ///
+       ylabel(1500(100)2200, angle(0) format(%9.0f) grid gmax gmin) ///
        ytitle("Fee (in Dollars)") ///
        xtitle("") ///
        title("Program Fees by SES") ///
-       legend(order(1 "Network" 3 "Admin" 4 "Sample") ring(0) pos(12) rows(1) region(lcolor(none))) ///
+       legend(off) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) ///
        name(fee_by_ses, replace)
        
-graph export "${path}fee_by_ses.png", replace
+graph export "${fpath}fee_by_ses.png", replace

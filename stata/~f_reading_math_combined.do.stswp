@@ -240,7 +240,7 @@ gen tie_ci_lower = score_tie_math - 1.96*se_tie_math
 twoway (bar score_math group if treatment == "No bonus" & referral == "Not referred", fcolor(gs8) lcolor(gs4)) ///
       (bar score_math group if treatment == "No bonus" & referral == "Referred", fcolor(gs8) lcolor(gs4)) ///
       (bar score_math group if treatment == "Bonus" & referral == "Not referred", fcolor(gs8) lcolor(gs4)) ///
-      (bar score_math group if treatment == "Bonus" & referral == "Referred", fcolor(gs8) lcolor(gs4)  text(80 1.5 "Baseline", color(dknavy)) text(80 4.5 "Bonus", color(dknavy))) ///
+      (bar score_math group if treatment == "Bonus" & referral == "Referred", fcolor(gs8) lcolor(gs4)  text(80 1.5 "Baseline", color(dknavy)) text(18 4.5 "Bonus", color(dknavy))) ///
       (rcap math_ci_upper math_ci_lower group, color(gs4)), ///
       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
       ylabel(50(5)80, angle(0) gmin gmax) ///

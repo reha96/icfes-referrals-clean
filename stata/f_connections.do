@@ -22,8 +22,8 @@ sort own_id other_id
 keep if counter == 1
 
 collapse (mean) connections mean_tie, by(own_semester)
-twoway (area connections own_semester, color(gs12)) ///
-       (line mean_tie own_semester, yaxis(2) lcolor(gs4) lwidth(medthick)), ///
+twoway (area connections own_semester, color(gs10)) ///
+       (line mean_tie own_semester, yaxis(2) lcolor(dknavy) lwidth(medthick)), ///
        xlabel(1(2)11, nogrid) ///
        ylabel(0(50)300, angle(0) grid gmin ) ///
        ylabel(0(2)10, angle(0) axis(2)) ///

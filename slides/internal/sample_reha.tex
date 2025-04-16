@@ -198,8 +198,9 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Low-SES connection share decreases as SES increases
-                    \item Opposite pattern for High-SES
+                    \item 35 \% of UNAB is Low-SES, and 15 \% High-SES
+                    \item Network shares are very different from the population
+                    \item Why?
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -210,33 +211,13 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Network size and tie strength}\label{connections}
+    \begin{frame}{Selection into programs}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Connections decrease as SES increases
-                    \item High-SES take more classes with peers
-                    \item Differences stem from selection into programs and our sample \hyperlink{fig:program_share}{\beamerbutton{Programs}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png}
-                \label{fig:composition_aggregate}
-            \end{column}
-        \end{columns}
-        \end{frame}
-
-    \begin{frame}{Network-level program sorting}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Net average monthly salary \$350 in Colombia
-                    % \pause
-                    \item Low-SES sort into more affordable programs
+                    \item Low-SES study in more affordable programs
+                    \item Large difference as net average monthly salary around \$350
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -247,25 +228,97 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Referrer network performance}
+    % \begin{frame}{Selection into programs}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item Programs vary in size and classes taken with peers
+    %                 \item Largest programs are Medicine, Law, Biomedical Engineering, Pharmacology, and B. A.
+    %                 \item These comprise over 43\% of all students
+    %                 \item But represent 60\% of High-SES
+    %                 % \pause
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_share.png}
+    %             \label{fig:program_share}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    \begin{frame}{Selection into programs}\label{connections}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
-                \begin{itemize}
-                    \item Strongest selection w.r.t. performance for the Low-SES
-                    \item Network performance represents selection
-                    \item Comparable performance across SES
+                \begin{itemize}% [<+->]
+                    \item Program selection affects the network dynamics
+                    \item Connections decrease with SES
+                    \item Classes taken with peers increases with SES
+                    \item How about entry exam performance?
+                    % \pause
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_network_performance.png}
-                \label{fig:net_performance}
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png}
+                \label{fig:composition_aggregate}
+            \end{column}
+        \end{columns}
+        \end{frame}
+    
+        % \begin{frame}{Selection into programs}
+        %     \begin{columns}[T]
+        %         \begin{column}{0.38\textwidth}
+        %             \vspace{2em}
+        %             \begin{itemize}
+        %                 \item Medicine and Law have a higher concentration of common courses
+        %                 \item 40\% of High-SES study Medicine or Law
+        %                 % \pause
+        %             \end{itemize}
+        %         \end{column}
+        %         \begin{column}{0.62\textwidth}
+        %             \centering
+        %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_tie_hses.png}
+        %             \label{fig:top5_tie}
+        %         \end{column}
+        %     \end{columns}
+        % \end{frame}
+
+    \begin{frame}{Reading performance}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Similar performance across SES
+                    \item Network averages are close to the referrer sample
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_reading_scores.png}
+                \label{fig:read_performance}
             \end{column}
         \end{columns}
     \end{frame}
 
-
+    \begin{frame}{Math performance}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Similar performance for Reading and Math 
+                    \item Who do referrals perform?
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_math_scores.png}
+                \label{fig:net_performance}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
     % \begin{frame}{Network tie strength by SES}
     %     \begin{columns}[T]
@@ -289,7 +342,7 @@
 
     \begin{frame}{Referrals for Reading}
         \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
+            \begin{column}{0.3\textwidth}
                 \vspace{2em}
                 \begin{itemize}
                     \item Referrals have higher reading scores and much higher tie strength
@@ -297,7 +350,7 @@
                     \item No treatment effect on the referred (both $p > 0.08$)
                 \end{itemize}
             \end{column}
-            \begin{column}{0.62\textwidth}
+            \begin{column}{0.7\textwidth}
                 \centering
                 \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
                 \label{fig:read_combined}
@@ -307,7 +360,7 @@
 
     \begin{frame}{Referrals for Math}
         \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
+            \begin{column}{0.3\textwidth}
                 \vspace{2em}
                 \begin{itemize}
                     \item Referrals have higher math scores and much higher tie strength
@@ -315,7 +368,7 @@
                     \item No treatment effect on the referred (both $p > 0.1$)
                 \end{itemize}
             \end{column}
-            \begin{column}{0.62\textwidth}
+            \begin{column}{0.7\textwidth}
                 \centering
                 \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
                 \label{fig:math_combined}
@@ -328,7 +381,8 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Large monotonic differences in referral shares as SES increases (all $p < 0.1$)
+                    \item Compared to their network averages, Low-SES refer more from Low-SES (leftmost panel)
+                    \item High-SES refer less from Low-SES (rightmost panel)
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -1154,42 +1208,7 @@
     \end{frame}
 
 
-    \begin{frame}{Programs by size}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Largest programs are Medicine, Law, Biomedical Engineering, Pharmacology, and B. A.
-                    \item They comprise over 43\% of all students
-                    \item But represent 60\% of High-SES \hyperlink{fig:top5_tie}{\beamerbutton{Next}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_share.png}
-                \label{fig:program_share}
-            \end{column}
-        \end{columns}
-    \end{frame}
 
-    \begin{frame}{Common courses drives connections for High-SES}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item 40\% of High-SES study Medicine or Law
-                    \item Both have a higher concentration of common courses \hyperlink{connections}{\beamerbutton{Return}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_tie_hses.png}
-                \label{fig:top5_tie}
-            \end{column}
-        \end{columns}
-    \end{frame}
 
     \begin{frame}{No differences for Score Premium by SES}
         \begin{columns}[T]
