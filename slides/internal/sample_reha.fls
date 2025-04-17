@@ -487,11 +487,6 @@ INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_s
 INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png
 INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png
 INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_tie_strength.png
-INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png
-INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png
-INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png
-INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png
-INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm
@@ -532,6 +527,11 @@ INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png
 INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png
 INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png
 INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png
+INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png
+INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png
+INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png
+INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png
+INPUT /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png
 OUTPUT sample_reha.nav
 OUTPUT sample_reha.toc
 OUTPUT sample_reha.snm

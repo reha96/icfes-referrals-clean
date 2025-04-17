@@ -136,30 +136,21 @@ replace ci_lowerR = zscoreR - 1.96*seR
 replace ci_upperR = zscoreR + 1.96*seR
 
 
-gen pos = .
-replace pos = 1 if own_ses==1 & subject==1
-replace pos = 2 if own_ses==1 & subject==2
-replace pos = 4 if own_ses==2 & subject==1
-replace pos = 5 if own_ses==2 & subject==2
-replace pos = 7 if own_ses==3 & subject==1
-replace pos = 8 if own_ses==3 & subject==2
+gen xpos = own_ses - 0.125 
+gen xpos2 = own_ses + 0.125
 
-label define ses_lab 1 "Low" 2 "Middle" 3 "High"
-label values own_ses ses_lab
-label define subj_lab 1 "Reading" 2 "Math"
-label values subject subj_lab
+replace zscoreR = ((zscoreR - zscore)/zscore)*100
 
-twoway (bar zscoreR pos if subject==1, barwidth(0.8) color("130 202 157")) ///
-      (bar zscoreR pos if subject==2, barwidth(0.8) color("136 132 216")) ///
-	  (rcap ci_upperR ci_lowerR pos if subject==1, lcolor(gs4)) ///
-	  (rcap ci_upperR ci_lowerR pos if subject==2, lcolor(gs4)) ///
-	  (scatter zscore pos, mcolor(gs4) lcolor(none)), ///
-      xlabel(1.5 "Low" 4.5 "Middle" 7.5 "High") ///
-      ylabel(50(5)80, angle(0)) ///
-      ytitle("Score") ///
+twoway (bar zscoreR xpos if subject==1, barw(0.25) fcolor(gs8) lcolor(gs4)) ///
+      (bar zscoreR xpos2 if subject==2, barw(0.25) fcolor(gs12) lcolor(gs4)) ///
+	  , ///
+      xlabel(1 "Low" 2 "Middle" 3 "High") ///
+	  xscale(range(0.5 3.5)) ///
+      ylabel(0(5)20, angle(0) grid gmin gmax) ///
+      ytitle("Percent increase") ///
       xtitle("") ///
-      title("Referral Performance by SES") ///
-      legend(order(1 "Reading" 2 "Math" 5 "Network") ring(0) pos(12) rows(1) region(lcolor(none))) ///
+      title("Referral performance compared to network average") ///
+      legend(order(1 "Reading" 2 "Math") ring(0) pos(12) rows(1) region(lcolor(none))) ///
       graphregion(color(white)) bgcolor(white) ///
       name(referral_performance, replace)
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/overlaid_referral_performance.png", ///

@@ -101,24 +101,21 @@ gen ci_lowern = tie_strengthn - 1.96*sen
 gen ci_uppern = tie_strengthn + 1.96*sen
 
 
-// Label the groups
-label define ses_lab 1 "Low" 2 "Middle" 3 "High"
-label values own_ses ses_lab
-label values other_ses ses_lab
+replace tie_strengthn = ((tie_strengthn - tie_strength)/tie_strength)
+
+
 
 // Create the twoway bar graph with confidence intervals
-twoway (bar tie_strengthn xpos if other_ses == 1, barw(0.25) color("255 99 132")) ///
-       (bar tie_strengthn xpos if other_ses == 2, barw(0.25) color("54 162 235")) ///
-       (bar tie_strengthn xpos if other_ses == 3, barw(0.25) color("75 192 112")) ///
-       (rcap ci_uppern ci_lowern xpos, lcolor(gs4)) ///
-	   (scatter tie_strength xpos, mcolor(gs4) lcolor(none)) ///
+twoway (bar tie_strengthn xpos if other_ses == 1, barw(0.3) fcolor(gs6) lcolor(gs4)) ///
+       (bar tie_strengthn xpos if other_ses == 2, barw(0.3) fcolor(gs10) lcolor(gs4)) ///
+       (bar tie_strengthn xpos if other_ses == 3, barw(0.3) fcolor(gs14) lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2.5 "Middle" 4 "High") ///
-       ylabel(0(5)25, angle(0) format(%9.0f) grid gmin gmax) ///
-       ytitle("Classes taken together") ///
+       ylabel(0(1)5, angle(0) format(%9.0f) grid gmin gmax) ///
+       ytitle("Fold increase (x100)") ///
        xtitle("") ///
-       title("Referral Tie Strength by SES") ///
-       legend(order(1 "Low" 2 "Middle" 3 "High" 5 "Network") ///
+       title("Referral tie strength compared to network average") ///
+       legend(order(1 "Low" 2 "Middle" 3 "High") ///
               ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 4.5)) ///

@@ -90,7 +90,7 @@ replace ci_upperS = ${fee_ci_upper3S} if own_estrato == 3
 label define estrato_lab 1 "Low" 2 "Middle" 3 "High"
 label values own_estrato estrato_lab
 
-twoway (bar feeS xpos, barwidth(0.5) fcolor(gs8) lcolor(gs4)) ///
+twoway (bar feeS xpos, barwidth(0.5) fcolor(gs10) lcolor(gs4)) ///
        (rcap ci_upperS ci_lowerS xpos, lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High") ///

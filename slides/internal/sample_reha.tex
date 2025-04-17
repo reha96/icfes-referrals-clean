@@ -309,7 +309,7 @@
                 \vspace{2em}
                 \begin{itemize}
                     \item Similar performance for Reading and Math 
-                    \item Who do referrals perform?
+                    \item Who gets a referral?
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -381,8 +381,8 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Compared to their network averages, Low-SES refer more from Low-SES (leftmost panel)
-                    \item High-SES refer less from Low-SES (rightmost panel)
+                    \item Stark differences in referral rates considering network compositions were imbalanced to begin with
+                    \item Do differences impact scores and tie strength?
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -398,7 +398,8 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Small differences in referral performance across SES (all $p > 0.08$)
+                    \item Consistent performance increase in referrals
+                    \item High-SES seem to refer slightly better
                     % \pause
                 \end{itemize}
             \end{column}
@@ -415,9 +416,7 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Low and High SES take more classes with their own SES
-                    % \pause                 
-                    \item Low and High SES refer from those with whom they take more classes
+                    \item Very large but consistent increase in referral tie strength
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -428,22 +427,22 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Referral performance and tie strength}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item High-SES referrers access slightly higher performing nominees
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png}
-                \label{fig:ref-performance-bytie}
-            \end{column}
-        \end{columns}
-    \end{frame}
+    % \begin{frame}{Referral performance and tie strength}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item High-SES referrers access slightly higher performing nominees
+    %                 % \pause
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combined_score_by_tie.png}
+    %             \label{fig:ref-performance-bytie}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
 
 
@@ -468,7 +467,7 @@
     %     \end{itemize}
     % \end{frame}
 
-    \begin{frame}{Is there a bias against Low-SES in referrals?}
+    \begin{frame}{Is there a SES bias in referrals?}
         
         \vspace{0.5em}
         \textbf{Conditional Logit Model:}
@@ -488,19 +487,19 @@
         \vspace{0.5em}
         \textbf{Features:}
         \begin{itemize}% [<+->]
-            \item Control for referrer networks other unobservables with FE
-            \item Estimate separately for Math and Reading scores
+            \item FE controls for referrer network structure and other unobservables
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Reading}
+    \begin{frame}{Bias against High-SES in aggregate} 
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Reading score and tie strength are strong predictors of referrals
-                    \item No interaction between reading score and tie strength
-                    \item No evidence for a Low-SES bias \hyperlink{alternate_regression}{\beamerbutton{Alt. Specification}}
+                    \item Bias against High-SES
+                    \item Score and tie strength are strong predictors of referrals
+                    \item Small interaction between score and tie strength
+                    \item How about by referrer SES?
                 \end{itemize}
                 
             \end{column}
@@ -513,38 +512,39 @@
                     \toprule
                     & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                     \midrule
-                    Low-SES & 0.143* & -0.007 & -0.007 \\
-                    & (0.086) & (0.101) & (0.102) \\
-                    High-SES & -0.293** & -0.271* & -0.275** \\
-                    & (0.128) & (0.139) & (0.139) \\
-                    Nominee score &  & 0.566*** & 0.513*** \\
-                    &  & (0.044) & (0.048) \\
-                    Tie &  & 0.949*** & 0.939*** \\
-                    &  & (0.031) & (0.032) \\
-                    Score x Tie &  &  & 0.030 \\
-                    &  &  & (0.018) \\
+                    Low & 0.152** & -0.013 & -0.013 \\
+                    & (0.070) & (0.080) & (0.080) \\
+                    High & -0.300*** & -0.306*** & -0.315*** \\
+                    & (0.108) & (0.115) & (0.116) \\
+                    Nominee score & & 0.618*** & 0.527*** \\
+                    & & (0.034) & (0.035) \\
+                    Tie & & 0.916*** & 0.894*** \\
+                    & & (0.026) & (0.026) \\
+                    Score x Tie & & & 0.059*** \\
+                    & & & (0.015) \\
                     \midrule
-                    Observations & 128847 & 128847 & 128847 \\
-                    Ind. & 673 & 673 & 673 \\
-                    Chi-test & 10.81 & 1117.46 & 1145.58 \\
+                    Observations & 256997 & 256997 & 256997 \\
+                    Ind. & 734 & 734 & 734 \\
+                    Chi-test & 17.44 & 1602.42 & 1640.06 \\
                     \bottomrule
                     \end{tabular*}
-                    \label{tab:reading_regression}
+                    \label{tab:combined_regression}
                     \end{threeparttable}
                     \end{table}
             \end{column}
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Reading across SES}
+    \begin{frame}{SES extremes reveal origin of the bias}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
-                \begin{itemize}% [<+->]
-                    \item Restrict sample by referrer SES
-                    \item Low-SES bias against other SES
-                    \item No evidence for a bias against Low-SES \hyperlink{alternate_regression3}{\beamerbutton{Alt. Specification}}
+                \begin{itemize}
+                    \item Low-SES referrers are biased against High-SES and vice-versa
+                    \item Mid-SES show smallest bias to either extreme
+                    \item Does the bias impact referral performance?
                 \end{itemize}
+                
             \end{column}
             \begin{column}{0.62\textwidth}
                 \begin{table}
@@ -556,70 +556,29 @@
                     & Low-SES & Middle-SES & High-SES \\
                     & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                     \midrule
-                    Low-SES & 0.266* & -0.202 & -0.275 \\
-                    & (0.155) & (0.149) & (0.369) \\
-                    High-SES & -0.307 & -0.254 & -0.511 \\
-                    & (0.268) & (0.186) & (0.377) \\
-                    Nominee score & 0.548*** & 0.483*** & 0.553*** \\
-                    & (0.076) & (0.067) & (0.179) \\
-                    Tie & 0.873*** & 0.991*** & 0.986*** \\
-                    & (0.046) & (0.046) & (0.128) \\
-                    Score x Tie & 0.019 & 0.021 & 0.145** \\
-                    & (0.027) & (0.027) & (0.072) \\
+                    Low & 0.237* & -0.155 & -0.583* \\
+                    & (0.124) & (0.114) & (0.331) \\
+                    High & -0.451** & -0.281* & -0.382 \\
+                    & (0.223) & (0.157) & (0.293) \\
+                    Nominee score & 0.540*** & 0.503*** & 0.650*** \\
+                    & (0.056) & (0.049) & (0.116) \\
+                    Tie & 0.842*** & 0.930*** & 0.959*** \\
+                    & (0.037) & (0.039) & (0.104) \\
+                    Score x Tie & 0.043* & 0.057*** & 0.148** \\
+                    & (0.022) & (0.021) & (0.066) \\
                     \midrule
-                    Observations & 54611 & 64596 & 9640 \\
-                    Ind. & 275 & 340 & 58 \\
-                    Chi-test & 531.49 & 553.06 & 97.57 \\
+                    Observations & 110142 & 127088 & 19767 \\
+                    Ind. & 301 & 366 & 67 \\
+                    Chi-test & 804.58 & 766.33 & 144.77 \\
                     \bottomrule
                     \end{tabular*}
-                    \label{tab:homophily_reading}
+                    \label{tab:homophily_combined}
                     \end{threeparttable}
                     \end{table}
             \end{column}
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Math}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}% [<+->]
-                    \item Math score and tie strength are strong predictors of referrals
-                    \item Significant but small interaction between math score and tie strength
-                    \item No evidence for a Low-SES bias \hyperlink{alternate_regression2}{\beamerbutton{Alt. Specification}}
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \begin{table}
-                    \centering
-                    \footnotesize
-                    \begin{threeparttable}
-                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                    \toprule
-                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                    \midrule
-                    Low-SES & 0.161* & -0.013 & -0.015 \\
-                    & (0.086) & (0.099) & (0.100) \\
-                    High-SES & -0.309** & -0.343** & -0.361** \\
-                    & (0.131) & (0.142) & (0.144) \\
-                    Nominee score &  & 0.662*** & 0.546*** \\
-                    &  & (0.040) & (0.042) \\
-                    Tie &  & 0.885*** & 0.851*** \\
-                    &  & (0.029) & (0.029) \\
-                    Score x Tie &  &  & 0.089*** \\
-                    &  &  & (0.019) \\
-                    \midrule
-                    Observations & 128150 & 128150 & 128150 \\
-                    Ind. & 669 & 669 & 669 \\
-                    Chi-test & 12.38 & 1122.75 & 1154.40 \\
-                    \bottomrule
-                    \end{tabular*}
-                    \label{tab:math_regression}
-                    \end{threeparttable}
-                    \end{table}
-            \end{column}
-        \end{columns}
-    \end{frame}
 
     % \begin{frame}{Do grades predict Reading referrals?}
     %     \begin{columns}[T]
@@ -706,48 +665,6 @@
 
     
 
-    \begin{frame}{Math across SES}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}% [<+->]
-                    \item Restrict sample by referrer SES
-                    \item Low-SES bias against High-SES
-                    \item High-SES bias against Low-SES \hyperlink{alternate_regression4}{\beamerbutton{Alt. Specification}}
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \begin{table}
-                    \centering
-                    \footnotesize
-                    \begin{threeparttable}
-                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                    \toprule
-                    & Low-SES & Middle-SES & High-SES \\
-                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                    \midrule
-                    Low-SES & 0.208 & -0.101 & -0.986** \\
-                    & (0.150) & (0.145) & (0.469) \\
-                    High-SES & -0.619** & -0.313 & -0.269 \\
-                    & (0.283) & (0.195) & (0.381) \\
-                    Nominee score & 0.540*** & 0.526*** & 0.730*** \\
-                    & (0.064) & (0.060) & (0.128) \\
-                    Tie & 0.814*** & 0.870*** & 0.929*** \\
-                    & (0.041) & (0.043) & (0.128) \\
-                    Score x Tie & 0.067** & 0.096*** & 0.160 \\
-                    & (0.028) & (0.029) & (0.097) \\
-                    \midrule
-                    Observations & 55531 & 62492 & 10127 \\
-                    Ind. & 283 & 327 & 59 \\
-                    Chi-test & 525.71 & 561.64 & 110.76 \\
-                    \bottomrule
-                    \end{tabular*}
-                    \label{tab:homophily_math}
-                    \end{threeparttable}
-                    \end{table}
-            \end{column}
-        \end{columns}
-    \end{frame}
 
     % \begin{frame}{Empirical Specification: referral performance}
         
@@ -846,49 +763,47 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Result 1: No bias against Low-SES}
-        \begin{itemize}% [<+->]
-        \item No meaningful differences in referrals across areas Math or Reading
-        \item Referrers pick nominees based on performance and tie strength
-        \item No support for a bias against Low-SES
-        \item \textcolor{red}{add graph/visuals to illustrate?}
-    \end{itemize}
-    \end{frame}
+    % \begin{frame}{Result 1: No bias against Low-SES}
+    %     \begin{itemize}% [<+->]
+    %     \item No meaningful differences in referrals across areas Math or Reading
+    %     \item Referrers pick nominees based on performance and tie strength
+    %     \item No support for a bias against Low-SES
+    %     \item \textcolor{red}{add graph/visuals to illustrate?}
+    % \end{itemize}
+    % \end{frame}
 
-    \begin{frame}[label=good_refferals]{Who makes good referrals?}
+    \begin{frame}[label=good_refferals]{Who makes better referrals?}
     
         \vspace{0.5em}
         \textbf{OLS Model:}
         \begin{align*}
-            \text{Premium}_{ij} = \beta_0 + \beta_1 \text{Score}_i + \beta_2 \Delta\text{OwnBlf}_i + \beta_3 \Delta\text{OtherBlf}_i + \beta_4 \text{Treat}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
+            \text{Premium}_{ij} = \beta_0 + \beta_1 \text{SES}_i + \beta_2 \text{Score}_i + \beta_3 \Delta\text{OBlf}_i + \beta_4 \Delta\text{NBlf}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
         \end{align*}
         
         \vspace{0.5em}
         \begin{itemize}% [<+->]
-            \item $\text{Premium}_{i}$: Nominee $j$'s test score minus mean score of $i$'s network
-            \item $\Delta\text{OwnBlf}_i$, $\Delta\text{OtherBlf}_i$: $i$'s beliefs on own and nominee test scores minus actual scores
-            \item $\text{Score}_i$: Referrer $i$'s own test score 
-            \item $\text{Treat}_i$: Referrer $i$'s treatment indicator (Baseline vs. Bonus)
+            \item $\text{Premium}_{i}$: Nominee $j$'s test z-score minus mean score of $i$'s network
+            \item $\text{SES}_{i}$: Referrer $i$'s socioeconomic status (Low, Middle, High)    
+            \item $\Delta\text{OBlf}_i$, $\Delta\text{NBlf}_i$: $i$'s beliefs on own and nominee test scores minus actual scores (standardized)
+            \item $\text{Score}_i$: Referrer $i$'s own test z-score 
         \end{itemize}
     
         \vspace{0.5em}
         \textbf{Controls:}
         \begin{itemize}% [<+->]
-                \item Referrer $i$'s socioeconomic status (Low, Middle, High)    
+                \item Referrer $i$'s treatment (Baseline vs. Bonus)    
                 \item Test area indicator (Math vs. Reading)
                 \item Number of classes taken together for $i$ and nominee $j$
-                \item Standard deviation of test scores in $i$'s network
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Score Premium is positive overall}\label{score_premium}
+    \begin{frame}{Referals are better than network average}\label{score_premium}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
                     \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
                     \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
-                    \item Referals fare better than their referrer's network average
                     % \pause
                 \end{itemize}
             \end{column}
@@ -900,14 +815,13 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Beliefs about own score are accurate}\label{own_beliefs}
+    \begin{frame}{Beliefs about own scores are accurate}\label{own_beliefs}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
                     \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
                     \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
-                    \item Beliefs centered around own scores show high accuracy
                     % \pause
                 \end{itemize}
             \end{column}
@@ -926,7 +840,6 @@
                 \begin{itemize}
                     \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
                     \item No difference between SES groups \hyperlink{fig:nb_byses}{\beamerbutton{See}}
-                    \item Nominees perform slightly worse than referrer expectations
                     % \pause
                 \end{itemize}
             \end{column}
@@ -980,16 +893,15 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Referrer score and beliefs predict better referrals}
+    \begin{frame}{Referrer score and beliefs predict better referrals}\label{referral_quality}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}% [<+->]
                     \item Referrer $i$'s score predicts premium
                     \item Overestimating own scores increases premium
-                    \item Accurate nominee beliefs increases premium (too optimistic)
-                    \item Bonus for the nominee $j$ reduces premium
-                    \item No effect of SES, area, tie strength, or network avarage variability
+                    \item ``Accurate'' nominee beliefs increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+                    \item No effect of SES?
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -1001,16 +913,16 @@
                     \toprule
                     & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
                     \midrule
-                    Participant score & 0.228*** & 0.219*** \\
-                    & (0.026) & (0.026) \\
-                    $\Delta$ own belief & 0.117*** & 0.118*** \\
-                    & (0.019) & (0.019) \\
-                    $\Delta$ nominee belief  & -0.207*** & -0.205*** \\
-                    & (0.024) & (0.024) \\
-                    Bonus treatment & -0.872* & -0.864* \\
-                    & (0.482) & (0.478) \\
-                    Constant & -8.364*** & -8.351*** \\
-                    & (1.723) & (2.762) \\
+                    Low & 0.031 & 0.026 \\
+                    & (0.061) & (0.061) \\
+                    High & 0.158 & 0.155 \\
+                    & (0.100) & (0.100) \\
+                    Referrer score & 0.269*** & 0.264*** \\
+                    & (0.031) & (0.032) \\
+                    $\Delta$ own belief & 0.237*** & 0.241*** \\
+                    & (0.038) & (0.038) \\
+                    $\Delta$ nominee belief & -0.383*** & -0.378*** \\
+                    & (0.045) & (0.044) \\
                     \midrule
                     Controls & No & Yes \\
                     Observations & 1,342 & 1,342 \\
@@ -1024,8 +936,57 @@
         \end{columns}
     \end{frame}
 
+    \begin{frame}{Interactions?}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}% [<+->]
+                    \item \textcolor{red}{SES w/ own other beleifs and score interact }
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+                    \midrule
+                    Low & 0.031 & 0.026 \\
+                    & (0.061) & (0.061) \\
+                    High & 0.158 & 0.155 \\
+                    & (0.100) & (0.100) \\
+                    Referrer score & 0.269*** & 0.264*** \\
+                    & (0.031) & (0.032) \\
+                    $\Delta$ own belief & 0.237*** & 0.241*** \\
+                    & (0.038) & (0.038) \\
+                    $\Delta$ nominee belief & -0.383*** & -0.378*** \\
+                    & (0.045) & (0.044) \\
+                    \midrule
+                    Controls & No & Yes \\
+                    Observations & 1,342 & 1,342 \\
+                    Ind. & 734 & 734 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:XXX}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-    \begin{frame}{Result 2: Beliefs and scores predict better referrals regardless of SES} 
+    % \begin{frame}{Result 2: Beliefs and scores predict better referrals regardless of SES} 
+    %     \markconclusion
+    %     \begin{itemize}% [<+->]
+    %     \item Referrers pick better nominees as their own scores get higher
+    %     \item Accurate beliefs about nominee scores maximizes premium
+    %     \item Bonus for nominee reduces premium
+    %     \item No effect of SES on beliefs or premium
+    % \end{itemize}
+    % \end{frame}
+
+        \begin{frame}{Conclusion} 
         \markconclusion
         \begin{itemize}% [<+->]
         \item Referrers pick better nominees as their own scores get higher
@@ -1037,7 +998,92 @@
 
     \hideprogressbar
 
-    \begin{frame}[label=alternate_regression]{Reading (Alt.)}
+    \begin{frame}{Reading}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Reading score and tie strength are strong predictors of referrals
+                    \item No interaction between reading score and tie strength
+                    \item No evidence for a Low-SES bias \hyperlink{alternate_regression}{\beamerbutton{Alt. Specification}}
+                \end{itemize}
+                
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.143* & -0.007 & -0.007 \\
+                    & (0.086) & (0.101) & (0.102) \\
+                    High-SES & -0.293** & -0.271* & -0.275** \\
+                    & (0.128) & (0.139) & (0.139) \\
+                    Nominee score &  & 0.566*** & 0.513*** \\
+                    &  & (0.044) & (0.048) \\
+                    Tie &  & 0.949*** & 0.939*** \\
+                    &  & (0.031) & (0.032) \\
+                    Score x Tie &  &  & 0.030 \\
+                    &  &  & (0.018) \\
+                    \midrule
+                    Observations & 128847 & 128847 & 128847 \\
+                    Ind. & 673 & 673 & 673 \\
+                    Chi-test & 10.81 & 1117.46 & 1145.58 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:reading_regression}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Math}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}% [<+->]
+                    \item Math score and tie strength are strong predictors of referrals
+                    \item Significant but small interaction between math score and tie strength
+                    \item No evidence for a Low-SES bias \hyperlink{alternate_regression2}{\beamerbutton{Alt. Specification}}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.161* & -0.013 & -0.015 \\
+                    & (0.086) & (0.099) & (0.100) \\
+                    High-SES & -0.309** & -0.343** & -0.361** \\
+                    & (0.131) & (0.142) & (0.144) \\
+                    Nominee score &  & 0.662*** & 0.546*** \\
+                    &  & (0.040) & (0.042) \\
+                    Tie &  & 0.885*** & 0.851*** \\
+                    &  & (0.029) & (0.029) \\
+                    Score x Tie &  &  & 0.089*** \\
+                    &  &  & (0.019) \\
+                    \midrule
+                    Observations & 128150 & 128150 & 128150 \\
+                    Ind. & 669 & 669 & 669 \\
+                    Chi-test & 12.38 & 1122.75 & 1154.40 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:math_regression}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}[label=alternate_regression]{Reading (Low-SES vs others)}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
@@ -1078,7 +1124,93 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}[label=alternate_regression3]{Reading across SES (Alt.)}
+    \begin{frame}[label=alternate_regression2]{Math (Low-SES vs others)}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Alternative specification with binary Low-SES
+                    \item No evidence for a Low-SES bias
+                    \item Consistent with main model \hyperlink{tab:math_regression}{\beamerbutton{Return}}
+                \end{itemize}
+            
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.220*** & 0.049 & 0.050 \\
+                    & (0.083) & (0.097) & (0.098) \\
+                    Nominee Score  &  & 0.653*** & 0.538*** \\
+                    &  & (0.040) & (0.041) \\
+                    Tie &  & 0.887*** & 0.854*** \\
+                    &  & (0.029) & (0.030) \\
+                    Score x Tie &  &  & 0.088*** \\
+                    &  &  & (0.019) \\
+                    \midrule
+                    Observations & 128,150 & 128,150 & 128,150 \\
+                    Ind. & 669 & 669 & 669 \\
+                    Chi-test &  7.02 & 1124.24 & 1156.08  \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:math_regression_alt}
+                    \end{threeparttable}
+                \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Reading across SES}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}% [<+->]
+                    \item Restrict sample by referrer SES
+                    \item Low-SES bias against other SES
+                    \item No evidence for a bias against Low-SES \hyperlink{alternate_regression3}{\beamerbutton{Alt. Specification}}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & Low-SES & Middle-SES & High-SES \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low-SES & 0.266* & -0.202 & -0.275 \\
+                    & (0.155) & (0.149) & (0.369) \\
+                    High-SES & -0.307 & -0.254 & -0.511 \\
+                    & (0.268) & (0.186) & (0.377) \\
+                    Nominee score & 0.548*** & 0.483*** & 0.553*** \\
+                    & (0.076) & (0.067) & (0.179) \\
+                    Tie & 0.873*** & 0.991*** & 0.986*** \\
+                    & (0.046) & (0.046) & (0.128) \\
+                    Score x Tie & 0.019 & 0.021 & 0.145** \\
+                    & (0.027) & (0.027) & (0.072) \\
+                    \midrule
+                    Observations & 54611 & 64596 & 9640 \\
+                    Ind. & 275 & 340 & 58 \\
+                    Chi-test & 531.49 & 553.06 & 97.57 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:homophily_reading}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}[label=alternate_regression3]{Reading across SES (Low-SES vs others)}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
@@ -1122,16 +1254,15 @@
     \end{frame}
 
 
-    \begin{frame}[label=alternate_regression2]{Math (Alt.)}
+    \begin{frame}{Math across SES}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
-                \begin{itemize}
-                    \item Alternative specification with binary Low-SES
-                    \item No evidence for a Low-SES bias
-                    \item Consistent with main model \hyperlink{tab:math_regression}{\beamerbutton{Return}}
+                \begin{itemize}% [<+->]
+                    \item Restrict sample by referrer SES
+                    \item Low-SES bias against High-SES
+                    \item High-SES bias against Low-SES \hyperlink{alternate_regression4}{\beamerbutton{Alt. Specification}}
                 \end{itemize}
-            
             \end{column}
             \begin{column}{0.62\textwidth}
                 \begin{table}
@@ -1140,31 +1271,33 @@
                     \begin{threeparttable}
                     \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
                     \toprule
+                    & Low-SES & Middle-SES & High-SES \\
                     & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                     \midrule
-                    Low-SES & 0.220*** & 0.049 & 0.050 \\
-                    & (0.083) & (0.097) & (0.098) \\
-                    Nominee Score  &  & 0.653*** & 0.538*** \\
-                    &  & (0.040) & (0.041) \\
-                    Tie &  & 0.887*** & 0.854*** \\
-                    &  & (0.029) & (0.030) \\
-                    Score x Tie &  &  & 0.088*** \\
-                    &  &  & (0.019) \\
+                    Low-SES & 0.208 & -0.101 & -0.986** \\
+                    & (0.150) & (0.145) & (0.469) \\
+                    High-SES & -0.619** & -0.313 & -0.269 \\
+                    & (0.283) & (0.195) & (0.381) \\
+                    Nominee score & 0.540*** & 0.526*** & 0.730*** \\
+                    & (0.064) & (0.060) & (0.128) \\
+                    Tie & 0.814*** & 0.870*** & 0.929*** \\
+                    & (0.041) & (0.043) & (0.128) \\
+                    Score x Tie & 0.067** & 0.096*** & 0.160 \\
+                    & (0.028) & (0.029) & (0.097) \\
                     \midrule
-                    Observations & 128,150 & 128,150 & 128,150 \\
-                    Ind. & 669 & 669 & 669 \\
-                    Chi-test &  7.02 & 1124.24 & 1156.08  \\
+                    Observations & 55531 & 62492 & 10127 \\
+                    Ind. & 283 & 327 & 59 \\
+                    Chi-test & 525.71 & 561.64 & 110.76 \\
                     \bottomrule
                     \end{tabular*}
-                    \label{tab:math_regression_alt}
+                    \label{tab:homophily_math}
                     \end{threeparttable}
-                \end{table}
+                    \end{table}
             \end{column}
         \end{columns}
     \end{frame}
 
-
-    \begin{frame}[label=alternate_regression4]{Math across SES (Alt.)}
+    \begin{frame}[label=alternate_regression4]{Math across SES (Low-SES vs others)}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
@@ -1258,6 +1391,23 @@
                 \centering
                 \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png}
                 \label{fig:nb_byses}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Nominee Beliefs are rewarded for accuracy}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Negative coeffient is explained by quadratic shape \hyperlink{referral_quality}{\beamerbutton{Return}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png}
+                \label{fig:score_premium_qfit}
             \end{column}
         \end{columns}
     \end{frame}
