@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  17 APR 2025 16:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  18 APR 2025 14:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -968,13 +968,17 @@ Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/fig
 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png, id=181, 1581.91pt x 1150.2975pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png  used on input line 852.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png  used on input line 853.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
  [23
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png>] [24
 
-] [25
+]
+Overfull \vbox (5.82928pt too high) detected at line 982
+ []
+
+[25
 
 ] [26
 
@@ -987,7 +991,7 @@ Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/fig
 ] [30
 
 ]
-Overfull \vbox (5.82928pt too high) detected at line 1210
+Overfull \vbox (5.82928pt too high) detected at line 1216
  []
 
 [31
@@ -995,7 +999,7 @@ Overfull \vbox (5.82928pt too high) detected at line 1210
 ] [32
 
 ]
-Overfull \vbox (5.82928pt too high) detected at line 1298
+Overfull \vbox (5.82928pt too high) detected at line 1304
  []
 
 [33
@@ -1003,18 +1007,18 @@ Overfull \vbox (5.82928pt too high) detected at line 1298
 ] [34
 
 ]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sp_byses.png, id=277, 1581.91pt x 1150.2975pt>
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sp_byses.png, id=278, 1581.91pt x 1150.2975pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sp_byses.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sp_byses.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sp_byses.png  used on input line 1361.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sp_byses.png  used on input line 1367.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
  [35
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/sp_byses.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_byses.png, id=284, 1581.91pt x 1150.2975pt>
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_byses.png, id=286, 1581.91pt x 1150.2975pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_byses.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_byses.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_byses.png  used on input line 1379.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_byses.png  used on input line 1385.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
  [36
 
@@ -1022,19 +1026,27 @@ Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/fig
 </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png, id=293, 1581.91pt x 1150.2975pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png  used on input line 1396.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png  used on input line 1402.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
  [37
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png>]
-</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png, id=302, 2024.56375pt x 1472.50125pt>
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png, id=301, 2024.56375pt x 1472.50125pt>
 File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png Graphic file (type png)
 <use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png>
-Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png  used on input line 1413.
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png  used on input line 1419.
 (pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
  [38
 
  </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png>]
+</Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_qfit.png, id=308, 2024.56375pt x 1472.50125pt>
+File: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_qfit.png Graphic file (type png)
+<use /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_qfit.png>
+Package pdftex.def Info: /Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_qfit.png  used on input line 1436.
+(pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
+ [39
+
+ </Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_qfit.png>]
 \tf@nav=\write6
 \openout6 = `sample_reha.nav'.
 
@@ -1053,24 +1065,18 @@ Package rerunfilecheck Info: File `sample_reha.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27029 strings out of 474116
- 548752 string characters out of 5743681
- 1941187 words of memory out of 5000000
- 48710 multiletter control sequences out of 15000+600000
+ 27040 strings out of 474116
+ 549363 string characters out of 5743681
+ 1943187 words of memory out of 5000000
+ 48720 multiletter control sequences out of 15000+600000
  572895 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,123p,479b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{other_belief} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{own_belief} has been referenced but does not exist, replaced by a fixed one
-
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on sample_reha.pdf (38 pages, 1573283 bytes).
+Output written on sample_reha.pdf (39 pages, 1617885 bytes).
 PDF statistics:
- 390 PDF objects out of 1000 (max. 8388607)
- 299 compressed objects within 3 object streams
- 127 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 398 PDF objects out of 1000 (max. 8388607)
+ 304 compressed objects within 4 object streams
+ 128 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

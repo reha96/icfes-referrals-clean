@@ -19,13 +19,13 @@
 \beamer@slide {good_refferals}{20}
 \beamer@slide {score_premium}{21}
 \beamer@slide {fig:score-premium}{21}
-\beamer@slide {own_beliefs}{22}
+\beamer@slide {own_belief}{22}
 \beamer@slide {fig:own_belief}{22}
-\beamer@slide {other_beliefs}{23}
+\beamer@slide {other_belief}{23}
 \beamer@slide {fig:other_belief}{23}
 \beamer@slide {referral_quality}{24}
 \beamer@slide {tab:regression_results}{24}
-\beamer@slide {tab:XXX}{25}
+\beamer@slide {tab:ses_interactions}{25}
 \beamer@slide {tab:reading_regression}{27}
 \beamer@slide {tab:math_regression}{28}
 \beamer@slide {alternate_regression<1>}{29}
@@ -46,3 +46,4 @@
 \beamer@slide {fig:ob_byses}{36}
 \beamer@slide {fig:nb_byses}{37}
 \beamer@slide {fig:score_premium_qfit}{38}
+\beamer@slide {fig:ob_qfit}{39}

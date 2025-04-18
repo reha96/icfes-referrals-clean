@@ -299,10 +299,6 @@ cls
 esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 
-use "${path}cmb_tmp.dta", clear
-
-twoway (qfitci score_premium delta_own_belief if delta_own_belief >= -50 & delta_own_belief <= 50) (qfitci score_premium delta_other_belief if delta_other_belief >= -50 & delta_other_belief <= 50)
-
 
 
 eststo cmb3: reg score_premium own_score own_belief other_belief 
@@ -361,28 +357,6 @@ restore
 
 
 
-preserve
-egen med = median(own_score)
-egen lqt = pctile(own_score), p(25)
-egen uqt = pctile(own_score), p(75)
-egen iqr = iqr(own_score)
-egen mean = mean(own_score)
-gen ypos = -11
-gen l = own_score if(own_score >= lqt-1.5*iqr)
-egen ls = min(l)
-gen u = own_score if(own_score <= uqt+1.5*iqr)
-egen us = max(u)
-twoway (qfitci score_premium own_score, lcolor(gs4) bcolor(gs12) alwidth(none)) ///
-		rbar lqt uqt ypos , horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
-	   rbar med uqt ypos, horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
-       rspike lqt ls ypos, horiz  lcolor(gs4) || ///
-       rspike uqt us ypos, horiz lcolor(gs4) || ///
-       rcap ls ls ypos,  horiz msize(*1) lcolor(gs4) || ///
-       rcap us us ypos,  horiz msize(*1) lcolor(gs4)|| ///
-	   scatter ypos mean , msymbol(o) msize(*.5) fcolor(gs4) mcolor(gs4) legend(off) ///
-	,	xlabel(25(25)100) ytitle("Score Premium") title("Own Score Fit") graphregion(color(white)) bgcolor(white) name(score_premium, replace) legend(off)  xtitle("")
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_score_qfit.png", replace
-	restore
 	   	
 (qfitci score_premium own_score, bcolor(navy%20) alwidth(none)) ///	   
 
@@ -501,6 +475,7 @@ gen z_OS = (own_score - meanOS) / sdOS
 
 
 est clear
+eststo d0: reg z_SP  ib(2).own_estrato, vce(cluster own_id)
 eststo d1: reg z_SP  ib(2).own_estrato z_OS z_OB z_NB, vce(cluster own_id)
 eststo d2: reg z_SP  ib(2).own_estrato z_OS z_OB z_NB i.treat z_tie i.area  , vce(cluster own_id)
 cls
@@ -515,6 +490,31 @@ eststo int_own: reg z_SP ib(2).own_estrato##c.z_OB z_OS z_NB , vce(cluster own_i
 
 // Model 3: SES × Nominee Belief Difference interaction
 eststo int_nom: reg z_SP ib(2).own_estrato##c.z_NB z_OS z_OB , vce(cluster own_id)
+
+eststo int_all: reg z_SP ib(2).own_estrato##c.z_NB ib(2).own_estrato##c.z_OS ib(2).own_estrato##c.z_OB , vce(cluster own_id)
+// Test if z_NB effect is equal across all SES groups
+test 1.own_estrato#c.z_NB = 2.own_estrato#c.z_NB = 3.own_estrato#c.z_NB // p > .1
+
+// Test if z_OS effect is equal across all SES groups
+test 1.own_estrato#c.z_OS = 2.own_estrato#c.z_OS = 3.own_estrato#c.z_OS // *
+
+// Test if z_OB effect is equal across all SES groups
+test 1.own_estrato#c.z_OB = 2.own_estrato#c.z_OB = 3.own_estrato#c.z_OB // *
+
+test 1.own_estrato = 2.own_estrato = 3.own_estrato // p > .1
+
+
+// Regression with SES as categorical predictor
+reg z_SP ib(2).own_estrato, vce(cluster own_id)
+test 1.own_estrato = 2.own_estrato = 3.own_estrato
+
+reg z_OB ib(2).own_estrato, vce(cluster own_id)
+test 1.own_estrato = 2.own_estrato = 3.own_estrato
+
+reg z_NB ib(2).own_estrato, vce(cluster own_id)
+test 1.own_estrato = 2.own_estrato = 3.own_estrato
+
+
 cls
 esttab int*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
@@ -541,4 +541,31 @@ twoway (qfitci score_premium delta_other_belief, lcolor(gs4) bcolor(gs12) alwidt
 	,	xlabel(-75(25)50) ytitle("Score Premium") title("Score Premium and Nominee Belief accuracy") graphregion(color(white)) bgcolor(white) name(score_premium, replace) legend(off)  xtitle("")
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png", replace
 	restore
+	
+	
+	
+use "${path}cmb_tmp.dta", clear
+preserve
+keep if delta_own_belief >-50 
+egen med = median(delta_own_belief)
+egen lqt = pctile(delta_own_belief), p(25)
+egen uqt = pctile(delta_own_belief), p(75)
+egen iqr = iqr(delta_own_belief)
+egen mean = mean(delta_own_belief)
+gen ypos = -11
+gen l = delta_own_belief if(delta_own_belief >= lqt-1.5*iqr)
+egen ls = min(l)
+gen u = delta_own_belief if(delta_own_belief <= uqt+1.5*iqr)
+egen us = max(u)
+twoway (qfitci score_premium delta_own_belief if delta_own_belief >-10 & delta_own_belief < 10, lcolor(gs4) bcolor(gs12) alwidth(none)) ///
+		rbar lqt uqt ypos , horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+	   rbar med uqt ypos, horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+       rspike lqt ls ypos, horiz  lcolor(gs4) || ///
+       rspike uqt us ypos, horiz lcolor(gs4) || ///
+       rcap ls ls ypos,  horiz msize(*1) lcolor(gs4) || ///
+       rcap us us ypos,  horiz msize(*1) lcolor(gs4)|| ///
+	   scatter ypos mean , msymbol(o) msize(*.5) fcolor(gs4) mcolor(gs4) legend(off) ///
+	,	xlabel(-50(10)50) ytitle("Score Premium") title("Score Premium and Own Belief accuracy") graphregion(color(white)) bgcolor(white) name(score_premium, replace) legend(off)  xtitle("")
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_qfit.png", replace
+restore
 	

@@ -14,6 +14,8 @@ use "${dpath}cmb_tmp.dta", clear
 sort own_id
 list in 1/6
 
+list if delta_own_belief <= -75
+
 preserve
 egen med = median(delta_own_belief)
 egen lqt = pctile(delta_own_belief), p(25)

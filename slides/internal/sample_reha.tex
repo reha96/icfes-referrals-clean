@@ -24,7 +24,7 @@
     %	TITLE PAGE
     %----------------------------------------------------------------------------------------
 
-    \title[short title]{Breaking the Bias: Referrals offset class differences in social networks} % The short title appears at the bottom of every slide, the full title is only on the title pages
+    \title[short title]{Preferential Biases in Referrals: Class differences in social networks} % The short title appears at the bottom of every slide, the full title is only on the title pages
     \subtitle{1 hour internal presentation}
 
     \author[Pin-Yen] {Reha Tuncer - University of Luxembourg}
@@ -815,7 +815,7 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Beliefs about own scores are accurate}\label{own_beliefs}
+    \begin{frame}{Beliefs about own scores are accurate}\label{own_belief}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
@@ -833,13 +833,14 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Beliefs about nominees reveal a positive bias}\label{other_beliefs}
+    \begin{frame}{Beliefs about nominees reveal a positive bias}\label{other_belief}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
                     \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
                     \item No difference between SES groups \hyperlink{fig:nb_byses}{\beamerbutton{See}}
+                    \item Did not collect beliefs about SES group performance in general
                     % \pause
                 \end{itemize}
             \end{column}
@@ -899,9 +900,10 @@
                 \vspace{2em}
                 \begin{itemize}% [<+->]
                     \item Referrer $i$'s score predicts premium
-                    \item Overestimating own scores increases premium
-                    \item ``Accurate'' nominee beliefs increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
-                    \item No effect of SES?
+                    \item Accuracy on own scores increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+                    \item Accuracy on nominee beliefs increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+                    \item No effect of SES
+                    \item How about the interaction between SES, scores and beliefs?
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -909,24 +911,24 @@
                     \centering
                     \footnotesize
                     \begin{threeparttable}
-                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
                     \toprule
-                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
                     \midrule
-                    Low & 0.031 & 0.026 \\
-                    & (0.061) & (0.061) \\
-                    High & 0.158 & 0.155 \\
-                    & (0.100) & (0.100) \\
-                    Referrer score & 0.269*** & 0.264*** \\
-                    & (0.031) & (0.032) \\
-                    $\Delta$ own belief & 0.237*** & 0.241*** \\
-                    & (0.038) & (0.038) \\
-                    $\Delta$ nominee belief & -0.383*** & -0.378*** \\
-                    & (0.045) & (0.044) \\
+                    Low & 0.068 & 0.031 & 0.026 \\
+                    & (0.066) & (0.061) & (0.061) \\
+                    High & 0.219** & 0.158 & 0.155 \\
+                    & (0.099) & (0.100) & (0.100) \\
+                    Own score & & 0.269*** & 0.264*** \\
+                    & & (0.031) & (0.032) \\
+                    $\Delta$ own belief & & 0.237*** & 0.241*** \\
+                    & & (0.038) & (0.038) \\
+                    $\Delta$ nominee belief & & -0.383*** & -0.378*** \\
+                    & & (0.045) & (0.044) \\
                     \midrule
-                    Controls & No & Yes \\
-                    Observations & 1,342 & 1,342 \\
-                    Ind. & 734 & 734 \\
+                    Controls & No & No & Yes \\
+                    Observations & 1,342 & 1,342 & 1,342 \\
+                    Ind. & 734 & 734 & 734 \\
                     \bottomrule
                     \end{tabular*}
                     \label{tab:regression_results}
@@ -936,12 +938,13 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Interactions?}
+    \begin{frame}{No heterogeneity in beliefs and performance}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
-                \begin{itemize}% [<+->]
-                    \item \textcolor{red}{SES w/ own other beleifs and score interact }
+                \begin{itemize}
+                    \item \textbf{Marginally} stronger effect of own score for Low-SES (joint F-test $p < 0.1$)
+                    \item Effect of own belief driven by outliers
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -949,29 +952,31 @@
                     \centering
                     \footnotesize
                     \begin{threeparttable}
-                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lc}
                     \toprule
-                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+                     & (1) \\
                     \midrule
-                    Low & 0.031 & 0.026 \\
-                    & (0.061) & (0.061) \\
-                    High & 0.158 & 0.155 \\
-                    & (0.100) & (0.100) \\
-                    Referrer score & 0.269*** & 0.264*** \\
-                    & (0.031) & (0.032) \\
-                    $\Delta$ own belief & 0.237*** & 0.241*** \\
-                    & (0.038) & (0.038) \\
-                    $\Delta$ nominee belief & -0.383*** & -0.378*** \\
-                    & (0.045) & (0.044) \\
+                    Own score x Low & 0.128* \\
+                    & (0.065) \\
+                    Own score x High & -0.043 \\
+                    & (0.101) \\
+                    $\Delta$ own belief x Low & 0.009 \\
+                    & (0.082) \\
+                    $\Delta$ own belief x High & -0.248** \\
+                    & (0.118) \\
+                    $\Delta$ nominee belief x Low & 0.002 \\
+                    & (0.094) \\
+                    $\Delta$ nominee belief x High & 0.039 \\
+                    & (0.159) \\
                     \midrule
-                    Controls & No & Yes \\
-                    Observations & 1,342 & 1,342 \\
-                    Ind. & 734 & 734 \\
+                    Observations & 1,342 \\
+                    Individuals & 734 \\
                     \bottomrule
                     \end{tabular*}
-                    \label{tab:XXX}
+                    \label{tab:ses_interactions}
                     \end{threeparttable}
-                    \end{table}
+                \end{table}
+                \renewcommand{\arraystretch}{1.0}
             \end{column}
         \end{columns}
     \end{frame}
@@ -989,10 +994,11 @@
         \begin{frame}{Conclusion} 
         \markconclusion
         \begin{itemize}% [<+->]
-        \item Referrers pick better nominees as their own scores get higher
-        \item Accurate beliefs about nominee scores maximizes premium
-        \item Bonus for nominee reduces premium
-        \item No effect of SES on beliefs or premium
+        \item Networks are separated by SES
+        \item Referrers pick close ties and better performers from respective networks
+        \item Low and High-SES exhibit bias against one another and worsen the bias
+        \item Referrers uniformly nominate better as their own scores get higher, have more accurate beliefs about own and nominee scores
+        \item Referrals refer the same way, but \textbf{prefer} nominating similar others
     \end{itemize}
     \end{frame}
 
@@ -1348,7 +1354,7 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Differences are negligeable  \hyperlink{score_premium}{\beamerbutton{Return}}
+                    \item Middle-SES refer slightly worst (joint F-test, $p < 0.1$) \hyperlink{score_premium}{\beamerbutton{Return}}
                     % \pause
                 \end{itemize}
             \end{column}
@@ -1366,7 +1372,7 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Differences are negligeable  \hyperlink{own_belief}{\beamerbutton{Return}}
+                    \item Middle-SES are slighlty more accurate (joint F-test, $p < 0.1$) \hyperlink{own_belief}{\beamerbutton{Return}}
                     % \pause
                 \end{itemize}
             \end{column}
@@ -1378,12 +1384,12 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{No Differences for nominee score beliefs by SES}
+    \begin{frame}{No differences for nominee score beliefs by SES}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Differences are negligeable  \hyperlink{other_belief}{\beamerbutton{Return}}
+                    \item No difference (joint F-test, $p = 0.41$)  \hyperlink{other_belief}{\beamerbutton{Return}}
                     % \pause
                 \end{itemize}
             \end{column}
@@ -1408,6 +1414,23 @@
                 \centering
                 \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium_qfit.png}
                 \label{fig:score_premium_qfit}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Own score beliefs are rewarded for accuracy}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Positive coeffient is explained by quadratic shape and extreme outliers \hyperlink{referral_quality}{\beamerbutton{Return}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ob_qfit.png}
+                \label{fig:ob_qfit}
             \end{column}
         \end{columns}
     \end{frame}
