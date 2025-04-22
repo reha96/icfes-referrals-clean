@@ -28,7 +28,7 @@ foreach i in score_math score_reading {
     
     // Admin data
     use "dataset_z.dta", clear
-    bysort own_id: gen counter = _n
+    bysort other_id: gen counter = _n
     keep if counter == 1
     
     foreach ses in 1 2 3 {
@@ -92,7 +92,7 @@ twoway (bar score xpos if subject==2, barw(0.5) lcolor(gs4) fcolor(gs8)) ///  //
        ylabel(50(5)80, angle(0) grid gmin gmax) ///
        ytitle("Score") ///
        xtitle("") ///
-       title("Performance by SES") ///
+       title("Admin Data Performance by SES") ///
        legend(order(1 "Reading" 2 "Math") ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 5)) ///

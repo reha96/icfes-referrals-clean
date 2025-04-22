@@ -1,0 +1,102 @@
+\pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
+  color(0pt)=(lower.bg); color(2pt)=(lower.bg); color(4pt)=(lower.bg)}
+
+\setbeamersize{text margin left=2em,text margin right=2em} 
+
+% progress bar
+\definecolor{progressbar}{RGB}{64,64,64}
+\definecolor{progressbarbg}{RGB}{224,224,224}
+
+\makeatletter
+\newif\ifshowprogressbar
+\showprogressbartrue
+\newcount\conclusionframenumber
+\conclusionframenumber=0
+
+\def\progressbar@progressbar{}
+\newcount\progressbar@tmpcounta
+\newcount\progressbar@tmpcountb
+\newdimen\progressbar@pbht
+\newdimen\progressbar@pbwd
+\setlength{\progressbar@pbwd}{\paperwidth}
+\setlength{\progressbar@pbht}{0.5mm}
+
+\newcommand{\hideprogressbar}{%
+  \global\showprogressbarfalse
+}
+\newcommand{\showprogressbar}{%
+  \global\showprogressbartrue
+}
+\newcommand{\markconclusion}{%
+  \global\conclusionframenumber=\insertframenumber
+}
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=0.02ex]{footline}
+    \ifshowprogressbar
+      \pgfmathsetmacro\progressfraction{0} % Initialize to 0
+      
+      \ifnum\conclusionframenumber>0 % If conclusion frame is marked
+        \ifnum\insertframenumber>\conclusionframenumber % For frames after conclusion
+          \pgfmathsetmacro\progressfraction{1} % Always show 100%
+        \else % For frames before/at conclusion
+          \pgfmathsetmacro\progressfraction{\insertframenumber/\conclusionframenumber}
+        \fi
+      \else % If no conclusion frame is marked
+        \ifnum\inserttotalframenumber>0 % If we know total frames
+          \pgfmathsetmacro\progressfraction{\insertframenumber/\inserttotalframenumber*2}
+        \fi
+      \fi
+      
+      % Draw the progress bar using calculated fraction
+      \begin{tikzpicture}
+        \draw[progressbarbg, fill=progressbarbg] (0,0) rectangle (\progressbar@pbwd, \progressbar@pbht);
+        \draw[progressbar, fill=progressbar] (0,0) rectangle (\progressfraction * \progressbar@pbwd, \progressbar@pbht);
+      \end{tikzpicture}
+    \fi
+  \end{beamercolorbox}
+}
+\makeatother
+
+% table of contents (overview)
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=3.2em\rlap{\hskip-2em\inserttocsectionnumber.\inserttocsubsectionnumber}\inserttocsubsection\par}
+
+% \setbeamertemplate{footline}[page number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{enumerate items}[default]
+
+\setbeamertemplate{frametitle}{\vspace*{0.5em}\bfseries\insertframetitle\par\vskip-6pt\hrulefill\vspace{-0.1em}}
+
+\setbeamertemplate{title page}{
+    \vspace{7em}
+    \begingroup
+        \centering
+        % ------------------------
+        \begin{beamercolorbox}[sep=8pt,center]{title}
+        \usebeamerfont{title}\inserttitle\par%
+        \ifx\insertsubtitle\@empty%
+        \else%
+            \vskip0.25em%
+            {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \fi%     
+        \end{beamercolorbox}%
+        \vskip0.5em\par
+        % ------------------------
+        \begin{beamercolorbox}[sep=8pt,center]{author}
+        \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+        \vskip-1em
+        % ------------------------
+        \begin{beamercolorbox}[sep=8pt,center]{institute}
+        \usebeamerfont{institute}\insertinstitute
+        \end{beamercolorbox}
+        % ------------------------
+        \begin{beamercolorbox}[sep=8pt,center]{date}
+        \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}\vskip0.5em
+        % ------------------------
+        {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+}

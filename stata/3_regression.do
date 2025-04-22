@@ -435,6 +435,22 @@ eststo reg1: clogit nomination ib(2).other_estrato, group(area_id) vce(cluster o
 eststo reg2: clogit nomination ib(2).other_estrato z_other_score z_tie, group(area_id) vce(cluster own_id)
 eststo reg3: clogit nomination ib(2).other_estrato z_other_score z_tie scoreXtie, group(area_id) vce(cluster own_id)
 esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+test 1.other_estrato = 2.other_estrato = 3.other_estrato // **
+
+coefplot ///
+    (reg3, offset(-0.15) mcolor(dknavy) ciopts(color(dknavy) lwidth(thick))), ///
+    coeflabels(z_tie = "Classes taken" ///
+              z_other_score = "Score" ///
+			  scoreXtie = "Score x Classes taken" ///
+              _cons = "Dep. Var. mean") ///
+    msymbol(D) msize(vlarge) ///
+    grid(none) ///
+    xlabel(-1(.5)1) /// ///
+    xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
+    legend(off) ///
+    $graph_opts name(res1, replace) 
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1.png", ///
+    as(png) replace	
 
 
 eststo clear
@@ -442,12 +458,30 @@ forvalues ses = 1/3 {
     preserve		
 		keep if own_estrato == `ses'
 	//  gen homophily = (own_estrato==other_estrato)
-		eststo reg`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)		
+		eststo reg`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
+		test 1.other_estrato = 2.other_estrato = 3.other_estrato // *** only for low-SES
 	restore
 }
 
 cls
 esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+
+
+coefplot ///
+    (reg1, offset(0.1) mcolor(dknavy) ciopts(color(dknavy) lwidth(thick))) ///
+	(reg3, offset(-0.1) mcolor(red) ciopts(color(red) lwidth(thick))), ///
+    coeflabels(z_tie = "Classes taken" ///
+              z_other_score = "Score" ///
+			  scoreXtie = "Score x Classes taken" ///
+              _cons = "Dep. Var. mean") ///
+    msymbol(D) msize(vlarge) ///
+    grid(none) ///
+    xlabel(-1(.5)1) /// ///
+    xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
+    legend(order(2 "Low" 4 "High") ring(0) pos(2) rows(3) region(lcolor(none))) ///
+    $graph_opts name(res1bis, replace) 
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1bis.png", ///
+    as(png) replace	
 
 
 keep if nomination == 1
@@ -477,10 +511,25 @@ gen z_OS = (own_score - meanOS) / sdOS
 est clear
 eststo d0: reg z_SP  ib(2).own_estrato, vce(cluster own_id)
 eststo d1: reg z_SP  ib(2).own_estrato z_OS z_OB z_NB, vce(cluster own_id)
+test 1.own_estrato = 2.own_estrato = 3.own_estrato // p > .1
 eststo d2: reg z_SP  ib(2).own_estrato z_OS z_OB z_NB i.treat z_tie i.area  , vce(cluster own_id)
 cls
 esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
+coefplot ///
+	(d1, offset(0) mcolor(gs4) ciopts(color(gs4) lwidth(thick))), ///
+    coeflabels(z_OS = "Own Score" ///
+              z_OB = "Own Belief" ///
+			  z_NB = "Other Belief" ///
+              _cons = "Dep. Var. mean") ///
+    msymbol(D) msize(vlarge) ///
+    grid(none) ///
+    xlabel(-1(.5)1) /// ///
+    xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
+    legend(off) ///
+    $graph_opts name(res2, replace) 
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res2.png", ///
+    as(png) replace	
 
 // Model 1: SES × Referrer Score interaction
 eststo int_score: reg z_SP ib(2).own_estrato##c.z_OS z_OB z_NB , vce(cluster own_id)
@@ -517,6 +566,9 @@ test 1.own_estrato = 2.own_estrato = 3.own_estrato
 
 cls
 esttab int*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+
+
+
 
 
 preserve
