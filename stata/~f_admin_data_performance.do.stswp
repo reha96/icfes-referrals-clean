@@ -19,6 +19,9 @@ foreach ses in low middle high {
         global `type'_admin_`ses' = ""
         global `type'_admin_`ses'_sd = ""
         global `type'_admin_`ses'_n = ""
+		global `type'_sample_`ses' = ""
+        global `type'_sample_`ses'_sd = ""
+        global `type'_sample_`ses'_n = ""
             }
 }
 
@@ -43,6 +46,27 @@ foreach i in score_math score_reading {
         global `type'_admin_`ses_label'_n = stats[1,1]
         global `type'_admin_`ses_label' = stats[2,1]
         global `type'_admin_`ses_label'_sd = stats[3,1]
+        
+        restore
+    }
+	
+	// sample
+    use "dataset_z.dta", clear
+    bysort own_id: gen counter = _n
+    keep if counter == 1
+    
+    foreach ses in 1 2 3 {
+        local ses_label = cond(`ses'==1, "low", cond(`ses'==2, "middle", "high"))
+        
+        preserve
+        keep if own_estrato == `ses'
+        
+        tabstat other_`i', stat(n mean sd) save
+        matrix stats = r(StatTotal)
+        
+        global `type'_sample_`ses_label'_n = stats[1,1]
+        global `type'_sample_`ses_label' = stats[2,1]
+        global `type'_sample_`ses_label'_sd = stats[3,1]
         
         restore
     }
@@ -74,8 +98,8 @@ foreach ses in low middle high {
         local ses_num = cond("`ses'"=="low", 1, cond("`ses'"=="middle", 2, 3))
         
         if `r' <= 6 {
-            replace score = ${`subj'_admin_`ses'} if ses==`ses_num' & subject==`subj_num'
-            replace se = ${`subj'_admin_`ses'_sd}/sqrt(${`subj'_admin_`ses'_n}) if ses==`ses_num' & subject==`subj_num'
+            replace score = ((${`subj'_sample_`ses'} - ${`subj'_admin_`ses'})/ ${`subj'_admin_`ses'})*100 if ses==`ses_num' & subject==`subj_num'
+            replace se = ${`subj'_sample_`ses'_sd}/sqrt(${`subj'_sample_`ses'_n}) if ses==`ses_num' & subject==`subj_num'
         }
         local r = `r' + 1
     }
@@ -86,17 +110,29 @@ gen ci_upper = score + 1.96*se
 
 twoway (bar score xpos if subject==2, barw(0.5) lcolor(gs4) fcolor(gs8)) ///  // Reading (first)
        (bar score xpos if subject==1, barw(0.5) lcolor(gs4) fcolor(gs12)) ///  // Math (second)
-       (rcap ci_upper ci_lower xpos, lcolor(gs4)) ///
        , ///
        xlabel(1.25 "Low" 2.75 "Middle" 4.25 "High") ///
-       ylabel(50(5)80, angle(0) grid gmin gmax) ///
-       ytitle("Score") ///
+       ylabel(0(1)10, angle(0) grid gmin gmax) ///
+       ytitle("Percent increase") ///
        xtitle("") ///
-       title("Admin Data Performance by SES") ///
+       title("Selection in performance by SES") ///
        legend(order(1 "Reading" 2 "Math") ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 5)) ///
-       name(admin_performance, replace)
+       name(selection_performance, replace)
 
-graph export "${path}admin_data_performance.png", replace
+graph export "${path}selection_performance.png", replace
 restore
+
+// low-ses selection
+ttesti ${reading_sample_low_n} ${reading_sample_low} ${reading_sample_low_sd} ${reading_admin_low_n} ${reading_admin_low} ${reading_admin_low_sd} // ***
+ttesti ${math_sample_low_n} ${math_sample_low} ${math_sample_low_sd} ${math_admin_low_n} ${math_admin_low} ${math_admin_low_sd} // ***
+
+// middle-ses selection
+ttesti ${reading_sample_middle_n} ${reading_sample_middle} ${reading_sample_middle_sd} ${reading_admin_middle_n} ${reading_admin_middle} ${reading_admin_middle_sd} // *
+ttesti ${math_sample_middle_n} ${math_sample_middle} ${math_sample_middle_sd} ${math_admin_middle_n} ${math_admin_middle} ${math_admin_middle_sd} // *
+
+// middle-ses selection
+ttesti ${reading_sample_high_n} ${reading_sample_high} ${reading_sample_high_sd} ${reading_admin_high_n} ${reading_admin_high} ${reading_admin_high_sd} // *
+ttesti ${math_sample_high_n} ${math_sample_high} ${math_sample_high_sd} ${math_admin_high_n} ${math_admin_high} ${math_admin_high_sd} // *
+

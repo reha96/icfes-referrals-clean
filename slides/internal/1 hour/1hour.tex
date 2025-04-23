@@ -14,6 +14,8 @@
     \usepackage{graphicx} % Allows including images
     \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
     \usepackage{tikz}
+    \usepackage{appendixnumberbeamer}
+
 
     \setbeamertemplate{itemize item}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
     \setbeamertemplate{itemize subitem}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
@@ -26,12 +28,15 @@
     %----------------------------------------------------------------------------------------
 
     \title[short title]{Class differences in social networks: Evidence from a referral experiment} % The short title appears at the bottom of every slide, the full title is only on the title pages
-    \subtitle{8-min presentation}
-
-    \author[Pin-Yen] {Reha Tuncer - University of Luxembourg}
+    \subtitle{1-hour presentation}
 
     \date{24 April 2025} % Date, can be changed to a custom date
 
+    \author[shortname]{Manu Munoz \inst{1} Ernesto Reuben \inst{1,2} Reha Tuncer \inst{3} \vspace{2em}}
+    
+    \institute[shortinst]{\inst{1} Luxembourg Institute of Socioeconomic Research \and \inst{2} NYU Abu Dhabi \and \inst{3} University of Luxembourg}
+    
+    
 
     %----------------------------------------------------------------------------------------
     %	PRESENTATION SLIDES
@@ -105,95 +110,95 @@
         \end{itemize}
     \end{frame}
 
-    % \begin{frame}{Selection into the experiment}
-    %     \begin{columns}[T]  % T option aligns the top of the columns
-    %         \begin{column}{0.38\textwidth}  % Left column for your comment
-    %             \vspace{2em}  % Add some space to align better with the table
-    %             \begin{itemize}
-    %                 \item Higher performing students overrepresented
-    %                 \item Low-SES overrepresented
-    %                 \item High-SES underrepresented
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}  % Right column for the table
-    %             \begin{table}
-    %                 \centering
-    %                 \footnotesize
-    %                 \begin{threeparttable}
-    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
-    %                 \toprule
-    %                 & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textbf{p}} \\
-    %                 \midrule
-    %                 Reading score & 62.651 & 65.183 & $<0.001$ \\
-    %                 Math score & 63.973 & 67.477 & $<0.001$ \\
-    %                 GPA & 3.958 & 4.012 & $<0.001$ \\
-    %                 Low-SES & 0.343 & 0.410 & $<0.001$ \\
-    %                 Med-SES & 0.505 & 0.499 & 0.763 \\
-    %                 High-SES & 0.153 & 0.091 & $<0.001$ \\
-    %                 \midrule
-    %                 Observations & 4,417 & 734 &  \\
-    %                 \bottomrule
-    %                 \end{tabular*}
-    %                 \label{tab:selection}
-    %                 \end{threeparttable}
-    %             \end{table}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Selection into the experiment}
+        \begin{columns}[T]  % T option aligns the top of the columns
+            \begin{column}{0.38\textwidth}  % Left column for your comment
+                \vspace{2em}  % Add some space to align better with the table
+                \begin{itemize} [<+->]
+                    \item Higher performing students overrepresented \hyperlink{fig:selection_byses}{\beamerbutton{See}}
+                    \item Low-SES overrepresented
+                    \item High-SES underrepresented
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}  % Right column for the table
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
+                    \toprule
+                    & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textbf{p}} \\
+                    \midrule
+                    Reading score & 62.651 & 65.183 & $<0.001$ \\
+                    Math score & 63.973 & 67.477 & $<0.001$ \\
+                    GPA & 3.958 & 4.012 & $<0.001$ \\
+                    Low-SES & 0.343 & 0.410 & $<0.001$ \\
+                    Med-SES & 0.505 & 0.499 & 0.763 \\
+                    High-SES & 0.153 & 0.091 & $<0.001$ \\
+                    \midrule
+                    Observations & 4,417 & 734 &  \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:selection}
+                    \end{threeparttable}
+                \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-    % \begin{frame}{Balance between treatments}
-    %     \begin{columns}[T]  % T option aligns the top of the columns
-    %         \begin{column}{0.38\textwidth}  % Left column for placeholder text
-    %             \vspace{2em}  % Add some space to align better with the table
-    %             \begin{itemize}
-    %                 \item Successful randomization
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}  % Right column for the table
-    %             \begin{table}
-    %                 \centering
-    %                 \footnotesize
-    %                 \begin{threeparttable}
-    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
-    %                 \toprule
-    %                 & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} & \multicolumn{1}{c}{\textbf{p}} \\
-    %                 \midrule
-    %                 Reading score & 64.712 & 65.693 & 0.134 \\
-    %                 Math score & 67.366 & 67.597 & 0.780 \\
-    %                 GPA & 4.003 & 4.021 & 0.445 \\
-    %                 \# connections & 173.40 & 176.88 & 0.574 \\
-    %                 Tie strength & 3.939 & 3.719 & 0.443 \\
-    %                 Low-SES & 0.419 & 0.401 & 0.615 \\
-    %                 Med-SES & 0.492 & 0.506 & 0.714 \\
-    %                 High-SES & 0.089 & 0.094 & 0.824 \\
-    %                 \midrule
-    %                 Observations & 382 & 352 & 734 \\
-    %                 \bottomrule
-    %                 \end{tabular*}
-    %                 \label{tab:balance}
-    %                 \end{threeparttable}
-    %             \end{table}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Balance between treatments}
+        \begin{columns}[T]  % T option aligns the top of the columns
+            \begin{column}{0.38\textwidth}  % Left column for placeholder text
+                \vspace{2em}  % Add some space to align better with the table
+                \begin{itemize}
+                    \item Successful randomization
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}  % Right column for the table
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lcc c@{}}
+                    \toprule
+                    & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} & \multicolumn{1}{c}{\textbf{p}} \\
+                    \midrule
+                    Reading score & 64.712 & 65.693 & 0.134 \\
+                    Math score & 67.366 & 67.597 & 0.780 \\
+                    GPA & 4.003 & 4.021 & 0.445 \\
+                    Connections & 173.40 & 176.88 & 0.574 \\
+                    Classes taken & 3.939 & 3.719 & 0.443 \\
+                    Low-SES & 0.419 & 0.401 & 0.615 \\
+                    Med-SES & 0.492 & 0.506 & 0.714 \\
+                    High-SES & 0.089 & 0.094 & 0.824 \\
+                    \midrule
+                    Observations & 382 & 352 & 734 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:balance}
+                    \end{threeparttable}
+                \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-    % \begin{frame}{Network size and tie strength}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item Classes taken with peers increase over time
-    %                 % \pause
-    %                 \item Connections peak around 7 semesters and decline as students change majors or graduate
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png}
-    %             \label{fig:connections_class}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Network size and tie strength}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Classes taken with peers increase over time
+                    \pause
+                    \item Connections peak around 7 semesters and decline as students change majors or graduate
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections.png}
+                \label{fig:connections_class}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
 
     % \begin{frame}{Admin data performance by SES}
@@ -233,7 +238,7 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Very close distribution of entry exam scores in the sample
+                    \item Very close distribution of entry exam scores in the sample because of selection
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -251,7 +256,7 @@
                 \begin{itemize}
                     \item 35 \% of UNAB is \textbf{\textcolor{BlueViolet}{Low-SES}}, and 15 \% \textbf{\textcolor{red}{High-SES}}
                     \pause
-                    \item Network shares are very different from the population
+                    \item Network shares are very different from the UNAB population
                     \pause 
                     \item Why?
                 \end{itemize}
@@ -282,45 +287,43 @@
         \end{columns}
     \end{frame}
 
-    % \begin{frame}{Selection into programs}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item Programs vary in size and classes taken with peers
-    %                 \item Largest programs are Medicine, Law, Biomedical Engineering, Pharmacology, and B. A.
-    %                 \item These comprise over 43\% of all students
-    %                 \item But represent 60\% of High-SES
-    %                 % \pause
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_share.png}
-    %             \label{fig:program_share}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Selection into programs ctd.}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Largest programs are Medicine, Law, Biomedical Engineering, Pharmacology, and B. A.
+                    \pause
+                    \item These comprise over 43\% of all students
+                    \pause
+                    \item But represent 60\% of High-SES
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_share.png}
+                \label{fig:program_share}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-    % \begin{frame}{Selection into programs}\label{connections}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}% [<+->]
-    %                 \item Program selection affects the network dynamics
-    %                 \item Connections decrease with SES
-    %                 \item Classes taken with peers increases with SES
-    %                 \item How about entry exam performance?
-    %                 % \pause
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png}
-    %             \label{fig:composition_aggregate}
-    %         \end{column}
-    %     \end{columns}
-    %     \end{frame}
+    \begin{frame}{Network dynamics and program selection}\label{connections}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize} [<+->]
+                    \item Connections decrease with SES
+                    \item Classes taken with peers increases with SES
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connections_by_ses.png}
+                \label{fig:composition_aggregate}
+            \end{column}
+        \end{columns}
+        \end{frame}
     
         % \begin{frame}{Selection into programs}
         %     \begin{columns}[T]
@@ -394,41 +397,41 @@
 
 
 
-    % \begin{frame}{Referrals for Reading}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.3\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item Referrals have higher reading scores and much higher tie strength
-    %                 % \pause
-    %                 \item No treatment effect on the referred (both $p > 0.08$)
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.7\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
-    %             \label{fig:read_combined}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Referrals for Reading}
+        \begin{columns}[T]
+            \begin{column}{0.3\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Referrals have higher reading scores and much higher tie strength
+                    % \pause
+                    \item No treatment effect on the referred ($t$-tests, $p > 0.08$)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.7\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
+                \label{fig:read_combined}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-    % \begin{frame}{Referrals for Math}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.3\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item Referrals have higher math scores and much higher tie strength
-    %                 % \pause
-    %                 \item No treatment effect on the referred (both $p > 0.1$)
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.7\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
-    %             \label{fig:math_combined}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Referrals for Math}
+        \begin{columns}[T]
+            \begin{column}{0.3\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Referrals have higher math scores and much higher tie strength
+                    % \pause
+                    \item No treatment effect on the referred ($t$-tests, $p > 0.1$)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.7\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
+                \label{fig:math_combined}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
     \begin{frame}{Referral SES composition}
         \begin{columns}[T]
@@ -540,26 +543,111 @@
     % \end{frame}
 
     \begin{frame}{Is there a SES bias in referrals?}
+        
+        \vspace{0.5em}
+        \textbf{FE Logit:}
+        \begin{align*}
+            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Tie}_{ij} + \beta_4 \text{Score}_j \times \text{Tie}_{ij} + \alpha_i\right)
+        \end{align*}
+        
+        \vspace{0.5em}
+        \begin{itemize}% [<+->]
+            \item $\text{Refer}_{ij}$: Binary outcome indicating whether individual $i$ refers individual $j$
+            \item $\text{SES}_j$: Referral $j$ is Low, Middle, or High SES
+            \item $\text{Score}_j$: Standardized Math or Reading score of referral $j$
+            \item $\text{Tie}_{ij}$: Standardized number of classes taken together for $i$ and $j$
+            \item $\alpha_i$: Individual fixed effect for referrer $i$
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Bias against High-SES in aggregate} 
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
-                \begin{itemize}
-                    \item \textbf{\textcolor{Red}{High-SES}} referrers are biased against Low-SES
-                    \pause
-                    \item \textbf{\textcolor{BlueViolet}{Low-SES}} referrers are biased against High-SES
-                    \pause
-                    \item Nominee score and classes taken together are stronger predictors of referrals
-                    \pause
-                    \item Do biases impact referral performance?
+                \begin{itemize} [<+->]
+                    \item Bias against High-SES
+                    \item Score and tie strength are strong predictors of referrals
+                    \item Small interaction between score and tie strength
+                    \item How about by referrer SES?
                 \end{itemize}
+                
             \end{column}
             \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1bis.png}
-                \label{fig:res1bis}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low & 0.152** & -0.013 & -0.013 \\
+                    & (0.070) & (0.080) & (0.080) \\
+                    High & -0.300*** & -0.306*** & -0.315*** \\
+                    & (0.108) & (0.115) & (0.116) \\
+                    Nominee score & & 0.618*** & 0.527*** \\
+                    & & (0.034) & (0.035) \\
+                    Tie & & 0.916*** & 0.894*** \\
+                    & & (0.026) & (0.026) \\
+                    Score x Tie & & & 0.059*** \\
+                    & & & (0.015) \\
+                    \midrule
+                    Observations & 256997 & 256997 & 256997 \\
+                    Ind. & 734 & 734 & 734 \\
+                    Chi-test & 17.44 & 1602.42 & 1640.06 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:combined_regression}
+                    \end{threeparttable}
+                    \end{table}
             \end{column}
         \end{columns}
     \end{frame}
+
+    \begin{frame}{SES extremes reveal the origin of biases}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize} [<+->]
+                    \item Low-SES referrers are biased against High-SES and vice-versa
+                    \item Mid-SES show smallest bias to either extreme
+                    \item Does the bias impact referral performance?
+                \end{itemize}
+                
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & Low-SES & Middle-SES & High-SES \\
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low & 0.237* & -0.155 & -0.583* \\
+                    & (0.124) & (0.114) & (0.331) \\
+                    High & -0.451** & -0.281* & -0.382 \\
+                    & (0.223) & (0.157) & (0.293) \\
+                    Nominee score & 0.540*** & 0.503*** & 0.650*** \\
+                    & (0.056) & (0.049) & (0.116) \\
+                    Tie & 0.842*** & 0.930*** & 0.959*** \\
+                    & (0.037) & (0.039) & (0.104) \\
+                    Score x Tie & 0.043* & 0.057*** & 0.148** \\
+                    & (0.022) & (0.021) & (0.066) \\
+                    \midrule
+                    Observations & 110142 & 127088 & 19767 \\
+                    Ind. & 301 & 366 & 67 \\
+                    Chi-test & 804.58 & 766.33 & 144.77 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:homophily_combined}
+                    \end{threeparttable}
+                    \end{table}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
 
     % \begin{frame}{SES extremes reveal origin of the bias}
     %     \begin{columns}[T]
@@ -798,85 +886,85 @@
     % \end{itemize}
     % \end{frame}
 
-    % \begin{frame}[label=good_refferals]{Who makes better referrals?}
+    \begin{frame}[label=good_refferals]{Who makes better referrals?}
     
-    %     \vspace{0.5em}
-    %     \textbf{OLS Model:}
-    %     \begin{align*}
-    %         \text{Premium}_{ij} = \beta_0 + \beta_1 \text{SES}_i + \beta_2 \text{Score}_i + \beta_3 \Delta\text{OBlf}_i + \beta_4 \Delta\text{NBlf}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
-    %     \end{align*}
+        \vspace{0.5em}
+        \textbf{OLS:}
+        \begin{align*}
+            \text{Premium}_{ij} = \beta_0 + \beta_1 \text{SES}_i + \beta_2 \text{Score}_i + \beta_3 \Delta\text{OBlf}_i + \beta_4 \Delta\text{NBlf}_i + \text{X}_i'\boldsymbol{\gamma} + \epsilon_{i}
+        \end{align*}
         
-    %     \vspace{0.5em}
-    %     \begin{itemize}% [<+->]
-    %         \item $\text{Premium}_{i}$: Nominee $j$'s test z-score minus mean score of $i$'s network
-    %         \item $\text{SES}_{i}$: Referrer $i$'s socioeconomic status (Low, Middle, High)    
-    %         \item $\Delta\text{OBlf}_i$, $\Delta\text{NBlf}_i$: $i$'s beliefs on own and nominee test scores minus actual scores (standardized)
-    %         \item $\text{Score}_i$: Referrer $i$'s own test z-score 
-    %     \end{itemize}
+        \vspace{0.5em}
+        \begin{itemize}% [<+->]
+            \item $\text{Premium}_{i}$: Nominee $j$'s test z-score minus mean score of $i$'s network
+            \item $\text{SES}_{i}$: Referrer $i$'s socioeconomic status (Low, Middle, High)    
+            \item $\Delta\text{OBlf}_i$, $\Delta\text{NBlf}_i$: $i$'s beliefs on own and nominee test scores minus actual scores (standardized)
+            \item $\text{Score}_i$: Referrer $i$'s own test z-score 
+        \end{itemize}
     
-    %     \vspace{0.5em}
-    %     \textbf{Controls:}
-    %     \begin{itemize}% [<+->]
-    %             \item Referrer $i$'s treatment (Baseline vs. Bonus)    
-    %             \item Test area indicator (Math vs. Reading)
-    %             \item Number of classes taken together for $i$ and nominee $j$
-    %     \end{itemize}
-    % \end{frame}
+        \vspace{0.5em}
+        \textbf{Controls:}
+        \begin{itemize}% [<+->]
+                \item Referrer $i$'s treatment (Baseline vs. Bonus)    
+                \item Test area indicator (Math vs. Reading)
+                \item Number of classes taken together for $i$ and nominee $j$
+        \end{itemize}
+    \end{frame}
 
-    % \begin{frame}{Referals are better than network average}\label{score_premium}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
-    %                 \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
-    %                 % \pause
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png}
-    %             \label{fig:score-premium}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Referals are better than network average}\label{score_premium}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png}
+                \label{fig:score-premium}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-    % \begin{frame}{Beliefs about own scores are accurate}\label{own_belief}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
-    %                 \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
-    %                 % \pause
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png}
-    %             \label{fig:own_belief}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Beliefs about own scores are accurate}\label{own_belief}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/own_belief.png}
+                \label{fig:own_belief}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
-    % \begin{frame}{Beliefs about nominees reveal a positive bias}\label{other_belief}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
-    %                 \item No difference between SES groups \hyperlink{fig:nb_byses}{\beamerbutton{See}}
-    %                 \item Did not collect beliefs about SES group performance in general
-    %                 % \pause
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png}
-    %             \label{fig:other_belief}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{Beliefs about nominees reveal a positive bias}\label{other_belief}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:nb_byses}{\beamerbutton{See}}
+                    \item Did not collect beliefs about SES group performance in general
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/other_belief.png}
+                \label{fig:other_belief}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
 
     % \begin{frame}{Grades and beliefs predict better referrals}
@@ -919,116 +1007,115 @@
     %         \end{column}
     %     \end{columns}
     % \end{frame}
+    % \begin{frame}{Who makes better referrals?}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \begin{itemize}
+    %                 \item No effect of SES on how well referrals score compared to referrer's network average
+    %                 \pause
+    %                 \item Referrer own score increases premium
+    %                 \pause
+    %                 \item Accuracy on own scores increases premium
+    %                 \pause
+    %                 \item Accuracy on nominee beliefs increases premium
+    %                 \pause
+    %                 \item All 3 factors are equal across SES
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res2.png}
+    %             \label{fig:res2}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
-    \begin{frame}{Who makes better referrals?}
+    \begin{frame}{Referrer beliefs and scores matter}\label{referral_quality}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
-                \begin{itemize}
-                    \item No effect of SES on how well referrals score compared to referrer's network average
-                    \pause
-                    \item Referrer own score increases premium
-                    \pause
-                    \item Accuracy on own scores increases premium
-                    \pause
-                    \item Accuracy on nominee beliefs increases premium
-                    \pause
-                    \item All 3 factors are equal across SES
+                \vspace{2em}
+                \begin{itemize}% [<+->]
+                    \item Referrer $i$'s score predicts premium
+                    \item Accuracy on own scores increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+                    \item Accuracy on nominee beliefs increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+                    \item No effect of SES
+                    \item How about the interaction between SES, scores and beliefs?
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res2.png}
-                \label{fig:res2}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+                    \toprule
+                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+                    \midrule
+                    Low & 0.068 & 0.031 & 0.026 \\
+                    & (0.066) & (0.061) & (0.061) \\
+                    High & 0.219** & 0.158 & 0.155 \\
+                    & (0.099) & (0.100) & (0.100) \\
+                    Own score & & 0.269*** & 0.264*** \\
+                    & & (0.031) & (0.032) \\
+                    $\Delta$ own belief & & 0.237*** & 0.241*** \\
+                    & & (0.038) & (0.038) \\
+                    $\Delta$ nominee belief & & -0.383*** & -0.378*** \\
+                    & & (0.045) & (0.044) \\
+                    \midrule
+                    Controls & No & No & Yes \\
+                    Observations & 1,342 & 1,342 & 1,342 \\
+                    Ind. & 734 & 734 & 734 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:regression_results}
+                    \end{threeparttable}
+                    \end{table}
             \end{column}
         \end{columns}
     \end{frame}
 
-    % \begin{frame}{Who makes better referrals?}\label{referral_quality}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}% [<+->]
-    %                 \item Referrer $i$'s score predicts premium
-    %                 \item Accuracy on own scores increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
-    %                 \item Accuracy on nominee beliefs increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
-    %                 \item No effect of SES
-    %                 \item How about the interaction between SES, scores and beliefs?
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \begin{table}
-    %                 \centering
-    %                 \footnotesize
-    %                 \begin{threeparttable}
-    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-    %                 \toprule
-    %                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-    %                 \midrule
-    %                 Low & 0.068 & 0.031 & 0.026 \\
-    %                 & (0.066) & (0.061) & (0.061) \\
-    %                 High & 0.219** & 0.158 & 0.155 \\
-    %                 & (0.099) & (0.100) & (0.100) \\
-    %                 Own score & & 0.269*** & 0.264*** \\
-    %                 & & (0.031) & (0.032) \\
-    %                 $\Delta$ own belief & & 0.237*** & 0.241*** \\
-    %                 & & (0.038) & (0.038) \\
-    %                 $\Delta$ nominee belief & & -0.383*** & -0.378*** \\
-    %                 & & (0.045) & (0.044) \\
-    %                 \midrule
-    %                 Controls & No & No & Yes \\
-    %                 Observations & 1,342 & 1,342 & 1,342 \\
-    %                 Ind. & 734 & 734 & 734 \\
-    %                 \bottomrule
-    %                 \end{tabular*}
-    %                 \label{tab:regression_results}
-    %                 \end{threeparttable}
-    %                 \end{table}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
-
-    % \begin{frame}{No heterogeneity in beliefs and performance}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.38\textwidth}
-    %             \vspace{2em}
-    %             \begin{itemize}
-    %                 \item \textbf{Marginally} stronger effect of own score for Low-SES (joint F-test $p < 0.1$)
-    %                 \item Effect of own belief driven by outliers
-    %             \end{itemize}
-    %         \end{column}
-    %         \begin{column}{0.62\textwidth}
-    %             \begin{table}
-    %                 \centering
-    %                 \footnotesize
-    %                 \begin{threeparttable}
-    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lc}
-    %                 \toprule
-    %                  & (1) \\
-    %                 \midrule
-    %                 Own score x Low & 0.128* \\
-    %                 & (0.065) \\
-    %                 Own score x High & -0.043 \\
-    %                 & (0.101) \\
-    %                 $\Delta$ own belief x Low & 0.009 \\
-    %                 & (0.082) \\
-    %                 $\Delta$ own belief x High & -0.248** \\
-    %                 & (0.118) \\
-    %                 $\Delta$ nominee belief x Low & 0.002 \\
-    %                 & (0.094) \\
-    %                 $\Delta$ nominee belief x High & 0.039 \\
-    %                 & (0.159) \\
-    %                 \midrule
-    %                 Observations & 1,342 \\
-    %                 Individuals & 734 \\
-    %                 \bottomrule
-    %                 \end{tabular*}
-    %                 \label{tab:ses_interactions}
-    %                 \end{threeparttable}
-    %             \end{table}
-    %             \renewcommand{\arraystretch}{1.0}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
+    \begin{frame}{No heterogeneity in beliefs and performance}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item \textbf{Marginally} stronger effect of own score for Low-SES (joint F-test $p < 0.1$)
+                    \item Effect of own belief driven by outliers
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \begin{threeparttable}
+                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lc}
+                    \toprule
+                     & (1) \\
+                    \midrule
+                    Own score x Low & 0.128* \\
+                    & (0.065) \\
+                    Own score x High & -0.043 \\
+                    & (0.101) \\
+                    $\Delta$ own belief x Low & 0.009 \\
+                    & (0.082) \\
+                    $\Delta$ own belief x High & -0.248** \\
+                    & (0.118) \\
+                    $\Delta$ nominee belief x Low & 0.002 \\
+                    & (0.094) \\
+                    $\Delta$ nominee belief x High & 0.039 \\
+                    & (0.159) \\
+                    \midrule
+                    Observations & 1,342 \\
+                    Individuals & 734 \\
+                    \bottomrule
+                    \end{tabular*}
+                    \label{tab:ses_interactions}
+                    \end{threeparttable}
+                \end{table}
+                \renewcommand{\arraystretch}{1.0}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
     % \begin{frame}{Result 2: Beliefs and scores predict better referrals regardless of SES} 
     %     \markconclusion
@@ -1057,20 +1144,26 @@
     \end{itemize}
     \end{frame}
 
+    \hideprogressbar
+    \appendix
+
     % \begin{frame}{Debug Information}
     %     \begin{itemize}
     %       \item Current frame: \insertframenumber
     %       \item Total frames: \inserttotalframenumber
     %       \item Conclusion frame: \the\conclusionframenumber
-    %       \item Progress calculation:
+    %       \item Raw operation result:
     %       \begin{itemize}
-    %         \item If conclusion marked: \insertframenumber/\the\conclusionframenumber = \pgfmathparse{\insertframenumber/\conclusionframenumber}\pgfmathprintnumber{\pgfmathresult}
-    %         \item If no conclusion: \insertframenumber/\inserttotalframenumber = \pgfmathparse{\insertframenumber/\inserttotalframenumber}\pgfmathprintnumber{\pgfmathresult}
+    %         \item Normal \pgfmathsetmacro\testfraction{\insertframenumber/\inserttotalframenumber}
+    %         \item Value of testfraction: \testfraction
+    %         \item Current/Conclusion: \insertframenumber/\the\conclusionframenumber = 
+    %     \pgfmathparse{\insertframenumber/\conclusionframenumber}%
+    %     \pgfmathprintnumber[precision=5]{\pgfmathresult}
     %       \end{itemize}
     %     \end{itemize}
     %   \end{frame}
 
-    \hideprogressbar
+
 
     \begin{frame}{Reading}
         \begin{columns}[T]
@@ -1465,6 +1558,24 @@
                 \centering
                 \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/nb_byses.png}
                 \label{fig:nb_byses}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Strong selection by Low-SES}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Significant Low-SES selection ($t$-tests, $p < 0.01$)  
+                    \item Other SES groups do select less ($t$-tests, $p > 0.05$) \hyperlink{tab:selection}{\beamerbutton{Return}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/selection_performance.png}
+                \label{fig:selection_byses}
             \end{column}
         \end{columns}
     \end{frame}

@@ -438,13 +438,12 @@ esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) 
 test 1.other_estrato = 2.other_estrato = 3.other_estrato // **
 
 coefplot ///
-    (reg3, offset(-0.15) mcolor(dknavy) ciopts(color(dknavy) lwidth(thick))), ///
+    (reg3, offset(0) mcolor(dknavy) ciopts(color(dknavy) lwidth(thick))), ///
     coeflabels(z_tie = "Classes taken" ///
               z_other_score = "Score" ///
 			  scoreXtie = "Score x Classes taken" ///
               _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
-    grid(none) ///
     xlabel(-1(.5)1) /// ///
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
     legend(off) ///
@@ -460,6 +459,7 @@ forvalues ses = 1/3 {
 	//  gen homophily = (own_estrato==other_estrato)
 		eststo reg`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
 		test 1.other_estrato = 2.other_estrato = 3.other_estrato // *** only for low-SES
+		test 1.other_estrato = 3.other_estrato // *** only for low-SES
 	restore
 }
 
@@ -475,7 +475,6 @@ coefplot ///
 			  scoreXtie = "Score x Classes taken" ///
               _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
-    grid(none) ///
     xlabel(-1(.5)1) /// ///
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
     legend(order(2 "Low" 4 "High") ring(0) pos(2) rows(3) region(lcolor(none))) ///
@@ -523,7 +522,6 @@ coefplot ///
 			  z_NB = "Other Belief" ///
               _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
-    grid(none) ///
     xlabel(-1(.5)1) /// ///
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
     legend(off) ///
