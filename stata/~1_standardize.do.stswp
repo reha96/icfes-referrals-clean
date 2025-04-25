@@ -130,7 +130,7 @@ foreach v of varlist tie {
 	
 	sum sd_`v' if counter == 1
 	gen sdt = r(mean)
-	gen z_`v' = (`v' - avgt) / sdt
+	gen z_`v' = (`v' - avgt) / sdt'
 }
 
 drop counter
