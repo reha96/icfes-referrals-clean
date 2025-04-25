@@ -30,9 +30,9 @@
     \title[short title]{Class differences in social networks: Evidence from a referral experiment} % The short title appears at the bottom of every slide, the full title is only on the title pages
     \subtitle{1-hour presentation}
 
-    \date{24 April 2025} % Date, can be changed to a custom date
+    \date{25 April 2025} % Date, can be changed to a custom date
 
-    \author[shortname]{Manu Munoz \inst{1} Ernesto Reuben \inst{1,2} Reha Tuncer \inst{3} \vspace{2em}}
+    \author[shortname]{Manu Munoz\inst{1} Ernesto Reuben\inst{2} Reha Tuncer\inst{3} \vspace{2em}}
     
     \institute[shortinst]{\inst{1} Luxembourg Institute of Socioeconomic Research \and \inst{2} NYU Abu Dhabi \and \inst{3} University of Luxembourg}
     
@@ -50,17 +50,24 @@
         \hideprogressbar
     \end{frame}
 
-    \begin{frame}{Motivation and Research Question}
+    \begin{frame}{Motivation}
+        \centering
+        \includegraphics[width=0.5\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/FT2.png}
+        \vspace{0.5em}
+        \begin{itemize} [<+->]
+        \item Understand persistent class differences in labor the market, like the underrepresentation of Low-SES researchers in elite academic institutions [Stansbury and Rodriguez, 2024]
+        \item Focus on class biases in referrals
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Referrals and Social Networks}
         \showprogressbar
         \begin{itemize} [<+->]
-            \item Understand persistent class differences in labor the market, like the underrepresentation of Low-SES researchers in top academic institutions [Stansbury and Rodriguez, 2024]
-            \item Focus on class biases in referrals
-            \begin{itemize}
-                \item Most jobs are found through referrals [Topa, 2011]
-                \item Refferals depend on social networks, which exhibit homophily [McPherson et al., 2001]
-            \end{itemize}
-            \item Are there social class biases in referrals?
-            \item If so, what are the potential drivers of these biases?
+            \item Most jobs are found through referrals [Topa, 2011]
+            \item Refferals depend on social networks, which exhibit homophily [McPherson et al., 2001]
+            \item Referrers tend to refer their strong ties, limiting diversity and reinforcing existing inequalities [Kramarz et al., 2014; Gee et al., 2017 ]
+            \item \textit{Are there social class biases in referrals?}
+            \item \textit{If so, what are the potential drivers of these biases?}
         \end{itemize}
     \end{frame}
 
@@ -71,7 +78,7 @@
                 \begin{itemize} [<+->]
                     \item Universidad Autónoma de Bucaramanga (UNAB)
                     \item Approx. 6000 students across all social classes
-                    \item Administrative data including gender, age,
+                    \item Administrative data including SES, age,
                     program, GPA, classes attended, year of entry,
                     and the entry exam scores
                 \end{itemize}
@@ -90,6 +97,7 @@
                     \item Ask students to refer someone they have taken at least one class with
                     \item Pay according to the student's math and verbal scores in the national entry exam
                     \item Incentivize better refferals by increasing reward as referral score goes higher 
+                    \item Treatments: Baseline vs. Bonus
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -104,7 +112,7 @@
         \begin{itemize} [<+->]
             \item Recruited participants by emailing 4500 students ($>$1st year)
             \item 30 minute online experiment in Qualtrics
-            \item Average payment of 80 USD (lottery for 1 out of 10 participants)
+            \item Average payment of 8 USD
             \item 840 complete responses
             \item Final sample 734 participants who referred someone they took a class with
         \end{itemize}
@@ -547,7 +555,7 @@
         \vspace{0.5em}
         \textbf{FE Logit:}
         \begin{align*}
-            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Tie}_{ij} + \beta_4 \text{Score}_j \times \text{Tie}_{ij} + \alpha_i\right)
+            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Classes taken}_{ij} + \beta_4 \text{Score}_j \times \text{Tie}_{ij} + \alpha_i\right)
         \end{align*}
         
         \vspace{0.5em}
@@ -555,19 +563,19 @@
             \item $\text{Refer}_{ij}$: Binary outcome indicating whether individual $i$ refers individual $j$
             \item $\text{SES}_j$: Referral $j$ is Low, Middle, or High SES
             \item $\text{Score}_j$: Standardized Math or Reading score of referral $j$
-            \item $\text{Tie}_{ij}$: Standardized number of classes taken together for $i$ and $j$
+            \item $\text{Classes taken}_{ij}$: Standardized number of classes taken together for $i$ and $j$
             \item $\alpha_i$: Individual fixed effect for referrer $i$
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Bias against High-SES in aggregate} 
+    \begin{frame}{Is there a SES bias in referrals?} 
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize} [<+->]
-                    \item Bias against High-SES
-                    \item Score and tie strength are strong predictors of referrals
-                    \item Small interaction between score and tie strength
+                    \item Aggregate bias against High-SES
+                    \item Score and classes taken are strong predictors of referrals
+                    \item Small interaction between score and classes taken
                     \item How about by referrer SES?
                 \end{itemize}
                 
@@ -587,9 +595,9 @@
                     & (0.108) & (0.115) & (0.116) \\
                     Nominee score & & 0.618*** & 0.527*** \\
                     & & (0.034) & (0.035) \\
-                    Tie & & 0.916*** & 0.894*** \\
+                    Classes taken & & 0.916*** & 0.894*** \\
                     & & (0.026) & (0.026) \\
-                    Score x Tie & & & 0.059*** \\
+                    Score x Classes taken & & & 0.059*** \\
                     & & & (0.015) \\
                     \midrule
                     Observations & 256997 & 256997 & 256997 \\
@@ -604,49 +612,68 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{SES extremes reveal the origin of biases}
+    \begin{frame}{Is there a SES bias in referrals?}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize} [<+->]
-                    \item Low-SES referrers are biased against High-SES and vice-versa
-                    \item Mid-SES show smallest bias to either extreme
-                    \item Does the bias impact referral performance?
+                \begin{itemize}
+                    \item \textbf{\textcolor{Red}{High-SES}} referrers are biased against Low-SES
+                    \pause
+                    \item \textbf{\textcolor{BlueViolet}{Low-SES}} referrers are biased against High-SES
+                    \pause
+                    \item Do these biases impact referral performance?
                 \end{itemize}
-                
             \end{column}
             \begin{column}{0.62\textwidth}
-                \begin{table}
-                    \centering
-                    \footnotesize
-                    \begin{threeparttable}
-                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                    \toprule
-                    & Low-SES & Middle-SES & High-SES \\
-                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                    \midrule
-                    Low & 0.237* & -0.155 & -0.583* \\
-                    & (0.124) & (0.114) & (0.331) \\
-                    High & -0.451** & -0.281* & -0.382 \\
-                    & (0.223) & (0.157) & (0.293) \\
-                    Nominee score & 0.540*** & 0.503*** & 0.650*** \\
-                    & (0.056) & (0.049) & (0.116) \\
-                    Tie & 0.842*** & 0.930*** & 0.959*** \\
-                    & (0.037) & (0.039) & (0.104) \\
-                    Score x Tie & 0.043* & 0.057*** & 0.148** \\
-                    & (0.022) & (0.021) & (0.066) \\
-                    \midrule
-                    Observations & 110142 & 127088 & 19767 \\
-                    Ind. & 301 & 366 & 67 \\
-                    Chi-test & 804.58 & 766.33 & 144.77 \\
-                    \bottomrule
-                    \end{tabular*}
-                    \label{tab:homophily_combined}
-                    \end{threeparttable}
-                    \end{table}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1bis.png}
+                \label{fig:res1bis}
             \end{column}
         \end{columns}
     \end{frame}
+
+    % \begin{frame}{SES extremes reveal the origin of biases}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize} [<+->]
+    %                 \item Low-SES referrers are biased against High-SES and vice-versa
+    %                 \item Mid-SES show smallest bias to either extreme
+    %                 \item Does the bias impact referral performance?
+    %             \end{itemize}
+                
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{threeparttable}
+    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+    %                 \toprule
+    %                 & Low-SES & Middle-SES & High-SES \\
+    %                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+    %                 \midrule
+    %                 Low & 0.237* & -0.155 & -0.583* \\
+    %                 & (0.124) & (0.114) & (0.331) \\
+    %                 High & -0.451** & -0.281* & -0.382 \\
+    %                 & (0.223) & (0.157) & (0.293) \\
+    %                 Nominee score & 0.540*** & 0.503*** & 0.650*** \\
+    %                 & (0.056) & (0.049) & (0.116) \\
+    %                 Tie & 0.842*** & 0.930*** & 0.959*** \\
+    %                 & (0.037) & (0.039) & (0.104) \\
+    %                 Score x Tie & 0.043* & 0.057*** & 0.148** \\
+    %                 & (0.022) & (0.021) & (0.066) \\
+    %                 \midrule
+    %                 Observations & 110142 & 127088 & 19767 \\
+    %                 Ind. & 301 & 366 & 67 \\
+    %                 Chi-test & 804.58 & 766.33 & 144.77 \\
+    %                 \bottomrule
+    %                 \end{tabular*}
+    %                 \label{tab:homophily_combined}
+    %                 \end{threeparttable}
+    %                 \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
 
     % \begin{frame}{SES extremes reveal origin of the bias}
@@ -1030,46 +1057,67 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Referrer beliefs and scores matter}\label{referral_quality}
+    % \begin{frame}{Referrer beliefs and scores matter}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}% [<+->]
+    %                 \item Referrer $i$'s score predicts premium
+    %                 \item Accuracy on own scores increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+    %                 \item Accuracy on nominee beliefs increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+    %                 \item No effect of SES
+    %                 \item How about the interaction between SES, scores and beliefs?
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \begin{table}
+    %                 \centering
+    %                 \footnotesize
+    %                 \begin{threeparttable}
+    %                 \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
+    %                 \toprule
+    %                 & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
+    %                 \midrule
+    %                 Low & 0.068 & 0.031 & 0.026 \\
+    %                 & (0.066) & (0.061) & (0.061) \\
+    %                 High & 0.219** & 0.158 & 0.155 \\
+    %                 & (0.099) & (0.100) & (0.100) \\
+    %                 Own score & & 0.269*** & 0.264*** \\
+    %                 & & (0.031) & (0.032) \\
+    %                 $\Delta$ own belief & & 0.237*** & 0.241*** \\
+    %                 & & (0.038) & (0.038) \\
+    %                 $\Delta$ nominee belief & & -0.383*** & -0.378*** \\
+    %                 & & (0.045) & (0.044) \\
+    %                 \midrule
+    %                 Controls & No & No & Yes \\
+    %                 Observations & 1,342 & 1,342 & 1,342 \\
+    %                 Ind. & 734 & 734 & 734 \\
+    %                 \bottomrule
+    %                 \end{tabular*}
+    %                 \label{tab:regression_results}
+    %                 \end{threeparttable}
+    %                 \end{table}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    \begin{frame}{Who makes better referrals?}\label{referral_quality}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}% [<+->]
-                    \item Referrer $i$'s score predicts premium
-                    \item Accuracy on own scores increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
-                    \item Accuracy on nominee beliefs increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
-                    \item No effect of SES
-                    \item How about the interaction between SES, scores and beliefs?
+                \begin{itemize}
+                    \item Referrer's own score increases premium
+                    \pause
+                    \item Referrer's knowledge of own scores increases premium \hyperlink{fig:ob_qfit}{\beamerbutton{See}}
+                    \pause
+                    \item Referrer's knowledge of nominee's score increases premium \hyperlink{fig:score_premium_qfit}{\beamerbutton{See}}
+                    \pause 
+                    \item No effect of SES on referral premium
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
-                \begin{table}
-                    \centering
-                    \footnotesize
-                    \begin{threeparttable}
-                    \begin{tabular*}{0.9\columnwidth}{@{\extracolsep{\fill}}lccc}
-                    \toprule
-                    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} \\
-                    \midrule
-                    Low & 0.068 & 0.031 & 0.026 \\
-                    & (0.066) & (0.061) & (0.061) \\
-                    High & 0.219** & 0.158 & 0.155 \\
-                    & (0.099) & (0.100) & (0.100) \\
-                    Own score & & 0.269*** & 0.264*** \\
-                    & & (0.031) & (0.032) \\
-                    $\Delta$ own belief & & 0.237*** & 0.241*** \\
-                    & & (0.038) & (0.038) \\
-                    $\Delta$ nominee belief & & -0.383*** & -0.378*** \\
-                    & & (0.045) & (0.044) \\
-                    \midrule
-                    Controls & No & No & Yes \\
-                    Observations & 1,342 & 1,342 & 1,342 \\
-                    Ind. & 734 & 734 & 734 \\
-                    \bottomrule
-                    \end{tabular*}
-                    \label{tab:regression_results}
-                    \end{threeparttable}
-                    \end{table}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res2.png}
+                \label{fig:res2}
             \end{column}
         \end{columns}
     \end{frame}
@@ -1127,22 +1175,28 @@
     % \end{itemize}
     % \end{frame}
 
-        \begin{frame}{Conclusion} 
-        \markconclusion
+\begin{frame}{Summary} 
         \begin{itemize}% [<+->]
         \item Networks are separated by SES
         \pause
         \item Low and High-SES exhibit bias against one another and worsen the network effect in referrals
         \pause
-        \item All referrers pick those with whom they take a lot of courses and better performers from network
-        \pause
         \item All referrers uniformly nominate better as their own scores get higher, have more accurate beliefs about own and nominee scores
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Next steps \& Conclusion  } 
+        \markconclusion
+        \begin{itemize}% [<+->]
+        \item Robustness check on the bias findings with the conditional logit model 
         \pause
+        \item Start writing!
         \item Individuals across SES refer equally well \dots
         \pause
         \item \dots but \textbf{prefer} nominating similar others in SES
     \end{itemize}
     \end{frame}
+
 
     \hideprogressbar
     \appendix

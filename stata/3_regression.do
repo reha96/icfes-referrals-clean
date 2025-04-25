@@ -543,7 +543,7 @@ coefplot ///
     $graph_opts name(res2, replace) 
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res2.png", ///
     as(png) replace	
-
+	
 // Model 1: SES × Referrer Score interaction
 eststo int_score: reg z_SP ib(2).own_estrato##c.z_OS z_OB z_NB , vce(cluster own_id)
 
