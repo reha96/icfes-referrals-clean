@@ -103,15 +103,19 @@ clear
 set obs 3
 gen xpos = .
 gen xpos2 = .
+gen xpos3 = .
 replace xpos = _n 
 replace xpos2 = _n
+replace xpos3 = _n
 
 gen proportion = .
 gen proportion2 = .
+gen proportion3 = .
 gen proportionA = .
 gen proportionA2 = .
 gen se = .
 gen se2 = .
+gen se3 = .
 
 replace proportion = ${prop_low_low} if xpos == 1
 replace proportion = ${prop_middle_low} if xpos == 2
@@ -120,42 +124,54 @@ replace se = ${se_low_low} if xpos == 1
 replace se = ${se_middle_low} if xpos == 2
 replace se = ${se_high_low} if xpos == 3
 
-replace proportion2 = ${prop_low_high} if xpos2 == 1
-replace proportion2 = ${prop_middle_high} if xpos2 == 2
-replace proportion2 = ${prop_high_high} if xpos2 == 3
-replace se2 = ${se_low_high} if xpos2 == 1
-replace se2 = ${se_middle_high} if xpos2 == 2
-replace se2 = ${se_high_high} if xpos2 == 3
+replace proportion2 = ${prop_low_middle} if xpos2 == 1
+replace proportion2 = ${prop_middle_middle} if xpos2 == 2
+replace proportion2 = ${prop_high_middle} if xpos2 == 3
+replace se2 = ${se_low_middle} if xpos2 == 1
+replace se2 = ${se_middle_middle} if xpos2 == 2
+replace se2 = ${se_high_middle} if xpos2 == 3
+
+replace proportion3 = ${prop_low_high} if xpos3 == 1
+replace proportion3 = ${prop_middle_high} if xpos3 == 2
+replace proportion3 = ${prop_high_high} if xpos3 == 3
+replace se3 = ${se_low_high} if xpos3 == 1
+replace se3 = ${se_middle_high} if xpos3 == 2
+replace se3 = ${se_high_high} if xpos3 == 3
+
 
 gen ci_lower = proportion - 1.96*se
 gen ci_upper = proportion + 1.96*se
-
 gen ci_lower2 = proportion2 - 1.96*se2
 gen ci_upper2 = proportion2 + 1.96*se2
+gen ci_lower3 = proportion3 - 1.96*se3
+gen ci_upper3 = proportion3 + 1.96*se3
 
 
 replace proportionA = ${prop_A_low} if xpos == 1
 // replace proportionA = ${prop_A_middle} if  xpos == 2
 replace proportionA = ${prop_A_high} if  xpos == 3
 
-replace xpos = xpos - 0.125
-replace xpos2 = xpos2 + 0.125
+replace xpos = xpos - 0.20
+replace xpos3 = xpos3 + 0.20
 
 
 // lses and hses only
-twoway (bar proportion xpos, barw(0.25) fcolor(gs8) lcolor(gs4)) ///
-		(bar proportion2 xpos2, barw(0.25) fcolor(gs14) lcolor(gs4)) ///
+twoway (bar proportion xpos, barw(0.20) fcolor(gs8) lcolor(gs4)) ///
+		(bar proportion2 xpos2, barw(0.20) fcolor(gs11) lcolor(gs4)) ///
+		(bar proportion3 xpos3, barw(0.20) fcolor(gs14) lcolor(gs4)) ///
 	   (function y=34, range(0.5 3.5) lpattern(dash) lcolor(dknavy)) ///
+	   (function y=51, range(0.5 3.5) lpattern(dash) lcolor(orange)) ///
 	   (function y=15, range(0.5 3.5) lpattern(dash) lcolor(red)) ///
 	   (rcap ci_upper ci_lower xpos, color(gs4) text(32 3.4 "Low", color(dknavy))) ///
-	    (rcap ci_upper2 ci_lower2 xpos2, color(gs4) text(13 3.4 "High", color(red))) ///
+	   (rcap ci_upper2 ci_lower2 xpos2, color(gs4) text(49 3.4 "Middle", color(orange))) ///
+	    (rcap ci_upper3 ci_lower3 xpos3, color(gs4) text(13 3.4 "High", color(red))) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High") ///
-       ylabel(0(10)50, angle(0) format(%9.0f) gmin gmax) ///
+       ylabel(0(10)80, angle(0) format(%9.0f) gmin gmax) ///
        ytitle("Percent") ///
        xtitle("") ///
        title("Network share by SES") ///
-       legend(order(1 "Low" 2 "High") ring(0) pos(12) rows(1) region(lcolor(none))) ///
+       legend(order(1 "Low" 2 "Middle" 3 "High") ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) ///
        name(ses_distribution, replace)

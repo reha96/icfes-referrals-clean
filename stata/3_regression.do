@@ -429,7 +429,7 @@ gen same_high = (other_high_ses==own_high_ses)
 // Create a new group variable combining the subject area and person ID
 egen area_id = group(own_id area)
 
-// Run your models
+// Run models
 eststo clear
 eststo reg1: clogit nomination ib(2).other_estrato, group(area_id) vce(cluster own_id)
 eststo reg2: clogit nomination ib(2).other_estrato z_other_score z_tie, group(area_id) vce(cluster own_id)
@@ -438,13 +438,13 @@ esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) 
 test 1.other_estrato = 2.other_estrato = 3.other_estrato // **
 
 coefplot ///
-    (reg3, offset(0) mcolor(dknavy) ciopts(color(dknavy) lwidth(thick))), ///
-    coeflabels(z_tie = "Classes taken" ///
+    (reg3, offset(0) mcolor(gs4) ciopts(color(gs4) lwidth(thick))), ///
+    coeflabels(z_tie = "Courses taken" ///
               z_other_score = "Score" ///
-			  scoreXtie = "Score x Classes taken" ///
+			  scoreXtie = "Score x Courses taken" ///
               _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
-		 mlabposition(1) ///
+		 mlabposition(2) ///
      mlabel(cond(@pval<.001, "***", ///
             cond(@pval<.01, "**",   ///
             cond(@pval<.05, "*",    ///
@@ -457,37 +457,44 @@ graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1.p
     as(png) replace	
 
 
-eststo clear
 forvalues ses = 1/3 {
     preserve		
 		keep if own_estrato == `ses'
 	//  gen homophily = (own_estrato==other_estrato)
-		eststo reg`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
+		eststo b1`ses': clogit nomination ib(2).other_estrato, group(area_id) vce(cluster own_id)
+		eststo b2`ses': clogit nomination ib(2).other_estrato z_other_score z_tie, group(area_id) vce(cluster own_id)
+		eststo b3`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
 		test 1.other_estrato = 2.other_estrato = 3.other_estrato // *** only for low-SES
 		test 1.other_estrato = 3.other_estrato // *** only for low-SES
 	restore
 }
 
 cls
-esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// low
+esttab b11 b21 b31, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// middle
+esttab b12 b22 b32, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// high
+esttab b13 b23 b33, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 
 coefplot ///
-    (reg1, offset(0.1) mcolor(dknavy) ciopts(color(dknavy) lwidth(thick))) ///
-	(reg3, offset(-0.1) mcolor(red) ciopts(color(red) lwidth(thick))), ///
-    coeflabels(z_tie = "Classes taken" ///
+    (b31, offset(0.2) mcolor(dknavy) mlabcolor(dknavy) ciopts(color(dknavy) lwidth(thick))) ///
+	(b32, offset(0.0) mcolor(orange) mlabcolor(orange) ciopts(color(orange) lwidth(thick))) ///
+	(b33, offset(-0.2) mcolor(red) mlabcolor(red) ciopts(color(red) lwidth(thick))), ///
+    coeflabels(z_tie = "Courses taken" ///
               z_other_score = "Score" ///
-			  scoreXtie = "Score x Classes taken" ///
+			  scoreXtie = "Score x Courses taken" ///
               _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
-	 mlabposition(1) ///
+	 mlabposition(2) ///
      mlabel(cond(@pval<.001, "***", ///
             cond(@pval<.01, "**",   ///
             cond(@pval<.05, "*",    ///
             cond(@pval<.1, "+", ""))))) ///
     xlabel(-1(.5)1) /// ///
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
-    legend(order(2 "Low" 4 "High") ring(0) pos(2) rows(3) region(lcolor(none))) ///
+    legend(order(2 "Low" 4 "Middle" 6 "High") ring(0) pos(2) rows(3) region(lcolor(none))) ///
     $graph_opts name(res1bis, replace) 
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1bis.png", ///
     as(png) replace	

@@ -28,9 +28,9 @@ twoway (area connections own_semester, color(gs10)) ///
        ylabel(0(50)300, angle(0) grid gmin ) ///
        ylabel(0(2)10, angle(0) axis(2)) ///
        ytitle("Connections") ///
-       ytitle("Classes taken", axis(2)) ///
+       ytitle("Courses taken", axis(2)) ///
        xtitle("Semesters") ///
-       legend(order(1 "Connections" 2 "Classes taken") ///
+       legend(order(1 "Connections" 2 "Courses taken") ///
               ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        name(connection_tie, replace)
