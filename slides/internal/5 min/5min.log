@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.7)  7 MAY 2025 09:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.7)  7 MAY 2025 11:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/1 hour/1hour.tex"
-(c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/1 hour/1hour.tex
+**"c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/5 min/5min.tex"
+(c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/5 min/5min.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
 (C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamer.cls
@@ -663,8 +663,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count377
-) (1hour.aux)
-\openout1 = `1hour.aux'.
+) (5min.aux)
+\openout1 = `5min.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
@@ -739,9 +739,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 46.
- (1hour.out) (1hour.out)
+ (5min.out) (5min.out)
 \@outlinefile=\write5
-\openout5 = `1hour.out'.
+\openout5 = `5min.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 46.
@@ -808,7 +808,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
- (1hour.nav)
+ (5min.nav)
 LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
  (C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -844,26 +844,55 @@ Package pdftex.def Info: ../../../figures/FT2.png  used on input line 63.
 [3
 
 ]
+<../../../figures/colombia_map.png, id=38, 1084.05pt x 1084.05pt>
+File: ../../../figures/colombia_map.png Graphic file (type png)
+<use ../../../figures/colombia_map.png>
+Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
+(pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
+
 
 [4
 
-]
+ <../../../figures/colombia_map.png>]
+<../../../figures/interface.png, id=45, 520.94624pt x 293.095pt>
+File: ../../../figures/interface.png Graphic file (type png)
+<use ../../../figures/interface.png>
+Package pdftex.def Info: ../../../figures/interface.png  used on input line 117.
+(pdftex.def)             Requested size: 204.07536pt x 114.81642pt.
+
 
 [5
 
-]
+ <../../../figures/interface.png>]
+<../../../figures/../figures/availability_lses.png, id=53, 1477.52pt x 1075.01625pt>
+File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
+<use ../../../figures/../figures/availability_lses.png>
+Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 338.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+
 
 [6
 
-]
+ <../../../figures/../figures/availability_lses.png>]
+<../../../figures/res1bis.png, id=61, 1477.52pt x 1075.01625pt>
+File: ../../../figures/res1bis.png Graphic file (type png)
+<use ../../../figures/res1bis.png>
+Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 861.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+
 
 [7
 
-]
+ <../../../figures/res1bis.png>]
 
 [8
 
 ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\translate ' on input line 1412.
+
+
 
 [9
 
@@ -876,497 +905,130 @@ Package pdftex.def Info: ../../../figures/FT2.png  used on input line 63.
 [11
 
 ]
-<../../../figures/colombia_map.png, id=80, 1084.05pt x 1084.05pt>
-File: ../../../figures/colombia_map.png Graphic file (type png)
-<use ../../../figures/colombia_map.png>
-Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
-(pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
-
 
 [12
 
- <../../../figures/colombia_map.png>]
-File: ../../../figures/colombia_map.png Graphic file (type png)
-<use ../../../figures/colombia_map.png>
-Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
-(pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
-
+]
 
 [13
 
 ]
-File: ../../../figures/colombia_map.png Graphic file (type png)
-<use ../../../figures/colombia_map.png>
-Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
-(pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
-
 
 [14
 
 ]
-<../../../figures/interface.png, id=98, 520.94624pt x 293.095pt>
-File: ../../../figures/interface.png Graphic file (type png)
-<use ../../../figures/interface.png>
-Package pdftex.def Info: ../../../figures/interface.png  used on input line 117.
-(pdftex.def)             Requested size: 204.07536pt x 114.81642pt.
-
 
 [15
 
- <../../../figures/interface.png>]
-File: ../../../figures/interface.png Graphic file (type png)
-<use ../../../figures/interface.png>
-Package pdftex.def Info: ../../../figures/interface.png  used on input line 117.
-(pdftex.def)             Requested size: 204.07536pt x 114.81642pt.
-
+]
 
 [16
 
 ]
-<../../../figures/piece_rate_by_score.png, id=111, 1477.52pt x 1075.01625pt>
-File: ../../../figures/piece_rate_by_score.png Graphic file (type png)
-<use ../../../figures/piece_rate_by_score.png>
-Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 133.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+<../../../figures/sp_byses.png, id=140, 1581.91pt x 1150.2975pt>
+File: ../../../figures/sp_byses.png Graphic file (type png)
+<use ../../../figures/sp_byses.png>
+Package pdftex.def Info: ../../../figures/sp_byses.png  used on input line 1792.
+(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
 
 
 [17
 
- <../../../figures/piece_rate_by_score.png>]
-File: ../../../figures/piece_rate_by_score.png Graphic file (type png)
-<use ../../../figures/piece_rate_by_score.png>
-Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 133.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ <../../../figures/sp_byses.png>]
+<../../../figures/ob_byses.png, id=151, 1581.91pt x 1150.2975pt>
+File: ../../../figures/ob_byses.png Graphic file (type png)
+<use ../../../figures/ob_byses.png>
+Package pdftex.def Info: ../../../figures/ob_byses.png  used on input line 1810.
+(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
 
 
 [18
 
-]
-File: ../../../figures/piece_rate_by_score.png Graphic file (type png)
-<use ../../../figures/piece_rate_by_score.png>
-Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 133.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ <../../../figures/ob_byses.png>]
+<../../../figures/nb_byses.png, id=160, 1581.91pt x 1150.2975pt>
+File: ../../../figures/nb_byses.png Graphic file (type png)
+<use ../../../figures/nb_byses.png>
+Package pdftex.def Info: ../../../figures/nb_byses.png  used on input line 1827.
+(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
 
 
 [19
 
-]
-<../../../figures/other_belief.png, id=129, 1581.91pt x 1150.2975pt>
-File: ../../../figures/other_belief.png Graphic file (type png)
-<use ../../../figures/other_belief.png>
-Package pdftex.def Info: ../../../figures/other_belief.png  used on input line 152.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
+ <../../../figures/nb_byses.png>]
+<../../../figures/selection_performance.png, id=170, 1477.52pt x 1075.01625pt>
+File: ../../../figures/selection_performance.png Graphic file (type png)
+<use ../../../figures/selection_performance.png>
+Package pdftex.def Info: ../../../figures/selection_performance.png  used on input line 1845.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
 
 
 [20
 
- <../../../figures/other_belief.png>]
-<../../../figures/../figures/own_belief.png, id=140, 1581.91pt x 1150.2975pt>
-File: ../../../figures/../figures/own_belief.png Graphic file (type png)
-<use ../../../figures/../figures/own_belief.png>
-Package pdftex.def Info: ../../../figures/../figures/own_belief.png  used on input line 170.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
+ <../../../figures/selection_performance.png>]
+<../../../figures/score_premium_qfit.png, id=179, 2024.56375pt x 1472.50125pt>
+File: ../../../figures/score_premium_qfit.png Graphic file (type png)
+<use ../../../figures/score_premium_qfit.png>
+Package pdftex.def Info: ../../../figures/score_premium_qfit.png  used on input line 1862.
+(pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
 
 
 [21
 
- <../../../figures/../figures/own_belief.png>]
+ <../../../figures/score_premium_qfit.png>]
+<../../../figures/ob_qfit.png, id=188, 2024.56375pt x 1472.50125pt>
+File: ../../../figures/ob_qfit.png Graphic file (type png)
+<use ../../../figures/ob_qfit.png>
+Package pdftex.def Info: ../../../figures/ob_qfit.png  used on input line 1879.
+(pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
+
 
 [22
 
-]
-
-[23
-
-]
-
-[24
-
-]
-
-[25
-
-]
-
-[26
-
-]
-
-[27
-
-]
-<../../../figures/../figures/connections.png, id=182, 1477.52pt x 1075.01625pt>
-File: ../../../figures/../figures/connections.png Graphic file (type png)
-<use ../../../figures/../figures/connections.png>
-Package pdftex.def Info: ../../../figures/../figures/connections.png  used on input line 271.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[28
-
- <../../../figures/../figures/connections.png>]
-File: ../../../figures/../figures/connections.png Graphic file (type png)
-<use ../../../figures/../figures/connections.png>
-Package pdftex.def Info: ../../../figures/../figures/connections.png  used on input line 271.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[29
-
-]
-<../../../figures/../figures/availability_lses.png, id=194, 1477.52pt x 1075.01625pt>
-File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
-<use ../../../figures/../figures/availability_lses.png>
-Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 340.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[30
-
- <../../../figures/../figures/availability_lses.png>]
-File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
-<use ../../../figures/../figures/availability_lses.png>
-Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 340.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[31
-
-]
-File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
-<use ../../../figures/../figures/availability_lses.png>
-Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 340.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[32
-
-]
-<../../../figures/../figures/fee_by_ses.png, id=213, 1477.52pt x 1075.01625pt>
-File: ../../../figures/../figures/fee_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/fee_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/fee_by_ses.png  used on input line 358.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[33
-
- <../../../figures/../figures/fee_by_ses.png>]
-File: ../../../figures/../figures/fee_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/fee_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/fee_by_ses.png  used on input line 358.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[34
-
-]
-<../../../figures/../figures/connections_by_ses.png, id=226, 1477.52pt x 1075.01625pt>
-File: ../../../figures/../figures/connections_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/connections_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/connections_by_ses.png  used on input line 396.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[35
-
- <../../../figures/../figures/connections_by_ses.png>]
-File: ../../../figures/../figures/connections_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/connections_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/connections_by_ses.png  used on input line 396.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[36
-
-]
-<../../../figures/reading_combined.png, id=239, 2024.56375pt x 1472.50125pt>
-File: ../../../figures/reading_combined.png Graphic file (type png)
-<use ../../../figures/reading_combined.png>
-Package pdftex.def Info: ../../../figures/reading_combined.png  used on input line 486.
-(pdftex.def)             Requested size: 273.60815pt x 198.98131pt.
-
-
-[37
-
- <../../../figures/reading_combined.png>]
-<../../../figures/math_combined.png, id=247, 2024.56375pt x 1472.50125pt>
-File: ../../../figures/math_combined.png Graphic file (type png)
-<use ../../../figures/math_combined.png>
-Package pdftex.def Info: ../../../figures/math_combined.png  used on input line 504.
-(pdftex.def)             Requested size: 273.60815pt x 198.98131pt.
-
-
-[38
-
- <../../../figures/math_combined.png>]
-<../../../figures/score_premium.png, id=255, 1581.91pt x 1150.2975pt>
-File: ../../../figures/score_premium.png Graphic file (type png)
-<use ../../../figures/score_premium.png>
-Package pdftex.def Info: ../../../figures/score_premium.png  used on input line 522.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
-
-
-[39
-
- <../../../figures/score_premium.png>]
-<../../../figures/all_referral_rates_UNAB.png, id=264, 1477.52pt x 1075.01625pt>
-File: ../../../figures/all_referral_rates_UNAB.png Graphic file (type png)
-<use ../../../figures/all_referral_rates_UNAB.png>
-Package pdftex.def Info: ../../../figures/all_referral_rates_UNAB.png  used on input line 545.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[40
-
- <../../../figures/all_referral_rates_UNAB.png>]
-<../../../figures/all_referral_rates.png, id=271, 1477.52pt x 1075.01625pt>
-File: ../../../figures/all_referral_rates.png Graphic file (type png)
-<use ../../../figures/all_referral_rates.png>
-Package pdftex.def Info: ../../../figures/all_referral_rates.png  used on input line 545.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[41
-
- <../../../figures/all_referral_rates.png>]
-<../../../figures/all_ses_referral_rates.png, id=277, 1477.52pt x 1075.01625pt>
-File: ../../../figures/all_ses_referral_rates.png Graphic file (type png)
-<use ../../../figures/all_ses_referral_rates.png>
-Package pdftex.def Info: ../../../figures/all_ses_referral_rates.png  used on input line 563.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[42
-
- <../../../figures/all_ses_referral_rates.png>]
-File: ../../../figures/all_ses_referral_rates.png Graphic file (type png)
-<use ../../../figures/all_ses_referral_rates.png>
-Package pdftex.def Info: ../../../figures/all_ses_referral_rates.png  used on input line 563.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[43
-
-]
-
-[44
-
-]
-
-[45
-
-]
-
-[46
-
-]
-
-[47
-
-]
-<../../../figures/res1.png, id=313, 1477.52pt x 1075.01625pt>
-File: ../../../figures/res1.png Graphic file (type png)
-<use ../../../figures/res1.png>
-Package pdftex.def Info: ../../../figures/res1.png  used on input line 721.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[48
-
- <../../../figures/res1.png>]
-
-[49
-
-]
-
-[50
-
-]
-
-[51
-
-]
-<../../../figures/res1bis.png, id=338, 1477.52pt x 1075.01625pt>
-File: ../../../figures/res1bis.png Graphic file (type png)
-<use ../../../figures/res1bis.png>
-Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 865.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[52
-
- <../../../figures/res1bis.png>]
-File: ../../../figures/res1bis.png Graphic file (type png)
-<use ../../../figures/res1bis.png>
-Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 865.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[53
-
-]
-File: ../../../figures/res1bis.png Graphic file (type png)
-<use ../../../figures/res1bis.png>
-Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 865.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[54
-
-]
-
-[55
-
-]
-
-[56
-
-]
-
-[57
-
-]
-
-[58
-
-]
-
-[59
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 1415.
-
-
-
-[60
-
-]
-
-[61
-
-]
-
-[62
-
-]
-
-[63
-
-]
-
-[64
-
-]
-
-[65
-
-]
-
-[66
-
-]
-
-[67
-
-]
-<../../../figures/sp_byses.png, id=448, 1581.91pt x 1150.2975pt>
-File: ../../../figures/sp_byses.png Graphic file (type png)
-<use ../../../figures/sp_byses.png>
-Package pdftex.def Info: ../../../figures/sp_byses.png  used on input line 1795.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
-
-
-[68
-
- <../../../figures/sp_byses.png>]
-<../../../figures/ob_byses.png, id=455, 1581.91pt x 1150.2975pt>
-File: ../../../figures/ob_byses.png Graphic file (type png)
-<use ../../../figures/ob_byses.png>
-Package pdftex.def Info: ../../../figures/ob_byses.png  used on input line 1813.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
-
-
-[69
-
- <../../../figures/ob_byses.png>]
-<../../../figures/nb_byses.png, id=462, 1581.91pt x 1150.2975pt>
-File: ../../../figures/nb_byses.png Graphic file (type png)
-<use ../../../figures/nb_byses.png>
-Package pdftex.def Info: ../../../figures/nb_byses.png  used on input line 1830.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
-
-
-[70
-
- <../../../figures/nb_byses.png>]
-<../../../figures/selection_performance.png, id=469, 1477.52pt x 1075.01625pt>
-File: ../../../figures/selection_performance.png Graphic file (type png)
-<use ../../../figures/selection_performance.png>
-Package pdftex.def Info: ../../../figures/selection_performance.png  used on input line 1848.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
-
-
-[71
-
- <../../../figures/selection_performance.png>]
-<../../../figures/score_premium_qfit.png, id=478, 2024.56375pt x 1472.50125pt>
-File: ../../../figures/score_premium_qfit.png Graphic file (type png)
-<use ../../../figures/score_premium_qfit.png>
-Package pdftex.def Info: ../../../figures/score_premium_qfit.png  used on input line 1865.
-(pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
-
-
-[72
-
- <../../../figures/score_premium_qfit.png>]
-<../../../figures/ob_qfit.png, id=487, 2024.56375pt x 1472.50125pt>
-File: ../../../figures/ob_qfit.png Graphic file (type png)
-<use ../../../figures/ob_qfit.png>
-Package pdftex.def Info: ../../../figures/ob_qfit.png  used on input line 1882.
-(pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
-
-
-[73
-
  <../../../figures/ob_qfit.png>]
 \tf@nav=\write6
-\openout6 = `1hour.nav'.
+\openout6 = `5min.nav'.
 
 \tf@toc=\write7
-\openout7 = `1hour.toc'.
+\openout7 = `5min.toc'.
 
 \tf@snm=\write8
-\openout8 = `1hour.snm'.
+\openout8 = `5min.snm'.
 
- (1hour.aux)
+ (5min.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
  ***********
-Package rerunfilecheck Info: File `1hour.out' has not changed.
+Package rerunfilecheck Info: File `5min.out' has not changed.
 (rerunfilecheck)             Checksum: 5BCEA9CF7D2D9AECE7CAC4018E9F6C5B;81.
  ) 
 Here is how much of TeX's memory you used:
- 27290 strings out of 469941
- 556209 string characters out of 5465523
- 886643 words of memory out of 5000000
- 53355 multiletter control sequences out of 15000+600000
- 639359 words of font info for 84 fonts, out of 8000000 for 9000
+ 26921 strings out of 469941
+ 547529 string characters out of 5465523
+ 885791 words of memory out of 5000000
+ 53106 multiletter control sequences out of 15000+600000
+ 638059 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,13n,123p,486b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,13n,123p,484b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{referral_quality} has been referenced but does not exist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{tab:selection} has been referenced but does not exist, replaced by a fixed one
 
- <C:\Users\LetzPC Gaming\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on 1hour.pdf (73 pages, 2562019 bytes).
+
+pdfTeX warning (dest): name{other_belief} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{own_belief} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{score_premium} has been referenced but does not exist, replaced by a fixed one
+
+<C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on 5min.pdf (22 pages, 1168509 bytes).
 PDF statistics:
- 584 PDF objects out of 1000 (max. 8388607)
- 194 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

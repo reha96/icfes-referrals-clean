@@ -1,7 +1,7 @@
-PWD c:\Users\LetzPC Gaming\Documents\GitHub\icfes-referrals\slides\internal\1 hour
+PWD c:\Users\LetzPC Gaming\Documents\GitHub\icfes-referrals\slides\internal\5 min
 INPUT C:\Users\LetzPC Gaming\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\LetzPC Gaming\Documents\GitHub\icfes-referrals\slides\internal\1 hour\1hour.tex
-OUTPUT 1hour.log
+INPUT c:\Users\LetzPC Gaming\Documents\GitHub\icfes-referrals\slides\internal\5 min\5min.tex
+OUTPUT 5min.log
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamer.cls
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamer.cls
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamerbasemodes.sty
@@ -267,7 +267,7 @@ INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beam
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamerinnerthemedefault.sty
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamerinnerthemedefault.sty
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamericonbook.pdf
-OUTPUT 1hour.pdf
+OUTPUT 5min.pdf
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamericonbook.pdf
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamericonbook.pdf
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\beamer\beamericonbook.20.pdf
@@ -351,10 +351,10 @@ INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\appendixnum
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\appendixnumberbeamer\appendixnumberbeamer.sty
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\1hour.aux
-INPUT .\1hour.aux
-INPUT 1hour.aux
-OUTPUT 1hour.aux
+INPUT .\5min.aux
+INPUT .\5min.aux
+INPUT 5min.aux
+OUTPUT 5min.aux
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -363,13 +363,13 @@ INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pk
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
-INPUT .\1hour.out
-INPUT .\1hour.out
-INPUT 1hour.out
-INPUT 1hour.out
-INPUT .\1hour.out
-INPUT .\1hour.out
-OUTPUT 1hour.out
+INPUT .\5min.out
+INPUT .\5min.out
+INPUT 5min.out
+INPUT 5min.out
+INPUT .\5min.out
+INPUT .\5min.out
+OUTPUT 5min.out
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\translator\translator-basic-dictionary-English.dict
@@ -388,9 +388,9 @@ INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\translator\
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\translator\translator-theorem-dictionary-English.dict
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\translator\translator-theorem-dictionary-English.dict
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\tex\latex\translator\translator-theorem-dictionary-English.dict
-INPUT .\1hour.nav
-INPUT .\1hour.nav
-INPUT 1hour.nav
+INPUT .\5min.nav
+INPUT .\5min.nav
+INPUT 5min.nav
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss17.tfm
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmssbx10.tfm
@@ -442,14 +442,6 @@ INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\c
 INPUT ..\..\..\figures\FT2.png
 INPUT ..\..\..\figures\FT2.png
 INPUT ..\..\..\figures\FT2.png
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss10.tfm
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmssi10.tfm
-INPUT ..\..\..\figures\colombia_map.png
-INPUT ..\..\..\figures\colombia_map.png
-INPUT ..\..\..\figures\colombia_map.png
-INPUT ..\..\..\figures\colombia_map.png
-INPUT ..\..\..\figures\colombia_map.png
-INPUT ..\..\..\figures\colombia_map.png
 INPUT ..\..\..\figures\colombia_map.png
 INPUT ..\..\..\figures\colombia_map.png
 INPUT ..\..\..\figures\colombia_map.png
@@ -462,137 +454,24 @@ INPUT ..\..\..\figures\interface.png
 INPUT ..\..\..\figures\interface.png
 INPUT ..\..\..\figures\interface.png
 INPUT ..\..\..\figures\interface.png
-INPUT ..\..\..\figures\interface.png
-INPUT ..\..\..\figures\interface.png
-INPUT ..\..\..\figures\interface.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
-INPUT ..\..\..\figures\piece_rate_by_score.png
+INPUT ..\..\..\figures\..\figures\availability_lses.png
+INPUT ..\..\..\figures\..\figures\availability_lses.png
+INPUT ..\..\..\figures\..\figures\availability_lses.png
+INPUT ..\..\..\figures\..\figures\availability_lses.png
+INPUT ..\..\..\figures\..\figures\availability_lses.png
+INPUT ..\..\..\figures\..\figures\availability_lses.png
+INPUT ..\..\..\figures\res1bis.png
+INPUT ..\..\..\figures\res1bis.png
+INPUT ..\..\..\figures\res1bis.png
+INPUT ..\..\..\figures\res1bis.png
+INPUT ..\..\..\figures\res1bis.png
+INPUT ..\..\..\figures\res1bis.png
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssi10.tfm
-INPUT ..\..\..\figures\other_belief.png
-INPUT ..\..\..\figures\other_belief.png
-INPUT ..\..\..\figures\other_belief.png
-INPUT ..\..\..\figures\other_belief.png
-INPUT ..\..\..\figures\other_belief.png
-INPUT ..\..\..\figures\other_belief.png
-INPUT ..\..\..\figures\..\figures\own_belief.png
-INPUT ..\..\..\figures\..\figures\own_belief.png
-INPUT ..\..\..\figures\..\figures\own_belief.png
-INPUT ..\..\..\figures\..\figures\own_belief.png
-INPUT ..\..\..\figures\..\figures\own_belief.png
-INPUT ..\..\..\figures\..\figures\own_belief.png
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmssbx10.tfm
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\connections.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT ..\..\..\figures\..\figures\availability_lses.png
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcss1095.tfm
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\fee_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\..\figures\connections_by_ses.png
-INPUT ..\..\..\figures\reading_combined.png
-INPUT ..\..\..\figures\reading_combined.png
-INPUT ..\..\..\figures\reading_combined.png
-INPUT ..\..\..\figures\reading_combined.png
-INPUT ..\..\..\figures\reading_combined.png
-INPUT ..\..\..\figures\reading_combined.png
-INPUT ..\..\..\figures\math_combined.png
-INPUT ..\..\..\figures\math_combined.png
-INPUT ..\..\..\figures\math_combined.png
-INPUT ..\..\..\figures\math_combined.png
-INPUT ..\..\..\figures\math_combined.png
-INPUT ..\..\..\figures\math_combined.png
-INPUT ..\..\..\figures\score_premium.png
-INPUT ..\..\..\figures\score_premium.png
-INPUT ..\..\..\figures\score_premium.png
-INPUT ..\..\..\figures\score_premium.png
-INPUT ..\..\..\figures\score_premium.png
-INPUT ..\..\..\figures\score_premium.png
-INPUT ..\..\..\figures\all_referral_rates_UNAB.png
-INPUT ..\..\..\figures\all_referral_rates_UNAB.png
-INPUT ..\..\..\figures\all_referral_rates_UNAB.png
-INPUT ..\..\..\figures\all_referral_rates_UNAB.png
-INPUT ..\..\..\figures\all_referral_rates_UNAB.png
-INPUT ..\..\..\figures\all_referral_rates_UNAB.png
-INPUT ..\..\..\figures\all_referral_rates.png
-INPUT ..\..\..\figures\all_referral_rates.png
-INPUT ..\..\..\figures\all_referral_rates.png
-INPUT ..\..\..\figures\all_referral_rates.png
-INPUT ..\..\..\figures\all_referral_rates.png
-INPUT ..\..\..\figures\all_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\all_ses_referral_rates.png
-INPUT ..\..\..\figures\res1.png
-INPUT ..\..\..\figures\res1.png
-INPUT ..\..\..\figures\res1.png
-INPUT ..\..\..\figures\res1.png
-INPUT ..\..\..\figures\res1.png
-INPUT ..\..\..\figures\res1.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
-INPUT ..\..\..\figures\res1bis.png
 INPUT ..\..\..\figures\sp_byses.png
 INPUT ..\..\..\figures\sp_byses.png
 INPUT ..\..\..\figures\sp_byses.png
@@ -629,14 +508,12 @@ INPUT ..\..\..\figures\ob_qfit.png
 INPUT ..\..\..\figures\ob_qfit.png
 INPUT ..\..\..\figures\ob_qfit.png
 INPUT ..\..\..\figures\ob_qfit.png
-OUTPUT 1hour.nav
-OUTPUT 1hour.toc
-OUTPUT 1hour.snm
-INPUT 1hour.aux
-INPUT .\1hour.out
-INPUT .\1hour.out
-INPUT C:\Users\LetzPC Gaming\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1095.pk
-INPUT C:\Users\LetzPC Gaming\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1095.pk
+OUTPUT 5min.nav
+OUTPUT 5min.toc
+OUTPUT 5min.snm
+INPUT 5min.aux
+INPUT .\5min.out
+INPUT .\5min.out
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss10.pfb
@@ -649,9 +526,5 @@ INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\am
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssi10.pfb
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssi10.pfb
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssi8.pfb
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssi8.pfb
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\LetzPC Gaming\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
