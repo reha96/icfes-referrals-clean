@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1746611485.11441 "c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/5 min/5min.tex" "5min.pdf" "5min" 1746611487.38361 0
+["pdflatex"] 1746611720.74673 "c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/5 min/5min.tex" "5min.pdf" "5min" 1746611723.25195 0
   "../../../figures/../figures/availability_lses.png" 1746601116 193955 26cad018e927f3956b282a5ab829f5a9 ""
   "../../../figures/FT2.png" 1746601116 195008 9c0c4724b0949ddf9cd64ba552115bbf ""
   "../../../figures/colombia_map.png" 1746601116 28201 70b1f1260062d338b87b9cd275c91b7e ""
@@ -11,10 +11,10 @@
   "../../../figures/score_premium_qfit.png" 1746601116 144379 222e16a2638617e58526d55087cc7f5d ""
   "../../../figures/selection_performance.png" 1746601116 170593 abd2360430f851c5887ca6cae33654f4 ""
   "../../../figures/sp_byses.png" 1746601116 163335 a6d491c7ef78d37738c1084abfc1450b ""
-  "5min.aux" 1746611487 7775 d9bebbe5a1359cb6be17ac41b4b05593 "pdflatex"
-  "5min.nav" 1746611487 2508 7b8e69fc2d222b35c46349ce7c4f1ddc "pdflatex"
-  "5min.out" 1746611487 81 5bcea9cf7d2d9aece7cac4018e9f6c5b "pdflatex"
-  "5min.tex" 1746611483 91699 f54cbbcc2c3368dfff86a23459201bdf ""
+  "5min.aux" 1746611723 7769 e6e76b0e3eec111dc1cc153db9ecef67 "pdflatex"
+  "5min.nav" 1746611723 2504 1b78c24824e5bc0066d41e2d237d4ded "pdflatex"
+  "5min.out" 1746611723 81 5bcea9cf7d2d9aece7cac4018e9f6c5b "pdflatex"
+  "5min.tex" 1746611717 91692 c0d7e3cb3082d4fd8ada428a405143ff ""
   "C:/Users/LetzPC Gaming/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746603313 81088 29d6fa367ac022d1b69251d68c0742e6 ""
   "C:/Users/LetzPC Gaming/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1746603310 13161548 940bb9855458204e4faa0dad73a0eabf ""
   "C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -239,7 +239,7 @@
   "beamerfontthemeSimplePlus.sty" 1746601116 1046 513b8304d1567fbc6e3ba3835cc12b4c ""
   "beamerinnerthemeSimplePlus.sty" 1746601116 3780 5654a4d111dffc9bc81083b9338b6da1 ""
   "beamerthemeSimplePlus.sty" 1746601116 176 3d075d65299c757f0cfb8f7b6caa897e ""
-  "c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/5 min/5min.tex" 1746611483 91699 f54cbbcc2c3368dfff86a23459201bdf ""
+  "c:/Users/LetzPC Gaming/Documents/GitHub/icfes-referrals/slides/internal/5 min/5min.tex" 1746611717 91692 c0d7e3cb3082d4fd8ada428a405143ff ""
   (generated)
   "5min.aux"
   "5min.log"

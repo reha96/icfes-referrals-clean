@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.7)  7 MAY 2025 11:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.7)  7 MAY 2025 11:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -835,57 +835,48 @@ Package pdftex.def Info: ../../../figures/FT2.png  used on input line 63.
 [2
 
  <../../../figures/FT2.png>]
-File: ../../../figures/FT2.png Graphic file (type png)
-<use ../../../figures/FT2.png>
-Package pdftex.def Info: ../../../figures/FT2.png  used on input line 63.
-(pdftex.def)             Requested size: 205.72198pt x 90.66516pt.
-
-
-[3
-
-]
-<../../../figures/colombia_map.png, id=38, 1084.05pt x 1084.05pt>
+<../../../figures/colombia_map.png, id=33, 1084.05pt x 1084.05pt>
 File: ../../../figures/colombia_map.png Graphic file (type png)
 <use ../../../figures/colombia_map.png>
 Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
 (pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
 
 
-[4
+[3
 
  <../../../figures/colombia_map.png>]
-<../../../figures/interface.png, id=45, 520.94624pt x 293.095pt>
+<../../../figures/interface.png, id=40, 520.94624pt x 293.095pt>
 File: ../../../figures/interface.png Graphic file (type png)
 <use ../../../figures/interface.png>
 Package pdftex.def Info: ../../../figures/interface.png  used on input line 117.
 (pdftex.def)             Requested size: 204.07536pt x 114.81642pt.
 
 
-[5
+[4
 
  <../../../figures/interface.png>]
-<../../../figures/../figures/availability_lses.png, id=53, 1477.52pt x 1075.01625pt>
+<../../../figures/../figures/availability_lses.png, id=48, 1477.52pt x 1075.01625pt>
 File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
 <use ../../../figures/../figures/availability_lses.png>
 Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 338.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
 
 
-[6
+[5
 
  <../../../figures/../figures/availability_lses.png>]
-<../../../figures/res1bis.png, id=61, 1477.52pt x 1075.01625pt>
+<../../../figures/res1bis.png, id=56, 1477.52pt x 1075.01625pt>
 File: ../../../figures/res1bis.png Graphic file (type png)
 <use ../../../figures/res1bis.png>
 Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 861.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
 
 
-[7
+[6
 
  <../../../figures/res1bis.png>]
 
-[8
+[7
 
 ]
 
@@ -893,6 +884,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\translate ' on input line 1412.
 
 
+
+[8
+
+]
 
 [9
 
@@ -921,68 +916,64 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [15
 
 ]
-
-[16
-
-]
-<../../../figures/sp_byses.png, id=140, 1581.91pt x 1150.2975pt>
+<../../../figures/sp_byses.png, id=135, 1581.91pt x 1150.2975pt>
 File: ../../../figures/sp_byses.png Graphic file (type png)
 <use ../../../figures/sp_byses.png>
 Package pdftex.def Info: ../../../figures/sp_byses.png  used on input line 1792.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
 
 
-[17
+[16
 
  <../../../figures/sp_byses.png>]
-<../../../figures/ob_byses.png, id=151, 1581.91pt x 1150.2975pt>
+<../../../figures/ob_byses.png, id=146, 1581.91pt x 1150.2975pt>
 File: ../../../figures/ob_byses.png Graphic file (type png)
 <use ../../../figures/ob_byses.png>
 Package pdftex.def Info: ../../../figures/ob_byses.png  used on input line 1810.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
 
 
-[18
+[17
 
  <../../../figures/ob_byses.png>]
-<../../../figures/nb_byses.png, id=160, 1581.91pt x 1150.2975pt>
+<../../../figures/nb_byses.png, id=155, 1581.91pt x 1150.2975pt>
 File: ../../../figures/nb_byses.png Graphic file (type png)
 <use ../../../figures/nb_byses.png>
 Package pdftex.def Info: ../../../figures/nb_byses.png  used on input line 1827.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
 
 
-[19
+[18
 
  <../../../figures/nb_byses.png>]
-<../../../figures/selection_performance.png, id=170, 1477.52pt x 1075.01625pt>
+<../../../figures/selection_performance.png, id=164, 1477.52pt x 1075.01625pt>
 File: ../../../figures/selection_performance.png Graphic file (type png)
 <use ../../../figures/selection_performance.png>
 Package pdftex.def Info: ../../../figures/selection_performance.png  used on input line 1845.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
 
 
-[20
+[19
 
  <../../../figures/selection_performance.png>]
-<../../../figures/score_premium_qfit.png, id=179, 2024.56375pt x 1472.50125pt>
+<../../../figures/score_premium_qfit.png, id=174, 2024.56375pt x 1472.50125pt>
 File: ../../../figures/score_premium_qfit.png Graphic file (type png)
 <use ../../../figures/score_premium_qfit.png>
 Package pdftex.def Info: ../../../figures/score_premium_qfit.png  used on input line 1862.
 (pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
 
 
-[21
+[20
 
  <../../../figures/score_premium_qfit.png>]
-<../../../figures/ob_qfit.png, id=188, 2024.56375pt x 1472.50125pt>
+<../../../figures/ob_qfit.png, id=183, 2024.56375pt x 1472.50125pt>
 File: ../../../figures/ob_qfit.png Graphic file (type png)
 <use ../../../figures/ob_qfit.png>
 Package pdftex.def Info: ../../../figures/ob_qfit.png  used on input line 1879.
 (pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
 
 
-[22
+[21
 
  <../../../figures/ob_qfit.png>]
 \tf@nav=\write6
@@ -1003,13 +994,13 @@ Package rerunfilecheck Info: File `5min.out' has not changed.
 (rerunfilecheck)             Checksum: 5BCEA9CF7D2D9AECE7CAC4018E9F6C5B;81.
  ) 
 Here is how much of TeX's memory you used:
- 26921 strings out of 469941
- 547529 string characters out of 5465523
- 885791 words of memory out of 5000000
- 53106 multiletter control sequences out of 15000+600000
+ 26913 strings out of 469941
+ 547380 string characters out of 5465523
+ 885790 words of memory out of 5000000
+ 53100 multiletter control sequences out of 15000+600000
  638059 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,13n,123p,484b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,13n,123p,484b,760s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{referral_quality} has been referenced but does not exist, replaced by a fixed one
 
@@ -1026,9 +1017,9 @@ pdfTeX warning (dest): name{own_belief} has been referenced but does not exist, 
 pdfTeX warning (dest): name{score_premium} has been referenced but does not exist, replaced by a fixed one
 
 <C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/LetzPC Gaming/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on 5min.pdf (22 pages, 1168509 bytes).
+Output written on 5min.pdf (21 pages, 1167208 bytes).
 PDF statistics:
- 244 PDF objects out of 1000 (max. 8388607)
- 76 named destinations out of 1000 (max. 500000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 74 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
