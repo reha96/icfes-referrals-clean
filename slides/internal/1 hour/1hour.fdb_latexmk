@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1746696838.63646 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/1 hour/1hour.tex" "1hour.pdf" "1hour" 1746696848.3538 0
+["pdflatex"] 1746697339.46571 "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/1 hour/1hour.tex" "1hour.pdf" "1hour" 1746697347.75542 0
   "../../../figures/../figures/availability_lses.png" 1746012240.62118 193955 440ffdf32571c1b76281c3990908c95c ""
   "../../../figures/../figures/connections.png" 1746526942.35233 257319 8698ffe3aefbf413a0d2a87391c4e4b0 ""
   "../../../figures/../figures/connections_by_ses.png" 1746527859.34249 243252 41f535cefc8fb2c3c5e499a158f848f8 ""
@@ -24,7 +24,7 @@
   "../../../figures/score_premium_qfit.png" 1744975268.26774 144379 23e8f9d1e9a74f41e55c59536c2476d4 ""
   "../../../figures/selection_performance.png" 1745394993.42694 170593 bb15b83ea0995fb723fed3a12a516e0e ""
   "../../../figures/sp_byses.png" 1744712660.8839 163335 2f5f49aebe00d3815a160f7ab42c7e10 ""
-  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/1 hour/1hour.tex" 1746696837.98887 88750 d236129d798fd64f1c543274d1226056 ""
+  "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/slides/internal/1 hour/1hour.tex" 1746697333.13572 88750 d236129d798fd64f1c543274d1226056 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm" 1136768653 1536 f0fa079cdc83a6ffeda21e42352cf1ea ""
@@ -254,10 +254,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729863227.02717 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729863127 8221430 5836b5d7628c44f5214ea245e1a11c59 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "1hour.aux" 1746696848.18271 12608 3d513f45d0fe48ca3d67db215eda90c0 "pdflatex"
-  "1hour.nav" 1746696848.19674 4488 ceafd8de88d2fd274da0fcf86848aacf "pdflatex"
-  "1hour.out" 1746696848.19491 81 5bcea9cf7d2d9aece7cac4018e9f6c5b "pdflatex"
-  "1hour.tex" 1746696837.98887 88750 d236129d798fd64f1c543274d1226056 ""
+  "1hour.aux" 1746697347.62327 12608 3d513f45d0fe48ca3d67db215eda90c0 "pdflatex"
+  "1hour.nav" 1746697347.63561 4488 ceafd8de88d2fd274da0fcf86848aacf "pdflatex"
+  "1hour.out" 1746697347.63434 81 5bcea9cf7d2d9aece7cac4018e9f6c5b "pdflatex"
+  "1hour.tex" 1746697333.13572 88750 d236129d798fd64f1c543274d1226056 ""
   "beamercolorthemeSimplePlus.sty" 1733750090 767 0fa4b2d74a4a4cfae011546c8598a490 ""
   "beamerfontthemeSimplePlus.sty" 1733750090 1020 513b8304d1567fbc6e3ba3835cc12b4c ""
   "beamerinnerthemeSimplePlus.sty" 1746690272.35927 3683 a06f6d49a912470aa420d8df7c3ff2e3 ""
