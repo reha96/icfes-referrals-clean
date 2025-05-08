@@ -445,11 +445,10 @@ coefplot ///
               _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
 		 mlabposition(2) ///
-     mlabel(cond(@pval<.001, "***", ///
-            cond(@pval<.01, "**",   ///
-            cond(@pval<.05, "*",    ///
-            cond(@pval<.1, "+", ""))))) ///
-    xlabel(-1(.5)1) /// ///
+     mlabel(cond(@pval<.01, "***",   ///
+            cond(@pval<.05, "**",    ///
+            cond(@pval<.1, "*", "")))) ///
+    xlabel(-1(.5)1) /// 
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
     legend(off) ///
     $graph_opts name(res1, replace) 
@@ -488,11 +487,10 @@ coefplot ///
               _cons = "Dep. Var. mean") ///
     msymbol(D) msize(vlarge) ///
 	 mlabposition(2) ///
-     mlabel(cond(@pval<.001, "***", ///
-            cond(@pval<.01, "**",   ///
-            cond(@pval<.05, "*",    ///
-            cond(@pval<.1, "+", ""))))) ///
-    xlabel(-1(.5)1) /// ///
+     mlabel(cond(@pval<.01, "***",   ///
+            cond(@pval<.05, "**",    ///
+            cond(@pval<.1, "*", "")))) ///
+    xlabel(-1(.5)1) /// 
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
     legend(order(2 "Low" 4 "Middle" 6 "High") ring(0) pos(2) rows(3) region(lcolor(none))) ///
     $graph_opts name(res1bis, replace) 
@@ -541,10 +539,9 @@ coefplot ///
     msymbol(D) msize(vlarge) ///
     xlabel(-1(.5)1) /// 
 		 mlabposition(1) ///
-     mlabel(cond(@pval<.001, "***", ///
-            cond(@pval<.01, "**",   ///
-            cond(@pval<.05, "*",    ///
-            cond(@pval<.1, "+", ""))))) ///
+     mlabel(cond(@pval<.01, "***",   ///
+            cond(@pval<.05, "**",    ///
+            cond(@pval<.1, "*", ""))))) ///
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
     legend(off) ///
     $graph_opts name(res2, replace) 

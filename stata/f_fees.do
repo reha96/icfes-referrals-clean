@@ -180,7 +180,7 @@ twoway (bar feeS xpos, barwidth(0.5) fcolor(gs10) lcolor(gs4)) ///
        (rcap ci_upperS ci_lowerS xpos, lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High") ///
-       ylabel(1000(350)2500, angle(0) format(%9.0f) grid gmax gmin) ///
+       ylabel(1350(350)2500, angle(0) format(%9.0f) grid gmax gmin) ///
        ytitle("Yearly fee (USD)") ///
        xtitle("") ///
        title("Program Fees by SES") ///

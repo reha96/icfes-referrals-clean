@@ -37,6 +37,12 @@
           \insertframenumber/\inserttotalframenumber%
         \fi%
       }%
+  
+  % Then add the frame numbers
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2ex,dp=1ex,right]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    \insertframenumber\,/\,\inserttotalframenumber\hspace{1em}
+  \end{beamercolorbox}%
       
       % Draw the progress bar using TikZ
       \begin{tikzpicture}[baseline=0pt]
@@ -48,11 +54,6 @@
     \end{beamercolorbox}%
   \fi%
   
-  % Then add the frame numbers
-  % \begin{beamercolorbox}[wd=\paperwidth,ht=2ex,dp=1ex,center]{footline}%
-  %   \usebeamerfont{page number in head/foot}%
-  %   \insertframenumber\,/\,\inserttotalframenumber
-  % \end{beamercolorbox}%
 }
 
 % Remove navigation symbols

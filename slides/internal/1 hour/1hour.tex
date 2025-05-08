@@ -31,7 +31,7 @@
     \title[short title]{Class differences in social networks: Evidence from a referral experiment} % The short title appears at the bottom of every slide, the full title is only on the title pages
     \subtitle{1-hour presentation}
 
-    \date{25 April 2025} % Date, can be changed to a custom date
+    \date{8 May 2025} % Date, can be changed to a custom date
 
     \author[shortname]{Manu Munoz\inst{1} Ernesto Reuben\inst{2,1} Reha Tuncer\inst{3} \vspace{2em}}
     
@@ -101,7 +101,7 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Design: Referrals and Network}
+    \begin{frame}{Design I: Referrals and Network}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \begin{itemize} [<+->]
@@ -116,7 +116,7 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Design: Incentives and Treatment}
+    \begin{frame}{Design II: Incentives and Treatment}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \begin{itemize} [<+->]
@@ -128,43 +128,6 @@
             \begin{column}{0.62\textwidth}
                 \centering
                 \includegraphics[width=0.95\columnwidth]{piece_rate_by_score.png}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    \begin{frame}{Beliefs about nominees reveal a positive bias}\label{other_belief}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:nb_byses}{\beamerbutton{See}}
-                    \item Did not collect beliefs about SES group performance in general
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{other_belief.png}
-                \label{fig:other_belief}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    \begin{frame}{Beliefs about own scores are accurate}\label{own_belief}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{../figures/own_belief.png}
-                \label{fig:own_belief}
             \end{column}
         \end{columns}
     \end{frame}
@@ -465,7 +428,60 @@
     % \end{frame}
 
 
+    \begin{frame}{Referrals are better than network average}\label{score_premium}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{score_premium.png}
+                \label{fig:score-premium}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
+
+    \begin{frame}{Referral score beliefs are skewed positively}\label{other_belief}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as referrer $i$'s beliefs about nominee $j$ minus $j$'s score across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:nb_byses}{\beamerbutton{See}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{other_belief.png}
+                \label{fig:other_belief}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Own score beliefs are accurate}\label{own_belief}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{../figures/own_belief.png}
+                \label{fig:own_belief}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
     \begin{frame}{Referrals for Reading}
         \begin{columns}[T]
@@ -499,24 +515,6 @@
                 \centering
                 \includegraphics[width=0.95\columnwidth]{math_combined.png}
                 \label{fig:math_combined}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    \begin{frame}{Referrals are better than network average}\label{score_premium}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{score_premium.png}
-                \label{fig:score-premium}
             \end{column}
         \end{columns}
     \end{frame}
