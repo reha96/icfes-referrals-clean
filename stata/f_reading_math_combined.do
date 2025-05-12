@@ -9,7 +9,7 @@
 preserve
 use "reading.dta", clear
 keep if area == 1
-tabstat z_other_score_reading z_tie if treat == 1, by(nomination) stat(mean sd semean n) save
+tabstat other_score_reading tie if treat == 1, by(nomination) stat(mean sd semean n) save
 matrix stats_reading_nobonus_notref = r(Stat1)
 global score_reading_nobonus_notref = stats_reading_nobonus_notref[1,1]
 global se_reading_nobonus_notref = stats_reading_nobonus_notref[3,1]
@@ -26,7 +26,7 @@ global score_tie_reading_nobonus_ref = stats_reading_nobonus_ref[1,2]
 global se_tie_reading_nobonus_ref = stats_reading_nobonus_ref[3,2]
 global n_tie_reading_nobonus_ref = stats_reading_nobonus_ref[4,2]
 
-tabstat z_other_score_reading z_tie if treat == 2, by(nomination) stat(mean sd semean n) save
+tabstat other_score_reading tie if treat == 2, by(nomination) stat(mean sd semean n) save
 matrix stats_reading_bonus_notref = r(Stat1)
 global score_reading_bonus_notref = stats_reading_bonus_notref[1,1]
 global se_reading_bonus_notref = stats_reading_bonus_notref[3,1]
@@ -47,7 +47,7 @@ restore
 preserve
 use "math.dta", clear
 keep if area == 2
-tabstat z_other_score_math z_tie if treat == 1, by(nomination) stat(mean sd semean n) save
+tabstat other_score_math tie if treat == 1, by(nomination) stat(mean sd semean n) save
 matrix stats_math_nobonus_notref = r(Stat1)
 global score_math_nobonus_notref = stats_math_nobonus_notref[1,1]
 global se_math_nobonus_notref = stats_math_nobonus_notref[3,1]
@@ -64,7 +64,7 @@ global score_tie_math_nobonus_ref = stats_math_nobonus_ref[1,2]
 global se_tie_math_nobonus_ref = stats_math_nobonus_ref[3,2]
 global n_tie_math_nobonus_ref = stats_math_nobonus_ref[4,2]
 
-tabstat z_other_score_math z_tie if treat == 2, by(nomination) stat(mean sd semean n) save
+tabstat other_score_math tie if treat == 2, by(nomination) stat(mean sd semean n) save
 matrix stats_math_bonus_notref = r(Stat1)
 global score_math_bonus_notref = stats_math_bonus_notref[1,1]
 global se_math_bonus_notref = stats_math_bonus_notref[3,1]
@@ -153,10 +153,10 @@ gen tie_ci_lower = score_tie_reading - 1.96*se_tie_reading
 twoway (bar score_reading group if treatment == "No bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
        (bar score_reading group if treatment == "No bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4)) ///
        (bar score_reading group if treatment == "Bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
-       (bar score_reading group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4) text(3.5 1.5 "Baseline", color(dknavy)) text(3.5 4.5 "Bonus", color(dknavy))) ///
+       (bar score_reading group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4) text(100 1.5 "Baseline", color(dknavy)) text(100 4.5 "Bonus", color(dknavy))) ///
        (rcap reading_ci_upper reading_ci_lower group, color(gs4)), /// 
        xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
-       ylabel(-0.5(0.5)3.5, angle(0) gmin gmax) ///
+       ylabel(0(10)100, angle(0) gmin gmax) ///
        ytitle("Score") ///
        xtitle("") ///
        title("Reading") ///
@@ -167,10 +167,10 @@ twoway (bar score_reading group if treatment == "No bonus" & referral == "Not re
 twoway (bar score_tie_reading group if treatment == "No bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
        (bar score_tie_reading group if treatment == "No bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4)) ///
        (bar score_tie_reading group if treatment == "Bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
-       (bar score_tie_reading group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4) text(3.5 1.5 "Baseline", color(dknavy)) text(3.5 4.5 "Bonus", color(dknavy))) ///
+       (bar score_tie_reading group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4) text(20 1.5 "Baseline", color(dknavy)) text(20 4.5 "Bonus", color(dknavy))) ///
        (rcap tie_ci_upper tie_ci_lower group, color(gs4)), ///
        xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
-       ylabel(-0.5(0.5)3.5, angle(0) gmin gmax) ///
+       ylabel(0(2)20, angle(0) gmin gmax) ///
        ytitle("Courses taken") ///
        xtitle("") ///
        title("Courses taken") ///
@@ -240,10 +240,10 @@ gen tie_ci_lower = score_tie_math - 1.96*se_tie_math
 twoway (bar score_math group if treatment == "No bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
       (bar score_math group if treatment == "No bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4)) ///
       (bar score_math group if treatment == "Bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
-      (bar score_math group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4)  text(3.5 1.5 "Baseline", color(dknavy)) text(3.5 4.5 "Bonus", color(dknavy))) ///
+      (bar score_math group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4)  text(100 1.5 "Baseline", color(dknavy)) text(100 4.5 "Bonus", color(dknavy))) ///
       (rcap math_ci_upper math_ci_lower group, color(gs4)), ///
       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
-      ylabel(-0.5(0.5)3.5, angle(0) gmin gmax) ///
+      ylabel(0(10)100, angle(0) gmin gmax) ///
       ytitle("Score") ///
       title("Math") ///
       legend(off) ///
@@ -254,10 +254,10 @@ twoway (bar score_math group if treatment == "No bonus" & referral == "Not refer
 twoway (bar score_tie_math group if treatment == "No bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
       (bar score_tie_math group if treatment == "No bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4)) ///
       (bar score_tie_math group if treatment == "Bonus" & referral == "Not referred", fcolor(gs10) lcolor(gs4)) ///
-      (bar score_tie_math group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4) text(3.5 1.5 "Baseline", color(dknavy)) text(3.5 4.5 "Bonus", color(dknavy))) ///
+      (bar score_tie_math group if treatment == "Bonus" & referral == "Referred", fcolor(gs10) lcolor(gs4) text(20 1.5 "Baseline", color(dknavy)) text(20 4.5 "Bonus", color(dknavy))) ///
       (rcap tie_ci_upper tie_ci_lower group, color(gs4)), ///
       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
-      ylabel(-0.5(0.5)3.5, angle(0) gmin gmax) ///
+      ylabel(0(2)20, angle(0) gmin gmax) ///
       ytitle("Courses taken") ///
       title("Courses taken") ///
       legend(off) ///

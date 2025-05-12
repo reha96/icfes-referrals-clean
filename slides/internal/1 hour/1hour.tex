@@ -24,6 +24,27 @@
     \setbeamercovered{transparent}
     \renewcommand{\footnotesize}{\fontsize{8pt}{11pt}\selectfont}
 
+    \AtBeginSection[] {
+        \begingroup
+        \setbeamertemplate{background}{
+          \begin{tikzpicture}
+          \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+          \fill[color=DarkBlue] (0,0) rectangle (\paperwidth,\paperheight);
+          % If you have a background image:
+          % \node at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{background.jpg}};
+          \end{tikzpicture}
+        }
+        \begin{frame}[plain]
+          \vspace*{\fill}
+          \centering
+          \usebeamerfont{section title}
+          \usebeamercolor[fg]{section title}
+          \color{white}\huge\insertsection
+          \vspace*{\fill}
+        \end{frame}
+        \endgroup
+      }
+
     %----------------------------------------------------------------------------------------
     %	TITLE PAGE
     %----------------------------------------------------------------------------------------
@@ -116,18 +137,37 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Design II: Incentives and Treatment}
+    \begin{frame}{Design II: Incentives}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \begin{itemize} [<+->]
                     \item Pay according to the student's math and verbal scores in the national entry exam
                     \item Incentivize better refferals by increasing monetary reward as referral score goes higher 
-                    \item Treatments: Baseline vs. Bonus for the referral
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
                 \includegraphics[width=0.95\columnwidth]{piece_rate_by_score.png}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Design III: Treatment}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \begin{itemize} [<+->]
+                    \item \textbf{Baseline:} Pay by referral score (Merit)
+                    \item \textbf{Bonus:} Pay by referral score and a fixed sum for the referred network member (Social concern)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \only<1>{
+                    \includegraphics[width=0.95\columnwidth]{baseline_art.jpg}
+                }
+                \only<2>{
+                    \includegraphics[width=0.55\columnwidth]{treat.png}
+                }
             \end{column}
         \end{columns}
     \end{frame}
@@ -215,14 +255,16 @@
         \end{columns}
     \end{frame}
 
+    \section{Descriptive Statistics I: Network}
+
     \begin{frame}{Network size and tie strength}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Courses taken with peers increase over time
-                    \pause
                     \item Connections peak around 7 semesters and decline as students change majors or graduate
+                    \pause
+                    \item Courses taken with peers increase over time
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -307,6 +349,8 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
+                    \item UNAB prices each program differently
+                    \pause
                     \item Low-SES study in more affordable programs
                     \pause
                     \item Large difference as net average monthly salary around \$350
@@ -340,13 +384,14 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Network dynamics and program selection}\label{connections}
+    \begin{frame}{Network dynamics by SES}\label{connections}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize} [<+->]
                     \item Connections decrease with SES
                     \item Courses taken with peers increases with SES
+                    \item High-SES take more courses with their own \hyperlink{fig:tie_strength_by_ses}{\beamerbutton{See}}
                     % \pause
                 \end{itemize}
             \end{column}
@@ -357,6 +402,8 @@
             \end{column}
         \end{columns}
         \end{frame}
+
+        \section{Descriptive Statistics II: Referrals}
         
         % \begin{frame}{Selection into programs}
         %     \begin{columns}[T]
@@ -488,7 +535,7 @@
             \begin{column}{0.3\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Referrals have higher reading scores and much higher tie strength
+                    \item Referrals have higher reading scores (.5 SD) and much higher tie strength (2.5 SD)
                     % \pause
                     \item No treatment effect on the referred ($t$-tests, $p > 0.08$)
                 \end{itemize}
@@ -506,7 +553,7 @@
             \begin{column}{0.3\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Referrals have higher math scores and much higher tie strength
+                    \item Referrals have higher math scores (.5 SD) and much higher tie strength (2.5 SD)
                     % \pause
                     \item No treatment effect on the referred ($t$-tests, $p > 0.1$)
                 \end{itemize}
@@ -515,6 +562,21 @@
                 \centering
                 \includegraphics[width=0.95\columnwidth]{math_combined.png}
                 \label{fig:math_combined}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Ex post referral choice sets}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize} [<+->]
+                    \item By restricting the network to courses taken above 12, we observe large difference in referral choice sets
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                    \includegraphics[width=0.95\columnwidth]{t15availability.png}
             \end{column}
         \end{columns}
     \end{frame}
@@ -1400,11 +1462,11 @@
     \end{itemize}
     \end{frame}
 
-    \begin{frame}{Conclusion} 
+    \begin{frame}{Implications} 
         \markconclusion
         \begin{itemize} [<+->]
-        \item Individuals across SES refer equally well \dots
-        \item \dots but \textbf{prefer} nominating similar others in SES
+        \item Individuals across SES refer equally well with proper incentives and without bias
+        \item Differences in network structures lie at the heart of the problem for solving inequality
     \end{itemize}
     \end{frame}
 
@@ -1875,6 +1937,23 @@
                 \centering
                 \includegraphics[width=0.95\columnwidth]{ob_qfit.png}
                 \label{fig:ob_qfit}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Courses taken by SES}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item High-SES take almost twice more courses with their own \hyperlink{connections}{\beamerbutton{Return}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{tie_strength_by_ses.png}
+                \label{fig:tie_strength_by_ses}
             \end{column}
         \end{columns}
     \end{frame}

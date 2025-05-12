@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  8 MAY 2025 11:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.25)  12 MAY 2025 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -658,7 +658,7 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/latex/appendixnumberbeamer/appendixnumberbeamer.sty)
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 36.
+(hyperref)                removing `\new@ifnextchar' on input line 57.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
@@ -667,24 +667,24 @@ File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 ) (./1hour.aux)
 \openout1 = `1hour.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -739,60 +739,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 46.
+Package hyperref Info: Link coloring OFF on input line 67.
  (./1hour.out) (./1hour.out)
 \@outlinefile=\write5
 \openout5 = `1hour.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 46.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 67.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 46.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 67.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 46.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 46.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 46.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 46.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 46.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 46.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 46.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 46.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 46.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 46.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 46.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 46.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 67.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 46.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 67.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 46.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 46.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 46.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 46.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 46.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 46.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 46.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 67.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 67.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 46.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 67.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 46.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 67.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 46.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 67.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -810,31 +810,31 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
  (./1hour.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 52.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 73.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<../../../figures/FT2.png, id=26, 838.13126pt x 369.38pt>
+<../../../figures/FT2.png, id=34, 838.13126pt x 369.38pt>
 File: ../../../figures/FT2.png Graphic file (type png)
 <use ../../../figures/FT2.png>
-Package pdftex.def Info: ../../../figures/FT2.png  used on input line 63.
+Package pdftex.def Info: ../../../figures/FT2.png  used on input line 84.
 (pdftex.def)             Requested size: 205.72198pt x 90.66516pt.
  [2
 
  <../../../figures/FT2.png>]
 File: ../../../figures/FT2.png Graphic file (type png)
 <use ../../../figures/FT2.png>
-Package pdftex.def Info: ../../../figures/FT2.png  used on input line 63.
+Package pdftex.def Info: ../../../figures/FT2.png  used on input line 84.
 (pdftex.def)             Requested size: 205.72198pt x 90.66516pt.
  [3
 
@@ -855,67 +855,82 @@ Package pdftex.def Info: ../../../figures/FT2.png  used on input line 63.
 ] [11
 
 ]
-<../../../figures/colombia_map.png, id=81, 1084.05pt x 1084.05pt>
+<../../../figures/colombia_map.png, id=89, 1084.05pt x 1084.05pt>
 File: ../../../figures/colombia_map.png Graphic file (type png)
 <use ../../../figures/colombia_map.png>
-Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
+Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 123.
 (pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
  [12
 
  <../../../figures/colombia_map.png>]
 File: ../../../figures/colombia_map.png Graphic file (type png)
 <use ../../../figures/colombia_map.png>
-Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
+Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 123.
 (pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
  [13
 
 ]
 File: ../../../figures/colombia_map.png Graphic file (type png)
 <use ../../../figures/colombia_map.png>
-Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 102.
+Package pdftex.def Info: ../../../figures/colombia_map.png  used on input line 123.
 (pdftex.def)             Requested size: 178.56448pt x 178.56279pt.
  [14
 
 ]
-<../../../figures/interface.png, id=99, 520.94624pt x 293.095pt>
+<../../../figures/interface.png, id=107, 520.94624pt x 293.095pt>
 File: ../../../figures/interface.png Graphic file (type png)
 <use ../../../figures/interface.png>
-Package pdftex.def Info: ../../../figures/interface.png  used on input line 117.
+Package pdftex.def Info: ../../../figures/interface.png  used on input line 138.
 (pdftex.def)             Requested size: 204.07536pt x 114.81642pt.
  [15
 
  <../../../figures/interface.png>]
 File: ../../../figures/interface.png Graphic file (type png)
 <use ../../../figures/interface.png>
-Package pdftex.def Info: ../../../figures/interface.png  used on input line 117.
+Package pdftex.def Info: ../../../figures/interface.png  used on input line 138.
 (pdftex.def)             Requested size: 204.07536pt x 114.81642pt.
  [16
 
 ]
-<../../../figures/piece_rate_by_score.png, id=112, 1477.52pt x 1075.01625pt>
+<../../../figures/piece_rate_by_score.png, id=120, 1477.52pt x 1075.01625pt>
 File: ../../../figures/piece_rate_by_score.png Graphic file (type png)
 <use ../../../figures/piece_rate_by_score.png>
-Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 133.
+Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 153.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [17
 
  <../../../figures/piece_rate_by_score.png>]
 File: ../../../figures/piece_rate_by_score.png Graphic file (type png)
 <use ../../../figures/piece_rate_by_score.png>
-Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 133.
+Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 153.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [18
 
 ]
-File: ../../../figures/piece_rate_by_score.png Graphic file (type png)
-<use ../../../figures/piece_rate_by_score.png>
-Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input line 133.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [19
+<../../../figures/baseline_art.jpg, id=131, 742.775pt x 742.775pt>
+File: ../../../figures/baseline_art.jpg Graphic file (type jpg)
+<use ../../../figures/baseline_art.jpg>
+Package pdftex.def Info: ../../../figures/baseline_art.jpg  used on input line 173.
+(pdftex.def)             Requested size: 242.3378pt x 242.33972pt.
 
-] [20
+Overfull \vbox (41.78416pt too high) detected at line 173
+ []
 
-] [21
+[19
+
+ <../../../figures/baseline_art.jpg>]
+<../../../figures/treat.png, id=138, 489.83pt x 702.625pt>
+File: ../../../figures/treat.png Graphic file (type png)
+<use ../../../figures/treat.png>
+Package pdftex.def Info: ../../../figures/treat.png  used on input line 173.
+(pdftex.def)             Requested size: 140.30206pt x 201.24727pt.
+
+Overfull \vbox (0.69171pt too high) detected at line 173
+ []
+
+[20
+
+ <../../../figures/treat.png>] [21
 
 ] [22
 
@@ -925,208 +940,219 @@ Package pdftex.def Info: ../../../figures/piece_rate_by_score.png  used on input
 
 ] [25
 
+] [26
+
+] [27
+
 ]
-<../../../figures/../figures/connections.png, id=163, 1477.52pt x 1075.01625pt>
+<../../../figures/../figures/connections.png, id=185, 1477.52pt x 1075.01625pt>
 File: ../../../figures/../figures/connections.png Graphic file (type png)
 <use ../../../figures/../figures/connections.png>
-Package pdftex.def Info: ../../../figures/../figures/connections.png  used on input line 234.
+Package pdftex.def Info: ../../../figures/../figures/connections.png  used on input line 276.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [26
+ [28
 
  <../../../figures/../figures/connections.png>]
 File: ../../../figures/../figures/connections.png Graphic file (type png)
 <use ../../../figures/../figures/connections.png>
-Package pdftex.def Info: ../../../figures/../figures/connections.png  used on input line 234.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [27
-
-]
-<../../../figures/../figures/availability_lses.png, id=175, 1477.52pt x 1075.01625pt>
-File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
-<use ../../../figures/../figures/availability_lses.png>
-Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 303.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [28
-
- <../../../figures/../figures/availability_lses.png>]
-File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
-<use ../../../figures/../figures/availability_lses.png>
-Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 303.
+Package pdftex.def Info: ../../../figures/../figures/connections.png  used on input line 276.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [29
 
 ]
+<../../../figures/../figures/availability_lses.png, id=197, 1477.52pt x 1075.01625pt>
 File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
 <use ../../../figures/../figures/availability_lses.png>
-Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 303.
+Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 345.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [30
 
-]
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 321.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmss.fd
-File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-<../../../figures/../figures/fee_by_ses.png, id=193, 1477.52pt x 1075.01625pt>
-File: ../../../figures/../figures/fee_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/fee_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/fee_by_ses.png  used on input line 321.
+ <../../../figures/../figures/availability_lses.png>]
+File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
+<use ../../../figures/../figures/availability_lses.png>
+Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 345.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [31
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <../../../figures/../figures/fee_by_ses.png>]
-File: ../../../figures/../figures/fee_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/fee_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/fee_by_ses.png  used on input line 321.
+]
+File: ../../../figures/../figures/availability_lses.png Graphic file (type png)
+<use ../../../figures/../figures/availability_lses.png>
+Package pdftex.def Info: ../../../figures/../figures/availability_lses.png  used on input line 345.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [32
 
 ]
-<../../../figures/../figures/connections_by_ses.png, id=207, 1477.52pt x 1075.01625pt>
-File: ../../../figures/../figures/connections_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/connections_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/connections_by_ses.png  used on input line 359.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 365.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+<../../../figures/../figures/fee_by_ses.png, id=216, 1477.52pt x 1075.01625pt>
+File: ../../../figures/../figures/fee_by_ses.png Graphic file (type png)
+<use ../../../figures/../figures/fee_by_ses.png>
+Package pdftex.def Info: ../../../figures/../figures/fee_by_ses.png  used on input line 365.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [33
 
- <../../../figures/../figures/connections_by_ses.png>]
-File: ../../../figures/../figures/connections_by_ses.png Graphic file (type png)
-<use ../../../figures/../figures/connections_by_ses.png>
-Package pdftex.def Info: ../../../figures/../figures/connections_by_ses.png  used on input line 359.
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <../../../figures/../figures/fee_by_ses.png>]
+File: ../../../figures/../figures/fee_by_ses.png Graphic file (type png)
+<use ../../../figures/../figures/fee_by_ses.png>
+Package pdftex.def Info: ../../../figures/../figures/fee_by_ses.png  used on input line 365.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [34
 
 ]
-<../../../figures/score_premium.png, id=221, 1581.91pt x 1150.2975pt>
-File: ../../../figures/score_premium.png Graphic file (type png)
-<use ../../../figures/score_premium.png>
-Package pdftex.def Info: ../../../figures/score_premium.png  used on input line 447.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
+File: ../../../figures/../figures/fee_by_ses.png Graphic file (type png)
+<use ../../../figures/../figures/fee_by_ses.png>
+Package pdftex.def Info: ../../../figures/../figures/fee_by_ses.png  used on input line 365.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [35
 
- <../../../figures/score_premium.png>]
-<../../../figures/other_belief.png, id=232, 1581.91pt x 1150.2975pt>
-File: ../../../figures/other_belief.png Graphic file (type png)
-<use ../../../figures/other_belief.png>
-Package pdftex.def Info: ../../../figures/other_belief.png  used on input line 466.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
+]
+<../../../figures/../figures/connections_by_ses.png, id=235, 1477.52pt x 1075.01625pt>
+File: ../../../figures/../figures/connections_by_ses.png Graphic file (type png)
+<use ../../../figures/../figures/connections_by_ses.png>
+Package pdftex.def Info: ../../../figures/../figures/connections_by_ses.png  used on input line 404.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [36
 
- <../../../figures/other_belief.png>]
-<../../../figures/../figures/own_belief.png, id=242, 1581.91pt x 1150.2975pt>
-File: ../../../figures/../figures/own_belief.png Graphic file (type png)
-<use ../../../figures/../figures/own_belief.png>
-Package pdftex.def Info: ../../../figures/../figures/own_belief.png  used on input line 484.
-(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
+ <../../../figures/../figures/connections_by_ses.png>]
+File: ../../../figures/../figures/connections_by_ses.png Graphic file (type png)
+<use ../../../figures/../figures/connections_by_ses.png>
+Package pdftex.def Info: ../../../figures/../figures/connections_by_ses.png  used on input line 404.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [37
 
- <../../../figures/../figures/own_belief.png>]
-<../../../figures/reading_combined.png, id=252, 1477.52pt x 1075.01625pt>
-File: ../../../figures/reading_combined.png Graphic file (type png)
-<use ../../../figures/reading_combined.png>
-Package pdftex.def Info: ../../../figures/reading_combined.png  used on input line 502.
-(pdftex.def)             Requested size: 273.60815pt x 199.07173pt.
+]
+File: ../../../figures/../figures/connections_by_ses.png Graphic file (type png)
+<use ../../../figures/../figures/connections_by_ses.png>
+Package pdftex.def Info: ../../../figures/../figures/connections_by_ses.png  used on input line 404.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [38
 
- <../../../figures/reading_combined.png>]
-<../../../figures/math_combined.png, id=259, 1477.52pt x 1075.01625pt>
-File: ../../../figures/math_combined.png Graphic file (type png)
-<use ../../../figures/math_combined.png>
-Package pdftex.def Info: ../../../figures/math_combined.png  used on input line 520.
-(pdftex.def)             Requested size: 273.60815pt x 199.07173pt.
- [39
+] [39
 
- <../../../figures/math_combined.png>]
-<../../../figures/all_referral_rates_UNAB.png, id=266, 1477.52pt x 1075.01625pt>
-File: ../../../figures/all_referral_rates_UNAB.png Graphic file (type png)
-<use ../../../figures/all_referral_rates_UNAB.png>
-Package pdftex.def Info: ../../../figures/all_referral_rates_UNAB.png  used on input line 543.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+]
+<../../../figures/score_premium.png, id=264, 1581.91pt x 1150.2975pt>
+File: ../../../figures/score_premium.png Graphic file (type png)
+<use ../../../figures/score_premium.png>
+Package pdftex.def Info: ../../../figures/score_premium.png  used on input line 494.
+(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
  [40
 
- <../../../figures/all_referral_rates_UNAB.png>]
-<../../../figures/all_referral_rates.png, id=273, 1477.52pt x 1075.01625pt>
-File: ../../../figures/all_referral_rates.png Graphic file (type png)
-<use ../../../figures/all_referral_rates.png>
-Package pdftex.def Info: ../../../figures/all_referral_rates.png  used on input line 543.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ <../../../figures/score_premium.png>]
+<../../../figures/other_belief.png, id=275, 1581.91pt x 1150.2975pt>
+File: ../../../figures/other_belief.png Graphic file (type png)
+<use ../../../figures/other_belief.png>
+Package pdftex.def Info: ../../../figures/other_belief.png  used on input line 513.
+(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
  [41
 
+ <../../../figures/other_belief.png>]
+<../../../figures/../figures/own_belief.png, id=285, 1581.91pt x 1150.2975pt>
+File: ../../../figures/../figures/own_belief.png Graphic file (type png)
+<use ../../../figures/../figures/own_belief.png>
+Package pdftex.def Info: ../../../figures/../figures/own_belief.png  used on input line 531.
+(pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
+ [42
+
+ <../../../figures/../figures/own_belief.png>]
+<../../../figures/reading_combined.png, id=294, 1477.52pt x 1075.01625pt>
+File: ../../../figures/reading_combined.png Graphic file (type png)
+<use ../../../figures/reading_combined.png>
+Package pdftex.def Info: ../../../figures/reading_combined.png  used on input line 549.
+(pdftex.def)             Requested size: 273.60815pt x 199.07173pt.
+ [43
+
+ <../../../figures/reading_combined.png>]
+<../../../figures/math_combined.png, id=303, 1477.52pt x 1075.01625pt>
+File: ../../../figures/math_combined.png Graphic file (type png)
+<use ../../../figures/math_combined.png>
+Package pdftex.def Info: ../../../figures/math_combined.png  used on input line 567.
+(pdftex.def)             Requested size: 273.60815pt x 199.07173pt.
+ [44
+
+ <../../../figures/math_combined.png>]
+<../../../figures/t15availability.png, id=310, 1477.52pt x 1075.01625pt>
+File: ../../../figures/t15availability.png Graphic file (type png)
+<use ../../../figures/t15availability.png>
+Package pdftex.def Info: ../../../figures/t15availability.png  used on input line 582.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ [45
+
+ <../../../figures/t15availability.png>]
+<../../../figures/all_referral_rates_UNAB.png, id=316, 1477.52pt x 1075.01625pt>
+File: ../../../figures/all_referral_rates_UNAB.png Graphic file (type png)
+<use ../../../figures/all_referral_rates_UNAB.png>
+Package pdftex.def Info: ../../../figures/all_referral_rates_UNAB.png  used on input line 605.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ [46
+
+ <../../../figures/all_referral_rates_UNAB.png>]
+<../../../figures/all_referral_rates.png, id=323, 1477.52pt x 1075.01625pt>
+File: ../../../figures/all_referral_rates.png Graphic file (type png)
+<use ../../../figures/all_referral_rates.png>
+Package pdftex.def Info: ../../../figures/all_referral_rates.png  used on input line 605.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ [47
+
  <../../../figures/all_referral_rates.png>]
-<../../../figures/all_ses_referral_rates.png, id=279, 1477.52pt x 1075.01625pt>
+<../../../figures/all_ses_referral_rates.png, id=329, 1477.52pt x 1075.01625pt>
 File: ../../../figures/all_ses_referral_rates.png Graphic file (type png)
 <use ../../../figures/all_ses_referral_rates.png>
-Package pdftex.def Info: ../../../figures/all_ses_referral_rates.png  used on input line 561.
+Package pdftex.def Info: ../../../figures/all_ses_referral_rates.png  used on input line 623.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [42
+ [48
 
  <../../../figures/all_ses_referral_rates.png>]
 File: ../../../figures/all_ses_referral_rates.png Graphic file (type png)
 <use ../../../figures/all_ses_referral_rates.png>
-Package pdftex.def Info: ../../../figures/all_ses_referral_rates.png  used on input line 561.
+Package pdftex.def Info: ../../../figures/all_ses_referral_rates.png  used on input line 623.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [43
-
-] [44
-
-] [45
-
-] [46
-
-] [47
-
-]
-<../../../figures/res1.png, id=316, 1477.52pt x 1075.01625pt>
-File: ../../../figures/res1.png Graphic file (type png)
-<use ../../../figures/res1.png>
-Package pdftex.def Info: ../../../figures/res1.png  used on input line 719.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [48
-
- <../../../figures/res1.png>] [49
+ [49
 
 ] [50
 
 ] [51
 
-]
-<../../../figures/res1bis.png, id=341, 1477.52pt x 1075.01625pt>
-File: ../../../figures/res1bis.png Graphic file (type png)
-<use ../../../figures/res1bis.png>
-Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 863.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [52
+] [52
 
- <../../../figures/res1bis.png>]
-File: ../../../figures/res1bis.png Graphic file (type png)
-<use ../../../figures/res1bis.png>
-Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 863.
-(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [53
+] [53
 
 ]
-File: ../../../figures/res1bis.png Graphic file (type png)
-<use ../../../figures/res1bis.png>
-Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 863.
+<../../../figures/res1.png, id=365, 1477.52pt x 1075.01625pt>
+File: ../../../figures/res1.png Graphic file (type png)
+<use ../../../figures/res1.png>
+Package pdftex.def Info: ../../../figures/res1.png  used on input line 781.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
  [54
 
-] [55
+ <../../../figures/res1.png>] [55
 
 ] [56
 
 ] [57
 
-] [58
+]
+<../../../figures/res1bis.png, id=390, 1477.52pt x 1075.01625pt>
+File: ../../../figures/res1bis.png Graphic file (type png)
+<use ../../../figures/res1bis.png>
+Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 925.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ [58
 
-] [59
+ <../../../figures/res1bis.png>]
+File: ../../../figures/res1bis.png Graphic file (type png)
+<use ../../../figures/res1bis.png>
+Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 925.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ [59
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 1413.
-
-[60
+File: ../../../figures/res1bis.png Graphic file (type png)
+<use ../../../figures/res1bis.png>
+Package pdftex.def Info: ../../../figures/res1bis.png  used on input line 925.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ [60
 
 ] [61
 
@@ -1138,59 +1164,84 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [65
 
-] [66
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\translate ' on input line 1475.
+
+[66
 
 ] [67
 
+] [68
+
+] [69
+
+] [70
+
+] [71
+
+] [72
+
+] [73
+
 ]
-<../../../figures/sp_byses.png, id=452, 1581.91pt x 1150.2975pt>
+<../../../figures/sp_byses.png, id=501, 1581.91pt x 1150.2975pt>
 File: ../../../figures/sp_byses.png Graphic file (type png)
 <use ../../../figures/sp_byses.png>
-Package pdftex.def Info: ../../../figures/sp_byses.png  used on input line 1793.
+Package pdftex.def Info: ../../../figures/sp_byses.png  used on input line 1855.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
- [68
+ [74
 
  <../../../figures/sp_byses.png>]
-<../../../figures/ob_byses.png, id=459, 1581.91pt x 1150.2975pt>
+<../../../figures/ob_byses.png, id=508, 1581.91pt x 1150.2975pt>
 File: ../../../figures/ob_byses.png Graphic file (type png)
 <use ../../../figures/ob_byses.png>
-Package pdftex.def Info: ../../../figures/ob_byses.png  used on input line 1811.
+Package pdftex.def Info: ../../../figures/ob_byses.png  used on input line 1873.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
- [69
+ [75
 
  <../../../figures/ob_byses.png>]
-<../../../figures/nb_byses.png, id=466, 1581.91pt x 1150.2975pt>
+<../../../figures/nb_byses.png, id=515, 1581.91pt x 1150.2975pt>
 File: ../../../figures/nb_byses.png Graphic file (type png)
 <use ../../../figures/nb_byses.png>
-Package pdftex.def Info: ../../../figures/nb_byses.png  used on input line 1828.
+Package pdftex.def Info: ../../../figures/nb_byses.png  used on input line 1890.
 (pdftex.def)             Requested size: 242.3378pt x 176.20557pt.
- [70
+ [76
 
  <../../../figures/nb_byses.png>]
-<../../../figures/selection_performance.png, id=473, 1477.52pt x 1075.01625pt>
+<../../../figures/selection_performance.png, id=522, 1477.52pt x 1075.01625pt>
 File: ../../../figures/selection_performance.png Graphic file (type png)
 <use ../../../figures/selection_performance.png>
-Package pdftex.def Info: ../../../figures/selection_performance.png  used on input line 1846.
+Package pdftex.def Info: ../../../figures/selection_performance.png  used on input line 1908.
 (pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
- [71
+ [77
 
  <../../../figures/selection_performance.png>]
-<../../../figures/score_premium_qfit.png, id=482, 2024.56375pt x 1472.50125pt>
+<../../../figures/score_premium_qfit.png, id=531, 2024.56375pt x 1472.50125pt>
 File: ../../../figures/score_premium_qfit.png Graphic file (type png)
 <use ../../../figures/score_premium_qfit.png>
-Package pdftex.def Info: ../../../figures/score_premium_qfit.png  used on input line 1863.
+Package pdftex.def Info: ../../../figures/score_premium_qfit.png  used on input line 1925.
 (pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
- [72
+ [78
 
  <../../../figures/score_premium_qfit.png>]
-<../../../figures/ob_qfit.png, id=491, 2024.56375pt x 1472.50125pt>
+<../../../figures/ob_qfit.png, id=540, 2024.56375pt x 1472.50125pt>
 File: ../../../figures/ob_qfit.png Graphic file (type png)
 <use ../../../figures/ob_qfit.png>
-Package pdftex.def Info: ../../../figures/ob_qfit.png  used on input line 1880.
+Package pdftex.def Info: ../../../figures/ob_qfit.png  used on input line 1942.
 (pdftex.def)             Requested size: 242.3378pt x 176.24315pt.
- [73
+ [79
 
  <../../../figures/ob_qfit.png>]
+<../../../figures/tie_strength_by_ses.png, id=549, 1477.52pt x 1075.01625pt>
+File: ../../../figures/tie_strength_by_ses.png Graphic file (type png)
+<use ../../../figures/tie_strength_by_ses.png>
+Package pdftex.def Info: ../../../figures/tie_strength_by_ses.png  used on input line 1959.
+(pdftex.def)             Requested size: 242.3378pt x 176.3202pt.
+ [80
+
+ <../../../figures/tie_strength_by_ses.png>]
 \tf@nav=\write6
 \openout6 = `1hour.nav'.
 
@@ -1206,16 +1257,16 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `1hour.out' has not changed.
-(rerunfilecheck)             Checksum: 5BCEA9CF7D2D9AECE7CAC4018E9F6C5B;81.
+(rerunfilecheck)             Checksum: 7691BEBD3E0ADA24F8AC56D1BF66B41A;530.
  ) 
 Here is how much of TeX's memory you used:
- 27185 strings out of 474116
- 546856 string characters out of 5743681
+ 27280 strings out of 474116
+ 549095 string characters out of 5743681
  1941187 words of memory out of 5000000
- 48800 multiletter control sequences out of 15000+600000
- 570603 words of font info for 80 fonts, out of 8000000 for 9000
+ 48878 multiletter control sequences out of 15000+600000
+ 570897 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,123p,482b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,14n,123p,482b,841s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{referral_quality} has been referenced but does not exist, replaced by a fixed one
 
@@ -1223,10 +1274,10 @@ pdfTeX warning (dest): name{referral_quality} has been referenced but does not e
 pdfTeX warning (dest): name{tab:selection} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on 1hour.pdf (73 pages, 2592710 bytes).
+Output written on 1hour.pdf (80 pages, 3125174 bytes).
 PDF statistics:
- 591 PDF objects out of 1000 (max. 8388607)
- 458 compressed objects within 5 object streams
- 194 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 651 PDF objects out of 1000 (max. 8388607)
+ 505 compressed objects within 6 object streams
+ 211 named destinations out of 1000 (max. 500000)
+ 207 words of extra memory for PDF output out of 10000 (max. 10000000)
 
