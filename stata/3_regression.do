@@ -20,382 +20,382 @@ global graph_opts ///
     plotregion(lcolor(white))
 	
 
-
-// is there a treatment effect > very small / No
-eststo clear
-foreach i in math reading {
-    preserve
-    use "${path}`i'.dta", clear
-    keep if nomination
-    eststo tie_`i':reg z_tie i.treat, vce(cluster own_id)
-    eststo score_`i':reg z_other_score_`i' i.treat, vce(cluster own_id)
-    restore
-}
-esttab tie_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab score_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-
-//# is there a SES bias > not against low-SES, yes to high-SES 
-eststo clear
-foreach i in math reading {
-    preserve
-    use "`i'.dta", clear
-	
-	// create vars
-	gen scoreXtie = z_other_score_`i' * z_tie
-	gen scoreXgpa = z_other_score_`i' * z_other_gpa
-	gen scoreXtieXses = scoreXtie * other_estrato
-
-	gen gpaXtie = z_other_gpa * z_tie
-	gen scoreXlses = z_other_score_`i' * other_low_ses
-	gen scoreXtieXgpa = scoreXtie * z_other_gpa
-
-	gen same_low = (other_low_ses==own_low_ses)
-	gen same_med = (other_med_ses==own_med_ses)
-	gen same_high = (other_high_ses==own_high_ses)
-
-    eststo `i'_1: clogit nomination ib(2).other_estrato, group(own_id) vce(cluster own_id)
-    eststo `i'_2: clogit nomination ib(2).other_estrato z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
-	eststo `i'_3: clogit nomination ib(2).other_estrato z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
-    restore
-}
-cls
-esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-//# is there a SES bias use binary low-SES > no bias for or against low-SES
-eststo clear
-foreach i in math reading {
-    preserve
-    use "`i'.dta", clear
-	
-	// create vars
-	gen scoreXtie = z_other_score_`i' * z_tie
-	gen scoreXgpa = z_other_score_`i' * z_other_gpa
-	gen scoreXtieXses = scoreXtie * other_estrato
-
-	gen gpaXtie = z_other_gpa * z_tie
-	gen scoreXlses = z_other_score_`i' * other_low_ses
-	gen scoreXtieXgpa = scoreXtie * z_other_gpa
-
-	gen same_low = (other_low_ses==own_low_ses)
-	gen same_med = (other_med_ses==own_med_ses)
-	gen same_high = (other_high_ses==own_high_ses)
-
-    eststo `i'_1: clogit nomination i.other_low_ses, group(own_id) vce(cluster own_id)
-    eststo `i'_2: clogit nomination i.other_low_ses z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
-	eststo `i'_3: clogit nomination i.other_low_ses z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
-    restore
-}
-cls
-esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-//# does GPA predict referrals > yes, better than exam scores
-eststo clear
-foreach i in math reading {
-    preserve
-    use "`i'.dta", clear
-	
-	// create vars
-	gen scoreXtie = z_other_score_`i' * z_tie
-	gen scoreXgpa = z_other_score_`i' * z_other_gpa
-	gen scoreXtieXses = scoreXtie * other_estrato
-
-	gen gpaXtie = z_other_gpa * z_tie
-	gen scoreXlses = z_other_score_`i' * other_low_ses
-	gen scoreXtieXgpa = scoreXtie * z_other_gpa
-
-	gen same_low = (other_low_ses==own_low_ses)
-	gen same_med = (other_med_ses==own_med_ses)
-	gen same_high = (other_high_ses==own_high_ses)
-
-    eststo `i'_1: clogit nomination z_other_gpa, group(own_id) vce(cluster own_id)
-    eststo `i'_2: clogit nomination z_other_gpa z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
-	eststo `i'_3: clogit nomination z_other_gpa z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
-	eststo `i'_4: clogit nomination z_other_gpa z_other_score_`i' z_tie scoreXtie scoreXgpa gpaXtie scoreXtieXgpa, group(own_id) vce(cluster own_id)
-    corr z_other_gpa z_other_score_`i'  // low-correlation with other
-	restore
-}
-cls
-esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-//# is there by SES low-SES bias > high-SES at 10 pcent
-eststo clear
-forvalues ses = 1/3 {
-    preserve
-		foreach i in math reading {
-			use "`i'.dta", clear			
-			keep if own_estrato == `ses'
-		//  gen homophily = (own_estrato==other_estrato)
-			gen scoreXtie = z_other_score_`i' * z_tie
-			eststo `i'_`ses': clogit nomination ib(2).other_estrato z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)		
- 			eststo binary_`i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie   scoreXtie, group(own_id) vce(cluster own_id)		
-		}
-	restore
-}
-
-cls
-esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-// is there low-SES bias in a specific SES group > yes for low-SES (positive)
-cls
-esttab binary_reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab binary_math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-//# is there by low-SES vs other low-SES bias ?
-eststo clear
-forvalues ses = 0/1 {
-    preserve
-		foreach i in math reading {
-			use "`i'.dta", clear			
-			keep if own_low_ses == `ses'
-			gen scoreXtie = z_other_score_`i' * z_tie
-			eststo `i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)				
-		}
-	restore
-}
-
-cls
-esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-
-//# are low-SES better referrers controlling for network > NO, but network average matters
-eststo clear
-foreach i in math reading {
-    preserve
-    use "`i'.dta", clear
-	keep if nomination == 1
-    eststo `i': reg other_score_`i' ib(2).own_estrato mean_other_score_`i' sd_other_score_`i'
-    restore
-}
-cls
-esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-// are binary low-SES better referrers controlling for network > NO, but network average matters
-eststo clear
-foreach i in math reading {
-    preserve
-    use "`i'.dta", clear
-	keep if nomination == 1
-    eststo `i': reg z_other_score_`i' i.own_low_ses mean_other_score_`i' sd_other_score_`i'
-    restore
-}
-cls
-esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-
-
-//# is there in performance homophily (high performance - high performance) > significant but meaningless compared to the effect of network
-eststo clear
-foreach i in math reading {
-    preserve
-    use "`i'.dta", clear
-	keep if nomination == 1
-	gen own_gpa_norm = (own_gpa / 5) * 100
-    eststo `i': reg other_score_`i' own_score_`i' mean_other_score_`i' sd_other_score_`i'
-	eststo `i'_gpa: reg other_score_`i' own_score_`i' own_gpa_norm mean_other_score_`i' sd_other_score_`i'
-    restore
-}
-cls
-esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-
-//# who has better network? > controlling for own scores, for every level of z-tie that matters, higher SES have better networks on average!
-eststo clear
-forvalues x = 1/4 {
-    foreach i in math reading {
-        preserve
-        use "`i'.dta", clear
-        
-        // Filter by tie strength
-        keep if z_tie >= `x'
-        
-        // Calculate average network score for each referrer
-        collapse (mean) other_score_`i' other_gpa own_gpa own_score_`i' own_low_ses, by(own_id)
-        sum *, det
-        // Run regression
-        //eststo `i'_tie`x': reg other_score_`i'  i.own_estrato
-		gen gpaXlses = own_gpa * own_low_ses
-// 		eststo `i'_tie`x'_own: reg other_score_`i' own_score_`i' i.own_low_ses
-		eststo `i'_tie`x'_own_gpa: reg other_gpa own_gpa i.own_low_ses
-        restore
-    }
-}
-cls
-esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-
-
-//# accuracy premium 1: 
-
-use "${path}math.dta", clear
-keep if nomination == 1
-gen score_premium = (other_score_math - mean_other_score_math)
-drop other_score
-rename sd_other_score_math sd_other_score
-rename other_score_math other_score
-gen delta_own_belief = own_belief - own_score
-gen delta_other_belief = other_belief - other_score
-gen own_gpa_norm = (own_gpa / 5) * 100
-keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta* other_score own_gpa_norm
-list in 1/6
-save "${path}math_tmp.dta", replace
-
-use "${path}reading.dta", clear
-keep if nomination == 1
-gen score_premium = (other_score_reading - mean_other_score_reading)
-drop other_score
-rename other_score_reading other_score
-rename sd_other_score_reading sd_other_score
-gen delta_own_belief = own_belief - own_score
-gen delta_other_belief = other_belief - other_score
-gen own_gpa_norm = (own_gpa / 5) * 100
-keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta*  other_score own_gpa_norm
-list in 1/6
-save "${path}reading_tmp.dta", replace
-
-append using "${path}math_tmp.dta"
-save "${path}cmb_tmp.dta", replace
-rm "${path}math_tmp.dta" 
-rm "${path}reading_tmp.dta"
-
-
-
-use "${path}cmb_tmp.dta", clear
-gen t = 0
-replace t = 1 if treat == 2
-gen tretXscore = own_score * t
-gen tretXbown = delta_own_belief * t
-gen tretXbother =  delta_other_belief * t
-est clear
-eststo d1: reg score_premium own_score own_gpa_norm  delta_own_belief delta_other_belief i.t, vce(cluster own_id)
-eststo d2: reg score_premium own_score own_gpa_norm  delta_own_belief delta_other_belief i.t tie sd_other_score i.area ib(2).own_estrato  , vce(cluster own_id)
-cls
-esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-use "${path}cmb_tmp.dta", clear
-gen own_low_ses = (own_estrato == 1)
-gen own_high_ses = (own_estrato == 3)
-gen t = 0
-replace t = 1 if treat == 2
-gen tretXlses = own_low_ses * t
-gen tretXhses = own_high_ses * t
-gen tretXscore = own_score * t
-gen tretXbown = delta_own_belief * t
-gen tretXbother =  delta_other_belief * t
-
-est clear
-eststo d3: reg score_premium own_score  delta_own_belief delta_other_belief i.t tretXbother tretXbown tretXscore  tretXhses, vce(cluster own_id)
-eststo d4: reg score_premium own_score  delta_own_belief delta_other_belief i.t tretXbother tretXbown tretXscore tretXlses tie sd_other_score i.area ib(2).own_estrato  , vce(cluster own_id)
-cls
-esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-
-
-
-
-eststo cmb3: reg score_premium own_score own_belief other_belief 
-quietly margins, at(own_belief=(0(25)100)) vsquish
-matrix own_belief_margins = r(b)'
-matrix own_belief_at = (0, 25, 50, 75, 100)'
-svmat own_belief_margins
-svmat own_belief_at
-
-quietly margins, at(other_belief=(0(25)100)) vsquish
-matrix other_belief_margins = r(b)'
-matrix other_belief_at = (0, 25, 50, 75, 100)'
-svmat other_belief_margins
-svmat other_belief_at
-
-twoway (line own_belief_margins1 own_belief_at1, lcolor("136 132 216") lwidth(thick)) ///
-       (line other_belief_margins1 other_belief_at1, lcolor("130 202 157") lwidth(thick)), ///
-       title("Effects of Beliefs on Score Premium", size(medium)) ///
-       ytitle("Linear Prediction") ///
-       xtitle("Beliefs") ///
-       xlabel(0(25)100) ///
-       legend(order(1 "Own" 2 "Nominee") ring(0) pos(4) rows(2) region(lcolor(none))) ///
-       graphregion(color(white)) bgcolor(white) ///
-       name(combined_beliefs_twoway, replace)
-
-
-preserve
-use "${path}cmb_tmp.dta", clear
-eststo cmb4: reg score_premium own_score delta_own_belief delta_other_belief
-quietly margins, at(delta_own_belief=(-25(5)25)) vsquish
-matrix delta_own_margins = r(b)'
-matrix delta_own_at = (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25)'
-svmat delta_own_margins
-svmat delta_own_at
-
-marginsplot
-
-quietly margins, at(delta_other_belief=(-25(5)25)) vsquish
-matrix delta_other_margins = r(b)'
-matrix delta_other_at = (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25)'
-svmat delta_other_margins
-svmat delta_other_at
-marginsplot
-
-twoway (line delta_own_margins1 delta_own_at1, lcolor("136 132 216") lwidth(thick)) ///
-       (line delta_other_margins1 delta_other_at1, lcolor("130 202 157") lwidth(thick)), ///
-       title("Effects of Belief Discrepancies on Score Premium", size(medium)) ///
-       ytitle("Linear Prediction") ///
-       xtitle("Δ Belief") ///
-       xlabel(-25(5)25) ///
-       legend(order(1 "Own score" 2 "Nominee score") ring(1) pos(12) rows(1) region(lcolor(none))) ///
-       graphregion(color(white)) bgcolor(white) ///
-       name(combined_delta_twoway, replace)
-restore
-
-
-
-
-	   	
-(qfitci score_premium own_score, bcolor(navy%20) alwidth(none)) ///	   
-
-	   
-vioplot score_premium, horiz
-histogram score_premium, percent bins(20)
-
-
-preserve
-egen med = median(score_premium)
-egen lqt = pctile(score_premium), p(25)
-egen uqt = pctile(score_premium), p(75)
-egen iqr = iqr(score_premium)
-egen mean = mean(score_premium)
-gen ypos = -.75
-gen l = score_premium if(score_premium >= lqt-1.5*iqr)
-egen ls = min(l)
-gen u = score_premium if(score_premium <= uqt+1.5*iqr)
-egen us = max(u)
-
-twoway (histogram score_premium, percent fcolor(gs10) bins(20) lcolor(gs4) lwidth(thin)) ///
-		rbar lqt uqt ypos , horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
-	   rbar med uqt ypos, horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
-       rspike lqt ls ypos, horiz  lcolor(gs4) || ///
-       rspike uqt us ypos, horiz lcolor(gs4) || ///
-       rcap ls ls ypos,  horiz msize(*1) lcolor(gs4) || ///
-       rcap us us ypos,  horiz msize(*1) lcolor(gs4)|| ///
-       scatter ypos mean , msymbol(o) msize(*.5) fcolor(gs4) mcolor(gs4) legend(off) ///
-      , ///
-      xlabel(-40(10)40) ///
-      ylabel(0(5)20, angle(0)) ///
-      ytitle("Percent") ///
-      xtitle("") ///
-      title("Score Premium") ///
-      graphregion(color(white)) bgcolor(white) ///
-      name(score_premium, replace)
-graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png", replace
-restore
-
+/***
+// // is there a treatment effect > very small / No
+// eststo clear
+// foreach i in math reading {
+//     preserve
+//     use "${path}`i'.dta", clear
+//     keep if nomination
+//     eststo tie_`i':reg z_tie i.treat, vce(cluster own_id)
+//     eststo score_`i':reg z_other_score_`i' i.treat, vce(cluster own_id)
+//     restore
+// }
+// esttab tie_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab score_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+//
+// //# is there a SES bias > not against low-SES, yes to high-SES 
+// eststo clear
+// foreach i in math reading {
+//     preserve
+//     use "`i'.dta", clear
+//	
+// 	// create vars
+// 	gen scoreXtie = z_other_score_`i' * z_tie
+// 	gen scoreXgpa = z_other_score_`i' * z_other_gpa
+// 	gen scoreXtieXses = scoreXtie * other_estrato
+//
+// 	gen gpaXtie = z_other_gpa * z_tie
+// 	gen scoreXlses = z_other_score_`i' * other_low_ses
+// 	gen scoreXtieXgpa = scoreXtie * z_other_gpa
+//
+// 	gen same_low = (other_low_ses==own_low_ses)
+// 	gen same_med = (other_med_ses==own_med_ses)
+// 	gen same_high = (other_high_ses==own_high_ses)
+//
+//     eststo `i'_1: clogit nomination ib(2).other_estrato, group(own_id) vce(cluster own_id)
+//     eststo `i'_2: clogit nomination ib(2).other_estrato z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
+// 	eststo `i'_3: clogit nomination ib(2).other_estrato z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
+//     restore
+// }
+// cls
+// esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+// //# is there a SES bias use binary low-SES > no bias for or against low-SES
+// eststo clear
+// foreach i in math reading {
+//     preserve
+//     use "`i'.dta", clear
+//	
+// 	// create vars
+// 	gen scoreXtie = z_other_score_`i' * z_tie
+// 	gen scoreXgpa = z_other_score_`i' * z_other_gpa
+// 	gen scoreXtieXses = scoreXtie * other_estrato
+//
+// 	gen gpaXtie = z_other_gpa * z_tie
+// 	gen scoreXlses = z_other_score_`i' * other_low_ses
+// 	gen scoreXtieXgpa = scoreXtie * z_other_gpa
+//
+// 	gen same_low = (other_low_ses==own_low_ses)
+// 	gen same_med = (other_med_ses==own_med_ses)
+// 	gen same_high = (other_high_ses==own_high_ses)
+//
+//     eststo `i'_1: clogit nomination i.other_low_ses, group(own_id) vce(cluster own_id)
+//     eststo `i'_2: clogit nomination i.other_low_ses z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
+// 	eststo `i'_3: clogit nomination i.other_low_ses z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
+//     restore
+// }
+// cls
+// esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+// //# does GPA predict referrals > yes, better than exam scores
+// eststo clear
+// foreach i in math reading {
+//     preserve
+//     use "`i'.dta", clear
+//	
+// 	// create vars
+// 	gen scoreXtie = z_other_score_`i' * z_tie
+// 	gen scoreXgpa = z_other_score_`i' * z_other_gpa
+// 	gen scoreXtieXses = scoreXtie * other_estrato
+//
+// 	gen gpaXtie = z_other_gpa * z_tie
+// 	gen scoreXlses = z_other_score_`i' * other_low_ses
+// 	gen scoreXtieXgpa = scoreXtie * z_other_gpa
+//
+// 	gen same_low = (other_low_ses==own_low_ses)
+// 	gen same_med = (other_med_ses==own_med_ses)
+// 	gen same_high = (other_high_ses==own_high_ses)
+//
+//     eststo `i'_1: clogit nomination z_other_gpa, group(own_id) vce(cluster own_id)
+//     eststo `i'_2: clogit nomination z_other_gpa z_other_score_`i' z_tie, group(own_id) vce(cluster own_id)
+// 	eststo `i'_3: clogit nomination z_other_gpa z_other_score_`i' z_tie scoreXtie, group(own_id) vce(cluster own_id)
+// 	eststo `i'_4: clogit nomination z_other_gpa z_other_score_`i' z_tie scoreXtie scoreXgpa gpaXtie scoreXtieXgpa, group(own_id) vce(cluster own_id)
+//     corr z_other_gpa z_other_score_`i'  // low-correlation with other
+// 	restore
+// }
+// cls
+// esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+// //# is there by SES low-SES bias > high-SES at 10 pcent
+// eststo clear
+// forvalues ses = 1/3 {
+//     preserve
+// 		foreach i in math reading {
+// 			use "`i'.dta", clear			
+// 			keep if own_estrato == `ses'
+// 		//  gen homophily = (own_estrato==other_estrato)
+// 			gen scoreXtie = z_other_score_`i' * z_tie
+// 			eststo `i'_`ses': clogit nomination ib(2).other_estrato z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)		
+//  			eststo binary_`i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie   scoreXtie, group(own_id) vce(cluster own_id)		
+// 		}
+// 	restore
+// }
+//
+// cls
+// esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+// // is there low-SES bias in a specific SES group > yes for low-SES (positive)
+// cls
+// esttab binary_reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab binary_math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+// //# is there by low-SES vs other low-SES bias ?
+// eststo clear
+// forvalues ses = 0/1 {
+//     preserve
+// 		foreach i in math reading {
+// 			use "`i'.dta", clear			
+// 			keep if own_low_ses == `ses'
+// 			gen scoreXtie = z_other_score_`i' * z_tie
+// 			eststo `i'_`ses': clogit nomination i.other_low_ses z_other_score_`i' z_tie  scoreXtie, group(own_id) vce(cluster own_id)				
+// 		}
+// 	restore
+// }
+//
+// cls
+// esttab reading_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math_*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+//
+// //# are low-SES better referrers controlling for network > NO, but network average matters
+// eststo clear
+// foreach i in math reading {
+//     preserve
+//     use "`i'.dta", clear
+// 	keep if nomination == 1
+//     eststo `i': reg other_score_`i' ib(2).own_estrato mean_other_score_`i' sd_other_score_`i'
+//     restore
+// }
+// cls
+// esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+// // are binary low-SES better referrers controlling for network > NO, but network average matters
+// eststo clear
+// foreach i in math reading {
+//     preserve
+//     use "`i'.dta", clear
+// 	keep if nomination == 1
+//     eststo `i': reg z_other_score_`i' i.own_low_ses mean_other_score_`i' sd_other_score_`i'
+//     restore
+// }
+// cls
+// esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+//
+//
+// //# is there in performance homophily (high performance - high performance) > significant but meaningless compared to the effect of network
+// eststo clear
+// foreach i in math reading {
+//     preserve
+//     use "`i'.dta", clear
+// 	keep if nomination == 1
+// 	gen own_gpa_norm = (own_gpa / 5) * 100
+//     eststo `i': reg other_score_`i' own_score_`i' mean_other_score_`i' sd_other_score_`i'
+// 	eststo `i'_gpa: reg other_score_`i' own_score_`i' own_gpa_norm mean_other_score_`i' sd_other_score_`i'
+//     restore
+// }
+// cls
+// esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+//
+// //# who has better network? > controlling for own scores, for every level of z-tie that matters, higher SES have better networks on average!
+// eststo clear
+// forvalues x = 1/4 {
+//     foreach i in math reading {
+//         preserve
+//         use "`i'.dta", clear
+//        
+//         // Filter by tie strength
+//         keep if z_tie >= `x'
+//        
+//         // Calculate average network score for each referrer
+//         collapse (mean) other_score_`i' other_gpa own_gpa own_score_`i' own_low_ses, by(own_id)
+//         sum *, det
+//         // Run regression
+//         //eststo `i'_tie`x': reg other_score_`i'  i.own_estrato
+// 		gen gpaXlses = own_gpa * own_low_ses
+// // 		eststo `i'_tie`x'_own: reg other_score_`i' own_score_`i' i.own_low_ses
+// 		eststo `i'_tie`x'_own_gpa: reg other_gpa own_gpa i.own_low_ses
+//         restore
+//     }
+// }
+// cls
+// esttab reading*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab math*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+//
+//
+// //# accuracy premium 1: 
+//
+// use "${path}math.dta", clear
+// keep if nomination == 1
+// gen score_premium = (other_score_math - mean_other_score_math)
+// drop other_score
+// rename sd_other_score_math sd_other_score
+// rename other_score_math other_score
+// gen delta_own_belief = own_belief - own_score
+// gen delta_other_belief = other_belief - other_score
+// gen own_gpa_norm = (own_gpa / 5) * 100
+// keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta* other_score own_gpa_norm
+// list in 1/6
+// save "${path}math_tmp.dta", replace
+//
+// use "${path}reading.dta", clear
+// keep if nomination == 1
+// gen score_premium = (other_score_reading - mean_other_score_reading)
+// drop other_score
+// rename other_score_reading other_score
+// rename sd_other_score_reading sd_other_score
+// gen delta_own_belief = own_belief - own_score
+// gen delta_other_belief = other_belief - other_score
+// gen own_gpa_norm = (own_gpa / 5) * 100
+// keep own_id score_premium own_score own_belief other_belief area treat own_estrato tie sd_other_score delta*  other_score own_gpa_norm
+// list in 1/6
+// save "${path}reading_tmp.dta", replace
+//
+// append using "${path}math_tmp.dta"
+// save "${path}cmb_tmp.dta", replace
+// rm "${path}math_tmp.dta" 
+// rm "${path}reading_tmp.dta"
+//
+//
+//
+// use "${path}cmb_tmp.dta", clear
+// gen t = 0
+// replace t = 1 if treat == 2
+// gen tretXscore = own_score * t
+// gen tretXbown = delta_own_belief * t
+// gen tretXbother =  delta_other_belief * t
+// est clear
+// eststo d1: reg score_premium own_score own_gpa_norm  delta_own_belief delta_other_belief i.t, vce(cluster own_id)
+// eststo d2: reg score_premium own_score own_gpa_norm  delta_own_belief delta_other_belief i.t tie sd_other_score i.area ib(2).own_estrato  , vce(cluster own_id)
+// cls
+// esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+// use "${path}cmb_tmp.dta", clear
+// gen own_low_ses = (own_estrato == 1)
+// gen own_high_ses = (own_estrato == 3)
+// gen t = 0
+// replace t = 1 if treat == 2
+// gen tretXlses = own_low_ses * t
+// gen tretXhses = own_high_ses * t
+// gen tretXscore = own_score * t
+// gen tretXbown = delta_own_belief * t
+// gen tretXbother =  delta_other_belief * t
+//
+// est clear
+// eststo d3: reg score_premium own_score  delta_own_belief delta_other_belief i.t tretXbother tretXbown tretXscore  tretXhses, vce(cluster own_id)
+// eststo d4: reg score_premium own_score  delta_own_belief delta_other_belief i.t tretXbother tretXbown tretXscore tretXlses tie sd_other_score i.area ib(2).own_estrato  , vce(cluster own_id)
+// cls
+// esttab d*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+//
+//
+//
+//
+// eststo cmb3: reg score_premium own_score own_belief other_belief 
+// quietly margins, at(own_belief=(0(25)100)) vsquish
+// matrix own_belief_margins = r(b)'
+// matrix own_belief_at = (0, 25, 50, 75, 100)'
+// svmat own_belief_margins
+// svmat own_belief_at
+//
+// quietly margins, at(other_belief=(0(25)100)) vsquish
+// matrix other_belief_margins = r(b)'
+// matrix other_belief_at = (0, 25, 50, 75, 100)'
+// svmat other_belief_margins
+// svmat other_belief_at
+//
+// twoway (line own_belief_margins1 own_belief_at1, lcolor("136 132 216") lwidth(thick)) ///
+//        (line other_belief_margins1 other_belief_at1, lcolor("130 202 157") lwidth(thick)), ///
+//        title("Effects of Beliefs on Score Premium", size(medium)) ///
+//        ytitle("Linear Prediction") ///
+//        xtitle("Beliefs") ///
+//        xlabel(0(25)100) ///
+//        legend(order(1 "Own" 2 "Nominee") ring(0) pos(4) rows(2) region(lcolor(none))) ///
+//        graphregion(color(white)) bgcolor(white) ///
+//        name(combined_beliefs_twoway, replace)
+//
+//
+// preserve
+// use "${path}cmb_tmp.dta", clear
+// eststo cmb4: reg score_premium own_score delta_own_belief delta_other_belief
+// quietly margins, at(delta_own_belief=(-25(5)25)) vsquish
+// matrix delta_own_margins = r(b)'
+// matrix delta_own_at = (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25)'
+// svmat delta_own_margins
+// svmat delta_own_at
+//
+// marginsplot
+//
+// quietly margins, at(delta_other_belief=(-25(5)25)) vsquish
+// matrix delta_other_margins = r(b)'
+// matrix delta_other_at = (-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25)'
+// svmat delta_other_margins
+// svmat delta_other_at
+// marginsplot
+//
+// twoway (line delta_own_margins1 delta_own_at1, lcolor("136 132 216") lwidth(thick)) ///
+//        (line delta_other_margins1 delta_other_at1, lcolor("130 202 157") lwidth(thick)), ///
+//        title("Effects of Belief Discrepancies on Score Premium", size(medium)) ///
+//        ytitle("Linear Prediction") ///
+//        xtitle("Δ Belief") ///
+//        xlabel(-25(5)25) ///
+//        legend(order(1 "Own score" 2 "Nominee score") ring(1) pos(12) rows(1) region(lcolor(none))) ///
+//        graphregion(color(white)) bgcolor(white) ///
+//        name(combined_delta_twoway, replace)
+// restore
+//
+//
+//
+//
+//	   	
+// (qfitci score_premium own_score, bcolor(navy%20) alwidth(none)) ///	   
+//
+//	   
+// vioplot score_premium, horiz
+// histogram score_premium, percent bins(20)
+//
+//
+// preserve
+// egen med = median(score_premium)
+// egen lqt = pctile(score_premium), p(25)
+// egen uqt = pctile(score_premium), p(75)
+// egen iqr = iqr(score_premium)
+// egen mean = mean(score_premium)
+// gen ypos = -.75
+// gen l = score_premium if(score_premium >= lqt-1.5*iqr)
+// egen ls = min(l)
+// gen u = score_premium if(score_premium <= uqt+1.5*iqr)
+// egen us = max(u)
+//
+// twoway (histogram score_premium, percent fcolor(gs10) bins(20) lcolor(gs4) lwidth(thin)) ///
+// 		rbar lqt uqt ypos , horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+// 	   rbar med uqt ypos, horiz fcolor(gs10) lcolor(gs4) barw(.5) || ///
+//        rspike lqt ls ypos, horiz  lcolor(gs4) || ///
+//        rspike uqt us ypos, horiz lcolor(gs4) || ///
+//        rcap ls ls ypos,  horiz msize(*1) lcolor(gs4) || ///
+//        rcap us us ypos,  horiz msize(*1) lcolor(gs4)|| ///
+//        scatter ypos mean , msymbol(o) msize(*.5) fcolor(gs4) mcolor(gs4) legend(off) ///
+//       , ///
+//       xlabel(-40(10)40) ///
+//       ylabel(0(5)20, angle(0)) ///
+//       ytitle("Percent") ///
+//       xtitle("") ///
+//       title("Score Premium") ///
+//       graphregion(color(white)) bgcolor(white) ///
+//       name(score_premium, replace)
+// graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/score_premium.png", replace
+// restore
+***/
 
 
 // Create a combined dataset

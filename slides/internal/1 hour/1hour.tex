@@ -18,8 +18,24 @@
     \usepackage{graphicx}
     \graphicspath{{../../../figures/}}
 
+    \usepackage[T1]{fontenc}
+    \usepackage{lmodern}
+
+
+    %----------------------------------------------------------------------------------------
+    %	CITATIONS
+    %----------------------------------------------------------------------------------------
+    \usepackage[natbibapa]{apacite}
+    %----------------------------------------------------------------------------------------
+    %	BULLET POINTS
+    %----------------------------------------------------------------------------------------
+
     \setbeamertemplate{itemize item}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
     \setbeamertemplate{itemize subitem}{\color{structure!100}\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
+
+    %----------------------------------------------------------------------------------------
+    %	TRANSITION PAGE
+    %----------------------------------------------------------------------------------------
 
     \setbeamercovered{transparent}
     \renewcommand{\footnotesize}{\fontsize{8pt}{11pt}\selectfont}
@@ -78,20 +94,42 @@
         \includegraphics[width=0.5\columnwidth]{FT2.png}
         \vspace{0.5em}
         \begin{itemize} [<+->]
-        \item Understand persistent class differences in labor the market, like the underrepresentation of Low-SES researchers in elite academic institutions \footnotesize{(Stansbury and Rodriguez, 2024)}
-        \item Focus on the role of class biases in social networks and referrals
+        \item {Understand persistent class differences in labor the market, like the underrepresentation of Low-SES researchers in elite academic institutions \footnotesize{\citep{stansbury2024class}}}
+        \item {Focus on the role of class biases in \textbf{social networks} and in \textbf{referrals}}
         \end{itemize}
     \end{frame}
 
+    % \begin{frame}{Referrals and Social Networks}
+    %     \begin{itemize} 
+    %         \item About half of all jobs are found through referrals, making them critical for the labor market \footnotesize{(Topa, 2011; Ioannides \& Loury, 2004)}
+    %         \item Referrals depend on social networks, which exhibit strong homophily \footnotesize{(McPherson et al., 2001; Smith, 2005)}
+    %         \item Two possible channels for class inequalities:
+    %         \begin{itemize}
+    %             \item Network structure differences: unequal access to valuable connections \footnotesize{(Lin et al., 1981; Mouw, 2003; Chetty et al., 2021)}
+    %             \item Referral bias: differential treatment within existing networks \footnotesize{(Kramarz \& Skans, 2014; DiTomaso, 2013)}
+    %         \end{itemize}
+    %     \end{itemize}
+    % \end{frame}
+
     \begin{frame}{Referrals and Social Networks}
-        \begin{itemize} [<+->]
-            \item About half of all jobs are found through referrals, making them critical for the labor market \footnotesize{(Topa, 2011; Ioannides \& Loury, 2004)}
-            \item Referrals depend on social networks, which exhibit strong homophily \footnotesize{(McPherson et al., 2001; Smith, 2005)}
-            \item Two possible channels for class inequalities:
-            \begin{itemize}
-                \item Network structure differences: unequal access to valuable connections \footnotesize{(Lin et al., 1981; Mouw, 2003; Chetty et al., 2021)}
-                \item Referral bias: differential treatment within existing networks \footnotesize{(Kramarz \& Skans, 2014; DiTomaso, 2013)}
-            \end{itemize}
+        \begin{itemize}  [<+->]
+            \item Connections are central to the labor market
+                \begin{itemize}
+                    \item {25-80\% of all jobs found through social connections \footnotesize{\citep{topa2019social}} }
+                    \item {Higher hiring probability, lower turnover, and wage premiums for referred workers \footnotesize{\citep{brown2016informal,dustmann2016referral,friebel2023employee}}}
+                \end{itemize}
+            
+            \item Differences in network structure as a channel for class inequalities
+                \begin{itemize}
+                    \item {People connect more often with others of similar socioeconomic status \footnotesize{\citep{mcpherson2001birds,smith2005dont}}}
+                    \item {Initial differences in network employment can drive inequality in labor market outcomes \footnotesize{\citep{calvo2004effects,calvo2009peer}}}
+                    \item {Unequal access to valuable connections disadvantage low-SES individuals \footnotesize{\citep{lin1981social,mouw2003social,chetty2021social}}}
+                \end{itemize}
+                
+            \item Referrals potentially amplify network effects
+                \begin{itemize}
+                    \item {Differential treatment within existing network structures, i.e., referral of strong ties \footnotesize{\citep{kramarz2014strong,ditomaso2013american}}}
+                \end{itemize}
         \end{itemize}
     \end{frame}
 
@@ -110,9 +148,9 @@
                 \begin{itemize} [<+->]
                     \item Universidad Autónoma de Bucaramanga (UNAB)
                     \item Approx. 6000 students across all social classes
-                    \item Administrative data including SES, age,
-                    program, GPA, courses attended, year of entry,
-                    and the entry exam scores
+                    \item Administrative data including \textbf{SES}, age,
+                    program, GPA, \textbf{courses attended}, year of entry,
+                    and the \textbf{entry exam scores}
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -128,6 +166,8 @@
                 \begin{itemize} [<+->]
                     \item Ask students to refer someone they have taken at least one course with
                     \item Observe the entire co-enrollment network at UNAB
+                    \item Avoid biases in recall for network construction (+)
+                    \item A proxy/subset of actual friendship network ($-$)
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -143,6 +183,8 @@
                 \begin{itemize} [<+->]
                     \item Pay according to the student's math and verbal scores in the national entry exam
                     \item Incentivize better refferals by increasing monetary reward as referral score goes higher 
+                    \item Objective and widely accepted performance measure (+)
+                    \item Not a real job opportunity ($-$)
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -474,27 +516,25 @@
     %     \end{columns}
     % \end{frame}
 
-
-    \begin{frame}{Referrals are better than network average}\label{score_premium}
+    \begin{frame}{Referrers know their own scores}\label{own_belief}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
+                    \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
                     % \pause
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \includegraphics[width=0.95\columnwidth]{score_premium.png}
-                \label{fig:score-premium}
+                \includegraphics[width=0.95\columnwidth]{../figures/own_belief.png}
+                \label{fig:own_belief}
             \end{column}
         \end{columns}
     \end{frame}
 
-
-    \begin{frame}{Referral score beliefs are skewed positively}\label{other_belief}
+    \begin{frame}{Referrers know their nominees' scores}\label{other_belief}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
@@ -512,20 +552,20 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Own score beliefs are accurate}\label{own_belief}
+    \begin{frame}{Referrals are better than network average}\label{score_premium}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Defined as referrer $i$'s own beliefs minus their score across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
+                    \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
+                    \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
                     % \pause
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \includegraphics[width=0.95\columnwidth]{../figures/own_belief.png}
-                \label{fig:own_belief}
+                \includegraphics[width=0.95\columnwidth]{score_premium.png}
+                \label{fig:score-premium}
             \end{column}
         \end{columns}
     \end{frame}
@@ -571,12 +611,27 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize} [<+->]
-                    \item By restricting the network to courses taken above 12, we observe large difference in referral choice sets
+                    \item By restricting the network to courses taken above 12, we observe even larger differences in SES shares
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
                     \includegraphics[width=0.95\columnwidth]{t15availability.png}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Referral choice sets and performance}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize} [<+->]
+                    \item Sweet spot for referring similar performing peers close to 15
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                    \includegraphics[width=0.95\columnwidth]{score_correlation_by_tie.png}
             \end{column}
         \end{columns}
     \end{frame}
@@ -718,7 +773,7 @@
         \vspace{0.5em}
         \textbf{Conditional FE Logit:}
         \begin{align*}
-            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Courses taken}_{ij} + \beta_4 \text{Score}_j \times \text{Tie}_{ij} + \alpha_i\right)
+            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Courses taken}_{ij} + \beta_4 \text{Score}_j \times \text{Courses taken}_{ij} + \alpha_i\right)
         \end{align*}
         
         \vspace{0.5em}
@@ -911,9 +966,9 @@
                 \begin{itemize}
                     \item \textbf{\textcolor{BlueViolet}{Low-SES}} referrers are biased against High-SES and favor their own
                     \pause
-                    \item \textbf{\textcolor{Orange}{Middle-SES}} referrers are marginally biased against High-SES
+                    \item \textbf{\textcolor{Orange}{Middle-SES}} referrers are not biased and do not favor their own
                     \pause
-                    \item \textbf{\textcolor{Red}{High-SES}} referrers are marginally biased against Low-SES but do not favor their own
+                    \item \textbf{\textcolor{Red}{High-SES}} referrers are not biased against and do not favor their own
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -1534,6 +1589,13 @@
             \end{column}
         \end{columns}
     \end{frame}
+
+    \begin{frame}[allowframebreaks]{References}
+        \footnotesize  % Make the entire bibliography footnotesize
+        \bibliographystyle{apalike}  % or another style like 'plainnat'
+        \bibliography{references}    % your .bib file name without extension
+      \end{frame}
+      
 
     \begin{frame}{Math}
         \begin{columns}[T]
