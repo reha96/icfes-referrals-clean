@@ -115,20 +115,20 @@
         \begin{itemize}  [<+->]
             \item Connections are central to the labor market
                 \begin{itemize}
-                    \item {25-80\% of all jobs found through social connections \footnotesize{\citep{topa2019social}} }
+                    \item {40-50\% of all jobs found through social connections \footnotesize{\citep{topa2019social,granovetter1995getting}}}
                     \item {Higher hiring probability, lower turnover, and wage premiums for referred workers \footnotesize{\citep{brown2016informal,dustmann2016referral,friebel2023employee}}}
                 \end{itemize}
             
-            \item Differences in network structure as a channel for class inequalities
+            \item Network structures exhibit strong homophily
                 \begin{itemize}
-                    \item {People connect more often with others of similar socioeconomic status \footnotesize{\citep{mcpherson2001birds,smith2005dont}}}
+                    \item {People connect more often with others of similar socioeconomic status \footnotesize{\citep{mcpherson2001birds}}}
                     \item {Initial differences in network employment can drive inequality in labor market outcomes \footnotesize{\citep{calvo2004effects,calvo2009peer}}}
                     \item {Unequal access to valuable connections disadvantage low-SES individuals \footnotesize{\citep{lin1981social,mouw2003social,chetty2021social}}}
                 \end{itemize}
                 
             \item Referrals potentially amplify network effects
                 \begin{itemize}
-                    \item {Differential treatment within existing network structures, i.e., referral of strong ties \footnotesize{\citep{kramarz2014strong,ditomaso2013american}}}
+                    \item {Differential treatment within existing network structures, i.e., referral of strong ties \footnotesize{\citep{beaman2012gets,kramarz2014strong}}} or group-level biases  \footnotesize{\citep{smith2005dont,ditomaso2013american,beaman2018job}}
                 \end{itemize}
         \end{itemize}
     \end{frame}
@@ -612,6 +612,7 @@
                 \vspace{2em}
                 \begin{itemize} [<+->]
                     \item By restricting the network to courses taken above 12, we observe even larger differences in SES shares
+                    \item Own SES shares are much higher than network averages except for Middle-SES
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -626,7 +627,8 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize} [<+->]
-                    \item Sweet spot for referring similar performing peers close to 15
+                    \item Sweet spot for referring closest performing peers to one's own around 15
+                    \item Network homophily in terms of performance
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -773,7 +775,7 @@
         \vspace{0.5em}
         \textbf{Conditional FE Logit:}
         \begin{align*}
-            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Courses taken}_{ij} + \beta_4 \text{Score}_j \times \text{Courses taken}_{ij} + \alpha_i\right)
+            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Score}_j + \beta_3 \text{Courses}_{ij} + \beta_4 \text{Score}_j \times \text{Courses}_{ij} + \alpha_i\right)
         \end{align*}
         
         \vspace{0.5em}
@@ -781,7 +783,7 @@
             \item $\text{Refer}_{ij}$: Binary outcome indicating whether individual $i$ refers individual $j$
             \item $\text{SES}_j$: Referral $j$ is Low, Middle, or High SES
             \item $\text{Score}_j$: Standardized Math or Reading score of referral $j$
-            \item $\text{Courses taken}_{ij}$: Standardized number of courses taken together for $i$ and $j$
+            \item $\text{Courses}_{ij}$: Standardized number of courses taken together for $i$ and $j$
             \item $\alpha_i$: Individual fixed effect for referrer $i$
         \end{itemize}
     \end{frame}
@@ -1591,11 +1593,8 @@
     \end{frame}
 
     \begin{frame}[allowframebreaks]{References}
-        \footnotesize  % Make the entire bibliography footnotesize
-        \bibliographystyle{apalike}  % or another style like 'plainnat'
-        \bibliography{references}    % your .bib file name without extension
+        \footnotesize{\bibliographystyle{apalike} \bibliography{references}}
       \end{frame}
-      
 
     \begin{frame}{Math}
         \begin{columns}[T]

@@ -1,0 +1,87 @@
+/*******************************************************************************
+    Project: icfes referrals 
+    Author: Reha Tuncer
+    Date: 14.05.2025
+    Description: figure own-SES shares by tie strength
+*******************************************************************************/
+global dpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/stata/"
+global fpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
+set scheme s2color, permanently
+
+// Create dataset to store results
+clear
+set obs 30
+gen tie_threshold = _n
+gen low_own_ses = .   // Proportion of low SES students connected to low SES
+gen mid_own_ses = .   // Proportion of mid SES students connected to mid SES
+gen high_own_ses = .  // Proportion of high SES students connected to high SES
+gen n_low = .         // Number of low SES observations
+gen n_mid = .         // Number of mid SES observations
+gen n_high = .        // Number of high SES observations
+tempfile ses_shares
+save `ses_shares'
+
+// Loop through tie thresholds
+forvalues t = 1/30 {
+    use "reading.dta", clear
+    append using "math.dta"
+    keep if tie >= `t'
+    
+    // For low SES students
+    preserve
+    keep if own_estrato == 1
+    quietly count
+    local n_low_total = r(N)
+    quietly count if other_estrato == 1
+    local low_to_low = r(N)/`n_low_total'
+    restore
+    
+    // For middle SES students
+    preserve
+    keep if own_estrato == 2
+    quietly count
+    local n_mid_total = r(N)
+    quietly count if other_estrato == 2
+    local mid_to_mid = r(N)/`n_mid_total'
+    restore
+    
+    // For high SES students
+    preserve
+    keep if own_estrato == 3
+    quietly count
+    local n_high_total = r(N)
+    quietly count if other_estrato == 3
+    local high_to_high = r(N)/`n_high_total'
+    restore
+    
+    // Store results
+    qui {
+        preserve
+        use `ses_shares', clear
+        replace low_own_ses = `low_to_low' in `t'
+        replace mid_own_ses = `mid_to_mid' in `t'
+        replace high_own_ses = `high_to_high' in `t'
+        replace n_low = `n_low_total' in `t'
+        replace n_mid = `n_mid_total' in `t'
+        replace n_high = `n_high_total' in `t'
+        save `ses_shares', replace
+        restore
+    }
+}
+
+// Load results and create graph
+use `ses_shares', clear
+
+// Plot SES shares by tie strength
+twoway (connected low_own_ses tie_threshold, lcolor("130 202 157") mcolor("130 202 157") lpattern(solid) lwidth(medthick)) ///
+       (lfit mid_own_ses tie_threshold, lcolor("246 207 113") mcolor("246 207 113") lpattern(solid) lwidth(medthick)) ///
+       (lfit high_own_ses tie_threshold, lcolor("136 132 216") mcolor("136 132 216") lpattern(solid) lwidth(medthick)) ///
+		, ///
+       xlabel(0(5)30, grid) ylabel(0(0.1)0.7, grid) ///
+       title("Homophily by SES and tie strength") ///
+       subtitle("Proportion of connections to same SES group") ///
+       xtitle("Courses taken together") ///
+       ytitle("Proportion of same-SES connections") ///
+       legend(order(1 2 3) label(1 "Low SES → Low SES") label(2 "Mid SES → Mid SES") label(3 "High SES → High SES") ring(0) pos(11)) ///
+       graphregion(color(white)) bgcolor(white)
+       
