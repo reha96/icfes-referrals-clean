@@ -111,31 +111,41 @@
     %     \end{itemize}
     % \end{frame}
 
-    \begin{frame}{Referrals and Social Networks}
+    \begin{frame}{Connections are central to the labor market}
         \begin{itemize}  [<+->]
-            \item Connections are central to the labor market
+            \item Hiring via connections benefit firms and workers alike
                 \begin{itemize}
                     \item {40-50\% of all jobs found through social connections \footnotesize{\citep{topa2019social,granovetter1995getting}}}
                     \item {Higher hiring probability, lower turnover, and wage premiums for referred workers \footnotesize{\citep{brown2016informal,dustmann2016referral,friebel2023employee}}}
                 \end{itemize}
-            
-            \item Network structures exhibit strong homophily
+            \item Network connections are not formed at random
                 \begin{itemize}
-                    \item {People connect more often with others of similar socioeconomic status \footnotesize{\citep{mcpherson2001birds}}}
-                    \item {Initial differences in network employment can drive inequality in labor market outcomes \footnotesize{\citep{calvo2004effects,calvo2009peer}}}
-                    \item {Unequal access to valuable connections disadvantage low-SES individuals \footnotesize{\citep{lin1981social,mouw2003social,chetty2021social}}}
+                    \item {Networks exhibit homophily in social class, as people connect more often with similar others \footnotesize{\citep{mcpherson2001birds}}}
+                    \item {Initial differences in average network employment status or education level can propagate inequality in labor market outcomes \footnotesize{\citep{calvo2004effects,calvo2009peer}}}
+                    \item {Unequal access to valuable connections disadvantage Low-SES individuals \footnotesize{\citep{lin1981social,mouw2003social,chetty2021social}}}
                 \end{itemize}
-                
-            \item Referrals potentially amplify network effects
-                \begin{itemize}
-                    \item {Differential treatment within existing network structures, i.e., referral of strong ties \footnotesize{\citep{beaman2012gets,kramarz2014strong}}} or group-level biases  \footnotesize{\citep{smith2005dont,ditomaso2013american,beaman2018job}}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Referrals amplify network effects} 
+                \begin{itemize} [<+->]
+                    \item {Differential treatment within existing networks, e.g., referral of strong ties such as family and/or close friends \footnotesize{\citep{beaman2012gets,kramarz2014strong,hederos2025gender}}} 
+                    \item {As well as biaseses against groups, e.g., race and gender \footnotesize{\citep{smith2005dont,ditomaso2013american,beaman2018job}}}
+                    \item Both could play against Low-SES who have different networks to begin with
                 \end{itemize}
+
+    \end{frame}
+
+\begin{frame}{Contribution}
+        \begin{itemize}
+            \item  Unique setup where we observe both an entire network and referral behaviors within that network, isolating the processes driving Low-SES inequality
+            % \item Observing referral behaviors under two different incentive structures
         \end{itemize}
     \end{frame}
 
     \begin{frame}{Research Questions}
         \begin{itemize} [<+->]
-            \item \textit{Are class differences in labor market driven by biases in referrals or by network structure?}
+            \item \textit{Could the class differences in labor market be driven by biases in referrals or by network structure?}
             \item \textit{Do network structures differ by social class?}
             \item \textit{Are there social class biases in referrals beyond the network structure?}
         \end{itemize}
@@ -297,9 +307,9 @@
         \end{columns}
     \end{frame}
 
-    \section{Descriptive Statistics I: Network}
+    \section{Results I: Network}
 
-    \begin{frame}{Network size and tie strength}
+    \begin{frame}{Network size and courses taken together}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
@@ -365,6 +375,21 @@
     %         \end{column}
     %     \end{columns}
     % \end{frame}
+
+    \begin{frame}{Courses taken together and performance}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize} [<+->]
+                    \item Network homophily in terms of performance
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                    \includegraphics[width=0.95\columnwidth]{score_correlation_by_tie.png}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
     \begin{frame}{Network-level SES shares}\label{net_composition}
         \begin{columns}[T]
@@ -445,7 +470,7 @@
         \end{columns}
         \end{frame}
 
-        \section{Descriptive Statistics II: Referrals}
+        \section{Results II: Referrals}
         
         % \begin{frame}{Selection into programs}
         %     \begin{columns}[T]
@@ -612,7 +637,7 @@
                 \vspace{2em}
                 \begin{itemize} [<+->]
                     \item By restricting the network to courses taken above 12, we observe even larger differences in SES shares
-                    \item Own SES shares are much higher than network averages except for Middle-SES
+                    \item Own SES shares are even higher than network averages except for Middle-SES
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
@@ -622,40 +647,26 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Referral choice sets and performance}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize} [<+->]
-                    \item Sweet spot for referring closest performing peers to one's own around 15
-                    \item Network homophily in terms of performance
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                    \includegraphics[width=0.95\columnwidth]{score_correlation_by_tie.png}
-            \end{column}
-        \end{columns}
-    \end{frame}
+
 
     \begin{frame}{Referrals are balanced}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize} [<+->]
-                    \item More referrals for Low-SES and less for High-SES compared to the admin data
+                    % \item More referrals for Low-SES and less for High-SES compared to the admin data
                     \item No differences at the sample-level (all $p > 0.1$)
                     % \pause
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \only<1>{
-                    \includegraphics[width=0.95\columnwidth]{all_referral_rates_UNAB.png}
-                }
-                \only<2>{
+                % \only<1>{
+                %     \includegraphics[width=0.95\columnwidth]{all_referral_rates_UNAB.png}
+                % }
+                % \only<2>{
                     \includegraphics[width=0.95\columnwidth]{all_referral_rates.png}
-                }
+                % }
                 \label{fig:ses_rate}
             \end{column}
         \end{columns}
