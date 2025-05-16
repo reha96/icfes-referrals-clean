@@ -178,6 +178,28 @@ twoway (bar proportion xpos, barw(0.20) fcolor(gs8) lcolor(gs4)) ///
 
 graph export "${fpath}availability_lses.png", replace
 
+twoway (bar proportion xpos, barw(0.20) fcolor(gs8) lcolor(gs4)) ///
+		(bar proportion2 xpos2, barw(0.20) fcolor(gs11) lcolor(gs4)) ///
+		(bar proportion3 xpos3, barw(0.20) fcolor(gs14) lcolor(gs4)) ///
+	   (function y=34, range(0.5 3.5) lpattern(dash) lcolor(dknavy)) ///
+	   (function y=51, range(0.5 3.5) lpattern(dash) lcolor(orange)) ///
+	   (function y=15, range(0.5 3.5) lpattern(dash) lcolor(red)) ///
+	   (rcap ci_upper ci_lower xpos, color(gs4) text(32 3.4 "Low", color(dknavy))) ///
+	   (rcap ci_upper2 ci_lower2 xpos2, color(gs4) text(49 3.4 "Middle", color(orange))) ///
+	    (rcap ci_upper3 ci_lower3 xpos3, color(gs4) text(13 3.4 "High", color(red))) ///
+       , ///
+       xlabel(1 "Low" 2 "Middle" 3 "High") ///
+	   xtitle("Referrer SES") ///
+       ylabel(0(10)70, angle(0) format(%9.0f) gmin gmax) ///
+       ytitle("% share of SES group in referrer network") ///
+       xtitle(" ") ///
+       title("Referrer networks vs university population") ///
+       legend(order(1 "Low" 2 "Middle" 3 "High" 5 "University") ring(0) pos(12) rows(1) region(lcolor(none))) ///
+       graphregion(color(white)) bgcolor(white) ///
+       xscale(range(0.5 3.5)) ///
+       name(ses_distribution, replace)
+
+graph export "${fpath}poster_availability_lses.png", replace
 
 
 // combined

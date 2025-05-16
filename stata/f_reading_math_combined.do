@@ -99,6 +99,100 @@ ttest z_tie if nomination, by(treat) //
 ttest z_other_score_math, by(nomination) // ***
 restore
 
+
+
+// plots
+preserve
+clear
+set obs 4
+
+gen treatment = ""
+gen referral = ""
+gen score_ = .
+gen se_ = .
+gen score_tie_ = .
+gen se_tie_ = .
+gen group = .
+
+replace treatment = "No bonus" in 1
+replace referral = "Not referred" in 1
+replace score_ = (${score_reading_nobonus_notref} + ${score_math_nobonus_notref})/2 in 1
+replace se_ = (${se_reading_nobonus_notref}+${se_math_nobonus_notref})/2 in 1
+replace score_tie_ = (${score_tie_reading_nobonus_notref}+${score_tie_math_nobonus_notref})/2 in 1
+replace se_tie_ = (${se_tie_reading_nobonus_notref}+${se_tie_math_nobonus_notref})/2 in 1
+replace group = 1 in 1
+
+replace treatment = "No bonus" in 2
+replace referral = "Referred" in 2
+replace score_ = (${score_reading_nobonus_ref} + ${score_math_nobonus_ref})/2 in 2
+replace se_ = (${se_reading_nobonus_ref}+${se_math_nobonus_ref})/2 in 2
+replace score_tie_ = (${score_tie_reading_nobonus_ref}+${score_tie_math_nobonus_ref})/2 in 2
+replace se_tie_ = (${se_tie_reading_nobonus_ref}+${se_tie_math_nobonus_ref})/2 in 2
+replace group = 2 in 2
+
+replace treatment = "Bonus" in 3
+replace referral = "Not referred" in 3
+replace score_ = (${score_reading_bonus_notref} + ${score_math_bonus_notref})/2 in 3
+replace se_ = (${se_reading_bonus_notref}+${se_math_bonus_notref})/2 in 3
+replace score_tie_ = (${score_tie_reading_bonus_notref}+${score_tie_math_bonus_notref})/2 in 3
+replace se_tie_ = (${se_tie_reading_bonus_notref}+${se_tie_math_bonus_notref})/2 in 3
+replace group = 4 in 3
+
+replace treatment = "Bonus" in 4
+replace referral = "Referred" in 4
+replace score_ = (${score_reading_bonus_ref} + ${score_math_bonus_ref})/2 in 4
+replace se_ = (${se_reading_bonus_ref}+${se_math_bonus_ref})/2 in 4
+replace score_tie_ = (${score_tie_reading_bonus_ref}+${score_tie_math_bonus_ref})/2 in 4
+replace se_tie_ = (${se_tie_reading_bonus_ref}+${se_tie_math_bonus_ref})/2 in 4
+replace group = 5 in 4
+
+gen reading_ci_upper = score_ + 1.96*se_
+gen reading_ci_lower = score_ - 1.96*se_
+gen tie_ci_upper = score_tie_ + 1.96*se_tie_
+gen tie_ci_lower = score_tie_ - 1.96*se_tie_
+
+
+twoway (bar score_ group if treatment == "No bonus" & referral == "Not referred", barwidth(0.8) fcolor(gs10) lcolor(gs4)) ///
+       (bar score_ group if treatment == "No bonus" & referral == "Referred", barwidth(0.8) fcolor(gs10) lcolor(gs4)) ///
+       (bar score_ group if treatment == "Bonus" & referral == "Not referred", barwidth(0.8) fcolor(gs10) lcolor(gs4)) ///
+       (bar score_ group if treatment == "Bonus" & referral == "Referred", barwidth(0.8) fcolor(gs10) lcolor(gs4) text(80 1.5 "Baseline", color(dknavy)) text(80 4.5 "Bonus", color(dknavy))) ///
+       (rcap reading_ci_upper reading_ci_lower group, color(gs4)), /// 
+       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
+       ylabel(40(10)80, angle(0) gmin gmax) ///
+       ytitle("Score (Math and Reading)") ///
+       xtitle("") ///
+       title("Entry exam score") ///
+       legend(off) ///
+       graphregion(color(white)) bgcolor(white) ///
+	   xsize(1.75) ysize(2) ///
+       name(reading_score, replace)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/c1_combined.png", replace    
+
+	   
+twoway (bar score_tie_ group if treatment == "No bonus" & referral == "Not referred", barwidth(0.8) fcolor(gs10) lcolor(gs4)) ///
+       (bar score_tie_ group if treatment == "No bonus" & referral == "Referred", barwidth(0.8) fcolor(gs10) lcolor(gs4)) ///
+       (bar score_tie_ group if treatment == "Bonus" & referral == "Not referred", barwidth(0.8) fcolor(gs10) lcolor(gs4)) ///
+       (bar score_tie_ group if treatment == "Bonus" & referral == "Referred", barwidth(0.8) fcolor(gs10) lcolor(gs4) text(20 1.5 "Baseline", color(dknavy)) text(20 4.5 "Bonus", color(dknavy))) ///
+       (rcap tie_ci_upper tie_ci_lower group, color(gs4)), ///
+       xlabel(1 `" "Not" "Referred" "' 2 "Referred" 4 `" "Not" "Referred" "' 5 "Referred") ///
+       ylabel(0(5)20, angle(0) gmin gmax) ///
+       ytitle("Nb. courses taken together") ///
+       xtitle("") ///
+       title("Courses taken") ///
+       xsize(1.75) ysize(2) ///
+	   legend(off) ///
+       graphregion(color(white)) bgcolor(white) ///
+       name(reading_tie, replace)
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/c2_combined.png", replace    	   
+	   
+// graph combine reading_score reading_tie, ///
+//       graphregion(color(white)) ///
+//       rows(1) ///
+//       name(reading_combined, replace)
+// graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/both_combined.png", replace    
+restore 
+
+
 // plots
 preserve
 clear
