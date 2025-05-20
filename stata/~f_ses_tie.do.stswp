@@ -73,9 +73,9 @@ forvalues t = 1/30 {
 use `ses_shares', clear
 
 // Plot SES shares by tie strength
-twoway (connected low_own_ses tie_threshold, lcolor("130 202 157") mcolor("130 202 157") lpattern(solid) lwidth(medthick)) ///
-       (lfit mid_own_ses tie_threshold, lcolor("246 207 113") mcolor("246 207 113") lpattern(solid) lwidth(medthick)) ///
-       (lfit high_own_ses tie_threshold, lcolor("136 132 216") mcolor("136 132 216") lpattern(solid) lwidth(medthick)) ///
+twoway (connected low_own_ses tie_threshold, lcolor(dknavy) mcolor(dknavy) lpattern(solid) lwidth(medthick)) ///
+       (connected mid_own_ses tie_threshold, lcolor(orange) mcolor(orange) lpattern(solid) lwidth(medthick)) ///
+       (connected high_own_ses tie_threshold, lcolor(red) mcolor(red) lpattern(solid) lwidth(medthick)) ///
 		, ///
        xlabel(0(5)30, grid) ylabel(0(0.1)0.7, grid) ///
        title("Homophily by SES and tie strength") ///

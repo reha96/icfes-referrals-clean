@@ -433,6 +433,7 @@ egen area_id = group(own_id area)
 preserve
 keep if nomination == 1
 anova z_other_score treat
+anova z_tie treat
 restore
 eststo clear
 eststo reg1: clogit nomination ib(2).other_estrato, group(area_id) vce(cluster own_id)
