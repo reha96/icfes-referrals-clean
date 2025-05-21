@@ -1,6 +1,32 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Bandiera%
+, Barankay%
+\BCBL {}\ \BBA {} Rasul%
+}{%
+Bandiera%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+bandiera2009social}
+\APACinsertmetastar {%
+bandiera2009social}%
+\begin{APACrefauthors}%
+Bandiera, O.%
+, Barankay, I.%
+\BCBL {}\ \BBA {} Rasul, I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social connections and incentives in the workplace: Evidence from personnel data} {Social connections and incentives in the workplace: Evidence from personnel data}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Econometrica}{77}{4}{1047--1094}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Beaman%
 , Keleher%
 \BCBL {}\ \BBA {} Magruder%
@@ -85,6 +111,34 @@ Hederos, K.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Lin%
+, Ensel%
+\BCBL {}\ \BBA {} Vaughn%
+}{%
+Lin%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1981}}%
+}]{%
+lin1981asr}
+\APACinsertmetastar {%
+lin1981asr}%
+\begin{APACrefauthors}%
+Lin, N.%
+, Ensel, W\BPBI M.%
+\BCBL {}\ \BBA {} Vaughn, J\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1981}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social {{Resources}} and {{Strength}} of {{Ties}}: {{Structural Factors}} in {{Occupational Status Attainment}}} {Social {{Resources}} and {{Strength}} of {{Ties}}: {{Structural Factors}} in {{Occupational Status Attainment}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Sociological Review}{46}{4}{393--405}.
+\newblock
+\begin{APACrefDOI} \doi{10.2307/2095260} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 McPherson%
 , Smith-Lovin%
 \BCBL {}\ \BBA {} Cook%
@@ -111,6 +165,81 @@ McPherson, M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Mouw%
+}{%
+Mouw%
+}{%
+{\protect \APACyear {2003}}%
+}]{%
+mouw2003asr}
+\APACinsertmetastar {%
+mouw2003asr}%
+\begin{APACrefauthors}%
+Mouw, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social {{Capital}} and {{Finding}} a {{Job}}: {{Do Contacts Matter}}?} {Social {{Capital}} and {{Finding}} a {{Job}}: {{Do Contacts Matter}}?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Sociological Review}{68}{6}{868--898}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/000312240306800604} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pedulla%
+\ \BBA {} Pager%
+}{%
+Pedulla%
+\ \BBA {} Pager%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+Pedulla2019RaceAN}
+\APACinsertmetastar {%
+Pedulla2019RaceAN}%
+\begin{APACrefauthors}%
+Pedulla, D\BPBI S.%
+\BCBT {}\ \BBA {} Pager, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Race and Networks in the Job Search Process} {Race and networks in the job search process}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Sociological Review}{84}{}{983-1012}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0003122419883255} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Smith%
+}{%
+Smith%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+smith2005ajs}
+\APACinsertmetastar {%
+smith2005ajs}%
+\begin{APACrefauthors}%
+Smith, S\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {``{{Don}}'t Put My Name on It'': {{Social Capital Activation}} and {{Job}}-{{Finding Assistance}} among the {{Black Urban Poor}}} {``{{Don}}'t put my name on it'': {{Social Capital Activation}} and {{Job}}-{{Finding Assistance}} among the {{Black Urban Poor}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Journal of Sociology}{111}{1}{1--57}.
+\newblock
+\begin{APACrefDOI} \doi{10.1086/428814} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Topa%
 }{%
 Topa%
@@ -130,6 +259,28 @@ Topa, G.%
 {\BBOQ}\APACrefatitle {Social and spatial networks in labour markets} {Social and spatial networks in labour markets}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Oxford Review of Economic Policy}{35}{4}{722--745}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Witte%
+}{%
+Witte%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+witte2021workers}
+\APACinsertmetastar {%
+witte2021workers}%
+\begin{APACrefauthors}%
+Witte, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Why Do Workers Make Job Referrals? Experimental Evidence from Ethiopia} {Why do workers make job referrals? experimental evidence from ethiopia}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Working Paper}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}

@@ -477,6 +477,9 @@ esttab b12 b22 b32, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 ***
 // high
 esttab b13 b23 b33, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
+cls
+esttab b31 b32 b33, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
+
 
 coefplot ///
     (b31, offset(0.22) mcolor(dknavy) mlabcolor(dknavy) ciopts(color(dknavy) lwidth(thick))) ///
