@@ -170,6 +170,40 @@
         \end{columns}
     \end{frame}
 
+\begin{frame}{Setting II: Inequality and social class in Colombia}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em} 
+                \begin{itemize} [<+->]
+                    \item Families spend considerable amounts to provide kids with private higher education
+                    \item Non-elite private universities like UNAB cater to all social classes
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{school_quality_income.png}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Setting III: Higher education in Colombia}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em} 
+                \begin{itemize} [<+->]
+                    \item Families spend considerable amounts to provide kids with private higher education
+                    \item Non-elite private universities like UNAB cater to all social classes
+                    \item Figure from \citet{fergusson2021distincion}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{school_quality_income.png}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
     \begin{frame}{Design I: Referrals and Network}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
@@ -307,7 +341,7 @@
         \end{columns}
     \end{frame}
 
-    \section{Results I: Network}
+    \section{Result I: Networks are segregated by social class}
 
     \begin{frame}{Network size and courses taken together}
         \begin{columns}[T]
@@ -376,17 +410,17 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Courses taken together and performance}
+    \begin{frame}{Courses taken together and same program share}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize} [<+->]
-                    \item Network homophily in terms of performance
+                    \item Taking more than 5 courses together means studying in the same program
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                    \includegraphics[width=0.95\columnwidth]{score_correlation_by_tie.png}
+                    \includegraphics[width=0.95\columnwidth]{../figures/share_same_program_by_tie.png}
             \end{column}
         \end{columns}
     \end{frame}
@@ -418,15 +452,20 @@
                 \begin{itemize}
                     \item UNAB prices each program differently based on its cost
                     \pause
-                    \item Low-SES study in more affordable programs and is general knowledge
-                    \pause
-                    \item Large difference as net average monthly salary around \$350
+                    \item High-SES study in more expensive programs 
+                    \item Large differences as minimum legal monthly wage at \$200
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \includegraphics[width=0.95\columnwidth]{../figures/fee_by_ses.png}
+                 \only<1>{
+                \includegraphics[width=0.95\columnwidth]{../figures/fees_with_boxplot.png}
                 \label{fig:sorting_byses}
+                 }
+                 \only<2>{
+                \includegraphics[width=0.95\columnwidth]{../figures/ses_distribution_by_fees.png}
+                \label{fig:sorting_highses}    
+                 }
             \end{column}
         \end{columns}
     \end{frame}
@@ -451,7 +490,7 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Network dynamics by SES}\label{connections}
+    \begin{frame}{Network characteristics by SES}\label{connections}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
@@ -470,7 +509,7 @@
         \end{columns}
         \end{frame}
 
-        \section{Results II: Referrals}
+        \section{Result II: Referrals are not biased once networks are controlled for}
         
         % \begin{frame}{Selection into programs}
         %     \begin{columns}[T]

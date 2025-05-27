@@ -429,6 +429,9 @@ gen same_high = (other_high_ses==own_high_ses)
 // Create a new group variable combining the subject area and person ID
 egen area_id = group(own_id area)
 
+save "appended.dta", replace
+
+use "appended.dta", clear
 // Run models
 preserve
 keep if nomination == 1
@@ -442,8 +445,20 @@ eststo reg3: clogit nomination ib(2).other_estrato z_other_score z_tie scoreXtie
 esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 test 1.other_estrato = 2.other_estrato = 3.other_estrato // **
 
+preserve
+keep if treat == 1
+eststo reg4: clogit nomination ib(2).other_estrato z_other_score z_tie scoreXtie, group(area_id) vce(cluster own_id)
+restore
+preserve
+keep if treat == 2
+eststo reg5: clogit nomination ib(2).other_estrato z_other_score z_tie scoreXtie, group(area_id) vce(cluster own_id)
+restore
+
+esttab reg3 reg4 reg5, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // high-SES bias gone!
+
 coefplot ///
-    (reg3, offset(0) mcolor(gs4) ciopts(color(gs4) lwidth(medium))), ///
+    (reg4, offset(0) mcolor(blue) ciopts(color(blue) lwidth(medium))) ///
+	(reg5, offset(0) mcolor(red) ciopts(color(red) lwidth(medium))), ///
     coeflabels(z_tie = "Courses taken" ///
               z_other_score = "Score" ///
 			  scoreXtie = "Score x Courses taken" ///
@@ -451,7 +466,7 @@ coefplot ///
     msymbol(D) msize(medium) ///
     xlabel(-1(.5)1) /// 
     xline(0, lcolor(gs8) lpattern(dash) lwidth(thick)) ///
-    legend(off) ///
+    legend(order(2 "Baseline" 4 "Bonus" ) pos(12) rows(1) size(small) subtitle("Treatment") region(lcolor(none))) ///
     $graph_opts name(res1, replace) 
 graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1.png", ///
     as(png) replace	
@@ -461,21 +476,37 @@ forvalues ses = 1/3 {
     preserve		
 		keep if own_estrato == `ses'
 	//  gen homophily = (own_estrato==other_estrato)
-		eststo b1`ses': clogit nomination ib(2).other_estrato, group(area_id) vce(cluster own_id)
-		eststo b2`ses': clogit nomination ib(2).other_estrato z_other_score z_tie, group(area_id) vce(cluster own_id)
+//  		eststo b1`ses': clogit nomination ib(2).other_estrato, group(area_id) vce(cluster own_id)
+//  		eststo b2`ses': clogit nomination ib(2).other_estrato z_other_score z_tie, group(area_id) vce(cluster own_id)
 		eststo b3`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
 		test 1.other_estrato = 2.other_estrato = 3.other_estrato // *** only for low-SES
 		test 1.other_estrato = 3.other_estrato // *** only for low-SES
 	restore
 }
 
+forvalues ses = 1/3 {
+    preserve		
+		keep if treat == 1
+		keep if own_estrato == `ses'
+		eststo base`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
+	restore
+}
+
+forvalues ses = 1/3 {
+    preserve		
+		keep if treat == 2
+		keep if own_estrato == `ses'
+		eststo bonus`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
+	restore
+}
+esttab base1 bonus1, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
+esttab base2 bonus2, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
+esttab base3 bonus3, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
 cls
-// low
-esttab b11 b21 b31, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-// middle
-esttab b12 b22 b32, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
-// high
-esttab b13 b23 b33, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+
+// esttab b11 b21 b31, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab b12 b22 b32, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+// esttab b13 b23 b33, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 
 cls
 esttab b31 b32 b33, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
@@ -508,6 +539,7 @@ keep if nomination == 1
 gen score_premium = (other_score - mean_other_score_reading) if area == 1
 replace score_premium = (other_score - mean_other_score_math) if area == 2
 
+// 
 egen meanSP = mean(score_premium)
 egen sdSP = sd(score_premium)
 gen z_SP = (score_premium - meanSP) / sdSP
@@ -515,18 +547,31 @@ gen z_SP = (score_premium - meanSP) / sdSP
 gen delta_own_belief = own_belief - own_score
 gen delta_other_belief = other_belief - other_score
 
+// own belief
 egen meanOB = mean(delta_own_belief)
 egen sdOB = sd(delta_own_belief)
 gen z_OB = (delta_own_belief - meanOB) / sdOB
 
+// nominee belief
 egen meanNB = mean(delta_other_belief)
 egen sdNB = sd(delta_other_belief)
-gen z_NB = (delta_other_belief - meanNB) / sdNB
+gen z_NB = (delta_other_belief - meanNB) / sdNB 
 
+// own score
 egen meanOS = mean(own_score)
 egen sdOS = sd(own_score)
 gen z_OS = (own_score - meanOS) / sdOS
 
+
+// 
+est clear
+// did treatment change outcomes?
+eststo t0: reg score_premium  i.treat, vce(cluster own_id) // ref score - network av - no
+eststo t0b: reg other_score i.treat, vce(cluster own_id) // ref score - no
+eststo t0b2: reg other_score i.treat##c.tie, vce(cluster own_id) // ref score - no treatXtie
+eststo t1: reg tie  i.treat, vce(cluster own_id) // courses taken - no
+eststo t2: reg delta_own_belief  i.treat, vce(cluster own_id) // 
+eststo t3: reg delta_other_belief i.treat, vce(cluster own_id) // 
 
 est clear
 eststo d0: reg z_SP  ib(2).own_estrato, vce(cluster own_id)

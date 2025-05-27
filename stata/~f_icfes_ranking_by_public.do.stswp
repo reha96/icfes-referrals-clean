@@ -1,0 +1,69 @@
+/*******************************************************************************
+    Project: icfes referrals 
+    Author: Reha Tuncer
+    Date: 26.05.2025
+    Description: figure replicate university icfes ranking 
+*******************************************************************************/
+global dpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/stata/"
+global fpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
+set scheme s2color, permanently
+
+clear all
+capture confirm variable school_data_processed
+if _rc != 0 {
+    // Create base dataset with income categories
+    clear
+    set obs 7
+    
+    gen income_cat = _n
+    gen income_label = ""
+    
+    // Income category assignment following template pattern
+    replace income_label = "< 1 Minimum wage" if income_cat == 1
+    replace income_label = "> 1 to 2 minimum wages" if income_cat == 2
+    replace income_label = "> 2 to 3 minimum wages" if income_cat == 3
+    replace income_label = "> 3 to 4 minimum wages" if income_cat == 4
+    replace income_label = "> 5 to 7 minimum wages" if income_cat == 5
+    replace income_label = "> 7 to 10 minimum wages" if income_cat == 6
+    replace income_label = "10 or more" if income_cat == 7
+    
+    // Initialize score variables
+    gen public_score = .
+    gen private_score = .
+    
+    // Public school scores by income category (from original figure)
+    replace public_score = 0.635*100 if income_cat == 1
+    replace public_score = 0.67*100 if income_cat == 2  
+    replace public_score = 0.685*100 if income_cat == 3
+    replace public_score = 0.81*100 if income_cat == 4
+    replace public_score = . if income_cat == 5    // Missing: no public schools
+    replace public_score = . if income_cat == 6    // Missing: no public schools  
+    replace public_score = . if income_cat == 7    // Missing: no public schools
+    
+    // Private school scores by income category (from original figure)
+    replace private_score = 0.655*100 if income_cat == 1
+    replace private_score = 0.705*100 if income_cat == 2
+    replace private_score = 0.735*100 if income_cat == 3
+    replace private_score = 0.775*100 if income_cat == 4
+    replace private_score = 0.82*100 if income_cat == 5
+    replace private_score = 0.835*100 if income_cat == 6
+    replace private_score = 0.86*100 if income_cat == 7
+}
+
+
+gen xpos = income_cat-.1
+gen xpos2 = income_cat+.1
+// Advanced visualization using template pattern
+twoway (bar public_score xpos, horizontal barwidth(0.2) fcolor(gs8) lcolor(gs4)) ///
+		(bar  private_score xpos2, horizontal barwidth(0.2)fcolor(gs12) lcolor(gs4) ) ///
+	, ///
+    xlabel(60(5)90, angle(0) gmax gmin) ///
+	ylabel(1 "< min. wage ($200)" 2 "> $200 to $400" 3 "> $400 to $600" 4 "> $600 to $800" 5 "> $1000 to $1400" 6 "> $1400 to $2000" 7 "$2000 or more", angle(0) labsize(small)  ) ///
+    xtitle("Average score in university entry exam") ///
+    title("School quality and family income") ///
+    legend(order(1 "Public" 2 "Private") ring(0) pos(4) rows(2) region(lcolor(none))) ///
+    graphregion(color(white)) bgcolor(white) ///
+    name(school_quality_income, replace)
+
+// Export following template pattern  
+graph export "${fpath}school_quality_income.png", replace

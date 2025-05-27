@@ -30,7 +30,7 @@ forvalues t = 1/30 {
    matrix stat = r(table)
    local prop_same = cond(stat[1,2] != ., stat[1,2], 1)
    local prop_sameUP = cond(stat[6,2] != ., stat[6,2], 0)
-   local prop_sameLOW = cond(stat[5,2] != ., stat[5,2], 0)
+   local prop_sameLOW = cond(stat[5,2] != ., stat[6,2], 0)
    
    quietly corr own_score other_score
    local corr_val = r(rho)
