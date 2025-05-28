@@ -79,7 +79,7 @@ twoway (connected prop_same tie_threshold if tie_threshold<20, lcolor(gs4) mcolo
 		(rarea prop_sameUP prop_sameLOW tie_threshold if tie_threshold<20, color(gs4%20) lcolor(%0)) ///
       , ///
       xlabel(0(5)20, gmax gmin) ///
-      title("Network share with same program by courses taken") ///
+      title("Connections within the same program") ///
       xtitle("Courses taken together") ///
       ytitle("Proportion same program") ///
       legend(off) ///
