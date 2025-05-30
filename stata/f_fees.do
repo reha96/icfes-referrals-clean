@@ -152,9 +152,6 @@ replace ci_upperA = ${fee_ci_upper2A} if own_estrato == 2
 replace ci_upperA = ${fee_ci_upper3A} if own_estrato == 3
 
 
-
-label define estrato_lab 1 "Low" 2 "Middle" 3 "High"
-label values own_estrato estrato_lab
 twoway (bar feeA xpos, barwidth(0.5) fcolor(gs10) lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High") ///

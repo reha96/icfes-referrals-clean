@@ -48,6 +48,8 @@ graph export "${fpath}other_belief.png", replace
 restore
 
 
+
+
 // by SES
 use "${dpath}cmb_tmp.dta", clear
 sort own_id

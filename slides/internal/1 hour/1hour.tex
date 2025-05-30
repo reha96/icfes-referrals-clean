@@ -7,6 +7,9 @@
     \usecolortheme{default}
     \definecolor{grayedout}{RGB}{200,200,220}  % Choose whichever option you prefer
 
+    % \pdfcompresslevel=0
+    % \pdfobjcompresslevel=0
+
     \usepackage{threeparttable}
     \usepackage{hyperref}
     \usepackage{subfig}
@@ -175,13 +178,14 @@
             \begin{column}{0.38\textwidth}
                 \vspace{2em} 
                 \begin{itemize} [<+->]
-                    \item Families spend considerable amounts to provide kids with private higher education
-                    \item Non-elite private universities like UNAB cater to all social classes
+                    \item Third highest income inequality in the world according to World Bank
+                    \item Government assigned social class numbers classify each neighborhood
+                    \item Taxes from high-SES neighborhoods subsidize utilities for low-SES
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \includegraphics[width=0.95\columnwidth]{school_quality_income.png}
+                \includegraphics[width=0.95\columnwidth]{strata.png}
             \end{column}
         \end{columns}
     \end{frame}
@@ -221,12 +225,12 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Design II: Incentives}
+    \begin{frame}{Design II: Incentives}\label{incentives}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \begin{itemize} [<+->]
-                    \item Pay according to the student's math and verbal scores in the national entry exam
-                    \item Incentivize better refferals by increasing monetary reward as referral score goes higher 
+                    \item Pay according to the student's math and verbal scores in the national entry exam \hyperlink{own_belief}{\beamerbutton{Beliefs}}
+                    \item Incentivize better referrals by increasing monetary reward as referral score goes higher 
                     \item Objective and widely accepted performance measure (+)
                     \item Not a real job opportunity ($-$)
                 \end{itemize}
@@ -341,7 +345,7 @@
         \end{columns}
     \end{frame}
 
-    \section{Network descriptives}
+    \section{Networks: A driver of class segregation?}
 
     \begin{frame}{Network size and courses taken together}
         \begin{columns}[T]
@@ -410,17 +414,38 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Courses taken together}
+    \begin{frame}{Network characteristics by SES}\label{connections}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize} [<+->]
+                    \item Connections decrease with SES
+                    \item Courses taken with peers increases with SES
+                    \item High-SES take more courses with their own \hyperlink{fig:tie_strength_by_ses}{\beamerbutton{See}}
+                    % \pause
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.95\columnwidth]{../figures/connections_by_ses.png}
+                \label{fig:composition_aggregate}
+            \end{column}
+        \end{columns}
+        \end{frame}
+
+    \begin{frame}{Courses taken together and programs}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize} [<+->]
                     \item Taking more than 5 courses together implies studying in the same program
+                    \item Networks within the same program are much smaller
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                    \includegraphics[width=0.95\columnwidth]{../figures/share_same_program_by_tie.png}
+                    \only<1>{\includegraphics[width=0.95\columnwidth]{../figures/share_same_program_by_tie.png}}
+                    \only<2>{\includegraphics[width=0.95\columnwidth]{../figures/conns_by_tie.png}}
             \end{column}
         \end{columns}
     \end{frame}
@@ -431,7 +456,6 @@
                 \vspace{2em}
                 \begin{itemize}
                     \item 51 \% of UNAB is \textbf{\textcolor{Orange}{Middle-SES}}, 34 \% \textbf{\textcolor{BlueViolet}{Low-SES}}, and 15 \% \textbf{\textcolor{red}{High-SES}}
-                    \pause
                     \item Network shares are very different from the UNAB population
                     \pause 
                     \item Why?
@@ -439,7 +463,8 @@
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \includegraphics[width=0.95\columnwidth]{../figures/availability_lses.png}
+                \only<1>{\includegraphics[width=0.95\columnwidth]{../figures/availability_lses.png}}
+                \only<2>{\includegraphics[width=0.95\columnwidth]{../figures/share_same_ses_by_tie.png}}
                 \label{fig:availability_lses}
             \end{column}
         \end{columns}
@@ -491,26 +516,9 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Program selection and network characteristics}\label{connections}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize} [<+->]
-                    \item Connections decrease with SES
-                    \item Courses taken with peers increases with SES
-                    \item High-SES take more courses with their own \hyperlink{fig:tie_strength_by_ses}{\beamerbutton{See}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{../figures/connections_by_ses.png}
-                \label{fig:composition_aggregate}
-            \end{column}
-        \end{columns}
-        \end{frame}
 
-        \section{Results: Referrals versus Networks}
+
+        \section{Root of the problem: Referrals versus Networks}
         
         % \begin{frame}{Selection into programs}
         %     \begin{columns}[T]
@@ -581,73 +589,17 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Participants know their own exam ranking}\label{own_belief}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Defined as referrer $i$'s own ranking belief minus their actual rank across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:ob_byses}{\beamerbutton{See}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{../figures/own_belief.png}
-                \label{fig:own_belief}
-            \end{column}
-        \end{columns}
-    \end{frame}
 
-    \begin{frame}{Participants know their nominees' exam ranking}\label{other_belief}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Defined as referrer $i$'s belief about nominee $j$'s ranking minus $j$'s actual rank across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:nb_byses}{\beamerbutton{See}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{other_belief.png}
-                \label{fig:other_belief}
-            \end{column}
-        \end{columns}
-    \end{frame}
 
-    \begin{frame}{Referrals are better than network average}\label{score_premium}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
-                    \item No difference between SES groups \hyperlink{fig:sp_byses}{\beamerbutton{See}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{score_premium.png}
-                \label{fig:score-premium}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-\begin{frame}{Who gets the referral?}
+\begin{frame}{Who gets the referral?}\label{who_gets}
     \centering % Center the figures on the slide
     \begin{figure}
         \includegraphics[width=0.3\textwidth]{score_1.png}
         \includegraphics[width=0.3\textwidth]{tie_2.png} 
         \includegraphics[width=0.3\textwidth]{same_ses_share.png} 
-        % \caption{Optional: A caption for all three figures} % Uncomment if you want a single caption for the group
-        % \label{fig:my_three_figures} % Uncomment if you want to label the group of figures
     \end{figure}
-
-    % Text at the bottom
     \begin{itemize}
-        \item Higher scores, more courses together, and more often same-SES
+        \item Higher scores, more courses together, and more often same-SES \hyperlink{fig:nb_byses}{\beamerbutton{Distributions}}
         \item Marginal treatment effect on the referred scores ($t$-test, $p = 0.08$)
     \end{itemize}
 
@@ -819,7 +771,7 @@
     %     \end{columns}
     % \end{frame}
 
-    \begin{frame}{Is there a SES bias in referrals?}
+    \begin{frame}{Is there a SES bias in referrals beyond networks?}
         
         \vspace{0.5em}
         \textbf{Conditional FE Logit:}
@@ -1948,111 +1900,108 @@
     % \end{frame}
 
 
-
-
-    \begin{frame}{No differences for Score Premium by SES}
+    \begin{frame}{Beliefs about own and nominee exam ranking}\label{own_belief}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Middle-SES refer slightly worst (joint F-test, $p < 0.1$) \hyperlink{score_premium}{\beamerbutton{Return}}
-                    % \pause
+                    \item Defined as referrer $i$'s belief minus actual rank across Math and Reading 
+                    \item Participants know their own ranking at UNAB
+                    \pause
+                    \item Participants know their referral's ranking at UNAB
+                    \item No differences between SES groups for both \hyperlink{fig:ob_byses}{\beamerbutton{See}}
+                    \item  \hyperlink{incentives}{\beamerbutton{Return}}
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
-                \includegraphics[width=0.95\columnwidth]{sp_byses.png}
-                \label{fig:sp_byses}
+                \only<1>{
+                     \includegraphics[width=0.95\columnwidth]{../figures/own_belief.png}
+                }
+                \only<2>{
+                    \includegraphics[width=0.95\columnwidth]{../figures/other_belief.png}
+                }
+                \label{fig:own_belief}
             \end{column}
         \end{columns}
     \end{frame}
 
-
-    \begin{frame}{No differences for own ranking beliefs by SES}
+    \begin{frame}{Ranking beliefs across SES}
         \begin{columns}[T]
             \begin{column}{0.38\textwidth}
                 \vspace{2em}
                 \begin{itemize}
-                    \item Middle-SES are marginally more accurate (joint F-test, $p < 0.1$) \hyperlink{own_belief}{\beamerbutton{Return}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{ob_byses.png}
-                \label{fig:ob_byses}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    \begin{frame}{No differences for nominee score beliefs by SES}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item No difference (joint F-test, $p = 0.41$)  \hyperlink{other_belief}{\beamerbutton{Return}}
-                    % \pause
+                    \item Middle-SES are marginally more accurate (joint F-test, $p < 0.1$) 
+                    \pause
+                    \item No difference (joint F-test, $p = 0.41$) \hyperlink{own_belief}{\beamerbutton{Return}}
                 \end{itemize}
             \end{column}
             \begin{column}{0.62\textwidth}
                 \centering
                 \includegraphics[width=0.95\columnwidth]{nb_byses.png}
-                \label{fig:nb_byses}
+                 \only<1>{
+                     \includegraphics[width=0.95\columnwidth]{../figures/ob_byses.png}
+                }
+                \only<2>{
+                    \includegraphics[width=0.95\columnwidth]{../figures/nb_byses.png}
+                }
+                \label{fig:ob_byses}
             \end{column}
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Strong selection by Low-SES}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Significant Low-SES selection ($t$-tests, $p < 0.01$)  
-                    \item Other SES groups do select less ($t$-tests, $p > 0.05$) \hyperlink{tab:selection}{\beamerbutton{Return}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{selection_performance.png}
-                \label{fig:selection_byses}
-            \end{column}
-        \end{columns}
-    \end{frame}
 
-    \begin{frame}{Nominee Beliefs are rewarded for accuracy}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Negative coeffient is explained by quadratic shape \hyperlink{referral_quality}{\beamerbutton{Return}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{score_premium_qfit.png}
-                \label{fig:score_premium_qfit}
-            \end{column}
-        \end{columns}
-    \end{frame}
+    % \begin{frame}{Strong selection by Low-SES}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item Significant Low-SES selection ($t$-tests, $p < 0.01$)  
+    %                 \item Other SES groups do select less ($t$-tests, $p > 0.05$) \hyperlink{tab:selection}{\beamerbutton{Return}}
+    %                 % \pause
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{selection_performance.png}
+    %             \label{fig:selection_byses}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
-    \begin{frame}{Own score beliefs are rewarded for accuracy}
-        \begin{columns}[T]
-            \begin{column}{0.38\textwidth}
-                \vspace{2em}
-                \begin{itemize}
-                    \item Positive coeffient is explained by quadratic shape and extreme outliers \hyperlink{referral_quality}{\beamerbutton{Return}}
-                    % \pause
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.95\columnwidth]{ob_qfit.png}
-                \label{fig:ob_qfit}
-            \end{column}
-        \end{columns}
-    \end{frame}
+    % \begin{frame}{Nominee Beliefs are rewarded for accuracy}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item Negative coeffient is explained by quadratic shape \hyperlink{referral_quality}{\beamerbutton{Return}}
+    %                 % \pause
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{score_premium_qfit.png}
+    %             \label{fig:score_premium_qfit}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
+
+    % \begin{frame}{Own score beliefs are rewarded for accuracy}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.38\textwidth}
+    %             \vspace{2em}
+    %             \begin{itemize}
+    %                 \item Positive coeffient is explained by quadratic shape and extreme outliers \hyperlink{referral_quality}{\beamerbutton{Return}}
+    %                 % \pause
+    %             \end{itemize}
+    %         \end{column}
+    %         \begin{column}{0.62\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\columnwidth]{ob_qfit.png}
+    %             \label{fig:ob_qfit}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
     \begin{frame}{Courses taken by SES}
         \begin{columns}[T]
@@ -2069,6 +2018,40 @@
                 \label{fig:tie_strength_by_ses}
             \end{column}
         \end{columns}
+    \end{frame}
+
+        \begin{frame}{Referrals are better than network average}\label{score_premium}
+        \begin{columns}[T]
+            \begin{column}{0.38\textwidth}
+                \vspace{2em}
+                \begin{itemize}
+                    \item Defined as nominee $j$'s score minus network average for each referrer $i$ across Math and Reading 
+                    \pause
+                    \item No difference between SES groups \hyperlink{who_gets}{\beamerbutton{Return}}
+                    % 
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.62\textwidth}
+                \centering
+                \only<1>{
+                    \includegraphics[width=0.95\columnwidth]{../figures/score_premium.png}\label{fig:score-premium}
+                }
+                \only<2>{
+                    \includegraphics[width=0.95\columnwidth]{../figures/sp_byses.png}
+                }
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+        \begin{frame}{Distribution of outcome variables} \label{distribution}
+        \centering % Center the figures on the slide
+    \begin{figure}
+        \includegraphics[width=0.49\textwidth]{tie_hist.png}
+        \includegraphics[width=0.49\textwidth]{other_score_hist.png} 
+    \end{figure}
+     \begin{itemize}
+    \item Visibly different for both variables \hyperlink{who_gets}{\beamerbutton{Return}}
+     \end{itemize}
     \end{frame}
 
     % \begin{frame}{Network SES composition}
