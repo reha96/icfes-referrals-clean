@@ -51,7 +51,7 @@
 Evidence from a referral field experiment\footnote{We obtained Institutional Review Board approvals from NYU Abu Dhabi (HRPP 2024-50) and the University of Luxembourg (ERP 24–028). The study design was preregistered in the OSF Registries prior to data collection (see \url{https://doi.org/10.17605/OSF.IO/V9T3W}).} }
 % \\ \large Experimental Design \\
 % \title{Skills, Inequality, and Referrals}
-\author{Manuel Munoz\footremember{liser}{Luxembourg Institute of Socio-Economic Research}, Ernesto Reuben\footnote{Division of Social Science, New York University Abu Dhabi} \footrecall{liser}, Reha Tuncer\footnote{University of Luxembourg}}  
+\author{Manuel Munoz,\footremember{liser}{Luxembourg Institute of Socio-Economic Research} Ernesto Reuben,\footnote{Division of Social Science, New York University Abu Dhabi} \footrecall{liser} Reha Tuncer\footnote{University of Luxembourg}}  
 % \footnote{Center for Behavioral Institutional Design at New York University Abu Dhabi} 
 \begin{document}
 \linenumbers 
@@ -74,23 +74,81 @@ Lorem Ipsum \citep{beaman_job_2018}
 
 \pagebreak
 \section{Introduction}
-Equally qualified individuals may face very different labor market outcomes depending on their socioeconomic status (SES). A key driver of this inequality according to sociologists is due to differences in social capital (e.g., Bourdieu). A lack of social capital means a lack of access to individuals with influential (higher paid) jobs and job opportunities. In economic terms, it implies having worse outcomes when using one's network to find jobs conditional on the capacity on leveraging one's social network.\footnote{See for example \citet{lin1981asr,mouw2003asr} for differential outcomes while using contacts in job search, and \citet{smith2005ajs,Pedulla2019RaceAN} specifically for the effects of race conditional on network use. \textcolor{red}{fill in citaiton sociology reading from slides}} 
+Equally qualified individuals may face very different labor market outcomes depending on their socioeconomic status (SES). A key driver of this inequality is due to differences in social capital,\footnote{See for example \citet{loury_dynamic_1977,bourdieu_forms_1986} for pioneering work on the relationship between social position and human capital acquisition.} with recent empirical work characterizing its most important facet as the “share of high-SES friends among individuals with low-SES” because it correlates strongly with labor market income \citep{chetty2022social_a}. A lack of social capital means a lack of access to individuals with influential (higher paid) jobs and job opportunities. In economic terms, it implies having worse outcomes when using one's network to find jobs conditional on the capacity on leveraging one's social network.\footnote{See for example \citet{lin1981asr,mouw2003asr} for differential outcomes while using contacts in job search, and \citet{smith2005ajs,Pedulla2019RaceAN} specifically for the effects of race conditional on network use. \textcolor{red}{fill in citaiton sociology reading from slides}} 
 
-Referral hiring, the formal or informal process where firms ask workers to recommend qualified candidates for job opportunities, is a common labor market practice where the role of differences in social capital becomes evident. As referrals must orginate from the networks of referrers, the composition of referrer networks becomes a crucial channel that may propagate inequality: Similar individuals across socio-demographic characteristics tend to form connections at higher rates \citep{mcpherson2001birds}, making across SES (low-to-high) connections less likely than same-SES connections \citep{chetty2022social_a}.\footnote{Chetty and colleagues suggests the share of high-SES connections among low-SES networks as the definition of social capital, as it correlates so strongly with labor market income.} Referrals will thus reflect similarities in socio-demographic characteristics present in networks even in the absence of biases in the referral procedure, i.e., referring at random from one's network according to some productivity criteria.
+Referral hiring, the formal or informal process where firms ask workers to recommend qualified candidates for job opportunities, is a common labor market practice which makes evident the role of differences in social capital. As referrals must orginate from the networks of referrers, the composition of referrer networks becomes a crucial channel that may propagate inequality: Similar individuals across socio-demographic characteristics tend to form connections at higher rates \citep{mcpherson2001birds}, making across SES (low-to-high) connections less likely than same-SES connections \citep{chetty2022social_a}. Referrals will thus reflect similarities in socio-demographic characteristics present in networks even in the absence of biases in the referral procedure, i.e., referring at random from one's network according to some productivity criteria.
 
-Evidence shows referrals are biased under substantial pay-for-performance incentives beyond what is attribuable to differences in network compositions, at least for the case of gender \citep{beaman_job_2018,hederos2025gender}. A similar bias against low-SES may further exacerbate outcomes of low-SES individuals: If job information are in the hands of a select few high-SES which low-SES have already limited network access to (social capital hypothesis), and high-SES referrers are biased against low-SES, referring other high-SES at higher rates than their network composition, we expect referral hiring to disadvantagee low-SES. The empirical question we answer is whether there is a bias against low-SES once we account for the network SES compositon in a controlled setting.
+Evidence shows referrals can be biased under substantial pay-for-performance incentives beyond what is attribuable to differences in network compositions, at least for the case of gender \citep{beaman_job_2018,hederos2025gender}. A similar bias against low-SES may further exacerbate outcomes of low-SES individuals: If job information are in the hands of a select few high-SES which low-SES have already limited network access to (social capital hypothesis), and high-SES referrers are biased against low-SES, referring other high-SES at higher rates than their network composition, we expect referral hiring to disadvantagee low-SES. The empirical question we answer is whether there is a bias against low-SES once we account for the network SES compositon in a controlled setting.
 
-In this study, we focus on the role of SES in referrals by investigating whether individuals who are asked to refer someone tend to refer a candidate of their own SES. We also explore potential mechanisms behind referral patterns under different incentives. To this end, we conducted a lab-in-the-field experiment with 734 participants in a Colombian university where different SES groups mix together. Participants were instructed to refer a qualified student for tasks similar to the math and reading parts of the national university entry exam (equivalent of SAT in US system). To incentivize participants to refer qualified candidates, we set earnings dependent on referred candidates' actual university entry exam scores.
+In this study, we focus on the role of SES in referrals by investigating whether individuals who are asked to refer someone tend to refer a same-SES candidate. We also explore potential mechanisms behind referral patterns under different incentives. To this end, we conducted a lab-in-the-field experiment with 734 participants in a Colombian university where different SES groups mix together. Participants were instructed to refer a qualified student for tasks similar to the math and reading parts of the national university entry exam (equivalent of SAT in US system). To incentivize participants to refer qualified candidates, we set earnings dependent on referred candidates' actual university entry exam scores.
 
-Referral hiring in the labor market range form formal referral program at firm asking employees to refer to simply passing on job opportunities between network members \citep{topa2019social}. As participants in our study are students at the university referring based on exam scores, we abstract away from formal referral programs with defined job openings. Our setting instead resembles situations where contacts share opportunities with each other without the need for the referred candidate to take any action. This also eliminates reputational concerns as there is no firm (see for example \citet{witte2021workers,bandiera2009social}). At the same time, referring based on national university entry exam scores are still objective, widely accepted measures of ability, and we show evidence that referrers in our setting possess accurate information about these signals.
+Referral hiring in the labor market can range from firm-level formal referral programs asking employees to bring candidates to simply passing on job opportunities between network members \citep{topa2019social}. As participants in our study are students at the university referring based on exam scores, we abstract away from formal referral programs with defined job openings. Our setting instead resembles situations where contacts share opportunities with each other without the need for the referred candidate to take any action. This also eliminates reputational concerns as there is no firm (see for example \citet{witte2021workers,bandiera2009social}). At the same time, national university entry exam scores are still objective, widely accepted measures of ability, and we show evidence that referrers in our setting possess accurate information about these signals.
 
-We find no evidence that referrals are biased against low-SES after network SES compositions are accounted for. Networks of high- and low-SES participants show SES-homophily, and both groups are connected at higher rates with their own SES group than what would be at random given actual group shares at the university. Controlling for these, however, only low-SES students displayed same-SES homophily in referrals. Our treatment randomized participants across different incentives. We provide evidence that adding a substantial monetary bonus (\$25) for the referred candidate on top of the pay-for-performance incentives did not change the referral behavior we observed. 
+We find strong evidence that networks of high- and low-SES participants exhibit SES-homophily. Both groups are connected at higher rates with their own SES group than what would be at random given actual group shares at the university (Figure \ref{availability_lses}). As students take more courses together within the same program, their networks dwindle in size (Figures \ref{share_same_program_by_tie} and \ref{conns_by_tie}), and become more homogenous in SES-shares (Figure \ref{share_same_ses_by_tie}). We identify selection into academic programs as a key mechanism. The private university where our study takes place implements exogenous cost-based program pricing and does not offer SES-based price reductions. These result in programs with very large cost differences within the same university (Figure \ref{fees_with_boxplot}). We find that average yearly fees paid increase with SES, and the high-SES share in the most expensive program at the university, medicine, drives the network segregation across SES (Figure \ref{ses_distribution_by_fees}). 
 
-Same-SES bias is strongest among low-SES, 
+Do segregated networks account for all the differences in SES referral rates across SES groups? Same-SES referrals are 17\% more common than is suggested by referrer networks. High- and low-SES referrers under refer each other by 50\%. Yet, controlling for networks, our results suggest only low-SES students show significant same-SES homophily in referrals. Regardless of SES, referrals identify highly able individuals, and are characterized by a very high number of courses taken together. The latter underlies the impact of program selection in referrals, where the smaller and more homogenous choice sets come into play.
+Our treatment randomized participants across two different incentive schemes by adding a substantial monetary bonus (\$25) for the referred candidate on top of the pay-for-performance incentives. We provide evidence that treatment incentives did not change the referral behavior across the same-SES referral rate, the number of courses taken together with the referral candidate, and the candidate's exam scores.  
+
+This paper extends various the literature 
+
+The remainder of the paper is organized as follows. Section 2 begins with the background and setting in Colombia. In Section 3 we present the design of the experiment. In Section 4 we describe the data and procedures. Section 5 discusses the results of the experiment. Section 6 concludes. The Appendix presents additional tables and figures as well as the experiment instructions.
 
 
 
+\begin{figure}[H]
+  \centering
+  \caption{Effect of the Bonus on Referrals}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{../figures/availability_lses.png}
+      \caption{Reading}  
+      \label{availability_lses}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{../figures/share_same_ses_by_tie.png}
+      \caption{Math}
+      \label{share_same_ses_by_tie}
+  \end{subfigure}
+  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.}
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+  \caption{Effect of the Bonus on Referrals}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{../figures/share_same_program_by_tie.png}
+      \caption{Reading}  
+      \label{share_same_program_by_tie}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{../figures/conns_by_tie.png}
+      \caption{Math}
+      \label{conns_by_tie}
+  \end{subfigure}
+  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.  considering the net average monthly wage stands at \$350 and minimum legal wage is at \$200 in 2025}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \caption{Effect of the Bonus on Referrals}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{../figures/fees_with_boxplot.png}
+      \caption{Reading}  
+      \label{fees_with_boxplot}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+      \includegraphics[width=\linewidth]{../figures/ses_distribution_by_fees.png}
+      \caption{Math}
+      \label{ses_distribution_by_fees}
+  \end{subfigure}
+  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.  considering the net average monthly wage stands at \$350 and minimum legal wage is at \$200 in 2025}
+\end{figure}
 
 \section{Background and Setting} \label{s2}
 

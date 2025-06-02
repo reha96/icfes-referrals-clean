@@ -55,6 +55,30 @@ Beaman, L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Bourdieu%
+}{%
+Bourdieu%
+}{%
+{\protect \APACyear {1986}}%
+}]{%
+bourdieu_forms_1986}
+\APACinsertmetastar {%
+bourdieu_forms_1986}%
+\begin{APACrefauthors}%
+Bourdieu, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1986}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Forms of Capital} {The forms of capital}.{\BBCQ}
+\newblock
+\BIn{} J.~Richardson\ (\BED), \APACrefbtitle {Handbook of Theory and Research for the Sociology of Education} {Handbook of theory and research for the sociology of education}\ (\BPGS\ 241--258).
+\newblock
+\APACaddressPublisher{New York}{Greenwood Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Chetty%
 \ \protect \BOthers {.}}{%
 Chetty%
@@ -136,6 +160,32 @@ Lin, N.%
 \APACjournalVolNumPages{American Sociological Review}{46}{4}{393--405}.
 \newblock
 \begin{APACrefDOI} \doi{10.2307/2095260} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Loury%
+}{%
+Loury%
+}{%
+{\protect \APACyear {1977}}%
+}]{%
+loury_dynamic_1977}
+\APACinsertmetastar {%
+loury_dynamic_1977}%
+\begin{APACrefauthors}%
+Loury, G\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1977}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Dynamic Theory of Racial Income Differences} {A dynamic theory of racial income differences}.{\BBCQ}
+\newblock
+\BIn{} P\BPBI A.~Wallace\ \BBA {} A\BPBI M.~LaMond\ (\BEDS), \APACrefbtitle {Women, Minorities, and Employment Discrimination} {Women, minorities, and employment discrimination}\ (\BPGS\ 153--186).
+\newblock
+\APACaddressPublisher{Lexington, MA}{Lexington Books}.
+\newblock
+\APACrefnote{Originally published as Discussion Paper 225, Northwestern University, Center for Mathematical Studies in Economics and Management Science, 1976}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
