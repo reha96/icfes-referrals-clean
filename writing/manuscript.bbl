@@ -84,10 +84,10 @@ Chetty%
 Chetty%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2022}}%
-}]{%
-chetty2022social_a}
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+chetty2022n}
 \APACinsertmetastar {%
-chetty2022social_a}%
+chetty2022n}%
 \begin{APACrefauthors}%
 Chetty, R.%
 , Jackson, M\BPBI O.%
@@ -95,15 +95,74 @@ Chetty, R.%
 , Stroebel, J.%
 , Hendren, N.%
 , Fluegge, R\BPBI B.%
-\BDBL {}others%
+\BDBL {}Wernerfelt, N.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2022}{}{}.
+\APACrefYearMonthDay{2022{\protect \BCnt {1}}}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Social capital {I}: measurement and associations with economic mobility} {Social capital {I}: measurement and associations with economic mobility}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Social Capital {{II}}: Determinants of Economic Connectedness} {Social capital {{II}}: Determinants of economic connectedness}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{608}{7921}{122--134}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/s41586-022-04997-3} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chetty%
+\ \protect \BOthers {.}}{%
+Chetty%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+chetty2022na}
+\APACinsertmetastar {%
+chetty2022na}%
+\begin{APACrefauthors}%
+Chetty, R.%
+, Jackson, M\BPBI O.%
+, Kuchler, T.%
+, Stroebel, J.%
+, Hendren, N.%
+, Fluegge, R\BPBI B.%
+\BDBL {}Wernerfelt, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022{\protect \BCnt {2}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social Capital {{I}}: Measurement and Associations with Economic Mobility} {Social capital {{I}}: Measurement and associations with economic mobility}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Nature}{608}{7921}{108--121}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/s41586-022-04996-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fergusson%
+\ \BBA {} Flórez%
+}{%
+Fergusson%
+\ \BBA {} Flórez%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+fergusson2021distincion}
+\APACinsertmetastar {%
+fergusson2021distincion}%
+\begin{APACrefauthors}%
+Fergusson, L.%
+\BCBT {}\ \BBA {} Flórez, S\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Distinción escolar} {Distinción escolar}.{\BBCQ}
+\newblock
+\BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García-Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas}\ (\BPGS\ 81--114).
+\newblock
+\APACaddressPublisher{Bogotá}{Ariel}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -132,6 +191,62 @@ Hederos, K.%
 {\BBOQ}\APACrefatitle {Gender homophily in job referrals: Evidence from a field study among university students} {Gender homophily in job referrals: Evidence from a field study among university students}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Labour Economics}{92}{}{102662}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Jaramillo-Echeverri}%
+\ \BBA {} {\'A}lvarez%
+}{%
+{Jaramillo-Echeverri}%
+\ \BBA {} {\'A}lvarez%
+}{%
+{\protect \APACyear {2023}}%
+}]{%
+jaramillo-echeverri2023}
+\APACinsertmetastar {%
+jaramillo-echeverri2023}%
+\begin{APACrefauthors}%
+{Jaramillo-Echeverri}, J.%
+\BCBT {}\ \BBA {} {\'A}lvarez, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+\APACrefbtitle {The {{Persistence}} of {{Segregation}} in {{Education}}: {{Evidence}} from {{Historical Elites}} and {{Ethnic Surnames}} in {{Colombia}}} {The {{Persistence}} of {{Segregation}} in {{Education}}: {{Evidence}} from {{Historical Elites}} and {{Ethnic Surnames}} in {{Colombia}}}\ ({{SSRN Scholarly Paper}}\ \BNUM\ 4575894).
+\newblock
+\APACaddressPublisher{Rochester, NY}{Social Science Research Network}.
+\newblock
+\begin{APACrefDOI} \doi{10.2139/ssrn.4575894} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kossinets%
+\ \BBA {} Watts%
+}{%
+Kossinets%
+\ \BBA {} Watts%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+kossinets_origins_2009}
+\APACinsertmetastar {%
+kossinets_origins_2009}%
+\begin{APACrefauthors}%
+Kossinets, G.%
+\BCBT {}\ \BBA {} Watts, D\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Origins of Homophily in an Evolving Social Network} {Origins of homophily in an evolving social network}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Journal of Sociology}{115}{2}{405--450}.
+\newblock
+\begin{APACrefURL} \url{https://www.journals.uchicago.edu/doi/abs/10.1086/599247} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1086/599247} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -287,6 +402,31 @@ Smith, S\BPBI S.%
 \APACjournalVolNumPages{American Journal of Sociology}{111}{1}{1--57}.
 \newblock
 \begin{APACrefDOI} \doi{10.1086/428814} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Stansbury%
+\ \BBA {} Rodriguez%
+}{%
+Stansbury%
+\ \BBA {} Rodriguez%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+stansbury2024class}
+\APACinsertmetastar {%
+stansbury2024class}%
+\begin{APACrefauthors}%
+Stansbury, A.%
+\BCBT {}\ \BBA {} Rodriguez, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The class gap in career progression: Evidence from {US} academia} {The class gap in career progression: Evidence from {US} academia}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Working Paper}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
