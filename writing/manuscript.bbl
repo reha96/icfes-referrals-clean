@@ -55,6 +55,33 @@ Beaman, L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Beaman%
+\ \BBA {} Magruder%
+}{%
+Beaman%
+\ \BBA {} Magruder%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+beaman_who_2012}
+\APACinsertmetastar {%
+beaman_who_2012}%
+\begin{APACrefauthors}%
+Beaman, L.%
+\BCBT {}\ \BBA {} Magruder, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Who {Gets} the {Job} {Referral}? {Evidence} from a {Social} {Networks} {Experiment}} {Who {Gets} the {Job} {Referral}? {Evidence} from a {Social} {Networks} {Experiment}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Economic Review}{102}{7}{3574--3593}.
+\newblock
+\begin{APACrefDOI} \doi{10.1257/aer.102.7.3574} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Bourdieu%
 }{%
 Bourdieu%
@@ -139,6 +166,34 @@ Chetty, R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+D{\'\i}az%
+, Munoz%
+, Reuben%
+\BCBL {}\ \BBA {} Tuncer%
+}{%
+D{\'\i}az%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+diaz_peer_2025}
+\APACinsertmetastar {%
+diaz_peer_2025}%
+\begin{APACrefauthors}%
+D{\'\i}az, J.%
+, Munoz, M.%
+, Reuben, E.%
+\BCBL {}\ \BBA {} Tuncer, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{March}{}.
+\newblock
+\APACrefbtitle {Peer skill identification and social class: Evidence from a referral field experiment.} {Peer skill identification and social class: Evidence from a referral field experiment.}
+\newblock
+\APACrefnote{Working Paper}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Fergusson%
 \ \BBA {} Flórez%
 }{%
@@ -146,7 +201,34 @@ Fergusson%
 \ \BBA {} Flórez%
 }{%
 {\protect \APACyear {2021}}%
-}]{%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+fergusson2021desigualdad}
+\APACinsertmetastar {%
+fergusson2021desigualdad}%
+\begin{APACrefauthors}%
+Fergusson, L.%
+\BCBT {}\ \BBA {} Flórez, S\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021{\protect \BCnt {1}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Desigualdad Educativa en Colombia} {Desigualdad educativa en colombia}.{\BBCQ}
+\newblock
+\BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García-Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas}\ (\BPGS\ 81--114).
+\newblock
+\APACaddressPublisher{Bogotá}{Ariel}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fergusson%
+\ \BBA {} Flórez%
+}{%
+Fergusson%
+\ \BBA {} Flórez%
+}{%
+{\protect \APACyear {2021}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
 fergusson2021distincion}
 \APACinsertmetastar {%
 fergusson2021distincion}%
@@ -156,13 +238,37 @@ Fergusson, L.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2021}{}{}.
+\APACrefYearMonthDay{2021{\protect \BCnt {2}}}{}{}.
 \newblock
 {\BBOQ}\APACrefatitle {Distinción escolar} {Distinción escolar}.{\BBCQ}
 \newblock
 \BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García-Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas}\ (\BPGS\ 81--114).
 \newblock
 \APACaddressPublisher{Bogotá}{Ariel}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Griffith%
+}{%
+Griffith%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+griffith2022jle}
+\APACinsertmetastar {%
+griffith2022jle}%
+\begin{APACrefauthors}%
+Griffith, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Name {{Your Friends}}, but {{Only Five}}? {{The Importance}} of {{Censoring}} in {{Peer Effects Estimates Using Social Network Data}}} {Name {{Your Friends}}, but {{Only Five}}? {{The Importance}} of {{Censoring}} in {{Peer Effects Estimates Using Social Network Data}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Labor Economics}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1086/717935} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -351,6 +457,33 @@ Mouw, T.%
 \APACjournalVolNumPages{American Sociological Review}{68}{6}{868--898}.
 \newblock
 \begin{APACrefDOI} \doi{10.1177/000312240306800604} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pallais%
+\ \BBA {} Sands%
+}{%
+Pallais%
+\ \BBA {} Sands%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+pallais_why_2016}
+\APACinsertmetastar {%
+pallais_why_2016}%
+\begin{APACrefauthors}%
+Pallais, A.%
+\BCBT {}\ \BBA {} Sands, E\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Why the {Referential} {Treatment}? {Evidence} from {Field} {Experiments} on {Referrals}} {Why the {Referential} {Treatment}? {Evidence} from {Field} {Experiments} on {Referrals}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Political Economy}{124}{6}{1793--1828}.
+\newblock
+\begin{APACrefDOI} \doi{10.1086/688850} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
