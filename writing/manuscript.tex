@@ -47,8 +47,7 @@
 \usepackage[colorlinks=true, citecolor=blue, linkcolor=blue, urlcolor=blue,breaklinks]{hyperref}
 
 
-\title{Project ICFES:
-Evidence from a referral field experiment\footnote{We obtained Institutional Review Board approvals from NYU Abu Dhabi (HRPP 2024-50) and the University of Luxembourg (ERP 24–028). The study design was preregistered in the OSF Registries prior to data collection (see \url{https://doi.org/10.17605/OSF.IO/V9T3W}).} }
+\title{Class differences in social networks: Evidence from a referral experiment}
 % \\ \large Experimental Design \\
 % \title{Skills, Inequality, and Referrals}
 \author{Manuel Munoz,\footremember{liser}{Luxembourg Institute of Socio-Economic Research} Ernesto Reuben,\footnote{Division of Social Science, New York University Abu Dhabi} \footrecall{liser} Reha Tuncer\footnote{University of Luxembourg}}  
@@ -84,97 +83,103 @@ In this study, we study inequalities related to SES combining a university-wide 
 
 Referral hiring in the labor market can range from firm-level formal referral programs asking employees to bring candidates to simply passing on job opportunities between network members \citep{topa2019social}. As our participants are students at the university and refer based on exam scores, we abstract away from formal referral programs with defined job openings. Our setting instead resembles situations where contacts share opportunities with each other without the need for the referred candidate to take any action and without revealing the identity of the referrer. This eliminates reputational concerns as there is no hiring firm, and puts a lower bound on the expected reciprocity for the referrer in combination with pay-for-performance incentives \citep{witte2021workers,bandiera2009social}. At the same time, referring based on university entry exam scores are still an objective, widely accepted measure of ability, and we show evidence that referrers in our setting not only possess accurate information about these signals but are also able to screen more productive individuals from their university network.
 
-In a university setting, class attendance provides essential opportunities for face-to-face interaction between students. On the one hand, this reduces network segregation by providing ample opportunities to meet across-SES, because of the exposure to an equal or higher level of high-SES compared to the population \citep{chetty2022n}.\footnote{In a different sample from the same university population, \citet{diaz_peer_2025} show this holds true for the highest-SES individuals at this institution, account for about 6\% of their sample but less than 5\% of Colombian high-school graduates \citet{fergusson2021desigualdad}.} On the other hand, as students take more and more classes together, their similarities across all observable characteristics tend to increase \citep{kossinets_origins_2009}, which should drive the high- and low-SES networks to segregate. Our setting is ideal to study these opposing forces: First, The very high level of income inequality and existence of deeply rooted historical groups in Colombia makes SES differences extremely visible in access to tertiary education, where the rich and poor typically select into different institutions \citep{jaramillo-echeverri2023}. Yet, thanks to the particular standing of the institution we have chosen for this study (Figure \ref{school_quality_income}), all SES groups including both low- and high-SES mix together in this university. Second, using administrative data, we are able to reconstruct 734 participants' complete university network based on the number of common courses they have taken together with other students. This allows directly identifying the individual characteristics of those getting referrals among all possible candidates, as well as descriptive characterizations of similarity (e.g., in same-SES share) in student networks as a function of the number of classes taken. 
+In a university setting, class attendance provides essential opportunities for face-to-face interaction between students. On the one hand, this reduces network segregation by providing ample opportunities to meet across-SES, because of the exposure to an equal or higher level of high-SES compared to the population \citep{chetty2022n}.\footnote{In a different sample from the same university population, \citet{diaz_peer_2025} show this holds true for the highest-SES individuals at this institution, accounting for about 6\% of their sample but less than 5\% of Colombian high-school graduates \citet{fergusson2021desigualdad}.} On the other hand, as students take more and more classes together, their similarities across all observable characteristics tend to increase \citep{kossinets_origins_2009}, which should drive the high- and low-SES networks to segregate. Our setting is ideal to study these opposing forces: First, The very high level of income inequality and existence of deeply rooted historical groups in Colombia makes SES differences extremely visible in access to tertiary education, where the rich and poor typically select into different institutions \citep{jaramillo-echeverri2023}. Yet, thanks to the particular standing of the institution we have chosen for this study (Figure \ref{school_quality_income}), all SES groups including both low- and high-SES mix together in this university. Second, using administrative data, we are able to reconstruct 734 participants' complete university network based on the number of common courses they have taken together with other students. This allows directly identifying the individual characteristics of those getting referrals among all possible candidates, as well as descriptive characterizations of similarity (e.g., in same-SES share) in student networks as a function of the number of classes taken. 
 
 We find strong evidence that networks of high- and low-SES participants exhibit same-SES bias. Both groups are connected at higher rates with their own SES group than what would be at random given actual group shares at the university (Figure \ref{availability_lses}). As students take more courses together within the same program, their networks dwindle in size (Figures \ref{share_same_program_by_tie} and \ref{conns_by_tie}), and become more homogenous in SES-shares (Figure \ref{share_same_ses_by_tie}). We identify selection into academic programs as a key mechanism. The private university where our study took place implements exogenous cost-based program pricing and does not offer SES-based price reductions. These result in programs with very large cost differences within the same university (Figure \ref{fees_with_boxplot}). We find that average yearly fee paid per student increases with SES, and the high-SES share in the most expensive program at the university, medicine, drives the network segregation across SES (Figure \ref{ses_distribution_by_fees}). 
 
 Do segregated networks account for all the differences in SES referral rates across SES groups? Although same-SES referrals are 17\% more common than is suggested by referrer networks, controlling for these, we find no general SES-bias against beyond what is attribuable to network composition. Regardless of SES, participants refer productive individuals, and referred candidates are characterized by a very high number of courses taken together. The latter underlies the impact of program selection, where smaller and more homogenous parts of the networks are activated for referrals made in our setting. Our treatment randomized participants across two different incentive schemes by adding a substantial monetary bonus (\$25) for the referred candidate on top of the pay-for-performance incentives. We provide evidence that treatment incentives did not change the referral behavior across the same-SES referral rate, the number of courses taken together with the referral candidate, and the candidate's exam scores.  
 
-This paper contributes to the literature on referral experiments by solving the challenge of observing the entire referral network. Earlier research could only make observe referrals made across different incentive structures or experimental instructions and make according conclusions. For example, when participants are paid on the basis of their referred candidate's productivity instead of receiving a fixed finder's fee \citep{beaman_who_2012}, or when participants are restrictred to refer either a male or female candidate instead of freely \citep{beaman_job_2018}. \citet{pallais_why_2016} recruited a random sample of nonreferred workers to compare with referred ones, but none of the previous studies could provide a direct comparison of the referral choice set with those who were selected by participants. Closest to our work is the work of \citet{hederos2025gender}, who elicited friendship networks by asking referrers to name 5 friends. Their findings suggest only half of those who were referred were from the elicited friendship network, and thus is not a complete observation of the referral choice set. Although commonplace, censored elicitation methods also result in underestimating network effects \citep{griffith2022jle} and may suffer from biases in recall. We are able to take our analysis one step further by asking for referrals from the enrollment network, where we have complete information on every single connection that may or may not get a referral. This allows us to neatly separate the effect of the network composition from any potential biases stemming from the referral procedure itself.  
+This paper contributes to the literature on referral experiments by solving the challenge of observing the entire referral network. Earlier research could only compare referrals made across different incentive structures or experimental instructions and make according conclusions. For example, when participants are paid on the basis of their referred candidate's productivity instead of receiving a fixed finder's fee \citep{beaman_who_2012}, or when participants are restrictred to refer either a male or female candidate instead of freely \citep{beaman_job_2018}. \citet{pallais_why_2016} recruited a random sample of nonreferred workers to compare with referred ones, but none of the previous studies could provide a direct comparison of the referral choice set with those who were selected by participants. Closest to our work is the work of \citet{hederos2025gender}, who elicited friendship networks by asking referrers to name 5 friends. Their findings suggest only half of those who were referred were from the elicited friendship network, and thus is not a complete observation of the referral choice set. Although commonplace, censored elicitation methods also result in underestimating network effects \citep{griffith2022jle} and may suffer from biases in recall. We are able to take our analysis one step further by asking for referrals from the enrollment network, where we have complete information on every single connection that may or may not get a referral. This allows us to neatly separate the effect of the network composition from any potential biases stemming from the referral procedure itself.  
 
- Second, we contribute to the earlier work on SES-biases in referrals. To our knowledge, \citet{diaz_peer_2025} are the first to study SES-biases in referals. Drawing from a similar sample from the same institution, they focus on referrals from first year students made within mixed-program classrooms, and find no evidence for an aggregate bias against low-SES. We also find no aggregate bias against low-SES in referrals. Our setup differs as we sample from students who completed their first year and impose no limits on referring from a classroom. This has several implications: We find that referrals in our setup go to individuals within the same program, and that programs have different SES-shares which become more even more accentuated as students take more courses together. While networks in our sample drive inequality in referral outcomes because of the institional environment, we have no reason to believe networks in \citet{diaz_peer_2025} have similar levels of segregation to begin with.
+Second, we build upon to the earlier work on SES-biases in referrals. To our knowledge, the first to study SES-biases in referals are \citet{diaz_peer_2025}, and our study is conceptually the closest to theirs. Drawing from a similar sample from the same institution, \citet{diaz_peer_2025} focus on referrals from first year students made within mixed-program classrooms, and find no evidence for an aggregate bias against low-SES. We also find no aggregate bias against low-SES in referrals. Our setup differs as we sample from students who completed their first year and impose no limits on referring from a classroom. This has several implications: We find that referrals in our setup go to individuals within the same program, and that programs have different SES-shares which become more even more accentuated as students take more courses together. While networks drive inequality in referral outcomes because of the institional environment in our sample, we have no reason to believe first year student networks in \citet{diaz_peer_2025} have similar levels of segregation to begin with. Following the recent evidence, implementing more mixed-program courses which allow for across-SES mixing can be a clear policy goal \citep{alan2023troeasa,rohrer2021po}.
 
 Finally, we contribute to the growing literature on SES differences in the labor market, expliciting the role of networks as a driver of inequality.
 \citet{stansbury2024class} find that low-SES researchers coauthor more often with other low-SES, and have networks that have lower values which can explain why 
 
-
-The remainder of the paper is organized as follows. Section 2 begins with the background and setting in Colombia. In Section 3 we present the design of the experiment. In Section 4 we describe the data and procedures. Section 5 discusses the results of the experiment. Section 6 concludes. The Appendix presents additional tables and figures as well as the experiment instructions.
+The remainder of the paper is organized as follows. Section \ref{s2} begins with the background and setting in Colombia. In Section \ref{s3} we present the design of the experiment. In Section \ref{s4} we describe the data and procedures. Section \ref{s5} discusses the results of the experiment. Section \ref{s6} concludes. The Appendix presents additional tables and figures as well as the experiment instructions.
 
 
 
 \begin{figure}[H]
   \centering
-  \caption{Effect of the Bonus on Referrals}
+  \caption{Networks of SES groups and same-SES segregation}
   \begin{subfigure}[t]{0.49\textwidth}
     \centering
       \includegraphics[width=\linewidth]{../figures/availability_lses.png}
-      \caption{Reading}  
+      \caption{SES networks}  
       \label{availability_lses}
   \end{subfigure}
   \begin{subfigure}[t]{0.49\textwidth}
     \centering
       \includegraphics[width=\linewidth]{../figures/share_same_ses_by_tie.png}
-      \caption{Math}
+      \caption{Same-SES share}
       \label{share_same_ses_by_tie}
   \end{subfigure}
-  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.}
+  \caption*{\footnotesize\textit{Note:} The left panel compares the network shares of SES groups in the networks of low-, middle-, and high-SES. Horizontal lines plot the university-wide shares of each SES group. While the share of low-SES peers in the network decreases as the SES of the group increases, the share of high-SES peers in the network increases. The right panel shows the average share of same-SES connections for low-, middle-, and high-SES as a function of the average number of courses taken together with network members. Low- and high-SES networks both become more homogenous as the average number of courses taken together with their connections increase.}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \caption{Effect of the Bonus on Referrals}
+  \caption{Network characteristics and courses taken together}
   \begin{subfigure}[t]{0.49\textwidth}
     \centering
       \includegraphics[width=\linewidth]{../figures/share_same_program_by_tie.png}
-      \caption{Reading}  
+      \caption{Same-program share}  
       \label{share_same_program_by_tie}
   \end{subfigure}
   \begin{subfigure}[t]{0.49\textwidth}
     \centering
       \includegraphics[width=\linewidth]{../figures/conns_by_tie.png}
-      \caption{Math}
+      \caption{Network size}
       \label{conns_by_tie}
   \end{subfigure}
-  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.  considering the net average monthly wage stands at \$350 and minimum legal wage is at \$200 in 2025}
+  \caption*{\footnotesize\textit{Note:} The left panel illustrates the share of connections within the same program as a function of the number of courses taken together. The right panel shows the average network size as a function of the number of courses taken together. Taking more than 5 courses together with a network member means on average 90\% chance to be in the same program. Similarly, past 5 courses together, the average network size dwindles by 80\%, from more than 220 individuals to below 50. 
+  }
 \end{figure}
 
 
 \begin{figure}[H]
   \centering
-  \caption{Effect of the Bonus on Referrals}
+  \caption{University programs by yearly fee and SES distribution}
   \begin{subfigure}[t]{0.49\textwidth}
     \centering
       \includegraphics[width=\linewidth]{../figures/fees_with_boxplot.png}
-      \caption{Reading}  
+      \caption{Programs sorted by fee}  
       \label{fees_with_boxplot}
   \end{subfigure}
   \begin{subfigure}[t]{0.49\textwidth}
     \centering
       \includegraphics[width=\linewidth]{../figures/ses_distribution_by_fees.png}
-      \caption{Math}
+      \caption{SES distribution by program fee}
       \label{ses_distribution_by_fees}
   \end{subfigure}
-  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.  considering the net average monthly wage stands at \$350 and minimum legal wage is at \$200 in 2025}
+  \caption*{\footnotesize\textit{Note:} The left panel shows the distribution of programs at the university by their average yearly fee. The right panel illustrates the distribution of each SES group across programs sorted by fee. As of 2025 net average monthly wage is around \$350 and the minimum legal wage is at \$200. The average yearly fee of programs stands at \$3000, and medicine is an extreme outlier at \$6000. Distributions of SES groups across programs show the majority of low-SES select into programs with below average cost, while high-SES select into programs with above average cost. Medicine accounts for a third of all high-SES students at this university.}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \caption{Participant network size and tie strength by time spent at UNAB}\label{school_quality_income}
+  \caption{Income, performance, and university choice in Colombia}\label{school_quality_income}
   \includegraphics[width=0.6\linewidth]{../figures/school_quality_income.png}
   \begin{tablenotes}
     \footnotesize
-    \item[] \textit{Note:} This figure displays the average number of connections for referrers in blue and the average number of classes they have taken together with their connections in green across semesters spent at UNAB. The data shows an increase in the number of classes taken together as students progress in their programs, with the connections peaking around 7 semesters and dropping as certain students finish their bachelor's. Figure reproduced from \citep{fergusson2021distincion}
+    \item[] \textit{Note:} This figure shows the average score national university entry exam by family income and type of higher education instition. With average student score in the 65-70 band, the private university where we conducted this experiment caters to low- and high-SES students. Figure reproduced from \citet{fergusson2021distincion}.
   \end{tablenotes}
 \end{figure}
 
 \section{Background and Setting} \label{s2}
 
+Our study takes place at UNAB, a medium-sized private university in Bucaramanga, Colombia with approximately 6,000 enrolled students. The university's student body is remarkably diverse with about 35\% of the students classified as low-SES, and 15\% high-SES. Diversity at this institution provides a unique research setting as Colombian society is highly unequal and generally characterized by limited interaction between social classes, with different socioeconomic groups separated by education and geographic residence.\footnote{Colombia has consistently ranked as one of the most unequal countries in Latin America \citep{barretoherrera2024regional}, with the richest decile earning 50 times more than the poorest decile \citep{comisioneconomicaparaamericalatinayel2023}. This economic disparity is reflected by a highly stratified society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}.} Despite significant financial barriers, many lower and middle-SES families prioritize university education for their children \citep[p. 103]{hudson_colombia_2010}, with UNAB representing one of the few environments where sustained inter-SES contact occurs naturally (see Figure \ref{school_quality_income}).
+
+In 1994, Colombia introduced a nationwide classification system dividing the population into 6 strata based on housing characteristics and neighborhood amenities.\footnote{Initially designed for utility subsidies from higher strata (5 and 6) to support lower strata (1 to 3), it now extends to university fees and social program eligibility. Stratum 4 neither receives subsidies nor pays extra taxes. This stratification system largely aligns with and potentially reinforces existing social class divisions \citep{uribe2008estratificacion, guevara2019spatializing}.} We use this classification as the measure of SES in our experiment: Students in strata 1 to 2 are categorized as low-SES, strata 3 to 4 as middle-SES and those in strata 5 to 6 as high-SES.
+
+We invited via email all 4,417 UNAB students who had at the time of recruitment completed their first year at the university to participate in our experiment. 837 students who joined (19\%) display large variations in terms of their academic programs and SES. This setup provides a unique opportunity for collaborative inter-class contact on equal status, whose positive effects on reducing discrimination are casually documented \citep{rao2019familiarity, mousa2020building,lowe2021types}.
 
 
 
 
 \section{Design} \label{s3}
 
+\section{Sample, Incentives, and Procedure} \label{s4}
 
 \section{Results} \label{s5}
 
@@ -379,15 +384,15 @@ The remainder of the paper is organized as follows. Section 2 begins with the ba
 \end{figure}
 
 
-  \begin{figure}[H]
-    \centering
-    \caption{Participant network performance by subject and SES}\label{performance}
-    \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png}
-    \begin{tablenotes}
-      \footnotesize
-      \item[] \textit{Note:} This figure displays the network average math and reading z-scores across referrer SES. We test differences between scores across SES using paired $t$-tests. For both math and reading scores, all differences between SES groups are statistically significant (all $p \leq 0.001$).
-    \end{tablenotes}
-  \end{figure}
+  % \begin{figure}[H]
+  %   \centering
+  %   \caption{Participant network performance by subject and SES}\label{performance}
+  %   \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_peer_performance.png}
+  %   \begin{tablenotes}
+  %     \footnotesize
+  %     \item[] \textit{Note:} This figure displays the network average math and reading z-scores across referrer SES. We test differences between scores across SES using paired $t$-tests. For both math and reading scores, all differences between SES groups are statistically significant (all $p \leq 0.001$).
+  %   \end{tablenotes}
+  % \end{figure}
 
   % \begin{figure}[H]
   %   \centering
@@ -401,22 +406,22 @@ The remainder of the paper is organized as follows. Section 2 begins with the ba
 
 
 
-  \begin{figure}[H]
-    \centering
-    \caption{Participant network composition by SES}
-    \includegraphics[width=0.6\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png}
-    \label{fig:baseline_ses}
-    \caption*{\footnotesize\textit{Note:} This figure displays the composition of networks by SES. We test differences in proportions of peer connections across SES groups using two-sample tests of proportions. All differences are statistically significant ($p <$ 0.001): Low SES students are more likely to connect with Low SES peers than Middle or High SES students; Middle SES students form more connections with Middle SES peers than Low SES students; and High SES students have the highest proportion of High SES connections.
-    }
-\end{figure}
+%   \begin{figure}[H]
+%     \centering
+%     \caption{Participant network composition by SES}
+%     \includegraphics[width=0.6\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_distribution.png}
+%     \label{fig:baseline_ses}
+%     \caption*{\footnotesize\textit{Note:} This figure displays the composition of networks by SES. We test differences in proportions of peer connections across SES groups using two-sample tests of proportions. All differences are statistically significant ($p <$ 0.001): Low SES students are more likely to connect with Low SES peers than Middle or High SES students; Middle SES students form more connections with Middle SES peers than Low SES students; and High SES students have the highest proportion of High SES connections.
+%     }
+% \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \caption{Participant network composition by SES}
-  \includegraphics[width=0.6\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/z_ses_tie_strength.png}
-  \label{fig:tie_ses}
-  \caption*{\footnotesize\textit{Note:} This figure displays the standardized tie strength by SES. We test differences in standardized tie strength across SES groups using two-sample $t$-tests. All differences are statistically significant ($p < 0.001$) except for the comparison between Middle and High SES students' connections to Low SES peers ($p = 0.65$). The standardized tie strength for High SES students with other High SES students is substantially positive (0.26), while all other tie strengths are negative or near zero.}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \caption{Participant network composition by SES}
+%   \includegraphics[width=0.6\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/z_ses_tie_strength.png}
+%   \label{fig:tie_ses}
+%   \caption*{\footnotesize\textit{Note:} This figure displays the standardized tie strength by SES. We test differences in standardized tie strength across SES groups using two-sample $t$-tests. All differences are statistically significant ($p < 0.001$) except for the comparison between Middle and High SES students' connections to Low SES peers ($p = 0.65$). The standardized tie strength for High SES students with other High SES students is substantially positive (0.26), while all other tie strengths are negative or near zero.}
+% \end{figure}
 
 %   \begin{figure}[H]
 %     \centering
@@ -449,77 +454,77 @@ The remainder of the paper is organized as follows. Section 2 begins with the ba
 %   \caption*{\footnotesize\textit{Note:} This figure displays the standardized tie strength by SES. We test differences in z-score tie strength across SES groups using two-sample $t$-tests. All differences are statistically significant ($p < 0.001$) except for the comparison between Middle and High SES students' connections to Low SES peers ($p = 0.65$). The standardized tie strength for High SES students with other High SES students is substantially positive (0.26), while all other tie strengths are negative or near zero. These patterns reveal strong homophily in network formation, particularly among High SES students, while Low SES students show moderate homophily patterns.}
 % \end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \caption{Baseline Referral Patterns by SES}
-    \begin{subfigure}[t]{0.49\textwidth}
-      \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png}
-        \caption{Referral Rates}  
-        \label{fig:baseline_rates}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-      \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png}
-        \caption{Referral Performance}
-        \label{fig:baseline_performance}
-    \end{subfigure}
-    \label{fig:baseline_combined}
-    \caption*{\footnotesize\textit{Note:} The left panel shows the distribution of referrals across SES in the baseline condition. We test differences in SES shares across SES groups using two-sample tests of proportions. All differences are statistically significant ($p < 0.1$). The right panel shows the average standardized math and reading scores of referred students by referrer's SES. We test differences in z-scores across SES groups using two-sample $t$-tests and find no statistically significant differences in reading scores across SES groups (all $p > 0.36$). For math scores, we observe marginally significant differences between Low and High SES students ($p = 0.08$) and between Middle and High SES students ($p = 0.18$), with High SES referring peers with higher math performance.}
-  \end{figure}
+  % \begin{figure}[H]
+  %   \centering
+  %   \caption{Baseline Referral Patterns by SES}
+  %   \begin{subfigure}[t]{0.49\textwidth}
+  %     \centering
+  %       \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_referral_distribution.png}
+  %       \caption{Referral Rates}  
+  %       \label{fig:baseline_rates}
+  %   \end{subfigure}
+  %   \hfill
+  %   \begin{subfigure}[t]{0.49\textwidth}
+  %     \centering
+  %       \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_performance.png}
+  %       \caption{Referral Performance}
+  %       \label{fig:baseline_performance}
+  %   \end{subfigure}
+  %   \label{fig:baseline_combined}
+  %   \caption*{\footnotesize\textit{Note:} The left panel shows the distribution of referrals across SES in the baseline condition. We test differences in SES shares across SES groups using two-sample tests of proportions. All differences are statistically significant ($p < 0.1$). The right panel shows the average standardized math and reading scores of referred students by referrer's SES. We test differences in z-scores across SES groups using two-sample $t$-tests and find no statistically significant differences in reading scores across SES groups (all $p > 0.36$). For math scores, we observe marginally significant differences between Low and High SES students ($p = 0.08$) and between Middle and High SES students ($p = 0.18$), with High SES referring peers with higher math performance.}
+  % \end{figure}
 
-  \begin{figure}[H]
-    \centering
-    \caption{Effect of the Bonus}
-    \label{fig:treat_combined}
-    \begin{subfigure}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png}
-        \caption{Changes in Referral Rates}
-        \label{fig:treat_rates}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png}
-        \caption{Changes in Referral Performance}
-        \label{fig:treat_performance}
-    \end{subfigure}
-    \caption*{\footnotesize\textit{Note:} The left panel shows the changes in referral rates across SES. We test differences in SES shares across conditions using two-sample tests of proportions. For Low-SES, only the change in referral share of Middle-SES is statistically significant ($p = 0.034$). For Middle-SES, only the change in referral share of High-SES is statistically significant ($p = 0.027$). For High-SES, only the change in referral share of Middle-SES is statistically significant ($p = 0.059$). The right panel shows the differences in math and reading z-scores across SES. We test differences in SES shares across conditions using two-sample $t$-tests. For both reading and math scores, the only statistically significant difference is in the reading scores for Low-SES ($p = 0.026$).}
-\end{figure}
+%   \begin{figure}[H]
+%     \centering
+%     \caption{Effect of the Bonus}
+%     \label{fig:treat_combined}
+%     \begin{subfigure}[t]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ses_treatment_effects.png}
+%         \caption{Changes in Referral Rates}
+%         \label{fig:treat_rates}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[t]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/treatment_effect.png}
+%         \caption{Changes in Referral Performance}
+%         \label{fig:treat_performance}
+%     \end{subfigure}
+%     \caption*{\footnotesize\textit{Note:} The left panel shows the changes in referral rates across SES. We test differences in SES shares across conditions using two-sample tests of proportions. For Low-SES, only the change in referral share of Middle-SES is statistically significant ($p = 0.034$). For Middle-SES, only the change in referral share of High-SES is statistically significant ($p = 0.027$). For High-SES, only the change in referral share of Middle-SES is statistically significant ($p = 0.059$). The right panel shows the differences in math and reading z-scores across SES. We test differences in SES shares across conditions using two-sample $t$-tests. For both reading and math scores, the only statistically significant difference is in the reading scores for Low-SES ($p = 0.026$).}
+% \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \caption{Effect of the Bonus on Tie Strength}
-  \label{fig:treat_combined2}
-  \begin{subfigure}[t]{0.49\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png}
-      \caption{Changes in Referral Rates}
-      \label{fig:tietreat_rates}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.49\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png}
-      \caption{Changes in Referral Performance}
-      \label{fig:tietreat_performance}
-  \end{subfigure}
-  \caption*{\footnotesize\textit{Note:} The left panel shows the changes in referral rates across socioeconomic strata (bonus minus baseline). The right panel shows the differences in average standardized math and reading scores of referred students by referrer's SES.}
-\end{figure}
-
-
+% \begin{figure}[H]
+%   \centering
+%   \caption{Effect of the Bonus on Tie Strength}
+%   \label{fig:treat_combined2}
+%   \begin{subfigure}[t]{0.49\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/baseline_ties.png}
+%       \caption{Changes in Referral Rates}
+%       \label{fig:tietreat_rates}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}[t]{0.49\textwidth}
+%       \centering
+%       \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/ties_treatment_effects.png}
+%       \caption{Changes in Referral Performance}
+%       \label{fig:tietreat_performance}
+%   \end{subfigure}
+%   \caption*{\footnotesize\textit{Note:} The left panel shows the changes in referral rates across socioeconomic strata (bonus minus baseline). The right panel shows the differences in average standardized math and reading scores of referred students by referrer's SES.}
+% \end{figure}
 
 
 
-\begin{figure}[H]
-  \centering
-  \caption{Performance by Tie Strength and SES}
-  \includegraphics[width=0.85\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined.png}
-  \label{fig:tie_score_ses}
-  \caption*{\footnotesize\textit{Note:} This figure shows local polynomial regressions of network math and reading z-scores by social tie strength across socioeconomic status groups with 95\% confidence intervals. Higher SES have steeper positive relationships between tie strength and the average performance those in their network across reading and math scores.}
-\end{figure}
+
+
+% \begin{figure}[H]
+%   \centering
+%   \caption{Performance by Tie Strength and SES}
+%   \includegraphics[width=0.85\textwidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/tie_combined.png}
+%   \label{fig:tie_score_ses}
+%   \caption*{\footnotesize\textit{Note:} This figure shows local polynomial regressions of network math and reading z-scores by social tie strength across socioeconomic status groups with 95\% confidence intervals. Higher SES have steeper positive relationships between tie strength and the average performance those in their network across reading and math scores.}
+% \end{figure}
 
 
     \section{Conclusion} \label{s6}
