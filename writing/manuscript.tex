@@ -73,11 +73,13 @@ Lorem Ipsum \citep{beaman_job_2018}
 
 \pagebreak
 \section{Introduction}
-Equally qualified individuals may face very different labor market outcomes depending on their socioeconomic status \citep{stansbury2024class}. A key driver of this inequality is due to differences in social capital,\footnote{See for example \citet{loury_dynamic_1977,bourdieu_forms_1986} for pioneering work on the relationship between social position and human capital acquisition.} with recent empirical work characterizing its most important facet as the “share of high-SES friends among individuals with low-SES” as it correlates strongly with labor market income \citep{chetty2022na}. A lack of social capital means a lack of access to individuals with influential (higher paid) jobs and job opportunities. In economic terms, it implies having worse outcomes when using one's network to find jobs conditional on the capacity on leveraging one's social network.\footnote{See for example \citet{lin1981asr,mouw2003asr} for differential outcomes while using contacts in job search, and \citet{smith2005ajs,Pedulla2019RaceAN} specifically for the effects of race conditional on network use.} 
+Equally qualified individuals face different labor market outcomes depending on their socioeconomic status \citep{stansbury2024class}. A key driver of this inequality is due to differences in social capital.\footnote{See for example \citet{loury_dynamic_1977,bourdieu_forms_1986} for pioneering work on the relationship between social position and human capital acquisition.} Because it correlates strongly with labor market income, the most important facet of social capital is the share of high-SES connections among low-SES individuals \citep{chetty2022na}. A lack of social capital means lack of access to individuals with influential (higher paid) jobs and job opportunities. In economic terms, it implies having worse outcomes when using one's network to find jobs conditional on the capacity on leveraging one's social network.\footnote{See for example \citet{lin1981asr,mouw2003asr} for differential outcomes while using contacts in job search, and \citet{smith2005ajs,Pedulla2019RaceAN} specifically for the effects of race conditional on network use.} 
 
-Referral hiring, the formal or informal process where firms ask workers to recommend qualified candidates for job opportunities, is a common labor market practice which makes evident the role of differences in social capital. As referrals must orginate from the networks of referrers, the composition of referrer networks becomes a crucial channel that may propagate inequality: Similar individuals across socio-demographic characteristics tend to form connections at higher rates \citep{mcpherson2001birds}, making across SES (low-to-high) connections less likely than same-SES connections \citep{chetty2022na}. Referrals will thus reflect similarities in socio-demographic characteristics present in networks even in the absence of biases in the referral procedure, i.e., referring at random from one's network according to some productivity criteria.
+Referral hiring, the formal or informal process where firms ask workers to recommend qualified candidates for job opportunities, is a common labor market practice which makes evident the role of differences in social capital. As referrals originate from the networks of referrers, the composition of referrer networks becomes a crucial channel that propagates inequality: Similar individuals across socio-demographic characteristics form connections at higher rates \citep{mcpherson2001birds}, making across SES (low-to-high) connections less likely than same-SES connections \citep{chetty2022na}. Referrals will thus reflect similarities in socio-demographic characteristics present in networks even in the absence of biases in the referral procedure, i.e., referring at random from one's network according to some productivity criteria.
 
-Yet, experimental evidence shows referrals can be biased even under substantial pay-for-performance incentives beyond what is attribuable to differences in network compositions, at least for the case of gender \citep{beaman_job_2018,hederos2025gender}. A similar bias against low-SES may further exacerbate outcomes of low-SES individuals: If job information are in the hands of a select few high-SES which low-SES have already limited network access to (social capital hypothesis), and high-SES referrers are biased against low-SES, referring other high-SES at higher rates than their network composition, we should expect referral hiring to further disadvantagee low-SES. The empirical question we answer is whether there is a bias against low-SES once we account for the network SES compositon in a controlled setting.
+Yet, experimental evidence shows referrals can be biased even under substantial pay-for-performance incentives beyond what is attribuable to differences in network compositions, at least for the case of gender \citep{beaman_job_2018,hederos2025gender}. A similar bias against low-SES may further exacerbate outcomes of low-SES individuals: If job information are in the hands of a select few high-SES which low-SES have already limited network access to (social capital hypothesis), and high-SES referrers are biased against low-SES, referring other high-SES at higher rates than their network composition, we should expect referral hiring to further disadvantagee low-SES. 
+
+The empirical question we answer in this paper is whether referrers are biased against low-SES peers after accounting for differences in the network SES compositon. We also evaluate the causal impact of two different incentive structures on referral behavior.
 
 In this study, we study inequalities related to SES combining a university-wide cross-sectional network data set comprising over 4,500 students in which classroom interactions are recorded along with individual attributes. We focus on the role of SES in referrals by experimentally investigating whether individuals who are asked to refer a peer tend to refer a same-SES candidate. We also explore potential mechanisms behind referral patterns by randomizing participants into two different incentive structures. To this end, we conducted a lab-in-the-field experiment with 734 students in a Colombian university. Participants were instructed to refer a qualified student for tasks similar to the math and reading parts of the national university entry exam (equivalent of SAT in US system). To incentivize participants to refer qualified candidates, we set earnings dependent on referred candidates' actual university entry exam scores.
 
@@ -168,50 +170,88 @@ The remainder of the paper is organized as follows. Section \ref{s2} begins with
 
 \section{Background and Setting} \label{s2}
 
-Our study takes place at UNAB, a medium-sized private university in Bucaramanga, Colombia with approximately 6,000 enrolled students. The university's student body is remarkably diverse with about 35\% of the students classified as low-SES, and 15\% high-SES. Diversity at this institution provides a unique research setting as Colombian society is highly unequal and generally characterized by limited interaction between social classes, with different socioeconomic groups separated by education and geographic residence.\footnote{Colombia has consistently ranked as one of the most unequal countries in Latin America \citep{barretoherrera2024regional}, with the richest decile earning 50 times more than the poorest decile \citep{comisioneconomicaparaamericalatinayel2023}. This economic disparity is reflected by a highly stratified society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}.} Despite significant financial barriers, many lower and middle-SES families prioritize university education for their children \citep[p. 103]{hudson_colombia_2010}, with UNAB representing one of the few environments where sustained inter-SES contact occurs naturally (see Figure \ref{school_quality_income}).
+Our study takes place at UNAB, a medium-sized private university in Bucaramanga, Colombia with approximately 6,000 enrolled students. The university's student body is remarkably diverse with about 35\% of the students classified as low-SES, and 15\% high-SES. Diversity at this institution provides a unique research setting as Colombian society is highly unequal and generally characterized by limited interaction between social classes, with different socioeconomic groups separated by education and geographic residence.\footnote{Colombia has consistently ranked as one of the most unequal countries in Latin America \citep{barretoherrera2024regional}, with the richest decile earning 50 times more than the poorest decile \citep{comisioneconomicaparaamericalatinayel2023}. This economic disparity is reflected by a highly stratified society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}.} Despite significant financial barriers, many lower and middle-SES families prioritize university education for their children \citep[p. 103]{hudson_colombia_2010}, and UNAB represents one of the few environments where sustained inter-SES contact occurs naturally (see Figure \ref{school_quality_income}).
 
 In 1994, Colombia introduced a nationwide classification system dividing the population into 6 strata based on housing characteristics and neighborhood amenities.\footnote{Initially designed for utility subsidies from higher strata (5 and 6) to support lower strata (1 to 3), it now extends to university fees and social program eligibility. Stratum 4 neither receives subsidies nor pays extra taxes. This stratification system largely aligns with and potentially reinforces existing social class divisions \citep{uribe2008estratificacion, guevara2019spatializing}.} We use this classification as the measure of SES in our experiment: Students in strata 1 to 2 are categorized as low-SES, strata 3 to 4 as middle-SES and those in strata 5 to 6 as high-SES.
 
-We invited via email all 4,417 UNAB students who had at the time of recruitment completed their first year at the university to participate in our experiment. 837 students who joined (19\%) display large variations in terms of their academic programs and SES. This setup provides a unique opportunity for collaborative inter-class contact on equal status, whose positive effects on reducing discrimination are casually documented \citep{rao2019familiarity, mousa2020building,lowe2021types}.
-
-
-
+We invited via email all 4,417 UNAB students who had at the time of recruitment completed their first year at the university to participate in our experiment. 837 students who joined (19\%) vary in terms of their academic programs, SES, and progress in their studies. This setup provides a unique opportunity for collaborative inter-class contact on equal status, whose positive effects on reducing discrimination are casually documented \citep{rao2019familiarity, mousa2020building,lowe2021types}.
 
 \section{Design} \label{s3}
 
-\section{Sample, Incentives, and Procedure} \label{s4}
+We designed an experiment to assess peer referral behavior from an SES perspective and to causally evaluate the effect of different incentive structures on referrals. The study design consists of a single online experiment organized at the university level (see Figure \ref{timeline}). The instructions are provided in Appendix \ref{instructions}.
 
-\section{Results} \label{s5}
+\begin{figure}[H]
+\centering
+\caption{Experiment Timeline}\label{timeline}
+\includegraphics[width=\linewidth]{../figures/timeline.jpg}
+\begin{tablenotes}
+\footnotesize
+\item[] \textit{Note:} Participants first report beliefs about their own national university entry exam performance, then recommend peers for each academic area. In the final part, they report beliefs about their recommendations' performance and provide demographic information. This order is implemented for all participants.
+\end{tablenotes}
+\end{figure}
 
-\subsection{Descriptives}
+\subsection{Productivity measures}
+To establish an objective basis for referral productivity, we use national university entry exam scores (SABER 11). These scores provide pre-existing, comparable measures of ability across two domains relevant for the labor market. By using existing administrative data, we eliminate the need for additional testing and ensure that all eligible students have comparable productivity measures. The scores we use in this experiment comprise of critical reading and mathematics parts.
 
-\begin{table}[H]
+Critical reading evaluates competencies necessary to understand, interpret, and evaluate texts found in everyday life and broad academic fields (e.g., history). This measures students' ability to comprehend and critically evaluate written material. Mathematics assesses students' competency in using undergraduate level mathematical tools (e.g., reasoning in proportions, financial literacy). This captures quantitative reasoning and problem-solving abilities.
+
+For each area, we calculate percentile rankings based on the distribution of scores among all currently enrolled UNAB students, providing a standardized measure of relative performance within the university population.
+
+\subsection{Referral task}
+After eliciting beliefs about their own performance, participants engage in incentivized peer recommendations. For both test areas (critical reading and mathematics), participants recommend one peer they believe excels in that domain. We first present an example question from the relevant test area to clarify what skills are being assessed. Participants then type the name of their recommended peer, with the system providing autocomplete suggestions from enrolled students who have taken the test (see Figure \ref{interface}).
+
+\begin{figure}[H]
+  \centering
+  \caption{Referral task interface}\label{interface}
+  \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/interface.png}
+  \begin{tablenotes} 
+    \footnotesize
+    \item[] \textit{Note:} This illustration shows how the system provides suggestions from enrolled students with their program and year of study from the administrative database.
+  \end{tablenotes}
+\end{figure}
+
+Participants can only recommend students with whom they have taken at least one class during their university studies. This requirement ensures that referrals are based on actual peer interactions and overlap with the enrollment network that we construct. The order in which participants make recommendations across the two areas is randomized.
+
+We incentivize referrals using a productivity-based payment scheme. Referrers earn increasing monetary rewards as the percentile ranking of their recommendation increases (see Figure \ref{piece_rate_by_score}). We multiply the piece rate coefficient associated to the percentile rank with the actual test scores of the recommendation to calculate earnings. This payment structure provides strong incentives to screen for highly ranked peers, with potential earnings up to \$60 per recommendation.\footnote{Due to the selection into the university, the actual test score distribution has limited variance. Below a certain threshold students cannot qualify for the institution and choose a lower ranked university, and above a certain threshold they have better options to choose from.}
+
+\begin{figure}[H]
+  \centering
+  \caption{Referral incentives}\label{piece_rate_by_score}
+  \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/piece_rate_by_score.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure shows how the piece rate coefficient increases as a function of the referral ranking in the university, providing incrementally higher rewards for higher ranked peers.
+  \end{tablenotes}
+\end{figure}
+
+\subsection{Treatment variation}
+We implement a between-subjects treatment that varies whether the recommended peer also receives payment. In the \textbf{Baseline} treatment, only the referrer can earn money based on their recommendation's productivity. The \textbf{Bonus} treatment adds an additional fixed payment of \$25 to any peer who is recommended in the randomly selected area for payment. This payment is independent of the peer's actual productivity (see Figure \ref{tab:treatments}).
+
+\begin{table}[htbp]
   \centering
   \begin{threeparttable}
-  \caption{Selection into the experiment}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc c@{}}
+  \caption{Payment structure by treatment}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c c @{}}
   \toprule
-  & \multicolumn{1}{c}{\textbf{Admin Data}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\
+  & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} \\
   \midrule
-  Reading score & 62.651 & 65.183 & 0.000 \\
-  Math score & 63.973 & 67.477 & 0.000 \\
-  GPA & 3.958 & 4.012 & 0.000 \\
-  Low-SES & 0.343 & 0.410 & 0.000 \\
-  Med-SES & 0.505 & 0.499 & 0.763 \\
-  High-SES & 0.153 & 0.091 & 0.000 \\
-  Female & 0.567 & 0.530 & 0.060 \\
-  Age & 21.154 & 20.651 & 0.000 \\
-  \midrule
-  Observations & 4,417 & 734 & 5,151 \\
+  Referrer (sender) & Productivity-based & Productivity-based \\
+  Recommendation (receiver) & No payment  & Fixed reward  \\
   \bottomrule
   \end{tabular*}
-  \begin{tablenotes}[flushleft]
-  \footnotesize
-  \item[] \textit{Note:} This table compares characteristics between the full administrative sample and the experimental sample. $p$-values for binary outcomes (Low-SES, Med-SES, High-SES, Female) are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed.
-  \end{tablenotes}
-  \label{tab:selection}
+  \label{tab:treatments}
   \end{threeparttable}
 \end{table}
+
+Participants are informed about their treatment condition before making recommendations through both video and text instructions. The treatment is assigned at the individual level, allowing us to compare referral outcomes across conditions.
+
+\subsection{Belief elicitation}
+We elicit incentivized beliefs at two points in the experiment. First, before making referrals, participants report their beliefs about their own percentile ranking in each test area. Second, after making each referral, participants report their beliefs about their recommendedation's percentile ranking. For both belief elicitation tasks, participants earn \$5 if their guess is within 7 percentiles of the true value. This tolerance level is expected to balance precision with the difficulty of the task.
+
+% participants report the closeness of their relationship with each recommended peer on a 0-10 scale. This allows us to examine whether social proximity influences referral decisions and accuracy. . Finally, participants estimate the distribution of university students across these SES groups, providing insight into their perceptions of the university-wide SES distribution.
+
+\section{Sample, Incentives, and Procedure} \label{s4}
+We invited all 4,417 UNAB students who had at the time of recruitment completed their first year at the university to participate in our experiment. A total of 837 students took part in the data collection with a 19\% response rate. Our final sample consists of 734 individuals who referred peers with whom they have taken at least one class together, resulting in an 88\% success rate for the sample. We randomly allocated half of the participants into either \textbf{Baseline} or \textbf{Bonus} treatments. Table \ref{tab:balance} presents key demographic characteristics and academic performance indicators across treatments (see Appendix Table \ref{tab:selection} for selection). The sample is well-balanced between the \textbf{Baseline} and \textbf{Quota} conditions and we observe no statistically significant differences in any of the reported variables (all \textit{p} values $> 0.1$). Our sample is characterized by a majority of middle-SES students with about one-tenth of the sample being high-SES students. The test scores and GPA distributions are balanced. Participants have taken on average 3.8 courses together with their connections and the average network consists of 175 peers.    
 
 \begin{table}[H]
   \centering
@@ -224,24 +264,33 @@ We invited via email all 4,417 UNAB students who had at the time of recruitment 
   Reading score & 64.712 & 65.693 & \multicolumn{1}{c}{0.134} \\
   Math score & 67.366 & 67.597 & \multicolumn{1}{c}{0.780} \\
   GPA & 4.003 & 4.021 & \multicolumn{1}{c}{0.445} \\
-  \# connections & 173.40 & 176.88 & \multicolumn{1}{c}{0.574} \\
-  Tie strength & 3.939 & 3.719 & \multicolumn{1}{c}{0.443} \\
+  Connections & 173.40 & 176.88 & \multicolumn{1}{c}{0.574} \\
+  Courses taken & 3.939 & 3.719 & \multicolumn{1}{c}{0.443} \\
   Low-SES & 0.419 & 0.401 & \multicolumn{1}{c}{0.615} \\
   Med-SES & 0.492 & 0.506 & \multicolumn{1}{c}{0.714} \\
   High-SES & 0.089 & 0.094 & \multicolumn{1}{c}{0.824} \\
-  Female & 0.529 & 0.531 & \multicolumn{1}{c}{0.947} \\
-  Age & 20.576 & 20.733 & \multicolumn{1}{c}{0.380} \\
   \midrule
-  Observations & 382 & 352 & 734 \\
+  N & 382 & 352 & 734 \\
   \bottomrule
   \end{tabular*}
   \begin{tablenotes}[flushleft]
   \footnotesize
-  \item[] \textit{Note:} This table presents balance tests between \textbf{Baseline} and \textbf{Bonus} conditions. $p$-values for binary outcomes are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. Tie strength refers to the number of classes taken together. \# connections refers to the number of indiviuduals in referrer choice sets, otherwise called the ``network degree''. Low-SES, Med-SES, and High-SES are binary variables indicating the share of participants in estrato 1 and 2, 3 and 4, or 5 and 6, respectively.
+  \item[] \textit{Note:} This table presents balance tests between \textbf{Baseline} and \textbf{Bonus} conditions. $p$-values for binary outcomes are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. Reading and math scores are in original scale units out of 100. GPA is grade point average out of 5. Connections refers to the average number of network members. Low-SES, Med-SES, and High-SES indicate SES categories based on strata.
   \end{tablenotes}
   \label{tab:balance}
   \end{threeparttable}
 \end{table}
+
+The experiment was conducted online through Qualtrics, with participants recruited from active UNAB students who have SABER 11 scores in the administrative records. To manage budget constraints while maintaining sufficient incentives, we randomly selected one in ten participants for payment. Selected participants received a fixed payment of \$17 for completion, plus potential earnings from one randomly selected belief question (up to \$5) and one randomly selected recommendation question (up to \$60), for maximum total earnings of \$82. The random selection of payment part ensured that participants had incentives to exert effort across all tasks rather than focusing on a single part. Payment processing occured through online banking platform Nequi within 15 business days of participation.
+
+\textcolor{cyan}{Data collection occurred during the last two weeks of April 2024. Our local partner at UNAB coordinated scheduled classroom visits and recruited research assistants to administer the experiment. Students present in class on the scheduled visit dates participated. Each classroom visit constituted a separate session. There were in total 35 sessions. Participants accessed the Qualtrics-based experiment using their smartphones during these visits. The median time to complete the survey was 20 minutes, with a compensation of \$26 for 117 lottery winners.}
+
+
+\section{Results} \label{s5}
+
+\subsection{Descriptives}
+
+
 
 \begin{table}[H]
   \centering
@@ -542,7 +591,40 @@ We invited via email all 4,417 UNAB students who had at the time of recruitment 
 
 \section{Additional Figures and Tables}
 
-\subsection{Additional Figures}
+\subsection*{Additional Figures}
+\pagebreak
+\subsection*{Additional Tables}
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Selection into the experiment}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc c@{}}
+  \toprule
+  & \multicolumn{1}{c}{\textbf{University}} & \multicolumn{1}{c}{\textbf{Sample}} & \multicolumn{1}{c}{\textit{\textbf{p}}} \\
+  \midrule
+  Reading score & 62.651 & 65.183 & 0.000 \\
+  Math score & 63.973 & 67.477 & 0.000 \\
+  GPA & 3.958 & 4.012 & 0.000 \\
+  Low-SES & 0.343 & 0.410 & 0.000 \\
+  Med-SES & 0.505 & 0.499 & 0.763 \\
+  High-SES & 0.153 & 0.091 & 0.000 \\
+  Female & 0.567 & 0.530 & 0.060 \\
+  Age & 21.154 & 20.651 & 0.000 \\
+  \midrule
+  Observations & 4,417 & 734 & 5,151 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} This table compares characteristics between the university and the experimental sample. $p$-values for binary outcomes (Low-SES, Med-SES, High-SES, Female) are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed.
+  \end{tablenotes}
+  \label{tab:selection}
+  \end{threeparttable}
+\end{table}
 
 \pagebreak
 
