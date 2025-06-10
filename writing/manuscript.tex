@@ -102,23 +102,7 @@ The remainder of the paper is organized as follows. Section \ref{s2} begins with
 
 
 
-\begin{figure}[H]
-  \centering
-  \caption{Networks of SES groups and same-SES segregation}
-  \begin{subfigure}[t]{0.49\textwidth}
-    \centering
-      \includegraphics[width=\linewidth]{../figures/availability_lses.png}
-      \caption{SES networks}  
-      \label{availability_lses}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.49\textwidth}
-    \centering
-      \includegraphics[width=\linewidth]{../figures/share_same_ses_by_tie.png}
-      \caption{Same-SES share}
-      \label{share_same_ses_by_tie}
-  \end{subfigure}
-  \caption*{\footnotesize\textit{Note:} The left panel compares the network shares of SES groups in the networks of low-, middle-, and high-SES. Horizontal lines plot the university-wide shares of each SES group. While the share of low-SES peers in the network decreases as the SES of the group increases, the share of high-SES peers in the network increases. The right panel shows the average share of same-SES connections for low-, middle-, and high-SES as a function of the average number of courses taken together with network members. Low- and high-SES networks both become more homogenous as the average number of courses taken together with their connections increase.}
-\end{figure}
+
 
 \begin{figure}[H]
   \centering
@@ -170,11 +154,13 @@ The remainder of the paper is organized as follows. Section \ref{s2} begins with
 
 \section{Background and Setting} \label{s2}
 
-Our study takes place at UNAB, a medium-sized private university in Bucaramanga, Colombia with approximately 6,000 enrolled students. The university's student body is remarkably diverse with about 35\% of the students classified as low-SES, and 15\% high-SES. Diversity at this institution provides a unique research setting as Colombian society is highly unequal and generally characterized by limited interaction between social classes, with different socioeconomic groups separated by education and geographic residence.\footnote{Colombia has consistently ranked as one of the most unequal countries in Latin America \citep{barretoherrera2024regional}, with the richest decile earning 50 times more than the poorest decile \citep{comisioneconomicaparaamericalatinayel2023}. This economic disparity is reflected by a highly stratified society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}.} Despite significant financial barriers, many lower and middle-SES families prioritize university education for their children \citep[p. 103]{hudson_colombia_2010}, and UNAB represents one of the few environments where sustained inter-SES contact occurs naturally (see Figure \ref{school_quality_income}).
+Our study takes place at UNAB, a medium-sized private university in Bucaramanga, Colombia with approximately 6,000 enrolled students. The university's student body is remarkably diverse with about 35\% of the students classified as low-SES, and 15\% high-SES. Diversity at this institution provides a unique research setting as Colombian society is highly unequal and generally characterized by limited interaction between social classes, with different socioeconomic groups separated by education and geographic residence.\footnote{Colombia has consistently ranked as one of the most unequal countries in Latin America \citep{barretoherrera2024regional}, with the richest decile earning 50 times more than the poorest decile \citep{comisioneconomicaparaamericalatinayel2023}. This economic disparity is reflected by a highly stratified society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}.} Despite significant financial barriers, many lower and middle-SES families prioritize university education for their children \citep[p. 103]{hudson_colombia_2010}, and UNAB represents one of the few environments in Colombia where sustained inter-SES contact occurs naturally (see Figure \ref{school_quality_income}).
 
 In 1994, Colombia introduced a nationwide classification system dividing the population into 6 strata based on housing characteristics and neighborhood amenities.\footnote{Initially designed for utility subsidies from higher strata (5 and 6) to support lower strata (1 to 3), it now extends to university fees and social program eligibility. Stratum 4 neither receives subsidies nor pays extra taxes. This stratification system largely aligns with and potentially reinforces existing social class divisions \citep{uribe2008estratificacion, guevara2019spatializing}.} We use this classification as the measure of SES in our experiment: Students in strata 1 to 2 are categorized as low-SES, strata 3 to 4 as middle-SES and those in strata 5 to 6 as high-SES.
 
-We invited via email all 4,417 UNAB students who had at the time of recruitment completed their first year at the university to participate in our experiment. 837 students who joined (19\%) vary in terms of their academic programs, SES, and progress in their studies. This setup provides a unique opportunity for collaborative inter-class contact on equal status, whose positive effects on reducing discrimination are casually documented \citep{rao2019familiarity, mousa2020building,lowe2021types}.
+We invited via email all 4,417 UNAB undergraduate students who had at the time of recruitment completed their first year at the university to participate in our experiment. 837 students who joined (19\%) vary in terms of their academic programs, SES, and progress in their studies. This setup provides a unique opportunity for collaborative inter-class contact on equal status, whose positive effects on reducing discrimination are casually documented \citep{rao2019familiarity, mousa2020building,lowe2021types}.
+
+Undergraduate programs at UNAB are spread across two semesters, with each individual course lasting one semester. Students take between 5 to 7 courses per semester, with programs lasting anywhere between 4 to 12 semesters (2 to 6 years). Medicine, the largest program by size at UNAB, lasts for 12 semesters, followed by engineering programs at 10 semesters. Most remaining programs lasting for about 8 to 10 semesters, with specialized programs for immediate entry into the workforce lasting only 4.       
 
 \section{Design} \label{s3}
 
@@ -230,7 +216,7 @@ We implement a between-subjects treatment that varies whether the recommended pe
 \begin{table}[htbp]
   \centering
   \begin{threeparttable}
-  \caption{Payment structure by treatment}
+  \caption{Incentive structure by treatment}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c c @{}}
   \toprule
   & \multicolumn{1}{c}{\textbf{Baseline}} & \multicolumn{1}{c}{\textbf{Bonus}} \\
@@ -251,7 +237,7 @@ We elicit incentivized beliefs at two points in the experiment. First, before ma
 % participants report the closeness of their relationship with each recommended peer on a 0-10 scale. This allows us to examine whether social proximity influences referral decisions and accuracy. . Finally, participants estimate the distribution of university students across these SES groups, providing insight into their perceptions of the university-wide SES distribution.
 
 \section{Sample, Incentives, and Procedure} \label{s4}
-We invited all 4,417 UNAB students who had at the time of recruitment completed their first year at the university to participate in our experiment. A total of 837 students took part in the data collection with a 19\% response rate. Our final sample consists of 734 individuals who referred peers with whom they have taken at least one class together, resulting in an 88\% success rate for the sample. We randomly allocated half of the participants into either \textbf{Baseline} or \textbf{Bonus} treatments. Table \ref{tab:balance} presents key demographic characteristics and academic performance indicators across treatments (see Appendix Table \ref{tab:selection} for selection). The sample is well-balanced between the \textbf{Baseline} and \textbf{Quota} conditions and we observe no statistically significant differences in any of the reported variables (all \textit{p} values $> 0.1$). Our sample is characterized by a majority of middle-SES students with about one-tenth of the sample being high-SES students. The test scores and GPA distributions are balanced. Participants have taken on average 3.8 courses together with their connections and the average network consists of 175 peers.    
+We invited all 4,417 UNAB students who had at the time of recruitment completed their first year at the university to participate in our experiment. A total of 837 students took part in the data collection with a 19\% response rate. Our final sample consists of 734 individuals who referred peers with whom they have taken at least one class together, resulting in an 88\% success rate for the sample. We randomly allocated half of the participants into either \textbf{Baseline} or \textbf{Bonus} treatments. Table \ref{tab:balance} presents key demographic characteristics and academic performance indicators across treatments (see Appendix Table \ref{tab:selection} for selection). The sample is well-balanced between the \textbf{Baseline} and \textbf{Bonus} conditions and we observe no statistically significant differences in any of the reported variables (all \textit{p} values $> 0.1$). Our sample is characterized by a majority of middle-SES students with about one-tenth of the sample being high-SES students. The test scores and GPA distributions are balanced. On average, participants took 3.8 courses together with their network, and the average network consisted of 175 peers.   
 
 \begin{table}[H]
   \centering
@@ -288,8 +274,53 @@ The experiment was conducted online through Qualtrics, with participants recruit
 
 \section{Results} \label{s5}
 
-\subsection{Descriptives}
+\subsection{Network characteristics}
+We begin by describing the characteristic features of the ``enrollment network'' for all participants. This data set pairwise associates every participant in our sample with another university student if they have taken at least one course together at the time of the data collection. By doing so, we construct the entire referral choice set for participants. We include in this data set both the participant's and their potential candidate's individual characterics, as well as the number of common courses they have taken together. In Figure \ref{connections_class}, we describe the evolution of the enrollment network across the average number of network connections in network and the number of common courses taken with network members as participants progress through semesters.
 
+\begin{figure}[H]
+  \centering
+  \caption{Network size and courses taken together by time spent at UNAB}\label{connections_class}
+  \includegraphics[width=0.6\linewidth]{../figures/connections.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure displays the average number of connections in blue and the average number of classes they have taken together with their connections in grey across semesters spent. The data shows an increase in the number of classes taken together as students progress in their programs, with the connections peaking around 7 semesters and dropping as certain students finish their bachelor's.
+  \end{tablenotes}
+\end{figure}
+
+Are enrollment networks different across SES groups? We look at how the number of connections (network size) and number of courses taken together (tie strength) change across SES groups in Figure \ref{connections_by_ses}. Low- and middle-SES students have larger networks but take fewer courses together with network members, while high-SES students have smaller, ``denser'' networks. Specifically, both low- and middle-SES students have significantly larger networks than high-SES students ($t = 3.03, p = .003$ and $t = 2.49, p = .013$, respectively), but high-SES take significantly more courses with their network members than both low- ($t = -3.70, p < .001$) and middle-SES ($t = -4.20, p < .001$).
+
+\begin{figure}[H]
+  \centering
+  \caption{Network size and courses taken together by time spent at UNAB}\label{connections_by_ses}
+  \includegraphics[width=0.6\linewidth]{../figures/connections_by_ses.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure displays the average number of connections and the average number of classes taken together across SES groups. The data shows a decrease in the number of connections with SES, and an associated increase in the number of classes taken together.
+  \end{tablenotes}
+\end{figure}
+
+
+What are diversity related consequences of SES-driven differences across networks? In terms of network compositions, SES groups may connect at different rates with other SES groups than at random (Figure \ref{availability_lses}). Our results suggest at the network-level, SES groups form connections that mirror the overall university composition, with no significant deviations from expected proportions based on random sorting (all proportion tests have $p > 0.1$ across SES group comparisons). Each SES group connects with low, middle, and high SES peers at rates statistically indistinguishable from what would be expected given the demographic composition of the university.
+
+\begin{figure}[H]
+  \centering
+  \caption{Network shares of SES groups}\label{availability_lses}
+  \includegraphics[width=0.6\linewidth]{../figures/availability_lses.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure compares the network shares of SES groups in the networks of low-, middle-, and high-SES. Horizontal lines plot the university-wide shares of each SES group. While the share of low-SES peers in the network decreases as the SES of the group increases, the share of high-SES peers in the network increases.
+  \end{tablenotes}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \caption{Network size and courses taken together by time spent at UNAB}\label{share_same_ses_by_tie}
+  \includegraphics[width=0.6\linewidth]{../figures/share_same_ses_by_tie.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure displays the average share of same-SES connections for low-, middle-, and high-SES as a function of the average number of courses taken together with network members. Low- and high-SES networks both become more homogenous as the average number of courses taken together with their connections increase.
+  \end{tablenotes}
+\end{figure}
 
 
 \begin{table}[H]
@@ -392,15 +423,7 @@ The experiment was conducted online through Qualtrics, with participants recruit
   \end{threeparttable}
 \end{table}
 
-\begin{figure}[H]
-  \centering
-  \caption{Participant network size and tie strength by time spent at UNAB}\label{connections_class}
-  \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/connection_class.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] \textit{Note:} This figure displays the average number of connections for referrers in blue and the average number of classes they have taken together with their connections in green across semesters spent at UNAB. The data shows an increase in the number of classes taken together as students progress in their programs, with the connections peaking around 7 semesters and dropping as certain students finish their bachelor's.
-  \end{tablenotes}
-\end{figure}
+
 
 \begin{figure}[H]
   \centering
