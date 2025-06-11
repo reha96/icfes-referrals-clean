@@ -92,12 +92,21 @@ prtesti ${n_low} ${prop_low_high} ${prop_A_high}
 
 cls
 prtesti ${n_low} ${prop_low_low} ${n_high} ${prop_high_low}    // Low vs High
+prtesti ${n_low} ${prop_low_middle} ${n_high} ${prop_high_middle}    // Low vs Mid
 prtesti ${n_low} ${prop_low_high} ${n_high} ${prop_high_high}    // Low vs High
+
+prtesti ${n_middle} ${prop_middle_low} ${n_high} ${prop_high_low}    // Low vs High
+prtesti ${n_middle} ${prop_middle_middle} ${n_high} ${prop_high_middle}    // Low vs Mid
+prtesti ${n_middle} ${prop_middle_high} ${n_high} ${prop_high_high}    // Low vs High
+
+
 
 // Compare Middle SES peer connections across own SES groups
 prtesti ${n_middle} ${prop_middle_low} ${prop_A_low}    // Low vs Low at uni
 prtesti ${n_middle} ${prop_middle_middle} ${prop_A_middle}
 prtesti ${n_middle} ${prop_middle_high} ${prop_A_high}  
+
+
 
 // Compare High SES peer connections across own SES groups
 prtesti ${n_high} ${prop_high_low} ${prop_A_low}    // Low vs Low at uni

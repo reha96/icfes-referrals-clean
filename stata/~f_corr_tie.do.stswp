@@ -17,6 +17,8 @@ gen n = .
 gen prop_same = .
 gen prop_sameUP = .
 gen prop_sameLOW = .
+gen connsUP = .
+gen connsLOW .
 gen prop_lses = .
 gen prop_mses = .
 gen prop_hses = .
@@ -33,31 +35,32 @@ forvalues t = 1/30 {
    gen same_ses = own_estrato == other_estrato
    keep if tie >= `t'
 
-   bysort  own_id : gen _t =_n
-   by own_id : egen size = max(_t)
+   bysort own_id: gen _t = _n
+   by own_id: egen size = max(_t)
    drop _t
-   replace size = size/2 // average connections per network (verbal+math)/2
+   replace size = size/2
    qui sum size
    local conns = r(mean)
+   local connsUP = r(mean) + invnormal(0.975) * r(sd)/sqrt(r(N))
+   local connsLOW = r(mean) - invnormal(0.975) * r(sd)/sqrt(r(N))
    
+   bysort own_id: egen ind_prop_same = mean(same_program)
+   bysort own_id: egen ind_prop_same_ses = mean(same_ses)
+   bysort own_id: keep if _n == 1
    
-   quietly proportion same_program 
-   matrix stat = r(table)
-   local prop_same = cond(stat[1,2] != ., stat[1,2], 1)
-   local prop_sameUP = cond(stat[6,2] != ., stat[6,2], 0)
-   local prop_sameLOW = cond(stat[5,2] != ., stat[5,2], 0)
+   sum ind_prop_same
+   local prop_same = r(mean)
+   local prop_sameUP = r(mean) + invnormal(0.975) * r(sd)/sqrt(r(N))
+   local prop_sameLOW = r(mean) - invnormal(0.975) * r(sd)/sqrt(r(N))
    
-   quietly proportion same_ses if own_estrato == 1
-   matrix stat = r(table)
-   local prop_lses = cond(stat[1,2] != ., stat[1,2], 1)
+   sum ind_prop_same_ses if own_estrato == 1
+   local prop_lses = cond(r(N) > 0, r(mean), .)
    
-   quietly proportion same_ses if own_estrato == 2
-   matrix stat = r(table)
-   local prop_mses = cond(stat[1,2] != ., stat[1,2], 0)
+   sum ind_prop_same_ses if own_estrato == 2
+   local prop_mses = cond(r(N) > 0, r(mean), .)
    
-   quietly proportion same_ses if own_estrato == 3
-   matrix stat = r(table)
-   local prop_hses = cond(stat[1,2] != ., stat[1,2], 0)
+   sum ind_prop_same_ses if own_estrato == 3
+   local prop_hses = cond(r(N) > 0, r(mean), .)
    
    quietly corr own_score other_score
    local corr_val = r(rho)
@@ -80,13 +83,12 @@ forvalues t = 1/30 {
    replace prop_same = `prop_same' in `t'
    replace prop_sameUP = `prop_sameUP' in `t'
    replace prop_sameLOW = `prop_sameLOW' in `t'
-   
    replace prop_lses = `prop_lses' in `t'
    replace prop_mses = `prop_mses' in `t'
    replace prop_hses = `prop_hses' in `t'
-   
    replace conns = `conns' in `t'
-   
+   replace connsUP = `conns' in `t'
+   replace connsLOW = `conns' in `t'
    save `temp2', replace
    restore
 }
@@ -94,6 +96,7 @@ forvalues t = 1/30 {
 use `temp2', clear
 gen upper = correlation + invnormal(0.975) * se
 gen lower = correlation - invnormal(0.975) * se
+
 
 twoway (scatter correlation tie_threshold, mcolor(gs8) msize(medium)) ///
       (qfit correlation tie_threshold, lcolor(dknavy) lwidth(medthick)) ///
@@ -118,7 +121,7 @@ twoway (connected prop_same tie_threshold if tie_threshold<20, lcolor(dknavy) mc
       ytitle("Proportion same program") ///
       legend(off) ///
       graphregion(color(white)) bgcolor(white) ///
-      name(proportion_plot, replace)  
+      name(share_same_program_by_tie, replace)  
 graph export "${fpath}share_same_program_by_tie.png", replace
 	   
 	   
@@ -133,10 +136,11 @@ twoway (connected prop_lses tie_threshold if tie_threshold<20, lcolor(dknavy) mc
       ytitle("Proportion same-SES") ///
 	  legend(order(1 "Low" 2 "Middle" 3 "High") ring(0) pos(12) rows(1) region(lcolor(none))) ///
       graphregion(color(white)) bgcolor(white) ///
-      name(proportion_plot, replace)  
+      name(share_same_ses_by_tie, replace)  
 graph export "${fpath}share_same_ses_by_tie.png", replace	   
 	   
 twoway (connected conns tie_threshold if tie_threshold<20, lcolor(dknavy) mcolor(dknavy) msize(medium)) ///
+	(rarea connsUP connsLOW tie_threshold if tie_threshold<20, color(gs4%20) lcolor(%0)) ///
 	  , ///
       xlabel(0(5)20, gmax gmin) ///
 	  ylabel(0(25)250, angle(0) grid gmax) ///
@@ -145,6 +149,6 @@ twoway (connected conns tie_threshold if tie_threshold<20, lcolor(dknavy) mcolor
       ytitle("Average connections") ///
 	  legend(off) ///
       graphregion(color(white)) bgcolor(white) ///
-      name(proportion_plot, replace)  
+      name(conns_by_tie, replace)  
 graph export "${fpath}conns_by_tie.png", replace	   
 	 

@@ -4,7 +4,6 @@
     Date: 12.05.2025
     Description: figure network composition by SES at tie >15 and tie by SES
 *******************************************************************************/
-
 global dpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/stata/"
 global fpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
 set scheme s2color, permanently
@@ -17,52 +16,61 @@ foreach own in low middle high {
     }
 }
 
-// Calculate proportions for each SES group connection
 use "${dpath}dataset_z.dta", clear
 keep if tie > 12
+
 preserve
 keep if own_estrato == 1
-proportion other_estrato
-matrix props_low = r(table)
-global prop_low_low = props_low[1,1]
-global prop_low_middle = props_low[1,2]
-global prop_low_high = props_low[1,3]
-global se_low_low = props_low[2,1]
-global se_low_middle = props_low[2,2]
-global se_low_high = props_low[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_low = stats[1,1]
+bysort own_id: egen p_low = mean(other_estrato == 1)
+bysort own_id: egen p_middle = mean(other_estrato == 2) 
+bysort own_id: egen p_high = mean(other_estrato == 3)
+bysort own_id: keep if _n == 1
+collapse (mean) prop_low=p_low prop_middle=p_middle prop_high=p_high ///
+         (sem) se_low=p_low se_middle=p_middle se_high=p_high ///
+         (count) n=p_low
+global prop_low_low = prop_low[1]
+global prop_low_middle = prop_middle[1]
+global prop_low_high = prop_high[1]
+global se_low_low = se_low[1]
+global se_low_middle = se_middle[1]
+global se_low_high = se_high[1]
+global n_low = n[1]
 restore
 
 preserve
 keep if own_estrato == 2
-proportion other_estrato
-matrix props_middle = r(table)
-global prop_middle_low = props_middle[1,1]
-global prop_middle_middle = props_middle[1,2]
-global prop_middle_high = props_middle[1,3]
-global se_middle_low = props_middle[2,1]
-global se_middle_middle = props_middle[2,2]
-global se_middle_high = props_middle[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_middle = stats[1,1]
+bysort own_id: egen p_low = mean(other_estrato == 1)
+bysort own_id: egen p_middle = mean(other_estrato == 2) 
+bysort own_id: egen p_high = mean(other_estrato == 3)
+bysort own_id: keep if _n == 1
+collapse (mean) prop_low=p_low prop_middle=p_middle prop_high=p_high ///
+         (sem) se_low=p_low se_middle=p_middle se_high=p_high ///
+         (count) n=p_low
+global prop_middle_low = prop_low[1]
+global prop_middle_middle = prop_middle[1]
+global prop_middle_high = prop_high[1]
+global se_middle_low = se_low[1]
+global se_middle_middle = se_middle[1]
+global se_middle_high = se_high[1]
+global n_middle = n[1]
 restore
 
 preserve
 keep if own_estrato == 3
-proportion other_estrato
-matrix props_high = r(table)
-global prop_high_low = props_high[1,1]
-global prop_high_middle = props_high[1,2]
-global prop_high_high = props_high[1,3]
-global se_high_low = props_high[2,1]
-global se_high_middle = props_high[2,2]
-global se_high_high = props_high[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_high = stats[1,1]
+bysort own_id: egen p_low = mean(other_estrato == 1)
+bysort own_id: egen p_middle = mean(other_estrato == 2) 
+bysort own_id: egen p_high = mean(other_estrato == 3)
+bysort own_id: keep if _n == 1
+collapse (mean) prop_low=p_low prop_middle=p_middle prop_high=p_high ///
+         (sem) se_low=p_low se_middle=p_middle se_high=p_high ///
+         (count) n=p_low
+global prop_high_low = prop_low[1]
+global prop_high_middle = prop_middle[1]
+global prop_high_high = prop_high[1]
+global se_high_low = se_low[1]
+global se_high_middle = se_middle[1]
+global se_high_high = se_high[1]
+global n_high = n[1]
 restore
 
 preserve
@@ -75,23 +83,6 @@ global prop_A_middle = props_A[1,2]* 100
 global prop_A_high = props_A[1,3]* 100
 restore
 
-
-// Compare Low SES peer connections across own SES groups
-prtesti ${n_low} ${prop_low_low} ${n_middle} ${prop_middle_low}    // Low vs Middle (Low SES peers)
-prtesti ${n_low} ${prop_low_low} ${n_high} ${prop_high_low}      // Low vs High (Low SES peers)
-prtesti ${n_middle} ${prop_middle_low} ${n_high} ${prop_high_low}    // Middle vs High (Low SES peers)
-
-// Compare Middle SES peer connections across own SES groups
-prtesti ${n_low} ${prop_low_middle} ${n_middle} ${prop_middle_middle}   // Low vs Middle (Middle SES peers)
-prtesti ${n_low} ${prop_low_middle} ${n_high} ${prop_high_middle}    // Low vs High (Middle SES peers)
-prtesti ${n_middle} ${prop_middle_middle} ${n_high} ${prop_high_middle}    // Middle vs High (Middle SES peers)
-
-// Compare High SES peer connections across own SES groups
-prtesti ${n_low} ${prop_low_high} ${n_middle} ${prop_middle_high}   // Low vs Middle (High SES peers)
-prtesti ${n_low} ${prop_low_high} ${n_high} ${prop_high_high}    // Low vs High (High SES peers)
-prtesti ${n_middle} ${prop_middle_high} ${n_high} ${prop_high_high}    // Middle vs High (High SES peers)
-
-// Multiply all proportions and standard errors by 100 for plotting
 foreach own in low middle high {
     foreach other in low middle high {
         global prop_`own'_`other' = ${prop_`own'_`other'} * 100
@@ -99,7 +90,6 @@ foreach own in low middle high {
     }
 }
 
-// Create visualization dataset
 clear
 set obs 3
 gen xpos = .
@@ -139,7 +129,6 @@ replace se3 = ${se_low_high} if xpos3 == 1
 replace se3 = ${se_middle_high} if xpos3 == 2
 replace se3 = ${se_high_high} if xpos3 == 3
 
-
 gen ci_lower = proportion - 1.96*se
 gen ci_upper = proportion + 1.96*se
 gen ci_lower2 = proportion2 - 1.96*se2
@@ -147,16 +136,12 @@ gen ci_upper2 = proportion2 + 1.96*se2
 gen ci_lower3 = proportion3 - 1.96*se3
 gen ci_upper3 = proportion3 + 1.96*se3
 
-
 replace proportionA = ${prop_A_low} if xpos == 1
-// replace proportionA = ${prop_A_middle} if  xpos == 2
 replace proportionA = ${prop_A_high} if  xpos == 3
 
 replace xpos = xpos - 0.20
 replace xpos3 = xpos3 + 0.20
 
-
-// lses and hses only
 twoway (bar proportion xpos, barw(0.20) fcolor(gs8) lcolor(gs4)) ///
 		(bar proportion2 xpos2, barw(0.20) fcolor(gs11) lcolor(gs4)) ///
 		(bar proportion3 xpos3, barw(0.20) fcolor(gs14) lcolor(gs4)) ///
@@ -171,7 +156,7 @@ twoway (bar proportion xpos, barw(0.20) fcolor(gs8) lcolor(gs4)) ///
        ylabel(0(10)80, angle(0) format(%9.0f) gmin gmax) ///
        ytitle("Percent") ///
        xtitle("") ///
-       title("Network share by SES (courses taken >12)") ///
+       title("Network share by SES at median courses taken (>12)") ///
        legend(order(1 "Low" 2 "Middle" 3 "High") ring(0) pos(12) rows(1) region(lcolor(none))) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) ///
