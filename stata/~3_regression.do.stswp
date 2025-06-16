@@ -20,6 +20,8 @@ global graph_opts ///
     plotregion(lcolor(white))
 	
 
+
+
 // Create a combined dataset
 clear all
 use "reading.dta", clear
