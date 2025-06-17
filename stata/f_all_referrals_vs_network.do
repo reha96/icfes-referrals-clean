@@ -12,145 +12,102 @@ set scheme s2color, permanently
 clear all
 use "dataset_z.dta"
 
-// Calculate referral proportions by SES and store statistics
+// Calculate proportions for all SES combinations and store in globals
 foreach own in low middle high {
     foreach other in low middle high {
         global prop_`own'_`other' = ""
         global se_`own'_`other' = ""
+		global sd_`own'_`other' = ""
         global prop_`own'_`other'2 = ""
         global se_`own'_`other'2 = ""
+        global n_`own' = ""
+        global n_`own'2 = ""
     }
 }
 
-// Low SES respondents - referrals
-preserve
-keep if own_estrato == 1 & nomination
-proportion other_estrato
-matrix props_low = r(table)
-global prop_low_low = props_low[1,1]
-global prop_low_middle = props_low[1,2]
-global prop_low_high = props_low[1,3]
-global se_low_low = props_low[2,1]
-global se_low_middle = props_low[2,2]
-global se_low_high = props_low[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_low = stats[1,1]
-restore
+// Network proportions (all connections)
+foreach i in 1 2 3 {
+    local ses_name = cond(`i'==1, "low", cond(`i'==2, "middle", "high"))
+    
+    preserve
+    keep if own_estrato == `i'
+    bysort own_id: egen p_low = mean(other_estrato == 1)
+    bysort own_id: egen p_middle = mean(other_estrato == 2)  
+    bysort own_id: egen p_high = mean(other_estrato == 3)
+    bysort own_id: keep if _n == 1
+    collapse (mean) prop_low=p_low prop_middle=p_middle prop_high=p_high ///
+             (sem) se_low=p_low se_middle=p_middle se_high=p_high ///
+			 (sd) sd_low=p_low sd_middle=p_middle sd_high=p_high ///
+             (count) n=p_low
+    
+    global prop_`ses_name'_low2 = prop_low[1]
+    global prop_`ses_name'_middle2 = prop_middle[1] 
+    global prop_`ses_name'_high2 = prop_high[1]
+    global se_`ses_name'_low2 = se_low[1]
+    global se_`ses_name'_middle2 = se_middle[1]
+    global se_`ses_name'_high2 = se_high[1]
+	global sd_`ses_name'_low2 = sd_low[1]
+    global sd_`ses_name'_middle2 = sd_middle[1]
+    global sd_`ses_name'_high2 = sd_high[1]
+    global n_`ses_name'2 = n[1]
+    restore
+}
 
-// Low SES respondents - network
-preserve
-keep if own_estrato == 1
-proportion other_estrato
-matrix props_low = r(table)
-global prop_low_low2 = props_low[1,1]
-global prop_low_middle2 = props_low[1,2]
-global prop_low_high2 = props_low[1,3]
-global se_low_low2 = props_low[2,1]
-global se_low_middle2 = props_low[2,2]
-global se_low_high2 = props_low[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_low2 = stats[1,1]
-restore
+// Referral proportions (nominations only)
+foreach i in 1 2 3 {
+    local ses_name = cond(`i'==1, "low", cond(`i'==2, "middle", "high"))
+    
+    preserve
+    keep if own_estrato == `i' & nomination
+    bysort own_id: egen p_low = mean(other_estrato == 1)
+    bysort own_id: egen p_middle = mean(other_estrato == 2)
+    bysort own_id: egen p_high = mean(other_estrato == 3)
+    bysort own_id: keep if _n == 1
+    collapse (mean) prop_low=p_low prop_middle=p_middle prop_high=p_high ///
+             (sem) se_low=p_low se_middle=p_middle se_high=p_high ///
+			 (sd) sd_low=p_low sd_middle=p_middle sd_high=p_high ///
+             (count) n=p_low
+    
+    global prop_`ses_name'_low = prop_low[1]
+    global prop_`ses_name'_middle = prop_middle[1]
+    global prop_`ses_name'_high = prop_high[1] 
+    global se_`ses_name'_low = se_low[1]
+    global se_`ses_name'_middle = se_middle[1]
+    global se_`ses_name'_high = se_high[1]
+	global sd_`ses_name'_low = sd_low[1]
+    global sd_`ses_name'_middle = sd_middle[1]
+    global sd_`ses_name'_high = sd_high[1]
+    global n_`ses_name' = n[1]
+    restore
+}
 
-// Middle SES respondents - referrals
-preserve
-keep if own_estrato == 2 & nomination
-proportion other_estrato
-matrix props_middle = r(table)
-global prop_middle_low = props_middle[1,1]
-global prop_middle_middle = props_middle[1,2]
-global prop_middle_high = props_middle[1,3]
-global se_middle_low = props_middle[2,1]
-global se_middle_middle = props_middle[2,2]
-global se_middle_high = props_middle[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_middle = stats[1,1]
-restore
-
-// Middle SES respondents - network
-preserve
-keep if own_estrato == 2
-proportion other_estrato
-matrix props_middle = r(table)
-global prop_middle_low2 = props_middle[1,1]
-global prop_middle_middle2 = props_middle[1,2]
-global prop_middle_high2 = props_middle[1,3]
-global se_middle_low2 = props_middle[2,1]
-global se_middle_middle2 = props_middle[2,2]
-global se_middle_high2 = props_middle[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_middle2 = stats[1,1]
-restore
-
-// High SES respondents - referrals
-preserve
-keep if own_estrato == 3 & nomination
-proportion other_estrato
-matrix props_high = r(table)
-global prop_high_low = props_high[1,1]
-global prop_high_middle = props_high[1,2]
-global prop_high_high = props_high[1,3]
-global se_high_low = props_high[2,1]
-global se_high_middle = props_high[2,2]
-global se_high_high = props_high[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_high = stats[1,1]
-restore
-
-// High SES respondents - network
-preserve
-keep if own_estrato == 3
-proportion other_estrato
-matrix props_high = r(table)
-global prop_high_low2 = props_high[1,1]
-global prop_high_middle2 = props_high[1,2]
-global prop_high_high2 = props_high[1,3]
-global se_high_low2 = props_high[2,1]
-global se_high_middle2 = props_high[2,2]
-global se_high_high2 = props_high[2,3]
-tabstat other_estrato, stat(n) save
-matrix stats = r(StatTotal)
-global n_high2 = stats[1,1]
-restore
-
-// Create visualization dataset with confidence intervals
+// Create visualization dataset
 clear
-set obs 9  // 3 own_SES × 3 other_SES
+set obs 9
 gen own_ses = ceil(_n/3)
 gen other_ses = mod(_n-1, 3) + 1
 gen xpos = .
 gen xpos2 = .
 
-// Low SES sender
-replace xpos = 1 - 0.2 if own_ses == 1 & other_ses == 1      // Low-Low referral
-replace xpos = 2 - 0.2 if own_ses == 1 & other_ses == 2      // Low-Middle referral
-replace xpos = 3 - 0.2 if own_ses == 1 & other_ses == 3      // Low-High referral
-
-// Middle SES sender (extra spacing between Low-High and Middle-Low)
-replace xpos = 4.5 - 0.2 if own_ses == 2 & other_ses == 1    // Middle-Low referral
-replace xpos = 5.5 - 0.2 if own_ses == 2 & other_ses == 2    // Middle-Middle referral
-replace xpos = 6.5 - 0.2 if own_ses == 2 & other_ses == 3    // Middle-High referral
-
-// High SES sender (extra spacing between Middle-High and High-Low)
-replace xpos = 8 - 0.2 if own_ses == 3 & other_ses == 1      // High-Low referral
-replace xpos = 9 - 0.2 if own_ses == 3 & other_ses == 2      // High-Middle referral
-replace xpos = 10 - 0.2 if own_ses == 3 & other_ses == 3     // High-High referral
-
-// Position the network bars 0.4 units to the right of the referral bars
+// Position bars
+replace xpos = 1 - 0.2 if own_ses == 1 & other_ses == 1
+replace xpos = 2 - 0.2 if own_ses == 1 & other_ses == 2  
+replace xpos = 3 - 0.2 if own_ses == 1 & other_ses == 3
+replace xpos = 4.5 - 0.2 if own_ses == 2 & other_ses == 1
+replace xpos = 5.5 - 0.2 if own_ses == 2 & other_ses == 2
+replace xpos = 6.5 - 0.2 if own_ses == 2 & other_ses == 3
+replace xpos = 8 - 0.2 if own_ses == 3 & other_ses == 1
+replace xpos = 9 - 0.2 if own_ses == 3 & other_ses == 2
+replace xpos = 10 - 0.2 if own_ses == 3 & other_ses == 3
 replace xpos2 = xpos + 0.4
 
-// Fill in the proportions and standard errors
+// Fill proportions and standard errors
 gen proportion = .
 gen se = .
 gen proportion2 = .
 gen se2 = .
 
-// Low SES (own_ses = 1)
+// Low SES
 replace proportion = ${prop_low_low} if own_ses == 1 & other_ses == 1
 replace proportion = ${prop_low_middle} if own_ses == 1 & other_ses == 2
 replace proportion = ${prop_low_high} if own_ses == 1 & other_ses == 3
@@ -164,7 +121,7 @@ replace se2 = ${se_low_low2} if own_ses == 1 & other_ses == 1
 replace se2 = ${se_low_middle2} if own_ses == 1 & other_ses == 2
 replace se2 = ${se_low_high2} if own_ses == 1 & other_ses == 3
 
-// Middle SES (own_ses = 2)
+// Middle SES  
 replace proportion = ${prop_middle_low} if own_ses == 2 & other_ses == 1
 replace proportion = ${prop_middle_middle} if own_ses == 2 & other_ses == 2
 replace proportion = ${prop_middle_high} if own_ses == 2 & other_ses == 3
@@ -178,7 +135,7 @@ replace se2 = ${se_middle_low2} if own_ses == 2 & other_ses == 1
 replace se2 = ${se_middle_middle2} if own_ses == 2 & other_ses == 2
 replace se2 = ${se_middle_high2} if own_ses == 2 & other_ses == 3
 
-// High SES (own_ses = 3)
+// High SES
 replace proportion = ${prop_high_low} if own_ses == 3 & other_ses == 1
 replace proportion = ${prop_high_middle} if own_ses == 3 & other_ses == 2
 replace proportion = ${prop_high_high} if own_ses == 3 & other_ses == 3
@@ -192,25 +149,23 @@ replace se2 = ${se_high_low2} if own_ses == 3 & other_ses == 1
 replace se2 = ${se_high_middle2} if own_ses == 3 & other_ses == 2
 replace se2 = ${se_high_high2} if own_ses == 3 & other_ses == 3
 
-// Multiply all proportions and standard errors by 100 for percentages
+// Convert to percentages and calculate confidence intervals
 replace proportion = proportion * 100
-replace se = se * 100
+replace se = se * 100  
 replace proportion2 = proportion2 * 100
 replace se2 = se2 * 100
-
-// Calculate 95% confidence intervals
 gen ci_lower = proportion - 1.96*se
 gen ci_upper = proportion + 1.96*se
 gen ci_lower2 = proportion2 - 1.96*se2
 gen ci_upper2 = proportion2 + 1.96*se2
 
-// Create the twoway bar graph with all 9 SES combinations
+// Create graph
 twoway (bar proportion2 xpos, barw(0.4) fcolor(gs8) lcolor(gs4)) ///
        (rcap ci_lower2 ci_upper2 xpos, lcolor(gs4)) ///
        (bar proportion xpos2, barw(0.4) fcolor(gs14) lcolor(gs4)) ///
        (rcap ci_lower ci_upper xpos2, lcolor(gs4)) ///
-	   (pci 0 3.75 80 3.75, lwidth(thin) lpattern(dash) lcolor(gs4)) /// 
-       (pci 0 7.25 80 7.25, lwidth(thin) lpattern(dash) lcolor(gs4)) /// 
+	   (pci 0 3.75 80 3.75, lwidth(thin) lpattern(dash) lcolor(black)) /// 
+       (pci 0 7.25 80 7.25, lwidth(thin) lpattern(dash) lcolor(black)) /// 
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High" 4.5 "Low" 5.5 "Middle" 6.5 "High" 8 "Low" 9 "Middle" 10 "High", angle(0)) ///
        ylabel(0(10)80, angle(0) format(%9.0f) gmin gmax) ///
@@ -224,3 +179,23 @@ twoway (bar proportion2 xpos, barw(0.4) fcolor(gs8) lcolor(gs4)) ///
        name(referral_rates, replace)
 
 graph export "${fpath}all_ses_referral_rates.png", replace
+
+// =============================================================================
+// STATISTICAL TESTS USING TTESTI
+
+cls
+
+display "LOW-SES REFERRERS: REFERRALS VS NETWORK"
+ttesti ${n_low2} ${prop_low_low2} ${sd_low_low2} ${n_low} ${prop_low_low} ${sd_low_low}, unequal
+ttesti ${n_low2} ${prop_low_middle2} ${sd_low_middle2} ${n_low} ${prop_low_middle} ${sd_low_middle}, unequal
+ttesti ${n_low2} ${prop_low_high2} ${sd_low_high2} ${n_low} ${prop_low_high} ${sd_low_high}, unequal
+
+display "MIDDLE-SES REFERRERS:"
+ttesti ${n_middle2} ${prop_middle_low2} ${sd_middle_low2} ${n_middle} ${prop_middle_low} ${sd_middle_low}, unequal
+ttesti ${n_middle2} ${prop_middle_middle2} ${sd_middle_middle2} ${n_middle} ${prop_middle_middle} ${sd_middle_middle}, unequal
+ttesti ${n_middle2} ${prop_middle_high2} ${sd_middle_high2} ${n_middle} ${prop_middle_high} ${sd_middle_high}, unequal
+
+display "HIGH-SES REFERRERS:"
+ttesti ${n_high2} ${prop_high_low2} ${sd_high_low2} ${n_high} ${prop_high_low} ${sd_high_low}, unequal
+ttesti ${n_high2} ${prop_high_middle2} ${sd_high_middle2} ${n_high} ${prop_high_middle} ${sd_high_middle}, unequal
+ttesti ${n_high2} ${prop_high_high2} ${sd_high_high2} ${n_high} ${prop_high_high} ${sd_high_high}, unequal

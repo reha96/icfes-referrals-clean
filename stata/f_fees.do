@@ -264,5 +264,8 @@ twoway (bar prop_low xpos_low, barwidth(0.25) fcolor(gs8) lcolor(gs4)) ///
 // Export the graph
 graph export "${fpath}ses_distribution_by_fees.png", replace
 
+ksmirnov prop_low = prop_mid
+ksmirnov prop_low = prop_high
+ksmirnov prop_mid = prop_high
 
 

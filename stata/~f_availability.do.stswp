@@ -148,7 +148,7 @@ twoway (bar proportion xpos, barw(0.20) fcolor(gs8) lcolor(gs4)) ///
 	   (rcap ci_upper3 ci_lower3 xpos3, color(gs4) text(.13 3.4 "High", color(red))) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High") ///
-       ylabel(0(0.1)0.8, angle(0) gmin gmax) ///
+       ylabel(0(0.1)0.8, angle(0) format(%9.1f) gmin gmax) ///
        ytitle("Proportion") ///
        xtitle("") ///
        title("Network share by SES") ///
