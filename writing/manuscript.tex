@@ -211,10 +211,10 @@ We invited all 4,417 UNAB undergraduate students who had at the time of recruitm
   Connections & 173.40 & 176.88 & \multicolumn{1}{c}{0.574} \\
   Courses taken & 3.939 & 3.719 & \multicolumn{1}{c}{0.443} \\
   Low-SES & 0.419 & 0.401 & \multicolumn{1}{c}{0.615} \\
-  Med-SES & 0.492 & 0.506 & \multicolumn{1}{c}{0.714} \\
+  Middle-SES & 0.492 & 0.506 & \multicolumn{1}{c}{0.714} \\
   High-SES & 0.089 & 0.094 & \multicolumn{1}{c}{0.824} \\
   \midrule
-  N & 382 & 352 & 734 \\
+  Observations & 382 & 352 & 734 \\
   \bottomrule
   \end{tabular*}
   \begin{tablenotes}[flushleft]
@@ -235,7 +235,7 @@ We begin by describing the characteristic features of the ``enrollment network''
 
 \begin{figure}[H]
   \centering
-  \caption{Network size and courses taken together by time spent at UNAB}\label{connections_class}
+  \caption{Network size and courses taken together by time spent at the university}\label{connections_class}
   \includegraphics[width=0.6\linewidth]{../figures/connections.png}
   \begin{tablenotes}
     \footnotesize
@@ -247,7 +247,7 @@ Are enrollment networks different across SES groups? We look at how the number o
 
 \begin{figure}[H]
   \centering
-  \caption{Network size and courses taken together by time spent at UNAB}\label{connections_by_ses}
+  \caption{Network size and courses taken together by SES}\label{connections_by_ses}
   \includegraphics[width=0.6\linewidth]{../figures/connections_by_ses.png}
   \begin{tablenotes}
     \footnotesize
@@ -255,8 +255,8 @@ Are enrollment networks different across SES groups? We look at how the number o
   \end{tablenotes}
 \end{figure}
 
-\subsection{SES diversity in networks}
-What are diversity related consequences of SES-driven differences across networks? In terms of network compositions, SES groups may connect at different rates with other SES groups than at random (Figure \ref{availability_lses}).\footnote{Because we estimate the share of SES groups in every individual network, we get very precise estimates of the actual means in networks. However, it is important to note that these are not independent observations across the network - the reason these estimates are so precise is because most people are seemingly connected with similar others, creating systematic patterns that reduce variance. For this reason we choose not reporting test results in this section and focus on describing the relationships between SES groups.} Our results reveal modest deviations from university-wide SES composition across groups. Low-SES students have networks with 38.4\% low-SES peers compared to the university average of 34.3\%, middle-SES students connect with 52.9\% middle-SES peers versus the university average of 50.5\%, and high-SES students show 20.4\% high-SES connections compared to the university average of 15.3\%.
+\subsection{SES diversity in networks}\label{s:ses-diversity}
+What are diversity related consequences of SES-driven differences across networks? In terms of network compositions, SES groups may connect at different rates with other SES groups than at random (Figure \ref{availability_lses}).\footnote{Because we estimate the share of SES groups in every individual network, we get very precise estimates of the actual means. However, it is important to note that these are not independent observations for each network. Estimates are precise because each network is a draw with replacement from the same pool of university population. Pooling over SES groups who are connected with similar others systematically reduces variance (similar to resampling in bootstrapping). For this reason we choose not reporting test results in certain sections including this one and focus on describing the relationships between SES groups.} Our results reveal modest deviations from university-wide SES composition across groups. Low-SES students have networks with 38.4\% low-SES peers compared to the university average of 34.3\%, middle-SES students connect with 52.9\% middle-SES peers versus the university average of 50.5\%, and high-SES students show 20.4\% high-SES connections compared to the university average of 15.3\%.
 
 \begin{figure}[H]
   \centering
@@ -264,7 +264,7 @@ What are diversity related consequences of SES-driven differences across network
   \includegraphics[width=0.6\linewidth]{../figures/availability_lses.png}
   \begin{tablenotes}
     \footnotesize
-    \item[] \textit{Note:} This figure compares the network shares of SES groups in the networks of low-, middle-, and high-SES participants. Horizontal lines plot the university-wide shares of each SES group. While the share of low-SES peers in the network decreases as the SES of the group increases, the share of high-SES peers in the network increases.
+    \item[] \textit{Note:} This figure compares the network shares of SES groups in the networks of low-, middle-, and high-SES participants. Horizontal lines plot the university-wide shares of each SES group (Low: 35\%, Mid: 51\%, High: 14\%). While the share of low-SES peers in the network decreases as the SES of the group increases, the share of high-SES peers in the network increases.
   \end{tablenotes}
 \end{figure}
 
@@ -330,7 +330,7 @@ We look at how SES groups are distributed across programs to see evidence of SES
 
 \subsection{Characterizing referrals}
 
-We observe 1342 referrals from our 734 participants in our final data set. More than 90\% of these consist from participants referring for both areas of the national entry exam (see Appendix Table \ref{tab:referral_distribution}). While each participant made one referral for Math and Reading parts of the exam, we pool these referrals in our main analysis and look at averages as there is no difference in terms of referral SES compositions between the two exam areas (see Appendix Table \ref{tab:referral_area}). 
+We observe 1342 referrals from our 734 participants in our final data set. More than 90\% of these consist from participants referring for both areas of the national entry exam (see Appendix Table \ref{tab:referral_distribution}). While participants made one referral for Math and Reading parts of the exam, about 70\% of these referrals went to two separate individuals. We compare the outcomes across areas for unique referrals in Appendix Table \ref{tab:referral_by_area} and all referrals in Appendix Table \ref{tab:referral_area}. In both cases, we find no meaningful differences between referrals made Math or Reading areas of the entry exam. As referrals in both exam areas come from the same referrer network, we pool referrals per  participant and report their average in terms of outcomes in our main analysis to avoid unintentionally increasing the statistical power of our tests when making comparisions. 
 
 What are the characteristics of the individuals who receive referrals, and how do they compare to others in the enrollment network? Because we have an entire pool of potential candidates with one referral chosen from it, we compare the distributions for our variables of interest between the referred and non-referred students. First, referrals go to peers with whom the referrer has taken around 14 courses with on average, compared to almost 4 on average with others in their network (see Figure \ref{tie_hist}). This difference of 10.1 courses is significant ($t = 34.98$, $p < 0.001$), indicating that referrers choose individuals with whom they have stronger ties. While the median referral recipient has taken 12 courses together with the referrer, the median network member has shared only 2.8 courses. The interquartile range for referrals spans from 7.5 to 19.5 courses, compared to just 2.1 to 4.0 courses for the broader network, highlighting the concentration of referrals among peers within same program (93\%).
 
@@ -356,28 +356,58 @@ Second, we examine entry exam score differences between referred students and th
   \end{tablenotes}
 \end{figure}
 
-Third, we examine the overall SES-compositions in referral selection. Referrals to low-SES peers constitute 37.9\% of all referrals, compared to 33.7\% low-SES representation in individual networks (see Figure \ref{fig:all_referral_rates}). This represents a modest over-representation of 4.3 percentage points. For middle-SES students, referrals constitute 51.0\% versus 51.4\% network representation, showing virtually no difference (-0.5 pp.). High-SES referrals account for 11.1\% compared to 14.9\% network share, an under-representation of 3.8 percentage points. While these patterns suggest some deviation from proportional representation - with slight over-referral to low-SES peers and under-referral to high-SES peers - the magnitudes are relatively modest. Overall, referral compositions are largely balanced and closely mirror the underlying network structure, with the largest deviation being less than 5 percentage points for any SES group.
+\subsection{Effect of the Bonus treatment}
+
+Do referred individuals have different outcomes across treatments? We compare the performance, number of courses taken together, and SES shares of referred individuals between the \textbf{Baseline} and \textbf{Bonus} treatments in Table \ref{tab:referral_by_treatment}. While performance of referrals across Reading, Math, and GPA are similar across treatments, middle- and high-SES shares have significant differences. We find that referrals under the \textbf{Bonus} condition referred a higher proportion of high-SES individuals (13.5\% vs 8.8\%, $p=0.041$) and a lower proportion of middle-SES individuals on average (47.0\% vs 53.7\%, $p=0.072$). However, these differences do not appear to stem from systematic behavioral changes by any particular SES group of referrers, and the overall patterns remain largely consistent across treatments. The similarities in academic performance and number of courses taken together suggest that the core selection criteria, i.e., academic merit and social proximity, remain unchanged between conditions. For this reason, in the remainder of the paper, we report pooled results combining the averages of referral outcomes across treatments.
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Characteristics of referrals by treatment condition}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc}
+  \toprule
+  & \multicolumn{1}{c}{\textbf{Baseline Referred}} & \multicolumn{1}{c}{\textbf{Bonus Referred}} & \multicolumn{1}{c}{\textbf{\textit{p}}} \\
+  \midrule
+  Reading score & 67.806 & 67.210 & 0.308 \\
+  Math score & 70.784 & 70.155 & 0.406 \\
+  GPA & 4.155 & 4.149 & 0.799 \\
+  Courses taken & 13.840 & 14.065 & 0.723 \\
+  Low-SES & 0.376 & 0.395 & 0.593 \\
+  Middle-SES & 0.537 & 0.470 & 0.072 \\
+  High-SES & 0.088 & 0.135 & 0.041 \\
+  \midrule
+  Observations & 382 & 352 \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} This table compares the characteristics of network members who were referred under baseline vs bonus treatment conditions. $p$-values for binary outcomes are from two-sample tests of proportions; for continuous variables, from two-sample $t$-tests with unequal variances. All reported \textit{p}-values are two-tailed. Reading and math scores are raw test scores out of 100. GPA is grade point average out of 5. Courses taken is the number of courses participant has taken  with their referral. Low-SES, Med-SES, and High-SES are binary variables indicating the share of participants in estrato 1-2, 3-4, or 5-6, respectively. Both columns include only network members who were actually nominated for referral in each treatment condition.
+  \end{tablenotes}
+  \label{tab:referral_by_treatment}
+  \end{threeparttable}
+\end{table}
+
+\subsection{Referral SES composition}
+We first examine the overall SES-compositions in referral selection. Referrals to low-SES peers constitute 37.9\% of all referrals, compared to 33.7\% low-SES representation in individual networks (see Figure \ref{fig:all_referral_rates}). This represents a modest over-representation of 4.3 percentage points. For middle-SES students, referrals constitute 51.0\% versus 51.4\% network representation, showing virtually no difference (-0.5 pp.). High-SES referrals account for 11.1\% compared to 14.9\% network share, an under-representation of 3.8 percentage points. While these patterns suggest some deviation from proportional representation - with slight over-referral to low-SES peers and under-referral to high-SES peers - the magnitudes are relatively modest. Overall, referral compositions are largely balanced and closely mirror the underlying network structure, with the largest deviation being less than 5 percentage points for any SES group.
 
 \begin{figure}[H]
   \centering
   \caption{Referral patterns compared to network composition}
   \label{fig:all_referral_rates}
-  \includegraphics[width=0.8\linewidth]{../figures/all_referral_rates.png}
+  \includegraphics[width=0.6\linewidth]{../figures/all_referral_rates.png}
   \begin{tablenotes}
     \footnotesize
     \item[] \textit{Note:} This figure compares the average SES composition of referrers' networks (dark gray) to the SES composition of referrals (light gray). Error bars represent 95\% confidence intervals.
   \end{tablenotes}
 \end{figure}
 
-\textcolor{red}{to do: 1- SES composition by SES, 2- expost choice sets 3- effect of the bonus 4- bias regression }
-
-Fourth, we examine referral patterns by referrer SES to identify potential SES biases across groups. Figure \ref{fig:all_ses_referral_rates} reveals mixed patterns of deviation from network composition that vary by referrer SES. Most patterns show modest deviations from network composition, with differences typically ranging from 1-6 percentage points. However, at the very extremes, meaning low-SES to high-SES connections and vice versa, we observe the the largest discrepancies between network share (which were already biased toward same-SES connections to begin with) and referral rates. Low-SES referrers show the strongest same-SES preference, referring 12.9 percentage points more to low-SES students than their network composition would suggest, while under-referring to high-SES recipients by 6.3 percentage points. Conversely, high-SES referrers under-refer to low-SES students by 10.9 percentage points compared to their network composition. Middle-SES referrers show the most balanced patterns, with deviations generally under 3 percentage points across all recipient groups. These findings indicate that cross-SES referral patterns - particularly between the most socioeconomically distant groups - show the largest departures from network availability, suggesting that when SES differences are most pronounced, referral behavior diverges most from underlying network structure.
+Then, we examine referral patterns by referrer SES to identify potential SES biases across groups. Figure \ref{fig:all_ses_referral_rates} reveals mixed patterns of deviation from network composition that vary by referrer SES. Most patterns show modest deviations from network composition, with differences typically ranging from 1-6 percentage points. However, at the very extremes, i.e., low-SES to high-SES connections and vice versa, we observe the the largest discrepancies between network share (which were already biased toward same-SES connections to begin with) and referral rates. Low-SES referrers show the strongest same-SES preference, referring 12.9 percentage points more to low-SES students than their network composition would suggest, while under-referring to high-SES recipients by 6.3 percentage points. Conversely, high-SES referrers under-refer to low-SES students by 10.9 percentage points compared to their network composition. Middle-SES referrers show the most balanced patterns, with deviations generally under 3 percentage points across all recipient groups. These findings indicate that cross-SES referral patterns - particularly between the most socioeconomically distant groups - show the largest departures from network availability, suggesting that when SES differences are most pronounced, referral behavior diverges most from underlying network structure.
 
 \begin{figure}[H]
   \centering
   \caption{Referral patterns by referrer SES compared to network composition}
   \label{fig:all_ses_referral_rates}
-  \includegraphics[width=0.8\linewidth]{../figures/all_ses_referral_rates.png}
+  \includegraphics[width=0.6\linewidth]{../figures/all_ses_referral_rates.png}
   \begin{tablenotes}
     \footnotesize
     \item[] \textit{Note:} This figure compares the average SES composition of referrers' networks (dark gray) to the SES composition of referrals (light gray) for each SES group. The panels show referral patterns for low-SES (left), middle-SES (center), and high-SES referrers (right). Error bars represent 95\% confidence intervals.
@@ -435,49 +465,24 @@ Fourth, we examine referral patterns by referrer SES to identify potential SES b
 %   \end{threeparttable}
 % \end{table}
 
-\subsection{Effect of the Bonus treatment}
+\subsection{Ex post referral choice sets}
 
-Table \ref{tab:stats_by_nomination}
+We now shed more light on the referral behavior after having characterized how referrals were made. Particularly interesting is that referrals go to peers with whom the median participant took 12 courses, with an average of 14. By restricting the networks for courses taken above the median, we can get a snapshot of how the referral choice set actually looked for participants before making referral decisions. As discussed in Section \ref{s:ses-diversity}, taking more courses with network members increases the share of same-SES individuals for both low- and high-SES students, and we had explored program selection as a potential mechanism. In Figure \ref{t15availability}, we show the effects of network segregation on \textit{ex post} referral choice sets for each SES group. Network compositions above the median number of courses taken reveal strong segregation effects: Low-SES networks contain 44.5\% low-SES peers, higher than the 35\% university-wide share by 9.5 percentage points. Conversely, high-SES are  under-represented in low-SES networks at only 8.6\% average share, compared to the 14\% population share ($-5.4$ pp.). At the other extreme, high-SES networks show the reverse pattern with average low-SES share dropping to just 15.7\%, a 19.3 percentage point decrease relative to the university average. High-SES students have a same-SES concentration at 26.5\%, doubling their 14\% population share ($+12.5$ pp.). Middle-SES networks remain relatively balanced and closely track population proportions across all SES groups. Taken together, these suggest observed referral rates of SES groups may follow the network compostions above median number of courses taken together. We will test this formally by setting up a choice model where we can take into account individual differences in network compositions across SES, and try to identify SES biases that go beyond SES groups' availability in the choice sets.
 
-\begin{table}[H]
-  \centering
-  \begin{threeparttable}
-  \caption{Summary statistics for network members by referral status}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccc}
-  \toprule
-  & \multicolumn{1}{c}{\textbf{\textcolor{red}{Not Referred - to remove}}} & \multicolumn{1}{c}{\textbf{Baseline Referred}} & \multicolumn{1}{c}{\textbf{Bonus Referred}} & \multicolumn{1}{c}{\textbf{\textit{p}}} \\
-  \midrule
-  Reading score & 64.212 & 68.044 & 67.180 & 0.063 \\
-  Math score & 66.361 & 71.119 & 70.240 & 0.143 \\
-  GPA & 3.909 & 4.158 & 4.148 & 0.583 \\
-  Tie strength & 3.162 & 14.062 & 14.236 & 0.732 \\
-  Low-SES & 0.336 & 0.366 & 0.393 & 0.304 \\
-  Med-SES & 0.514 & 0.548 & 0.468 & 0.004 \\
-  High-SES & 0.150 & 0.086 & 0.138 & 0.002 \\
-  \midrule
-  Observations & 255,655 & 699 & 643 \\
-  \bottomrule
-  \end{tabular*}
-  \begin{tablenotes}[flushleft]
-  \footnotesize
-  \item[] \textit{Note:} P-values are from two-sample t-tests with unequal variances for continuous variables and two-sample tests of proportions for binary variables, comparing Baseline Referred vs Bonus Referred groups. Reading and math scores are raw test scores. GPA is the grade point average. Tie strength measures the weighted frequency of contact between individuals. Low-SES, Med-SES, and High-SES are binary variables indicating the share of participants in estrato 1 and 2, 3 and 4, or 5 and 6, respectively. Not Referred includes all network members who were not nominated for referral. Baseline Referred and Bonus Referred include only those network members who were actually nominated for referral in each treatment condition.
-  \end{tablenotes}
-  \label{tab:stats_by_nomination}
-  \end{threeparttable}
-\end{table}
-
-
-\subsection{SES diversity in ex post referral choice sets}
-At the median number of courses taken together for referrals, the effects of network segregation on SES diversity becomes clear (see Figure \ref{t15availability}) 
 \begin{figure}[H]
   \centering
   \caption{Network size and courses taken together by courses taken}\label{t15availability}
   \includegraphics[width=0.6\linewidth]{../figures/t15availability.png}
   \begin{tablenotes}
     \footnotesize
-    \item[] \textit{Note:} This figure illustrates the shares of same-SES connections for low-, middle-, and high-SES as a function of the average number of courses taken together with network members. Low- and high-SES networks both become more homogenous as the average number of courses taken together with their connections increase.
+    \item[] \textit{Note:} This figure compares the network shares of SES groups in the networks of low-, middle-, and high-SES participants above the median number of courses taken together with peers. Horizontal lines plot the university-wide shares of each SES group (Low: 35\%, Mid: 51\%, High: 14\%). Low- and high-SES networks both become same-SES dominated at the expense of each other while middle-SES networks remain balanced. Error bars represent 95\% confidence intervals.
   \end{tablenotes}
 \end{figure}
+
+
+\subsection{Identifying the SES bias in referrals}
+
+\textcolor{red}{regression time!}
 
 
 
@@ -724,7 +729,7 @@ At the median number of courses taken together for referrals, the effects of net
   Math score & 63.973 & 67.477 & 0.000 \\
   GPA & 3.958 & 4.012 & 0.000 \\
   Low-SES & 0.343 & 0.410 & 0.000 \\
-  Med-SES & 0.505 & 0.499 & 0.763 \\
+  Middle-SES & 0.505 & 0.499 & 0.763 \\
   High-SES & 0.153 & 0.091 & 0.000 \\
   Female & 0.567 & 0.530 & 0.060 \\
   Age & 21.154 & 20.651 & 0.000 \\
@@ -747,7 +752,7 @@ At the median number of courses taken together for referrals, the effects of net
   \caption{Distribution of referrals by area}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc}
   \toprule
-  Area & Only one area & Both areas & Total \\
+  \textbf{Area} & \textbf{Only one area} & \textbf{Both areas} & \textbf{Total} \\
   \midrule
   Verbal & 65 & 608 & 673 \\
   Math & 61 & 608 & 669 \\
@@ -763,6 +768,34 @@ At the median number of courses taken together for referrals, the effects of net
   \end{threeparttable}
 \end{table}
 
+
+\begin{table}[H]
+  \centering
+  \begin{threeparttable}
+  \caption{Referral characteristics by exam area (unique referrals only)}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc}
+  \toprule
+  & \multicolumn{1}{c}{\textbf{Reading}} & \multicolumn{1}{c}{\textbf{Math}} & \multicolumn{1}{c}{\textbf{\textit{p}}} \\
+  \midrule
+  Reading score & 67.733 & 67.126 & 0.252 \\
+  Math score & 69.339 & 71.151 & 0.008 \\
+  GPA & 4.136 & 4.136 & 0.987 \\
+  Courses taken & 13.916 & 13.019 & 0.123 \\
+  Low-SES & 0.372 & 0.385 & 0.666 \\
+  Med-SES & 0.526 & 0.518 & 0.801 \\
+  High-SES & 0.103 & 0.097 & 0.781 \\
+  \midrule
+  Observations & 487 & 483 &  \\
+  \bottomrule
+  \end{tabular*}
+  \begin{tablenotes}[flushleft]
+  \footnotesize
+  \item[] \textit{Note:} This table compares characteristics of uniquely referred students by entry exam area for the referral (verbal vs. math). $p$-values are from two-sample t-tests with unequal variances. Referrals in Math area go to peers with significantly higher math scores ($p = 0.008$), while we find no significant differences for Reading scores, GPA, courses taken, or SES composition for referrals across the two areas. Excluding referrals going to the same individuals does not change the outcomes for referrals compared to Appendix Table \ref{tab:referral_area}
+  \end{tablenotes}
+  \label{tab:referral_by_area}
+  \end{threeparttable}
+\end{table}
+
 \begin{table}[H]
   \centering
   \begin{threeparttable}
@@ -773,16 +806,18 @@ At the median number of courses taken together for referrals, the effects of net
   \midrule
   Reading score & 67.85 & 67.41 & 0.348 \\
   Math score & 70.04 & 71.36 & 0.029 \\
+  GPA & 4.153 & 4.153 & 0.984 \\ 
+  Courses taken & 14.467 & 13.822 & 0.206 \\
   Low-SES & 37\% & 38\% & 0.714 \\
-  Med-SES & 51\% & 51\% & 0.829 \\
+  Middle-SES & 51\% & 51\% & 0.829 \\
   High-SES & 11\% & 11\% & 0.824 \\
   \midrule
-  N & 673 & 669 &  \\
+  Observations & 673 & 669 &  \\
   \bottomrule
   \end{tabular*}
   \begin{tablenotes}[flushleft]
   \footnotesize
-  \item[] \textit{Note:} This table compares characteristics of referred students by referrer's academic area (verbal vs. math). $p$-values are from two-sample t-tests with unequal variances. Math area participants refer peers with significantly higher math performance ($p = 0.029$), while no significant differences exist for reading scores or SES composition across areas.
+  \item[] \textit{Note:} This table compares characteristics of referred students by entry exam area for the referral (verbal vs. math). $p$-values are from two-sample t-tests with unequal variances. Referrals in Math area go to peers with significantly higher math scores ($p = 0.029$), while we find no significant differences for Reading scores, GPA, courses taken, or SES composition for referrals across the two areas.
   \end{tablenotes}
   \label{tab:referral_area}
   \end{threeparttable}

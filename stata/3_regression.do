@@ -61,9 +61,9 @@ anova z_other_score treat
 anova z_tie treat
 restore
 eststo clear
-eststo reg1: clogit nomination ib(2).other_estrato, group(area_id) vce(cluster own_id)
-eststo reg2: clogit nomination ib(2).other_estrato z_other_score z_tie, group(area_id) vce(cluster own_id)
-eststo reg3: clogit nomination ib(2).other_estrato z_other_score z_tie scoreXtie, group(area_id) vce(cluster own_id)
+eststo reg1: clogit nomination i.other_low_ses i.other_med_ses i.other_high_ses, group(area_id) vce(cluster own_id)
+eststo reg2: clogit nomination i.other_low_ses i.other_med_ses i.other_high_ses z_other_score z_tie, group(area_id) vce(cluster own_id)
+eststo reg3: clogit nomination i.other_low_ses i.other_med_ses i.other_high_ses z_other_score z_tie scoreXtie, group(area_id) vce(cluster own_id)
 esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
 test 1.other_estrato = 2.other_estrato = 3.other_estrato // **
 
@@ -121,9 +121,10 @@ forvalues ses = 1/3 {
 		eststo bonus`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
 	restore
 }
+cls
 esttab base1 bonus1, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
 esttab base2 bonus2, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
-esttab base3 bonus1, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
+esttab base3 bonus3, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // fixed effects
 cls
 
 // esttab b11 b21 b31, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 

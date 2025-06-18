@@ -450,10 +450,6 @@ graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/combin
 
 
 
-
-
-
-
 // Start fresh for treatment effects graph
 preserve
 
@@ -553,32 +549,64 @@ restore
 
 cls
 use "dataset_z.dta", clear
+keep if nomination
+bysort own_id other_id: gen c = _n 
+order c
+bysort own_id: egen c_max = max(c)
+order c_max
+tab c_max // unique vs common referrals
+
+ttest other_score_math if c_max != 2, by(area)
+ttest other_score_reading if c_max != 2, by(area)
+ttest other_gpa if c_max != 2, by(area)
+ttest tie if c_max != 2, by(area)
+prtest other_low_ses if c_max != 2, by(area)
+prtest other_med_ses if c_max != 2, by(area)
+prtest other_high_ses if c_max != 2, by(area)
 
 twoway (kdensity other_score_reading if !nomination) (kdensity other_score_reading if nomination)
+
+cls
+use "dataset_z.dta", clear
 
 //# referral vs not referred
 foreach v of varlist other_score_reading other_score_math other_gpa tie other_low_ses other_med_ses other_high_ses	 {
     use "dataset_z.dta", clear
+	drop mean_tie
 	keep if treat == 1 & nomination
-    sum `v', det // summarize baseline
+	bysort own_id: egen mean_`v' = mean(`v')
+	bysort own_id: keep if _n == 1
+	sum mean_`v', det // summarize baseline
+	global mean_`v'_base = r(mean)
 	
 	use "dataset_z.dta", clear
+	drop mean_tie
 	keep if treat == 2 & nomination
-	sum `v', det // summarize bonus
+	bysort own_id: egen mean_`v' = mean(`v')
+	bysort own_id: keep if _n == 1
+	sum mean_`v', det // summarize bonus
+	global mean_`v'_bonus = r(mean)
 	
 	use "dataset_z.dta", clear
+	drop mean_tie
 	keep if !nomination
-	sum `v', det // summarize not referred
+	bysort own_id: egen mean_`v' = mean(`v')
+	bysort own_id: keep if _n == 1
+	sum mean_`v', det // summarize not referred
 	
 	use "dataset_z.dta", clear
+	drop mean_tie
 	keep if nomination
-	qui sum `v', det
+	bysort own_id: egen mean_`v' = mean(`v')
+	
+	bysort own_id: keep if _n == 1
+	qui sum mean_`v', det
     local min = r(min)
     local max = r(max)
     if `min' == 0 & `max' == 1 {
-        prtest `v', by(treat)
+        prtesti 382 ${mean_`v'_base} 352 ${mean_`v'_bonus}
     }
     else {
-        ttest `v', by(treat) unequal
+        ttest mean_`v', by(treat) unequal
     }
 }
