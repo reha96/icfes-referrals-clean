@@ -42,11 +42,14 @@ replace z_other_score = z_other_score_math if area == 2
 gen scoreXtieXses = scoreXtie * other_estrato
 gen gpaXtie = z_other_gpa * z_tie
 gen scoreXlses = z_other_score * other_low_ses
-gen scoreXtieXgpa = scoreXtie * z_other_gpa
 
 gen same_low = (other_low_ses==own_low_ses)
 gen same_med = (other_med_ses==own_med_ses)
 gen same_high = (other_high_ses==own_high_ses)
+gen same_program = (other_program==own_program) // no need to add it in the model? its contibution is very small (though sig.) compared to z_tie
+gen same_semester = (other_semester==own_semester) 
+
+gen tieXprogram = same_program * z_tie
 
 // Create a new group variable combining the subject area and person ID
 egen area_id = group(own_id area)
@@ -60,11 +63,43 @@ keep if nomination == 1
 anova z_other_score treat
 anova z_tie treat
 restore
+
+
+// cls
+// eststo clear
+// eststo reg1: clogit nomination ib(2).other_estrato  tie, group(area_id) vce(cluster own_id)
+// eststo reg2: clogit nomination ib(2).other_estrato  tie_class, group(area_id) vce(cluster own_id)
+// eststo reg3: clogit nomination ib(2).other_estrato  tie_period, group(area_id) vce(cluster own_id)
+// eststo reg4: clogit nomination ib(2).other_estrato  tie_class_period, group(area_id) vce(cluster own_id)
+// esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+
+
+cls
 eststo clear
-eststo reg1: clogit nomination i.other_low_ses i.other_med_ses i.other_high_ses, group(area_id) vce(cluster own_id)
-eststo reg2: clogit nomination i.other_low_ses i.other_med_ses i.other_high_ses z_other_score z_tie, group(area_id) vce(cluster own_id)
-eststo reg3: clogit nomination i.other_low_ses i.other_med_ses i.other_high_ses z_other_score z_tie scoreXtie, group(area_id) vce(cluster own_id)
+eststo reg0: clogit nomination ib(2).other_estrato ib(0).same_program, group(area_id) vce(cluster own_id)
+eststo reg1: clogit nomination ib(2).other_estrato  z_tie, group(area_id) vce(cluster own_id)
+eststo reg2: clogit nomination ib(2).other_estrato z_tie ib(1).same_program, group(area_id) vce(cluster own_id)
 esttab reg*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty 
+eststo reg3: qui clogit nomination ib(2).other_estrato z_tie ib(0).same_program z_other_score, group(area_id) vce(cluster own_id)
+
+
+
+
+
+forvalues ses = 1/3 {
+    preserve		
+		keep if own_estrato == `ses'
+		eststo program`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  same_program, group(area_id) vce(cluster own_id)
+		eststo base`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  , group(area_id) vce(cluster own_id)
+		test 1.other_estrato = 2.other_estrato = 3.other_estrato // *** only for low-SES
+		test 1.other_estrato = 3.other_estrato // *** only for low-SES
+	restore
+}
+esttab program* base*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty // high-SES bias gone!
+
+
+
+
 test 1.other_estrato = 2.other_estrato = 3.other_estrato // **
 
 preserve
@@ -94,17 +129,7 @@ graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/res1.p
     as(png) replace	
 
 // SECOND GRAPH
-forvalues ses = 1/3 {
-    preserve		
-		keep if own_estrato == `ses'
-	//  gen homophily = (own_estrato==other_estrato)
-//  		eststo b1`ses': clogit nomination ib(2).other_estrato, group(area_id) vce(cluster own_id)
-//  		eststo b2`ses': clogit nomination ib(2).other_estrato z_other_score z_tie, group(area_id) vce(cluster own_id)
-		eststo b3`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  scoreXtie, group(area_id) vce(cluster own_id)
-		test 1.other_estrato = 2.other_estrato = 3.other_estrato // *** only for low-SES
-		test 1.other_estrato = 3.other_estrato // *** only for low-SES
-	restore
-}
+
 
 forvalues ses = 1/3 {
     preserve		
