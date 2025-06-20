@@ -482,78 +482,199 @@ We now shed more light on the referral behavior after having characterized how r
 
 \subsection{Identifying the SES bias in referrals}
 
-We model a single referral outcome from candidates that are mutually exclusive, where our the dependent variable outcome is multinomial distributed. Our design leverages the enrollment network to generate dataset which includes alternative-specific variables for each referral decision, i.e., SES, courses taken together with the participant making the referral, as well as entry exam scores for all referral candidates, and not just the chosen alternative. Using a conditional logit model with these data, we can identify whether SES groups have an aggregate bias each other: 
+We model a single referral outcome from candidates that are mutually exclusive, where our the dependent variable outcome is multinomial distributed. Our design leverages the enrollment network to generate dataset which includes alternative-specific variables for each referral decision, i.e., SES, courses taken together with the participant making the referral, as well as entry exam scores for not just the chosen alternative but all referral candidates. Using a conditional logit model on these data, we can identify whether an SES group has an aggregate bias controlling for each individual's unique enrollment network composition.
 
-\begin{align*}
-            \Pr(\text{Refer}_{ij} = 1) = \Lambda\left(\beta_1 \text{SES}_j + \beta_2 \text{Courses}_j + \beta_3 \text{Score}_{ij} + \beta_4 \text{Courses}_j \times \text{Score}_{ij} + \alpha_i\right)
-        \end{align*}
+We follow an additive random utility model framework where individual $i$ and alternative $j$ have utility $U_{ij}$ that is the sum of a deterministic component, $V_{ij}$, that depends on regressors and unknown parameters, and an unobserved random component $\varepsilon_{ij}$:
 
-“The income coefficients of , , and mean that, relative to the probability of beach fishing, an increase in income leads to a decrease in the probability of charter boat and pier fishing and an increase in the probability of private boat fishing” 
+We observe the outcome $y_i = j$ if alternative $j$ has the highest utility of the alternatives. The probability that the outcome for individual $i$ is alternative $j$, conditional on the regressors, is:
 
+\begin{align}
+p_{ij} = \Pr(y_i = j) = \Pr(U_{ij} \geq U_{ik}), \quad \text{for all } k
+\end{align}
 
+The CL model specifies that the probability of individual $i$ choosing alternative $j$ from choice set $C_i$ is given by:
+
+\begin{align}
+p_{ij} = \frac{\exp(x'_{ij} \beta)}{\sum_{l \in C_i} \exp(x'_{il} \beta)}, \quad j \in C_i
+\end{align}
+
+where $x_{ij}$ are alternative-specific regressors, i.e., characteristics of potential referees that vary across alternatives.
+
+In our context, individual $i$ chooses to refer candidate $j$ from their enrollment network $C_i$. The alternative-specific regressors include SES and entry exam scores of the referral candidate, and the number of courses taken together with the participant making the referral. Conditional logit structure eliminates participant-specific factors that might influence both network formation and referral decisions, allowing us to identify preferences within each participant's realized network.
+
+For causal identification of SES bias, we require two identifying assumptions. Specifically:
+
+\begin{enumerate}
+    \item \textbf{Conditional exogeneity}: Both SES and the number of courses taken together could be endogenous due to program selection. High-SES students sort into expensive programs while low-SES students choose affordable programs, creating systematic SES variation across enrollment networks. Similarly, the number of courses taken together reflects program selection decisions that may correlate with unobserved referral preferences. However, conditional on the realized enrollment network, the remaining variation in both SES and the number of courses taken together across referral candidates must be independent of unobserved factors affecting referral decisions. In the robustness checks, we show that being in the same program with the referrer does not impact our SES bias estimates, although it reduces the coefficient on the number of courses taken together.
+    
+    \item \textbf{Complete choice set specification and independence of irrelevant alternatives}: Administrative data captures the complete enrollment network, with all peers who took at least one course with individual $i$ and represent the true choice set for referral decisions (unless participants have potential referral candidates with whom they never took classes). The independence of irrelevant alternatives (IIA) assumption requires that choices between any two alternatives be independent of other options in the choice set, which could be problematic if, e.g., peers within the same SES group are viewed as close substitutes. This concern does not apply to our setting because the design of our experiment ensures that choice sets are fixed by enrollment rather than arbitrary inclusion/exclusion of alternatives that create IIA violations.
+\end{enumerate}
+
+Under these assumptions, the conditional logit framework controls for individual heterogeneity in program selection (absorbed by conditioning on choice sets), selection into programs based on observable characteristics (through alternative-specific variables), and choice set composition effects (through the multinomial structure). Therefore, $\beta$ should identify the causal effect of referral candidate SES on referral probability, holding constant the number of courses taken together and the entry exam scores of candidates. A significant coefficient will then indicate taste-based discrimination.
+
+We pool participants by their SES group, and estimate the above described conditional fixed effects logit model once for low-, middle-, and high-SES referrers. We standardize entry exam scores and the number of courses taken together at the individual network level. For each referrer's network, we first calculate the mean and standard deviation for both measures. We then compute the average of these means and standard deviations across all 734 referrers. Each referral candidate's entry exam score and the number of courses they haven taken with the referrer is standardized using these network-level statistics. The standardization formula is $z_{i} = (x - \bar{X}_{i}) / \sigma_{i}$, where $\bar{X}_{i}$ and $\sigma_{i}$ are the average of network means and standard deviations for $C_{i}$.
+
+We describe our first set of findings in Table \ref{tab:ses-heterogeneity}. To begin with, the variance explained by all three models are extremely low, suggesting the role of potential SES biases in referrals that go beyond the network structure must be limited. Regardless, controlling for network composition, low-SES participants are more likely to refer other low-SES, and are less likely to refer high-SES relative to the probability of referring middle-SES peers. In contrast, we find that high-SES participants are less likely to refer other low-SES, relative to the probability of referring middle-SES peers.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{SES bias in referral decisions by referrer SES group}\label{tab:ses-heterogeneity}
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+\toprule
+& \multicolumn{3}{c}{Referrer SES} \\
+& Low & Middle & High \\
+& (1) & (2) & (3) \\
+\midrule
+Low-SES candidate & 0.453*** & -0.019 & -0.710** \\
+& (0.109) & (0.098) & (0.333) \\
+High-SES candidate & -0.584*** & -0.255* & 0.001 \\
+& (0.211) & (0.145) & (0.261) \\
+\midrule
+$\chi^2$ & 33.47 & 3.18 & 4.94 \\
+Observations & 110,142 & 127,088 & 19,767 \\
+Individuals & 301 & 366 & 67 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring candidates from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+We proceed by adding the standardized number of courses taken together as a control in our specification and describe the results in Table \ref{tab:ses-heterogeneity-extended}. A one standard deviation increase in the number of courses taken together proves to be highly significant across all models, with coefficients ranging from 0.856 to 1.049, indicating that stronger social connections substantially increase the probability of referral. The high $\chi^2$ statistics suggest that these models explain considerably more variance than specifications without this control, highlighting the importance of courses taken together in referral decisions. Nevertheless, low-SES participants still show a strong same-SES bias relative to referring middle-SES peers at the average number of courses taken together. This same-SES bias is not observed among middle-SES or high-SES referrers, who also display no statistically significant bias toward low-SES candidates. None referrer group shows a positive bias for high-SES candidates relative to middle-SES candidates. 
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{SES bias in referral decisions by referrer SES group}\label{tab:ses-heterogeneity-extended}
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+\toprule
+& \multicolumn{3}{c}{Referrer SES} \\
+& Low & Middle & High \\
+& (1) & (2) & (3) \\
+\midrule
+Low-SES candidate & 0.348*** & -0.064 & -0.489 \\
+& (0.123) & (0.115) & (0.337) \\
+High-SES candidate & -0.366 & -0.165 & -0.140 \\
+& (0.223) & (0.157) & (0.286) \\
+Courses taken (z-score) & 0.856*** & 0.931*** & 1.049*** \\
+& (0.035) & (0.037) & (0.126) \\
+\midrule
+$\chi^2$ & 626.15 & 636.10 & 71.43 \\
+Observations & 110,142 & 127,088 & 19,767 \\
+Individuals & 301 & 366 & 67 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring candidates from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+We add standardized entry exam scores (Math and Reading average) as a second control variable and describe our results in Table \ref{tab:ses-heterogeneity-scores}. A one standard deviation increase in the entry exam score proves highly significant across all models, with coefficients ranging from 0.587 to 0.883. This shows merit-based considerations due to the incentive structure of the experiment remained central to referral decisions. The slightly higher $\chi^2$ statistics compared to the earlier specification suggests that entry exam scores improve model fit. The inclusion of standardized entry exam scores strengthens SES biases. Low-SES referrers maintain their same-SES bias, with now a significant negative bias against high-SES . Middle-SES referrers, previously showing no SES bias, now show marginal negative bias agaisnt high-SES. Finally, high-SES referrers exhibit marginal negative bias against low-SES candidates. 
+
+The evidence of a biases becoming significant when controlling for entry exam scores has a nuanced interpretation. While at the university-level, low-SES typically score lower in the entry exam, low-SES students appearing in high-SES networks are positively selected, scoring about 0.14 standard deviations higher than middle-SES students. Controlling for performance thus removes this positive selection and reveals the ``pure'' SES bias that was previously underestimated by above average performance of low-SES. Vice versa, high-SES in low-SES networks perform 0.12 standard deviations better than middle-SES students. The same bias was underestimated as high-SES candidates' better performance relative to middle-SES in the same networks provided a meritocratic justification for getting more referrals. Controlling for exam scores reveal that both high- and low-SES referrers have negative SES bias towards one another that operates independently of - and counter to - performance-based considerations. What makes interpretation difficult is that while biased against low-SES, high-SES referrers do not under any specification display a positive bias towards their in-group. For this final reason, we do not dig any further in this direction.\textcolor{red}{add tests if you want} 
+
+To conclude, we conduct joint significance tests, testing whether low- and high-SES regression coefficients are jointly different from middle-SES for each regression specificaiton. For low-SES referrers, the joint test remains highly significant across all three specifications ($\chi^2 = 10.20$, $p = 0.006$ in the final model), indicating persistent SES bias across all specifications. In contrast, middle-SES referrers display no significant joint SES bias in any specification, with the test becoming increasingly non-significant as controls are added ($\chi^2 = 4.13$, $p = 0.127$ in the final model). High-SES referrers similarly show no significant joint SES bias across all three models ($\chi^2 = 4.28$, $p = 0.118$ in the final model). These results suggest that SES bias in referrals is primarily driven by low-SES. There is no sufficient evidence to conclude that middle- and high-SES referrers systematically discriminate against other-SES peers once we take into account the large differences in their network compositions due to program selection.
 
 
 \begin{table}[H]
-  \centering
-  \begin{threeparttable}
-  \caption{Comparison of math and verbal scores by SES group and data source}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc}
-  \toprule
-  & \multicolumn{3}{c}{Math} & \multicolumn{3}{c}{Verbal} \\
-  \cmidrule{2-4} \cmidrule{5-7}
-  & Network & Admin & Sample & Network & Admin & Sample \\
-  \midrule
-  Low-SES & 66.976 & 61.653 & 67.813 & 64.738 & 60.974 & 66.058 \\
-  & (0.052) & (0.346) & (0.694) & (0.043) & (0.274) & (0.574) \\
-  [1ex]
-  Mid-SES & 65.627 & 64.531 & 66.859 & 63.685 & 63.154 & 64.779 \\
-  & (0.039) & (0.224) & (0.580) & (0.032) & (0.183) & (0.436) \\
-  [1ex]
-  High-SES & 67.781 & 67.330 & 70.610 & 64.966 & 64.892 & 66.397 \\
-  & (0.077) & (0.416) & (1.295) & (0.063) & (0.341) & (1.214) \\
-  \midrule
-  Observations & 128,150 & 4,415 & 669 & 128,847 & 4,403 & 673 \\
-  \bottomrule
-  \end{tabular*}
-  \begin{tablenotes}[flushleft]
-  \footnotesize
-  \item[] \textit{Note:} Standard errors in parentheses. The table presents mean scores with standard errors for math and verbal tests across the entire network, the admin data, and the sample. Admin data consistently shows lower scores than both network and the sample across all SES groups consistent with selection, with the largest gaps occurring for the Low-SES. Differences between network and sample scores are generally smaller than those between either and the admin data.
-  \end{tablenotes}
-  \label{tab:ses_scores_comparison}
-  \end{threeparttable}
+\centering
+\begin{threeparttable}
+\caption{SES bias in referral decisions by referrer SES group with academic performance controls}\label{tab:ses-heterogeneity-scores}
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+\toprule
+& \multicolumn{3}{c}{Referrer SES} \\
+& Low & Middle & High \\
+& (1) & (2) & (3) \\
+\midrule
+Low-SES candidate & 0.242** & -0.159 & -0.600* \\
+& (0.123) & (0.114) & (0.327) \\
+High-SES candidate& -0.445** & -0.274* & -0.345 \\
+& (0.222) & (0.157) & (0.287) \\
+Courses taken (z-score) & 0.859*** & 0.948*** & 1.043*** \\
+& (0.036) & (0.038) & (0.118) \\
+Entry exam (candidate z-score) & 0.607*** & 0.587*** & 0.883*** \\
+& (0.052) & (0.047) & (0.111) \\
+\midrule
+$\chi^2$ & 789.87 & 756.06 & 120.54 \\
+Observations & 110,142 & 127,088 & 19,767 \\
+Individuals & 301 & 366 & 67 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring candidates from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
 
 
-\begin{figure}[H]
-  \centering
-  \caption{Effect of the Bonus on Referrals}
-  \begin{subfigure}[t]{0.7\textwidth}
-    \centering
-      \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
-      \caption{Reading}  
-      \label{fig:reading_combined}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.7\textwidth}
-    \centering
-      \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
-      \caption{Math}
-      \label{fig:math_combined}
-  \end{subfigure}
-  \label{fig:both_combined}
-  \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.}
-\end{figure}
+% \begin{table}[H]
+%   \centering
+%   \begin{threeparttable}
+%   \caption{Comparison of math and verbal scores by SES group and data source}
+%   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc}
+%   \toprule
+%   & \multicolumn{3}{c}{Math} & \multicolumn{3}{c}{Verbal} \\
+%   \cmidrule{2-4} \cmidrule{5-7}
+%   & Network & Admin & Sample & Network & Admin & Sample \\
+%   \midrule
+%   Low-SES & 66.976 & 61.653 & 67.813 & 64.738 & 60.974 & 66.058 \\
+%   & (0.052) & (0.346) & (0.694) & (0.043) & (0.274) & (0.574) \\
+%   [1ex]
+%   Mid-SES & 65.627 & 64.531 & 66.859 & 63.685 & 63.154 & 64.779 \\
+%   & (0.039) & (0.224) & (0.580) & (0.032) & (0.183) & (0.436) \\
+%   [1ex]
+%   High-SES & 67.781 & 67.330 & 70.610 & 64.966 & 64.892 & 66.397 \\
+%   & (0.077) & (0.416) & (1.295) & (0.063) & (0.341) & (1.214) \\
+%   \midrule
+%   Observations & 128,150 & 4,415 & 669 & 128,847 & 4,403 & 673 \\
+%   \bottomrule
+%   \end{tabular*}
+%   \begin{tablenotes}[flushleft]
+%   \footnotesize
+%   \item[] \textit{Note:} Standard errors in parentheses. The table presents mean scores with standard errors for math and verbal tests across the entire network, the admin data, and the sample. Admin data consistently shows lower scores than both network and the sample across all SES groups consistent with selection, with the largest gaps occurring for the Low-SES. Differences between network and sample scores are generally smaller than those between either and the admin data.
+%   \end{tablenotes}
+%   \label{tab:ses_scores_comparison}
+%   \end{threeparttable}
+% \end{table}
 
 
-\begin{figure}[H]
-  \centering
-  \caption{Top decile performer share across the sample, network and referals }\label{topdecile}
-  \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_comparison.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] \textit{Note:} This figure displays the percentage share of top decile individuals according to the admin data across three dimensions. First bar shows referrers in the sample of participants. Second bar is the share of top decile individuals in their networks. Third column shows the share of top decile among the referrals made. We test differences between proportions across these three groups using two-sample tests of proportions. For both math and reading scores, the differences between Sample and Network ($p<0.001$), Sample and Referrals ($p<0.005$), and Network and Referrals ($p<0.001$) are all statistically significant.
-  \end{tablenotes}
-\end{figure}
+
+% \begin{figure}[H]
+%   \centering
+%   \caption{Effect of the Bonus on Referrals}
+%   \begin{subfigure}[t]{0.7\textwidth}
+%     \centering
+%       \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/reading_combined.png}
+%       \caption{Reading}  
+%       \label{fig:reading_combined}
+%   \end{subfigure}
+%   \begin{subfigure}[t]{0.7\textwidth}
+%     \centering
+%       \includegraphics[width=\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/math_combined.png}
+%       \caption{Math}
+%       \label{fig:math_combined}
+%   \end{subfigure}
+%   \label{fig:both_combined}
+%   \caption*{\footnotesize\textit{Note:} The top panel compares the reading scores and tie strength of referrals across conditions. The bottom panel shows the average standardized math and tie strength of referrals across conditions. We test differences in across conditions using two-sample $t$-tests and find no meaningful differences. For both math and reading, treatment causes no significant changes in referral performance or tie strength.}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%   \centering
+%   \caption{Top decile performer share across the sample, network and referals }\label{topdecile}
+%   \includegraphics[width=0.6\linewidth]{/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/top_decile_comparison.png}
+%   \begin{tablenotes}
+%     \footnotesize
+%     \item[] \textit{Note:} This figure displays the percentage share of top decile individuals according to the admin data across three dimensions. First bar shows referrers in the sample of participants. Second bar is the share of top decile individuals in their networks. Third column shows the share of top decile among the referrals made. We test differences between proportions across these three groups using two-sample tests of proportions. For both math and reading scores, the differences between Sample and Network ($p<0.001$), Sample and Referrals ($p<0.005$), and Network and Referrals ($p<0.001$) are all statistically significant.
+%   \end{tablenotes}
+% \end{figure}
 
 
   % \begin{figure}[H]
