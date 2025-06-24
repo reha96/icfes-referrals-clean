@@ -140,6 +140,32 @@ Beaman, L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Bolte%
+, Immorlica%
+\BCBL {}\ \BBA {} Jackson%
+}{%
+Bolte%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+}]{%
+bolte_role_2021}
+\APACinsertmetastar {%
+bolte_role_2021}%
+\begin{APACrefauthors}%
+Bolte, L.%
+, Immorlica, N.%
+\BCBL {}\ \BBA {} Jackson, M\BPBI O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+\APACrefbtitle {The {Role} of {Referrals} in {Immobility}, {Inequality}, and {Ineﬃciency} in {Labor} {Markets}.} {The {Role} of {Referrals} in {Immobility}, {Inequality}, and {Ineﬃciency} in {Labor} {Markets}.}
+\newblock
+\APACrefnote{Working Paper}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Bourdieu%
 }{%
 Bourdieu%
@@ -161,6 +187,57 @@ Bourdieu, P.%
 \BIn{} J.~Richardson\ (\BED), \APACrefbtitle {Handbook of Theory and Research for the Sociology of Education} {Handbook of theory and research for the sociology of education}\ (\BPGS\ 241--258).
 \newblock
 \APACaddressPublisher{New York}{Greenwood Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Brown%
+, Setren%
+\BCBL {}\ \BBA {} Topa%
+}{%
+Brown%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+brown2016informal}
+\APACinsertmetastar {%
+brown2016informal}%
+\begin{APACrefauthors}%
+Brown, M.%
+, Setren, E.%
+\BCBL {}\ \BBA {} Topa, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Do informal referrals lead to better matches? Evidence from a firm’s employee referral system} {Do informal referrals lead to better matches? evidence from a firm’s employee referral system}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Labor Economics}{34}{1}{161--209}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Calvo-Armengol%
+\ \BBA {} Jackson%
+}{%
+Calvo-Armengol%
+\ \BBA {} Jackson%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+calvo2004effects}
+\APACinsertmetastar {%
+calvo2004effects}%
+\begin{APACrefauthors}%
+Calvo-Armengol, A.%
+\BCBT {}\ \BBA {} Jackson, M\BPBI O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The effects of social networks on employment and inequality} {The effects of social networks on employment and inequality}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American economic review}{94}{3}{426--454}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -252,6 +329,34 @@ D{\'\i}az, J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Dustmann%
+, Glitz%
+, Sch{\"o}nberg%
+\BCBL {}\ \BBA {} Br{\"u}cker%
+}{%
+Dustmann%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+dustmann2016referral}
+\APACinsertmetastar {%
+dustmann2016referral}%
+\begin{APACrefauthors}%
+Dustmann, C.%
+, Glitz, A.%
+, Sch{\"o}nberg, U.%
+\BCBL {}\ \BBA {} Br{\"u}cker, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Referral-based job search networks} {Referral-based job search networks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Review of Economic Studies}{83}{2}{514--546}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Fergusson%
 \ \BBA {} Flórez%
 }{%
@@ -306,6 +411,34 @@ Fergusson, L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Friebel%
+, Heinz%
+, Hoffman%
+\BCBL {}\ \BBA {} Zubanov%
+}{%
+Friebel%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+friebel2023employee}
+\APACinsertmetastar {%
+friebel2023employee}%
+\begin{APACrefauthors}%
+Friebel, G.%
+, Heinz, M.%
+, Hoffman, M.%
+\BCBL {}\ \BBA {} Zubanov, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {What do employee referral programs do? Measuring the direct and overall effects of a management practice} {What do employee referral programs do? measuring the direct and overall effects of a management practice}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Political Economy}{131}{3}{633--686}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Garc{\'\i}a%
 , Rodr{\'\i}guez%
 , S{\'a}nchez%
@@ -331,6 +464,32 @@ Garc{\'\i}a, S.%
 {\BBOQ}\APACrefatitle {La loter{\'\i}a de la cuna: La movilidad social a trav{\'e}s de la educaci{\'o}n en los municipios de Colombia} {La loter{\'\i}a de la cuna: La movilidad social a trav{\'e}s de la educaci{\'o}n en los municipios de colombia}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Documentos CEDE}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gee%
+, Jones%
+\BCBL {}\ \BBA {} Burke%
+}{%
+Gee%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+gee2017social}
+\APACinsertmetastar {%
+gee2017social}%
+\begin{APACrefauthors}%
+Gee, L\BPBI K.%
+, Jones, J\BPBI J.%
+\BCBL {}\ \BBA {} Burke, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social networks and labor markets: How strong ties relate to job finding on Facebook's social network} {Social networks and labor markets: How strong ties relate to job finding on facebook's social network}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Labor Economics}{35}{2}{485--518}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -493,6 +652,31 @@ Kossinets, G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Kramarz%
+\ \BBA {} Nordström~Skans%
+}{%
+Kramarz%
+\ \BBA {} Nordström~Skans%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+kramarz2014strong}
+\APACinsertmetastar {%
+kramarz2014strong}%
+\begin{APACrefauthors}%
+Kramarz, F.%
+\BCBT {}\ \BBA {} Nordström~Skans, O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {When strong ties are strong: Networks and youth labour market entry} {When strong ties are strong: Networks and youth labour market entry}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Review of Economic Studies}{81}{3}{1164--1200}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Lin%
 , Ensel%
 \BCBL {}\ \BBA {} Vaughn%
@@ -592,6 +776,28 @@ McPherson, M.%
 {\BBOQ}\APACrefatitle {Birds of a feather: Homophily in social networks} {Birds of a feather: Homophily in social networks}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Annual review of sociology}{27}{1}{415--444}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Montgomery%
+}{%
+Montgomery%
+}{%
+{\protect \APACyear {1991}}%
+}]{%
+montgomery_social_1991}
+\APACinsertmetastar {%
+montgomery_social_1991}%
+\begin{APACrefauthors}%
+Montgomery, J\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1991}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social {Networks} and {Labor}-{Market} {Outcomes}: {Toward} an {Economic} {Analysis}} {Social {Networks} and {Labor}-{Market} {Outcomes}: {Toward} an {Economic} {Analysis}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Economic Review}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -859,6 +1065,28 @@ Uribe-Mallarino, C.%
 {\BBOQ}\APACrefatitle {Estratificaci{\'o}n social en Bogot{\'a}: de la pol{\'\i}tica p{\'u}blica a la din{\'a}mica de la segregaci{\'o}n social} {Estratificaci{\'o}n social en bogot{\'a}: de la pol{\'\i}tica p{\'u}blica a la din{\'a}mica de la segregaci{\'o}n social}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Universitas humanistica}{}{65}{139--172}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wang%
+}{%
+Wang%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+wang2013marriage}
+\APACinsertmetastar {%
+wang2013marriage}%
+\begin{APACrefauthors}%
+Wang, S\BHBI Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Marriage networks, nepotism, and labor market outcomes in China} {Marriage networks, nepotism, and labor market outcomes in china}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Economic Journal: Applied Economics}{5}{3}{91--112}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
