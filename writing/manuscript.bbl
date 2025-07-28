@@ -31,6 +31,28 @@ Alan, S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Allport%
+}{%
+Allport%
+}{%
+{\protect \APACyear {1954}}%
+}]{%
+allport1954nature}
+\APACinsertmetastar {%
+allport1954nature}%
+\begin{APACrefauthors}%
+Allport, G\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1954}.
+\newblock
+\APACrefbtitle {The Nature of Prejudice} {The nature of prejudice}.
+\newblock
+\APACaddressPublisher{Cambridge, MA}{Addison-Wesley}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Angulo%
 , Gaviria%
 , P{\'a}ez%
@@ -898,6 +920,33 @@ Pedulla, D\BPBI S.%
 \APACjournalVolNumPages{American Sociological Review}{84}{}{983-1012}.
 \newblock
 \begin{APACrefDOI} \doi{10.1177/0003122419883255} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pettigrew%
+\ \BBA {} Tropp%
+}{%
+Pettigrew%
+\ \BBA {} Tropp%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+pettigrew2006meta}
+\APACinsertmetastar {%
+pettigrew2006meta}%
+\begin{APACrefauthors}%
+Pettigrew, T\BPBI F.%
+\BCBT {}\ \BBA {} Tropp, L\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A meta-analytic test of intergroup contact theory} {A meta-analytic test of intergroup contact theory}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Personality and Social Psychology}{90}{5}{751--783}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0022-3514.90.5.751} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

@@ -25,6 +25,12 @@
 \usepackage{float}
 \usepackage[natbibapa]{apacite}
 \usepackage{threeparttable}
+
+\makeatletter
+\NAT@longnamesfalse
+\makeatother
+
+
 \newcommand{\footremember}[2]{%
    \footnote{#2}
     \newcounter{#1}
@@ -45,6 +51,7 @@
 \usepackage{blindtext}
 \usepackage[colorlinks=true, citecolor=blue, linkcolor=blue, urlcolor=blue,breaklinks]{hyperref}
 
+% fast compile
 % \pdfcompresslevel=0
 % \pdfobjcompresslevel=0
 
@@ -96,7 +103,16 @@ The remainder of the paper is organized as follows. Section \ref{s2} begins with
 
 \section{Background and Setting} \label{s2}
 
-Our study takes place at UNAB, a medium-sized private university in Bucaramanga, Colombia with approximately 6,000 enrolled undergraduate students. The university's student body is remarkably diverse, with about 35\% of students classified as low-SES and 15\% as high-SES. This diversity at UNAB provides a unique research setting. Colombian society is highly unequal and generally characterized by limited interaction between social classes, with different socioeconomic groups separated by education and geographic residence.\footnote{Colombia has consistently ranked as one of the most unequal countries in Latin America \citep{barretoherrera2024regional}, with the richest decile earning 50 times more than the poorest decile \citep{comisioneconomicaparaamericalatinayel2023}. This economic disparity is reflected by a highly stratified society with significant class inequalities and limited class mobility \citep{angulo2012movilidad,garcia2015loteria}.} Despite significant financial barriers, many lower and middle-SES families prioritize university education for their children \citep[p. 103]{hudson_colombia_2010}. UNAB represents one of the few environments in Colombia where sustained inter-SES contact occurs naturally (see Figure \ref{school_quality_income}).
+Our experiment took place in Colombia, a country that consistently ranks among the most unequal in Latin America. The richest decile of Colombians earn 50 times more than the poorest decile \citep{barretoherrera2024regional,comisioneconomicaparaamericalatinayel2023}. This economic disparity creates profound differences in outcomes across SES groups in terms of education, geographic residence, language, manners, and social networks \citep{fergusson2021distincion, angulo2012movilidad,garcia2015loteria}. While these patterns are not atypical and exist elsewhere \citep{chetty2022na}, Colombia's pronounced inequality makes class-based differences particularly visible. This combination of economic, educational, and cultural segregation provides an ideal setting to study SES biases in referral selection.
+
+We rely on Colombia's established estrato classification system to operationalize SES in our study. In 1994, Colombia introduced a nationwide system that divides the population into six strata based on  ``similar social and economic characteristics'' \citep[p. 102]{hudson_colombia_2010}. Designed for utility subsidies from higher strata to support lower strata, the system aligns with and reinforces existing social class divisions \citep{uribe2008estratificacion, guevara2019spatializing}. It is widely used by policymakers and in official statistics \citep{fergusson2021desigualdad}. Using the estrato system, we categorize students in strata 1-2 as low-SES, strata 3-4 as middle-SES, and strata 5-6 as high-SES. The institutional recognition and widespread use of this system makes Colombia methodologically advantageous for studying SES-based phenomena.
+
+Colombia's educational segregation typically prevents meaningful interaction between socioeconomic groups, as wealthy families attending exclusive private schools while poorer families access lower-quality public or private institutions \citep{fergusson2021distincion}. However, non-elite private universities like our partner institution are outliers to this pattern. They attract students across the socioeconomic spectrum, unlike elite private institutions that serve primarily high-SES students or public universities that serve mainly low-SES students (see Figure \ref{school_quality_income}).\footnote{Despite significant financial barriers, many low- and middle-SES families pay for private university education for their children \citep[p. 103]{hudson_colombia_2010}.} Our study takes place at a medium-sized private university in Colombia with approximately 6,000 enrolled undergraduate students. Its student body is diverse, comprising approximately 35\% low-SES, 50\% middle-SES, and 15\% high-SES students. \footnote{In contrast, government statistics reveal less than 5\% of the population is high-SES \citep[p. 103]{hudson_colombia_2010}.} This diversity solves the fundamental problem of providing opportunities for different SES groups to meet and interact within the same institutional framework.
+
+
+\textcolor{orange}{decide what to do here: Beyond providing opportunities for meeting across SES groups (cross-SES contact), the partner university also creates conditions for contact on equal status. First, all students at the university pay the same fees based on their program choice, and typically less than 5\% of students receive any scholarship. The student body is also relatively homogeneous along other demographic dimensions, being mostly urban and having similar university entry exam scores \textcolor{red}{ADD NUMBERS}. According to contact theory, meaningful interaction between groups is most likely to reduce bias when members have equal status within the contact situation \citep{allport1954nature,pettigrew2006meta}. The combination of SES diversity and equal institutional status makes this setting particularly well-suited for identifying pure socioeconomic biases in referral behavior, as other potential sources of differentiation are minimized.}
+
+
 
 \begin{figure}[H]
   \centering
