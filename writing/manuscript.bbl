@@ -31,28 +31,6 @@ Alan, S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Allport%
-}{%
-Allport%
-}{%
-{\protect \APACyear {1954}}%
-}]{%
-allport1954nature}
-\APACinsertmetastar {%
-allport1954nature}%
-\begin{APACrefauthors}%
-Allport, G\BPBI W.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{1954}.
-\newblock
-\APACrefbtitle {The Nature of Prejudice} {The nature of prejudice}.
-\newblock
-\APACaddressPublisher{Cambridge, MA}{Addison-Wesley}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Angulo%
 , Gaviria%
 , P{\'a}ez%
@@ -269,36 +247,6 @@ Chetty%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2022}}%
 {\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
-chetty2022n}
-\APACinsertmetastar {%
-chetty2022n}%
-\begin{APACrefauthors}%
-Chetty, R.%
-, Jackson, M\BPBI O.%
-, Kuchler, T.%
-, Stroebel, J.%
-, Hendren, N.%
-, Fluegge, R\BPBI B.%
-\BDBL {}Wernerfelt, N.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2022{\protect \BCnt {1}}}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Social Capital {{II}}: Determinants of Economic Connectedness} {Social capital {{II}}: Determinants of economic connectedness}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Nature}{608}{7921}{122--134}.
-\newblock
-\begin{APACrefDOI} \doi{10.1038/s41586-022-04997-3} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Chetty%
-\ \protect \BOthers {.}}{%
-Chetty%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2022}}%
-{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
 chetty2022na}
 \APACinsertmetastar {%
 chetty2022na}%
@@ -313,13 +261,43 @@ Chetty, R.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2022{\protect \BCnt {2}}}{}{}.
+\APACrefYearMonthDay{2022{\protect \BCnt {1}}}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Social Capital {{I}}: Measurement and Associations with Economic Mobility} {Social capital {{I}}: Measurement and associations with economic mobility}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Social Capital 1: Measurement and Associations with Economic Mobility} {Social capital 1: Measurement and associations with economic mobility}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Nature}{608}{7921}{108--121}.
 \newblock
 \begin{APACrefDOI} \doi{10.1038/s41586-022-04996-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chetty%
+\ \protect \BOthers {.}}{%
+Chetty%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+chetty2022n}
+\APACinsertmetastar {%
+chetty2022n}%
+\begin{APACrefauthors}%
+Chetty, R.%
+, Jackson, M\BPBI O.%
+, Kuchler, T.%
+, Stroebel, J.%
+, Hendren, N.%
+, Fluegge, R\BPBI B.%
+\BDBL {}Wernerfelt, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022{\protect \BCnt {2}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social Capital 2: Determinants of Economic Connectedness} {Social capital 2: Determinants of economic connectedness}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{608}{7921}{122--134}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/s41586-022-04997-3} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -398,9 +376,9 @@ Fergusson, L.%
 \newblock
 \APACrefYearMonthDay{2021{\protect \BCnt {1}}}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Desigualdad Educativa en Colombia} {Desigualdad educativa en colombia}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Desigualdad educativa en Colombia} {Desigualdad educativa en colombia}.{\BBCQ}
 \newblock
-\BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García-Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas}\ (\BPGS\ 81--114).
+\BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García~Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas.} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas.}
 \newblock
 \APACaddressPublisher{Bogotá}{Ariel}.
 \PrintBackRefs{\CurrentBib}
@@ -427,7 +405,7 @@ Fergusson, L.%
 \newblock
 {\BBOQ}\APACrefatitle {Distinción escolar} {Distinción escolar}.{\BBCQ}
 \newblock
-\BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García-Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas}\ (\BPGS\ 81--114).
+\BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García~Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas.} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas.}
 \newblock
 \APACaddressPublisher{Bogotá}{Ariel}.
 \PrintBackRefs{\CurrentBib}
@@ -486,6 +464,33 @@ Garc{\'\i}a, S.%
 {\BBOQ}\APACrefatitle {La loter{\'\i}a de la cuna: La movilidad social a trav{\'e}s de la educaci{\'o}n en los municipios de Colombia} {La loter{\'\i}a de la cuna: La movilidad social a trav{\'e}s de la educaci{\'o}n en los municipios de colombia}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Documentos CEDE}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+García~Villegas%
+\ \BBA {} Cobo%
+}{%
+García~Villegas%
+\ \BBA {} Cobo%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+garciavillegas2021dimension}
+\APACinsertmetastar {%
+garciavillegas2021dimension}%
+\begin{APACrefauthors}%
+García~Villegas, M.%
+\BCBT {}\ \BBA {} Cobo, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {La dimensión cultural del apartheid educativo} {La dimensión cultural del apartheid educativo}.{\BBCQ}
+\newblock
+\BIn{} J\BPBI C.~Cárdenas, L.~Fergusson\BCBL {}\ \BBA {} M.~García~Villegas\ (\BEDS), \APACrefbtitle {La Quinta Puerta: De cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas.} {La quinta puerta: De cómo la educación en colombia agudiza las desigualdades en lugar de remediarlas.}
+\newblock
+\APACaddressPublisher{Bogotá}{Ariel}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -753,28 +758,6 @@ Loury, G\BPBI C.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Lowe%
-}{%
-Lowe%
-}{%
-{\protect \APACyear {2021}}%
-}]{%
-lowe2021types}
-\APACinsertmetastar {%
-lowe2021types}%
-\begin{APACrefauthors}%
-Lowe, M.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2021}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Types of contact: A field experiment on collaborative and adversarial caste integration} {Types of contact: A field experiment on collaborative and adversarial caste integration}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American Economic Review}{111}{6}{1807--1844}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 McPherson%
 , Smith-Lovin%
 \BCBL {}\ \BBA {} Cook%
@@ -820,28 +803,6 @@ Montgomery, J\BPBI D.%
 {\BBOQ}\APACrefatitle {Social {Networks} and {Labor}-{Market} {Outcomes}: {Toward} an {Economic} {Analysis}} {Social {Networks} and {Labor}-{Market} {Outcomes}: {Toward} an {Economic} {Analysis}}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{American Economic Review}{}{}{}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Mousa%
-}{%
-Mousa%
-}{%
-{\protect \APACyear {2020}}%
-}]{%
-mousa2020building}
-\APACinsertmetastar {%
-mousa2020building}%
-\begin{APACrefauthors}%
-Mousa, S.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2020}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Building social cohesion between Christians and Muslims through soccer in post-ISIS Iraq} {Building social cohesion between christians and muslims through soccer in post-isis iraq}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Science}{369}{6505}{866--870}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -920,55 +881,6 @@ Pedulla, D\BPBI S.%
 \APACjournalVolNumPages{American Sociological Review}{84}{}{983-1012}.
 \newblock
 \begin{APACrefDOI} \doi{10.1177/0003122419883255} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Pettigrew%
-\ \BBA {} Tropp%
-}{%
-Pettigrew%
-\ \BBA {} Tropp%
-}{%
-{\protect \APACyear {2006}}%
-}]{%
-pettigrew2006meta}
-\APACinsertmetastar {%
-pettigrew2006meta}%
-\begin{APACrefauthors}%
-Pettigrew, T\BPBI F.%
-\BCBT {}\ \BBA {} Tropp, L\BPBI R.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2006}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {A meta-analytic test of intergroup contact theory} {A meta-analytic test of intergroup contact theory}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of Personality and Social Psychology}{90}{5}{751--783}.
-\newblock
-\begin{APACrefDOI} \doi{10.1037/0022-3514.90.5.751} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Rao%
-}{%
-Rao%
-}{%
-{\protect \APACyear {2019}}%
-}]{%
-rao2019familiarity}
-\APACinsertmetastar {%
-rao2019familiarity}%
-\begin{APACrefauthors}%
-Rao, G.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2019}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Familiarity does not breed contempt: Generosity, discrimination, and diversity in Delhi schools} {Familiarity does not breed contempt: Generosity, discrimination, and diversity in delhi schools}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American Economic Review}{109}{3}{774--809}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
