@@ -129,10 +129,44 @@ The partner university creates conditions for contact on equal status. All stude
   \end{tablenotes}
 \end{figure}
 
+We construct enrollment networks using administrative data to map social connections at the university.  For each participant, we identify all other undergraduate students with whom they have taken at least one course and create their individual network of university connections. The size of this network depends on how many different students a participant has encountered through coursework, while the intensity of connection is measured by the number of courses taken together. This approach provides a complete picture of each participant's social environment at the university, including detailed characteristics (i.e., SES, academic program, performance) for both the participant and every person in their network.
 
+\textcolor{cyan}{why don't we introduce number of programs and student count here as background?}
 
-\section{Design} \label{s3}
-We designed an online experiment to assess peer referral selection from an SES perspective and to evaluate the causal effect of providing a bonus to referral candidates. The experimental design consisted of two incentivized tasks administered in the following sequence to all participants: First, participants completed belief elicitation tasks about their own performance on the national university entry exam. Second, they completed the main referral task, nominating peers based on exam performance in two academic areas. Finally, participants reported beliefs about their referrals' performance and provided demographic information. This structure allowed us to measure both the accuracy of participants' beliefs and their referral behavior under controlled incentive conditions. Figure \ref{timeline} shows the experimental timeline, and detailed instructions are provided in Appendix \ref{instructions}.
+\section{Empirical Specification} \label{s3}
+
+To formally test for SES bias, we use a choice modeling approach. We observe a single referral outcome from mutually exclusive candidates. Our design leverages the enrollment network to generate a dataset which includes alternative-specific variables for each referral decision, i.e., SES, courses taken together with the participant making the referral, as well as entry exam scores for not just the chosen alternative but all referral candidates. Using a conditional logit model, we can identify whether an SES group has an aggregate bias controlling for each individual's unique enrollment network composition.
+
+We follow an additive random utility model framework where individual $i$ and alternative $j$ have utility $U_{ij}$ that is the sum of a deterministic component, $V_{ij}$, that depends on regressors and unknown parameters, and an unobserved random component $\varepsilon_{ij}$:
+
+We observe the outcome $y_i = j$ if alternative $j$ has the highest utility of the alternatives. The probability that the outcome for individual $i$ is alternative $j$, conditional on the regressors, is:
+
+\begin{align}
+p_{ij} = \Pr(y_i = j) = \Pr(U_{ij} \geq U_{ik}), \quad \text{for all } k
+\end{align}
+
+The conditional logit model specifies that the probability of individual $i$ choosing alternative $j$ from choice set $C_i$ is given by:
+
+\begin{align}
+p_{ij} = \frac{\exp(x'_{ij} \beta)}{\sum_{l \in C_i} \exp(x'_{il} \beta)}, \quad j \in C_i
+\end{align}
+
+where $x_{ij}$ are alternative-specific regressors, i.e., characteristics of potential referral candidates that vary across alternatives. In our context, individual $i$ chooses to refer candidate $j$ from their enrollment network $C_i$. The alternative-specific regressors include SES and entry exam scores of the referral candidate, and the number of courses taken together with the participant making the referral. Conditional logit structure eliminates participant-specific factors that might influence both network formation and referral decisions, allowing us to identify preferences within each participant's realized network. 
+
+For causal identification of SES bias, we require two identifying assumptions. Specifically:
+
+\begin{enumerate}
+    \item \textbf{Conditional exogeneity.} SES and the number of courses taken together could be endogenous due to program selection. High-SES students sort into expensive programs while low-SES students choose affordable programs, creating systematic SES variation across enrollment networks. Similarly, the number of courses taken together reflects program selection decisions that may correlate with unobserved referral preferences. However, conditional on the realized enrollment network, the remaining variation in both SES and the number of courses taken together across referral candidates must be independent of unobserved factors affecting referral decisions. In the robustness checks, we show that being in the same program with the referrer does not impact our SES bias estimates, although it reduces the coefficient on the number of courses taken together.
+    
+    \item \textbf{Complete choice sets and independence of irrelevant alternatives.} Administrative data captures the complete enrollment network, with all peers who took at least one course with individual $i$ and represent the true choice set for referral decisions (unless participants have potential referral candidates with whom they never took classes). The independence of irrelevant alternatives (IIA) assumption requires that choices between any two alternatives be independent of other options in the choice set, which could be problematic if, e.g., peers within the same SES group are viewed as close substitutes. This concern does not apply to our setting because the design of our experiment ensures that choice sets are fixed by enrollment rather than arbitrary inclusion/exclusion of alternatives that create IIA violations.
+\end{enumerate}
+
+Under these assumptions, the conditional logit framework controls for individual heterogeneity in program selection (absorbed by conditioning on choice sets), selection into programs based on observable characteristics (through alternative-specific variables), and choice set composition effects (through the multinomial structure). Therefore, $\beta$ should identify the causal effect of referral candidate SES on referral probability, holding constant the number of courses taken together and the entry exam scores of candidates. A significant coefficient will then indicate taste-based discrimination.
+
+We pool participants by their SES group, and estimate the above described conditional fixed effects logit model once for low-, middle-, and high-SES referrers. We standardize entry exam scores and the number of courses taken together at the individual network level. For each referrer's network, we first calculate the mean and standard deviation for both measures. We then compute the average of these means and standard deviations across all 734 referrers. Each referral candidate's entry exam score and the number of courses they have taken with the referrer is standardized using these network-level statistics. The standardization formula is $z_{i} = (x - \bar{X}_{i}) / \sigma_{i}$, where $\bar{X}_{i}$ and $\sigma_{i}$ are the average of network means and standard deviations for $C_{i}$.
+
+\section{Design} \label{s4}
+We designed an online experiment to assess peer referral selection from an SES perspective and to evaluate the causal effect of providing a bonus to referral candidates. The experimental design consisted of two incentivized tasks administered in the following sequence: First, participants completed belief elicitation tasks about their own performance on the national university entry exam. Second, they completed the main referral task, nominating peers based on exam performance in two academic areas. Finally, participants reported beliefs about their referrals' performance and provided demographic information. This structure allowed us to measure both the accuracy of participants' beliefs and their referral behavior under controlled incentive conditions. Figure \ref{timeline} shows the experimental timeline, and detailed instructions are provided in Appendix \ref{instructions}.
 
 \begin{figure}[H]
 \centering
@@ -145,14 +179,14 @@ We designed an online experiment to assess peer referral selection from an SES p
 \end{figure}
 
 \subsection{Performance measures}
-To establish an objective basis for referral performance, we use national university entry exam scores (SABER 11). All Colombian high school students take the SABER 11 exam at the end of their final year as a requirement for university admission. These scores provide pre-existing, comparable measures of performance. By using existing administrative data, we also ensure that all eligible students have comparable performance measures.
+To establish an objective basis for referral performance, we use national university entry exam scores (SABER 11). All Colombian high school students take the SABER 11 exam at the end of their final year as a requirement for university admission. The scores from this exam provide pre-existing, comparable measures of performance. By using existing administrative data, we also ensure that all eligible students have comparable performance measures.
 
-The SABER 11 exam consists of five areas (critical reading, mathematics, natural sciences, social sciences, and English). We focus on critical reading and mathematics as these represent fundamental skills most relevant across academic programs and future employment. Critical reading evaluates competencies necessary to understand, interpret, and evaluate texts found in everyday life and broad academic fields (e.g., history), while mathematics assesses students' competency in using undergraduate level mathematical tools (e.g., reasoning in proportions, financial literacy). These together capture performance in comprehending and critically evaluating written material as well as reasoning and problem-solving abilities.
+The exam consists of five areas (critical reading, mathematics, natural sciences, social sciences, and English). We focus on critical reading and mathematics as these represent two independent and fundemental skills. Critical reading evaluates competencies necessary to understand, interpret, and evaluate texts found in everyday life and broad academic fields (e.g., history). Mathematics assesses students' competency in using undergraduate level mathematical tools (e.g., reasoning in proportions, financial literacy). These together capture performance in comprehending and critically evaluating written material as well as reasoning and problem-solving abilities.
 
 For each area, we calculate percentile rankings based on the distribution of scores among all currently enrolled students, providing a standardized measure of relative performance within the university population.
 
 \subsection{Referral task}
-The main experimental task involves making referrals among peers. For both exam areas (critical reading and mathematics), participants refer one peer they believe excels in that area. We provide an example question from the relevant exam area to clarify the skills that are being assessed. Participants type the name of their preferred candidate to make a referral. To avoid issues with recall, the interface provides autocomplete name and program suggestions from the administrative database (see Figure \ref{interface}). 
+The main task involves making referrals among peers. For both exam areas (critical reading and mathematics), participants refer one peer they believe excels in that area. We provide an example question from the relevant exam area to clarify the skills that are being assessed. Participants type the name of their preferred candidate to make a referral. To avoid issues with recall, the interface provides autocomplete name and program suggestions from the administrative database (see Figure \ref{interface}). 
 
 \begin{figure}[H]
   \centering
@@ -166,7 +200,7 @@ The main experimental task involves making referrals among peers. For both exam 
 
 Participants can only refer students with whom they have taken at least one class during their university studies. This requirement ensures that referrals are based on actual peer interactions. We randomize the order in which participants make referrals across the two exam areas.
 
-We incentivize referrals using a piece rate payment structure. Referrers earn increasing payments as the percentile ranking of their recommendation increases (see Figure \ref{piece_rate_by_score}). We multiply the piece rate coefficient associated with the percentile rank by the actual exam scores of the recommendation to calculate earnings. This payment structure provides strong incentives to refer highly ranked peers with potential earnings going up to \$60 per referral. \footnote{Note that due to the selection into the university, the actual exam score distribution has limited variance. Below a certain threshold students cannot qualify for the institution and choose a lower ranked university, and above a certain threshold they have better options to choose from.}
+We incentivize referrals using a piece rate payment structure. Referrers earn increasing payments as the percentile ranking of their referral increases (see Figure \ref{piece_rate_by_score}). We multiply the piece rate coefficient associated with the percentile rank by the actual exam scores of the referral to calculate earnings. This payment structure provides strong incentives to refer highly ranked peers with potential earnings going up to \$60 per referral. \footnote{Note that due to the selection into the university, the actual exam score distribution has limited variance. Below a certain threshold students cannot qualify for the institution and choose a lower ranked university, and above a certain threshold they have better options to choose from.}
 
 \begin{figure}[H]
   \centering
@@ -179,7 +213,7 @@ We incentivize referrals using a piece rate payment structure. Referrers earn in
 \end{figure}
 
 \subsection{Bonus Treatment}
-To examine how different incentive structures affect referral selection, we randomly assign a fixed bonus payment for students who get a referral. In the \textbf{Baseline} treatment, only the referrer can earn money based on their referral's performance. The \textbf{Bonus} treatment adds an additional fixed payment of \$25 to the peer who gets the referral. This payment is independent of the referred candidate's actual performance (see Table \ref{tab:treatments}).
+To examine how different incentive structures affect referral selection, we randomly assign a fixed bonus payment for students who get a referral. In the \textbf{Baseline} treatment, only the participants can earn money based on their referral's performance. The \textbf{Bonus} treatment adds an additional fixed payment of \$25 to the peer who gets the referral. This payment is independent of the referral's actual performance (see Table \ref{tab:treatments}).
 
 \begin{table}[htbp]
   \centering
@@ -204,8 +238,8 @@ We collect two sets of incentivized beliefs to assess the accuracy of participan
 
 % participants report the closeness of their relationship with each recommended peer on a 0-10 scale. This allows us to examine whether social proximity influences referral decisions and accuracy. . Finally, participants estimate the distribution of university students across these SES groups, providing insight into their perceptions of the university-wide SES distribution.
 
-\section{Sample, Incentives, and Procedure} \label{s4}
-We invited all 4,417 undergraduate students who had completed their first year at the university at the time of recruitment to participate in our experiment. A total of 837 students participated in the data collection (19\% response rate). Our final sample consists of 734 individuals who referred peers with whom they had taken at least one class together, resulting in an 88\% success rate for the sample. We randomly allocated participants to either \textbf{Baseline} or \textbf{Bonus} treatments.
+\section{Sample, Incentives, and Procedure} \label{s5}
+We invited all 4,417 undergraduate students who had completed their first year at the university at the time of recruitment to participate in our experiment. A total of 837 students participated in the data collection (19\% response rate). Our final sample consists of 734 individuals who referred peers with whom they had taken at least one class together (88\% success rate). We randomly allocated participants to either \textbf{Baseline} or \textbf{Bonus} treatments.
 
 Table \ref{tab:balance} presents key demographic characteristics and academic performance indicators across treatments (see Appendix Table \ref{tab:selection} for selection). The sample is well-balanced between the \textbf{Baseline} and \textbf{Bonus} conditions and we observe no statistically significant differences in any of the reported variables (all \textit{p} values $> 0.1$). Our sample is characterized by a majority of middle-SES students with about one-tenth of the sample being high-SES students. The test scores and GPA distributions are balanced. On average, participants had taken 3.8 courses together with members of their network, and the average network consisted of 175 peers.
 
@@ -242,7 +276,7 @@ The experiment was conducted online through Qualtrics, with participants recruit
 \section{Results} \label{s5}
 
 \subsection{Network characteristics}
-We begin by describing the key features of the enrollment network for all participants. This network connects every participant in our sample with another university student if they have taken at least one course together at the time of data collection. By doing so, we construct the entire referral choice set for participants. We include in this dataset both the participant's and their potential candidate's individual characteristics, as well as the number of common courses they have taken together. Figure \ref{connections_class} describes the evolution of the enrollment network across the average number of network connections and the number of common courses taken with network members as participants progress through semesters.
+We begin by describing the key features of the enrollment networks. On average, participants connect with 175 other students, and take an average of 3.62 courses together. Figure \ref{connections_class} shows how network characteristics vary by students' time at the university: both the number of connections (network size) and the number of courses taken together (connection intensity) change as participants progress through their studies.
 
 \begin{figure}[H]
   \centering
@@ -250,38 +284,12 @@ We begin by describing the key features of the enrollment network for all partic
   \includegraphics[width=0.6\linewidth]{../figures/connections.png}
   \begin{tablenotes}
     \footnotesize
-    \item[] \textit{Note:} This figure displays the average number of connections in blue and the average number of classes they have taken together with their connections in grey across semesters spent. The data shows an increase in the number of classes taken together as students progress in their programs, with the connections peaking around 7 semesters and dropping as certain students finish their bachelor's.
+    \item[] \textit{Note:} 
+    This figure displays the average number of connections in blue and the average number of courses taken together with connections in grey across semesters completed. Network size (nb. of connections) peaks around 7 semesters before declining as students graduate. Connection intensity (nb. of courses taken) has an increasing trend.
   \end{tablenotes}
 \end{figure}
 
-Having established the overall network structure, we now examine differences across SES groups. Are enrollment networks different across SES groups? We look at how the number of connections (network size) and number of courses taken together (tie strength) change across SES groups in Figure \ref{connections_by_ses}. Low- and middle-SES students have larger networks but take fewer courses together with network members, while high-SES students have smaller, denser networks. Specifically, both low- and middle-SES students have significantly larger networks than high-SES students ($t = 3.03, p = .003$ and $t = 2.49, p = .013$, respectively), but high-SES students take significantly more courses with their network members than both low- ($t = -3.70, p < .001$) and middle-SES ($t = -4.20, p < .001$).
-
-\begin{figure}[H]
-  \centering
-  \caption{Network size and courses taken together by SES}\label{connections_by_ses}
-  \includegraphics[width=0.6\linewidth]{../figures/connections_by_ses.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] \textit{Note:} This figure displays the average number of connections and the average number of classes taken together across SES groups. The data shows a decrease in the number of connections with SES, and an associated increase in the number of classes taken together.
-  \end{tablenotes}
-\end{figure}
-
-\subsection{SES diversity in networks}\label{s:ses-diversity}
-What are the diversity-related consequences of SES-driven differences across networks? In terms of network compositions, SES groups may connect with other SES groups at different rates than would occur randomly (Figure \ref{availability_lses}).\footnote{Because we estimate the share of SES groups in every individual network, we get very precise estimates of the actual means. However, it is important to note that these are not independent observations for each network. Estimates are precise because each network is a draw with replacement from the same pool of university population, from which we calculate the proportion of SES groups per individual network, and take the average over an SES group. Pooling over SES groups who are connected with similar others systematically reduces variance (similar to resampling in bootstrapping). For this reason we choose not reporting test results in certain sections including this one and focus on describing the relationships between SES groups.} Our results reveal modest deviations from university-wide SES composition across groups. Low-SES students have networks with 38.4\% low-SES peers compared to the university average of 34.3\%, middle-SES students connect with 52.9\% middle-SES peers versus the university average of 50.5\%, and high-SES students show 20.4\% high-SES connections compared to the university average of 15.3\%.
-
-\begin{figure}[H]
-  \centering
-  \caption{Network shares of SES groups}\label{availability_lses}
-  \includegraphics[width=0.6\linewidth]{../figures/availability_lses.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] \textit{Note:} This figure compares the network shares of SES groups in the networks of low-, middle-, and high-SES participants. Horizontal lines plot the university-wide shares of each SES group (Low: 35\%, Mid: 51\%, High: 14\%). While the share of low-SES peers in the network decreases as the SES of the group increases, the share of high-SES peers in the network increases.
-  \end{tablenotes}
-\end{figure}
-
-At the same time, we observe much larger differences between SES groups in their connection patterns with other groups. Low-SES students connect with other low-SES students at higher rates than middle-SES students (38.4\% vs 31.4\%) and high-SES students (38.4\% vs 25.1\%). Conversely, high-SES students connect more with other high-SES students than both low-SES students (20.4\% vs 12.6\%) and middle-SES students (20.4\% vs 15.8\%). Middle-SES students are in between the two extreme patterns, connecting with middle-SES peers at higher rates than low-SES students (52.9\% vs 49.0\%) but lower rates than high-SES students (52.9\% vs 54.5\%). These findings indicate SES-based network segregation, with same-SES homophily patterns across groups.
-
-Having examined basic network composition, we now turn to connection intensity. So far we have looked at the entire network without considering the intensity of connections between students. In our network dataset, this variable amounts to the number of classes taken together with peers. As we will see in the next section, referrals go to peers with whom participants have taken an average of 14 courses, implying the intensity of the connection matters. We begin by dissecting what the intensity means in our context. As students take more courses together, the proportion of peers from the same academic program quickly goes beyond 95\% (see Figure \ref{share_same_program_by_tie}). Similarly, the average network size drops very quickly from above 210 to below 50 (see Figure \ref{conns_by_tie}). Both results indicate that actual referral considerations originate from a much smaller pool of individuals from the same academic program.
+We now examine how connection intensity relates to network size and composition. First, if two students take more courses together, it is very likely that they are in the same academic program. We plot this relationship in Figure \ref{share_same_program_by_tie}: As students take more than 5 courses together, the share of students in their enrollment network from the same academic program quickly exceeds 90\%. Second, because students sort into specialized academic programs, increases in courses taken together should result in decreases in connections. We plot this relationship in Figure \ref{conns_by_tie}: As students take more than 5 courses together, the size of their enrollment network drops dramatically from above 210 to below 50. These patterns reveal that while participants' overall networks are large with relatively few courses taken together on average, they spend most of their time at the university within smaller, more intensive groups of peers from the same academic program.
 
 \begin{figure}[H]
   \centering
@@ -302,50 +310,13 @@ Having examined basic network composition, we now turn to connection intensity. 
   }
 \end{figure}
 
-This raises an important question: What are the diversity implications of increased connection intensity between students? As students take more courses together with peers, the share of same-SES peers in the networks of low- and high-SES increases while the share of middle-SES declines (see Figure \ref{share_same_ses_by_tie}). Both increases are substantial, amounting to 50\% for high-, and 30\% for low-SES. Combining these with the earlier result that beyond 5 courses taken together network members are almost entirely within the same program, these suggest program selection may have strong consequences for SES diversity in our setting.
+\subsection{Referral characteristics}
 
-\begin{figure}[H]
-  \centering
-  \caption{Network size and courses taken together by courses taken}\label{share_same_ses_by_tie}
-  \includegraphics[width=0.6\linewidth]{../figures/share_same_ses_by_tie.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] \textit{Note:} This figure illustrates the shares of same-SES connections for low-, middle-, and high-SES as a function of the average number of courses taken together with network members. Low- and high-SES networks both become more homogenous as the average number of courses taken together with their connections increase.
-  \end{tablenotes}
-\end{figure}
-
-\subsection{Program selection and SES diversity}
-To understand the mechanisms driving these patterns, we examine program selection. Academic programs at this university use cost-based pricing, and typically less than 5\% of students receive any kind of scholarship \citep{diaz_peer_2025}. Based on this, we first calculate how much every program at the university is expected to cost students per year (see Figure \ref{fees_with_boxplot}). Considering that net minimum monthly wage stands at \$200 and the average Colombian salary around \$350, the cost differences between programs are large enough to make an impact on program selection. Is it the case that SES groups select into programs with financial considerations?
-
-\begin{figure}[H]
-  \centering
-  \caption{Programs sorted by fee}\label{fees_with_boxplot}
-  \includegraphics[width=0.6\linewidth]{../figures/fees_with_boxplot.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] \textit{Note:} This figure illustrates the distribution of programs at the university by their average yearly fee. The average yearly fee stands at \$3000, and medicine is an outlier at \$6000.
-  \end{tablenotes}
-\end{figure}
-
-We examine how SES groups are distributed across programs to identify evidence of SES-based selection (see Figure \ref{ses_distribution_by_fees}). Indeed, low-SES students select into more affordable programs, followed by middle-SES students. High-SES students sort almost exclusively into above-average costing programs, with a third selecting into medicine and creating a very skewed distribution. The distributions are significantly different across all pairwise comparisons: low-SES vs. middle-SES (Kolmogorov-Smirnov test $D=33.89$, $p<0.001$), low-SES vs. high-SES ($D=31.31$, $p<0.001$), and middle-SES vs. high-SES ($D=31.31$, $p<0.001$). With this finding, program selection could be the reason why low- and high-SES networks tend to segregate as the number of courses taken increases. The next section characterizes the referrals, and we will return to the diversity implications of program selection once we propose an understanding of how referrals were made.
-
-\begin{figure}[H]
-  \centering
-  \caption{Programs sorted by fee}\label{ses_distribution_by_fees}
-  \includegraphics[width=0.6\linewidth]{../figures/ses_distribution_by_fees.png}
-  \begin{tablenotes}
-    \footnotesize
-    \item[] \textit{Note:} This figure illustrates the distribution of each SES group across programs sorted by fee. the majority of low-SES select into programs with below average cost, while high-SES select into programs with above average cost. Medicine accounts for a third of all high-SES students at this university.
-  \end{tablenotes}
-\end{figure}
-
-\subsection{Characterizing referrals}
-
-We observe 1,342 referrals from our 734 participants in our final dataset. More than 90\% of these consist of participants referring for both areas of the national entry exam (see Appendix Table \ref{tab:referral_distribution}). While participants made one referral for Math and Reading parts of the exam, about 70\% of these referrals went to two separate individuals. We compare the outcomes across areas for unique referrals in Appendix Table \ref{tab:referral_by_area} and all referrals in Appendix Table \ref{tab:referral_area}. In both cases, we find no meaningful differences between referrals made for Math or Reading areas of the entry exam. As referrals in both exam areas come from the same referrer network, we pool referrals per participant and report their averages in our main analysis to avoid inflating statistical power in our comparisons.
+Participants made one referral for math and one referral for the reading part of the university entry exam from their enrollment networks. We observe 1,342 referrals from 734 participants in our final dataset. More than 90\% of these consist of participants referring for both exam areas (see Appendix Table \ref{tab:referral_distribution}). About 70\% of these referrals go to two separate individuals. We compare the outcomes across exam areas for referrals only going to separate individuals in Appendix Table \ref{tab:referral_by_area} and all referrals in Appendix Table \ref{tab:referral_area}. In both cases, we find no meaningful differences between referrals made for Math or Reading areas of the entry exam. As referrals in both exam areas come from the same enrollment network, we pool referrals per participant and report their averages in our main analysis to avoid inflating statistical power in our comparisons.
 
 What are the characteristics of the individuals who receive referrals, and how do they compare to others in the enrollment network? Because we have an entire pool of potential candidates with one referral chosen from it, we compare the distributions for our variables of interest between the referred and non-referred students.
 
-First, referrals go to peers with whom the referrer has taken around 14 courses with on average, compared to almost 4 on average with others in their network (see Figure \ref{tie_hist}). This difference of 10.1 courses is significant ($t = 34.98$, $p < 0.001$), indicating that referrers choose individuals with whom they have stronger ties. While the median referral recipient has taken 12 courses together with the referrer, the median network member has shared only 2.8 courses. The interquartile range for referrals spans from 7.5 to 19.5 courses, compared to just 2.1 to 4.0 courses for the broader network, highlighting the concentration of referrals among peers with high social proximity and within same program (93\%).
+First, referrals go to peers with whom the referrer has taken around 14 courses with on average, compared to almost 4 on average with others in their network (see Figure \ref{tie_hist}). This difference of 10.1 courses is significant ($t = 34.98$, $p < 0.001$), indicating that referrers choose individuals with whom they have stronger ties. While the median referral recipient has taken 12 courses together with the referrer, the median network member has shared only 2.8 courses. The interquartile range for referrals spans from 7.5 to 19.5 courses, compared to just 2.1 to 4.0 courses for the broader network, highlighting the concentration of referrals among peers with high social proximity. In addition, 93\% of referrals go to students within same program.
 
 \begin{figure}[H]
   \centering
@@ -353,7 +324,7 @@ First, referrals go to peers with whom the referrer has taken around 14 courses 
   \includegraphics[width=0.6\linewidth]{../figures/tie_hist.png}
   \begin{tablenotes}
     \footnotesize
-    \item[] \textit{Note:} This figure compares the distributions of the number of courses taken together between referrers and their network members (orange) versus referrers and their chosen referral recipients (dark blue) for all 734 participants. 75\% of referral recipients having taken more than 7.5 courses together with the referrer, compared to only 25\% of network members. The distributions are significantly different (Kolmogorov-Smirnov test $D = 33.37$, $p < 0.001$).
+    \item[] \textit{Note:} This figure compares the distributions of the number of courses taken together between referrers and their network members (orange) versus referrers and their chosen referral recipients (dark blue) for all 734 participants. 75\% of referral recipients take more than 7.5 courses together with the referrer, compared to only 25\% of network members. The distributions are significantly different (Kolmogorov-Smirnov test $D = 33.37$, $p < 0.001$).
   \end{tablenotes}
 \end{figure}
 
@@ -371,7 +342,7 @@ Second, we examine entry exam score differences between referred students and th
 
 \subsection{Effect of the Bonus treatment}
 
-Do referred individuals have different outcomes across treatments? We compare the performance, number of courses taken together, and SES shares of referred individuals between the \textbf{Baseline} and \textbf{Bonus} treatments in Table \ref{tab:referral_by_treatment}. While performance of referrals across Reading, Math, and GPA are similar across treatments, middle- and high-SES shares have significant differences. We find that referrals under the \textbf{Bonus} condition referred a higher proportion of high-SES individuals (13.5\% vs 8.8\%, $p=0.041$) and a lower proportion of middle-SES individuals on average (47.0\% vs 53.7\%, $p=0.072$). However, these differences do not appear to stem from systematic behavioral changes by any particular SES group of referrers, and the overall patterns remain largely consistent across treatments. The similarities in academic performance and number of courses taken together suggest that the core selection criteria—academic merit and social proximity—remain unchanged between conditions. For this reason, in the remainder of the paper, we report pooled results combining the averages of referral outcomes across treatments.
+Do referred individuals have different outcomes across treatments? We compare the performance, number of courses taken together, and SES shares of referred individuals between the \textbf{Baseline} and \textbf{Bonus} treatments in Table \ref{tab:referral_by_treatment}. While performance of referrals across Reading, Math, and GPA are similar across treatments, middle- and high-SES shares have significant differences. We find that referrals under the \textbf{Bonus} condition referred a higher proportion of high-SES individuals (13.5\% vs 8.8\%, $p=0.041$) and a lower proportion of middle-SES individuals on average (47.0\% vs 53.7\%, $p=0.072$). The similarities in academic performance and number of courses taken together suggest that performance and contact intensity drive referrals regardless of treatment. For this reason, in the remainder of the paper, we report pooled results combining the averages of referral outcomes across treatments.
 
 \begin{table}[H]
   \centering
@@ -400,8 +371,177 @@ Do referred individuals have different outcomes across treatments? We compare th
   \end{threeparttable}
 \end{table}
 
+\subsection{Identifying the SES bias in referrals}
+
+We now present our empirical findings and describe our first set of findings in Table \ref{tab:ses-heterogeneity}. To begin with, the variance explained by all three models are extremely low, suggesting the role of potential SES biases in referrals that go beyond the network structure must be limited. Regardless, controlling for network composition, low-SES participants are more likely to refer other low-SES, and are less likely to refer high-SES relative to the probability of referring middle-SES peers. In contrast, we find that high-SES participants are less likely to refer other low-SES, relative to the probability of referring middle-SES peers.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{SES bias in referral decisions by referrer SES group}\label{tab:ses-heterogeneity}
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+\toprule
+& \multicolumn{3}{c}{Referrer SES} \\
+& Low & Middle & High \\
+& (1) & (2) & (3) \\
+\midrule
+Low-SES referral & 0.453*** & -0.019 & -0.710** \\
+& (0.109) & (0.098) & (0.333) \\
+High-SES referral & -0.584*** & -0.255* & 0.001 \\
+& (0.211) & (0.145) & (0.261) \\
+\midrule
+$\chi^2$ & 33.47 & 3.18 & 4.94 \\
+Observations & 110,142 & 127,088 & 19,767 \\
+Individuals & 301 & 366 & 67 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Next, we include social proximity controls in our analysis. We proceed by adding the standardized number of courses taken together as a control in our specification and describe the results in Table \ref{tab:ses-heterogeneity-extended}. A one standard deviation increase in the number of courses taken together proves to be highly significant across all models, with coefficients ranging from 0.856 to 1.049, indicating that intensity of contact substantially increase the probability of referral. The high $\chi^2$ statistics suggest that these models explain considerably more variance than specifications without this control, highlighting the predictive power of courses taken together in referral decisions. Nevertheless, low-SES participants still show a strong same-SES bias relative to referring middle-SES peers at the average number of courses taken together. This same-SES bias is not observed among middle-SES or high-SES referrers, who also display no statistically significant bias toward low-SES candidates. No referrer group shows a positive bias for high-SES candidates relative to middle-SES candidates. 
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{SES bias in referral decisions by referrer SES group}\label{tab:ses-heterogeneity-extended}
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+\toprule
+& \multicolumn{3}{c}{Referrer SES} \\
+& Low & Middle & High \\
+& (1) & (2) & (3) \\
+\midrule
+Low-SES referral & 0.348*** & -0.064 & -0.489 \\
+& (0.123) & (0.115) & (0.337) \\
+High-SES referral & -0.366 & -0.165 & -0.140 \\
+& (0.223) & (0.157) & (0.286) \\
+Courses taken (z-score) & 0.856*** & 0.931*** & 1.049*** \\
+& (0.035) & (0.037) & (0.126) \\
+\midrule
+$\chi^2$ & 626.15 & 636.10 & 71.43 \\
+Observations & 110,142 & 127,088 & 19,767 \\
+Individuals & 301 & 366 & 67 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring  from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+We add standardized entry exam scores (Math and Reading average) as a second control variable and describe our results in Table \ref{tab:ses-heterogeneity-scores}. A one standard deviation increase in the entry exam score proves highly significant across all models, with coefficients ranging from 0.587 to 0.883. This shows merit-based considerations due to the incentive structure of the experiment remained central to referral decisions. The slightly higher $\chi^2$ statistics compared to the earlier specification suggests that entry exam scores improve model fit. The inclusion of standardized entry exam scores strengthens SES biases. Low-SES referrers maintain their same-SES bias, with now a significant negative bias against high-SES. Middle-SES referrers, previously showing no SES bias, now show marginal negative bias against high-SES. Finally, high-SES referrers exhibit marginal negative bias against low-SES candidates. 
+
+The evidence of a bias becoming significant when controlling for entry exam scores has a nuanced interpretation. While at the university-level, low-SES typically score lower in the entry exam, low-SES students appearing in high-SES networks are positively selected, scoring about 0.14 standard deviations higher than middle-SES students (see Appendix Table \ref{tab:network_connections}). Controlling for performance thus removes this positive selection and reveals the ``pure'' SES bias that was previously underestimated by above average performance of low-SES. Vice versa, high-SES in low-SES networks perform 0.12 standard deviations better than middle-SES students. The same bias was underestimated as high-SES candidates' better performance relative to middle-SES in the same networks provided a meritocratic justification for getting more referrals. Controlling for exam scores reveal that both high- and low-SES referrers have negative SES bias towards one another that operates independently of - and counter to - performance-based considerations. What makes interpretation difficult is that while biased against low-SES, high-SES referrers do not (under any specification) display a positive bias towards their in-group. For this final reason, we do not dig any further in this direction.
+
+To conclude, we conduct joint significance tests, testing whether low- and high-SES regression coefficients are jointly different from middle-SES for each regression specification. For low-SES referrers, the joint test remains highly significant across all three specifications ($\chi^2 = 10.20$, $p = 0.006$ in the final model), indicating persistent SES bias across all specifications. In contrast, middle-SES referrers display no significant joint SES bias in any specification, with the test becoming increasingly non-significant as controls are added ($\chi^2 = 4.13$, $p = 0.127$ in the final model). High-SES referrers similarly show no significant joint SES bias across all three models ($\chi^2 = 4.28$, $p = 0.118$ in the final model). These results suggest that SES bias in referrals is primarily driven by low-SES. There is no sufficient evidence to conclude that middle- and high-SES referrers systematically discriminate against other-SES peers. Naturally, this null result occurs once we take into account the potential differences in the network compositions of each SES group. In the next section, we explore the differences in the network compositions of different SES groups.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{SES bias in referral decisions by referrer SES group with academic performance controls}\label{tab:ses-heterogeneity-scores}
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
+\toprule
+& \multicolumn{3}{c}{Referrer SES} \\
+& Low & Middle & High \\
+& (1) & (2) & (3) \\
+\midrule
+Low-SES referral & 0.242** & -0.159 & -0.600* \\
+& (0.123) & (0.114) & (0.327) \\
+High-SES referral& -0.445** & -0.274* & -0.345 \\
+& (0.222) & (0.157) & (0.287) \\
+Courses taken (z-score) & 0.859*** & 0.948*** & 1.043*** \\
+& (0.036) & (0.038) & (0.118) \\
+Entry exam (referral z-score) & 0.607*** & 0.587*** & 0.883*** \\
+& (0.052) & (0.047) & (0.111) \\
+\midrule
+$\chi^2$ & 789.87 & 756.06 & 120.54 \\
+Observations & 110,142 & 127,088 & 19,767 \\
+Individuals & 301 & 366 & 67 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring candidates from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{SES diversity in networks}\label{s:ses-diversity}
+
+How do enrollment networks differ across SES groups? We look at how the number of connections (network size) and number of courses taken together (contact intensity) change across SES groups in Figure \ref{connections_by_ses}. Low- and middle-SES students have larger networks but take fewer courses together with network members, while high-SES students have smaller, denser networks. Specifically, both low- and middle-SES students have significantly larger networks than high-SES students ($t = 3.03$, $p = 0.003$ and $t = 2.49$, $p = 0.013$, respectively), but high-SES students take significantly more courses with their network members than both low- ($t = -3.70, p < .001$) and middle-SES ($t = -4.20$, $p < .001$).
+
+\begin{figure}[H]
+  \centering
+  \caption{Network size and courses taken together by SES}\label{connections_by_ses}
+  \includegraphics[width=0.6\linewidth]{../figures/connections_by_ses.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure displays the average number of connections and the average number of classes taken together across SES groups. The data shows a decrease in the number of connections with SES, and an associated increase in the number of classes taken together.
+  \end{tablenotes}
+\end{figure}
+
+What are the diversity-related consequences of SES-driven differences across networks? In terms of network compositions, SES groups may connect with other SES groups at different rates than would occur randomly (Figure \ref{availability_lses}).\footnote{Because we estimate the share of SES groups in every individual network, we get very precise estimates of the actual means. However, it is important to note that these are not independent observations for each network. Estimates are precise because each network is a draw with replacement from the same pool of university population, from which we calculate the proportion of SES groups per individual network, and take the average over an SES group. Pooling over SES groups who are connected with similar others systematically reduces variance (similar to resampling in bootstrapping). For this reason we choose not reporting test results in certain sections including this one and focus on describing the relationships between SES groups.} Our results reveal modest deviations from university-wide SES composition across groups. Low-SES students have networks with 38.4\% low-SES peers compared to the university average of 34.3\%, middle-SES students connect with 52.9\% middle-SES peers versus the university average of 50.5\%, and high-SES students show 20.4\% high-SES connections compared to the university average of 15.3\%.
+
+\begin{figure}[H]
+  \centering
+  \caption{Network shares of SES groups}\label{availability_lses}
+  \includegraphics[width=0.8\linewidth]{../figures/combined_ses_network_composition.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure compares the network shares of SES groups in the networks of low-, middle-, and high-SES participants. Horizontal lines plot the university-wide shares of each SES group (Low: 35\%, Mid: 51\%, High: 14\%). While the share of low-SES peers in the network decreases as the SES of the group increases, the share of high-SES peers in the network increases.
+  \end{tablenotes}
+\end{figure}
+
+We observe larger differences between SES groups in their connection patterns with other groups. Low-SES students connect with other low-SES students at higher rates than middle-SES students (38.4\% vs 31.4\%) and high-SES students (38.4\% vs 25.1\%). Conversely, high-SES students connect more with other high-SES students than both low-SES students (20.4\% vs 12.6\%) and middle-SES students (20.4\% vs 15.8\%). Middle-SES students are in between the two extreme patterns, connecting with middle-SES peers at higher rates than low-SES students (52.9\% vs 49.0\%) but lower rates than high-SES students (52.9\% vs 54.5\%). These findings indicate SES-based network segregation, with same-SES homophily patterns across groups.
+
+
+
+This raises an important question: What are the diversity implications of increased connection intensity between students? As students take more courses together with peers, the share of same-SES peers in the networks of low- and high-SES increases while the share of middle-SES declines (see Figure \ref{share_same_ses_by_tie}). Both increases are substantial, amounting to 50\% for high-, and 30\% for low-SES. Combining these with the earlier result that beyond 5 courses taken together network members are almost entirely within the same program, these suggest program selection may have strong consequences for SES diversity in our setting.
+
+\begin{figure}[H]
+  \centering
+  \caption{Network size and courses taken together by courses taken}\label{share_same_ses_by_tie}
+  \includegraphics[width=0.6\linewidth]{../figures/share_same_ses_by_tie.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure illustrates the shares of same-SES connections for low-, middle-, and high-SES as a function of the average number of courses taken together with network members. Low- and high-SES networks both become more homogenous as the average number of courses taken together with their connections increase.
+  \end{tablenotes}
+\end{figure}
+
+\subsection{Program selection and SES diversity}
+To understand the mechanisms driving these patterns, we examine program selection. Academic programs at this university use cost-based pricing, and typically less than 5\% of students receive any kind of scholarship. Based on this, we first calculate how much every program at the university is expected to cost students per year (see Figure \ref{fees_with_boxplot}). Considering that net minimum monthly wage stands at \$200 and the average Colombian salary around \$350, the cost differences between programs are large enough to make an impact on program selection. Is it the case that SES groups select into programs with financial considerations?
+
+\begin{figure}[H]
+  \centering
+  \caption{Programs sorted by fee}\label{fees_with_boxplot}
+  \includegraphics[width=0.6\linewidth]{../figures/fees_with_boxplot.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure illustrates the distribution of programs at the university by their average yearly fee. The average yearly fee stands at \$3000, and medicine is an outlier at \$6000.
+  \end{tablenotes}
+\end{figure}
+
+We examine how SES groups are distributed across programs to identify evidence of SES-based selection (see Figure \ref{ses_distribution_by_fees}). Indeed, low-SES students select into more affordable programs, followed by middle-SES students. High-SES students sort almost exclusively into above-average costing programs, with a third selecting into medicine and creating a very skewed distribution. The distributions are significantly different across all pairwise comparisons: low-SES vs. middle-SES (Kolmogorov-Smirnov test $D=33.89$, $p<0.001$), low-SES vs. high-SES ($D=31.31$, $p<0.001$), and middle-SES vs. high-SES ($D=31.31$, $p<0.001$). With this finding, program selection could be the reason why low- and high-SES networks tend to segregate as the number of courses taken increases. The next section characterizes the referrals, and we will return to the diversity implications of program selection once we propose an understanding of how referrals were made.
+
+\begin{figure}[H]
+  \centering
+  \caption{Programs sorted by fee}\label{ses_distribution_by_fees}
+  \includegraphics[width=0.6\linewidth]{../figures/ses_distribution_by_fees.png}
+  \begin{tablenotes}
+    \footnotesize
+    \item[] \textit{Note:} This figure illustrates the distribution of each SES group across programs sorted by fee. the majority of low-SES select into programs with below average cost, while high-SES select into programs with above average cost. Medicine accounts for a third of all high-SES students at this university.
+  \end{tablenotes}
+\end{figure}
+
+
+
+
 \subsection{Referral SES composition}
-We first examine the overall SES compositions in referral selection. Referrals to low-SES peers constitute 37.9\% of all referrals, compared to 33.7\% low-SES representation in individual networks (see Figure \ref{fig:all_referral_rates}). This represents a modest over-representation of 4.3 percentage points. For middle-SES students, referrals constitute 51.0\% versus 51.4\% network representation, showing virtually no difference (-0.5 pp.). High-SES referrals account for 11.1\% compared to 14.9\% network share, an under-representation of 3.8 percentage points. While these patterns suggest some deviation from proportional representation—with slight over-referral to low-SES peers and under-referral to high-SES peers—the magnitudes are relatively modest. Overall, referral compositions are largely balanced and closely mirror the underlying network structure, with the largest deviation being less than 5 percentage points for any SES group.
+We now examine the overall SES compositions in referral selection. Referrals to low-SES peers constitute 37.9\% of all referrals, compared to 33.7\% low-SES representation in individual networks (see Figure \ref{fig:all_referral_rates}). This represents a modest over-representation of 4.3 percentage points. For middle-SES students, referrals constitute 51.0\% versus 51.4\% network representation, showing virtually no difference (-0.5 pp.). High-SES referrals account for 11.1\% compared to 14.9\% network share, an under-representation of 3.8 percentage points. While these patterns suggest some deviation from proportional representation—with slight over-referral to low-SES peers and under-referral to high-SES peers—the magnitudes are relatively modest. Overall, referral compositions are largely balanced and closely mirror the underlying network structure, with the largest deviation being less than 5 percentage points for any SES group.
 
 \begin{figure}[H]
   \centering
@@ -480,7 +620,7 @@ Then, we examine referral patterns by referrer SES to identify potential SES bia
 
 \subsection{Ex post referral choice sets}
 
-We now shed more light on the referral behavior after having characterized how referrals were made. Particularly interesting is that referrals go to peers with whom the median participant took 12 courses, with an average of 14. By restricting the networks for courses taken above the median, we can get a snapshot of how the referral choice set actually looked for participants before making referral decisions. As discussed in Section \ref{s:ses-diversity}, taking more courses with network members increases the share of same-SES individuals for both low- and high-SES students, and we had explored program selection as a potential mechanism. In Figure \ref{t15availability}, we show the effects of network segregation on \textit{ex post} referral choice sets for each SES group. Network compositions above the median number of courses taken reveal strong segregation effects: Low-SES networks contain 44.5\% low-SES peers, higher than the 35\% university-wide share by 9.5 percentage points. Conversely, high-SES students are under-represented in low-SES networks at only 8.6\% average share, compared to the 14\% population share ($-5.4$ pp.). At the other extreme, high-SES networks show the reverse pattern with average low-SES share dropping to just 15.7\%, a 19.3 percentage point decrease relative to the university average. High-SES students have a same-SES concentration at 26.5\%, doubling their 14\% population share ($+12.5$ pp.). Middle-SES networks remain relatively balanced and closely track population proportions across all SES groups. Taken together, these suggest observed referral rates of SES groups may follow the network compositions above median number of courses taken together. We will test this formally by setting up a choice model where we can take into account individual differences in network compositions across SES, and try to identify SES biases that go beyond SES groups' availability in the choice sets.
+We now shed more light on the referral behavior after having characterized how referrals were made. Particularly interesting is that referrals go to peers with whom the median participant took 12 courses, with an average of 14. By restricting the networks for courses taken above the median, we can get a snapshot of how the referral choice set actually looked for participants before making referral decisions. As discussed in Section \ref{s:ses-diversity}, taking more courses with network members increases the share of same-SES individuals for both low- and high-SES students, and we had explored program selection as a potential mechanism. In Figure \ref{t15availability}, we show the effects of network segregation on \textit{ex post} referral choice sets for each SES group. Network compositions above the median number of courses taken reveal strong segregation effects: Low-SES networks contain 44.5\% low-SES peers, higher than the 35\% university-wide share by 9.5 percentage points. Conversely, high-SES students are under-represented in low-SES networks at only 8.6\% average share, compared to the 14\% population share ($-5.4$ pp.). At the other extreme, high-SES networks show the reverse pattern with average low-SES share dropping to just 15.7\%, a 19.3 percentage point decrease relative to the university average. High-SES students have a same-SES concentration at 26.5\%, doubling their 14\% population share ($+12.5$ pp.). Middle-SES networks remain relatively balanced and closely track population proportions across all SES groups. Taken together, these confirm that the observed referral rates of SES groups follow the network compositions above median number of courses taken together, except for the low-SES. We conclude that the referral choices in our setting are mainly driven by availability and performance.
 
 \begin{figure}[H]
   \centering
@@ -493,139 +633,11 @@ We now shed more light on the referral behavior after having characterized how r
 \end{figure}
 
 
-\subsection{Identifying the SES bias in referrals}
 
-To formally test for SES bias beyond network composition, we employ a choice modeling approach. We model a single referral outcome from mutually exclusive candidates, where our dependent variable outcome is multinomial distributed. Our design leverages the enrollment network to generate a dataset which includes alternative-specific variables for each referral decision, i.e., SES, courses taken together with the participant making the referral, as well as entry exam scores for not just the chosen alternative but all referral candidates. Using a conditional logit model on these data, we can identify whether an SES group has an aggregate bias controlling for each individual's unique enrollment network composition.
-
-We follow an additive random utility model framework where individual $i$ and alternative $j$ have utility $U_{ij}$ that is the sum of a deterministic component, $V_{ij}$, that depends on regressors and unknown parameters, and an unobserved random component $\varepsilon_{ij}$:
-
-We observe the outcome $y_i = j$ if alternative $j$ has the highest utility of the alternatives. The probability that the outcome for individual $i$ is alternative $j$, conditional on the regressors, is:
-
-\begin{align}
-p_{ij} = \Pr(y_i = j) = \Pr(U_{ij} \geq U_{ik}), \quad \text{for all } k
-\end{align}
-
-The conditional logit model specifies that the probability of individual $i$ choosing alternative $j$ from choice set $C_i$ is given by:
-
-\begin{align}
-p_{ij} = \frac{\exp(x'_{ij} \beta)}{\sum_{l \in C_i} \exp(x'_{il} \beta)}, \quad j \in C_i
-\end{align}
-
-where $x_{ij}$ are alternative-specific regressors, i.e., characteristics of potential referral candidates that vary across alternatives. In our context, individual $i$ chooses to refer candidate $j$ from their enrollment network $C_i$. The alternative-specific regressors include SES and entry exam scores of the referral candidate, and the number of courses taken together with the participant making the referral. Conditional logit structure eliminates participant-specific factors that might influence both network formation and referral decisions, allowing us to identify preferences within each participant's realized network. 
-
-For causal identification of SES bias, we require two identifying assumptions. Specifically:
-
-\begin{enumerate}
-    \item \textbf{Conditional exogeneity.} SES and the number of courses taken together could be endogenous due to program selection. High-SES students sort into expensive programs while low-SES students choose affordable programs, creating systematic SES variation across enrollment networks. Similarly, the number of courses taken together reflects program selection decisions that may correlate with unobserved referral preferences. However, conditional on the realized enrollment network, the remaining variation in both SES and the number of courses taken together across referral candidates must be independent of unobserved factors affecting referral decisions. In the robustness checks, we show that being in the same program with the referrer does not impact our SES bias estimates, although it reduces the coefficient on the number of courses taken together.
-    
-    \item \textbf{Complete choice sets and independence of irrelevant alternatives.} Administrative data captures the complete enrollment network, with all peers who took at least one course with individual $i$ and represent the true choice set for referral decisions (unless participants have potential referral candidates with whom they never took classes). The independence of irrelevant alternatives (IIA) assumption requires that choices between any two alternatives be independent of other options in the choice set, which could be problematic if, e.g., peers within the same SES group are viewed as close substitutes. This concern does not apply to our setting because the design of our experiment ensures that choice sets are fixed by enrollment rather than arbitrary inclusion/exclusion of alternatives that create IIA violations.
-\end{enumerate}
-
-Under these assumptions, the conditional logit framework controls for individual heterogeneity in program selection (absorbed by conditioning on choice sets), selection into programs based on observable characteristics (through alternative-specific variables), and choice set composition effects (through the multinomial structure). Therefore, $\beta$ should identify the causal effect of referral candidate SES on referral probability, holding constant the number of courses taken together and the entry exam scores of candidates. A significant coefficient will then indicate taste-based discrimination.
-
-We pool participants by their SES group, and estimate the above described conditional fixed effects logit model once for low-, middle-, and high-SES referrers. We standardize entry exam scores and the number of courses taken together at the individual network level. For each referrer's network, we first calculate the mean and standard deviation for both measures. We then compute the average of these means and standard deviations across all 734 referrers. Each referral candidate's entry exam score and the number of courses they have taken with the referrer is standardized using these network-level statistics. The standardization formula is $z_{i} = (x - \bar{X}_{i}) / \sigma_{i}$, where $\bar{X}_{i}$ and $\sigma_{i}$ are the average of network means and standard deviations for $C_{i}$.
-
-We now present our empirical findings and describe our first set of findings in Table \ref{tab:ses-heterogeneity}. To begin with, the variance explained by all three models are extremely low, suggesting the role of potential SES biases in referrals that go beyond the network structure must be limited. Regardless, controlling for network composition, low-SES participants are more likely to refer other low-SES, and are less likely to refer high-SES relative to the probability of referring middle-SES peers. In contrast, we find that high-SES participants are less likely to refer other low-SES, relative to the probability of referring middle-SES peers.
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{SES bias in referral decisions by referrer SES group}\label{tab:ses-heterogeneity}
-\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
-\toprule
-& \multicolumn{3}{c}{Referrer SES} \\
-& Low & Middle & High \\
-& (1) & (2) & (3) \\
-\midrule
-Low-SES candidate & 0.453*** & -0.019 & -0.710** \\
-& (0.109) & (0.098) & (0.333) \\
-High-SES candidate & -0.584*** & -0.255* & 0.001 \\
-& (0.211) & (0.145) & (0.261) \\
-\midrule
-$\chi^2$ & 33.47 & 3.18 & 4.94 \\
-Observations & 110,142 & 127,088 & 19,767 \\
-Individuals & 301 & 366 & 67 \\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]
-\footnotesize
-\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring candidates from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-Next, we include social proximity controls in our analysis. We proceed by adding the standardized number of courses taken together as a control in our specification and describe the results in Table \ref{tab:ses-heterogeneity-extended}. A one standard deviation increase in the number of courses taken together proves to be highly significant across all models, with coefficients ranging from 0.856 to 1.049, indicating that stronger social connections substantially increase the probability of referral. The high $\chi^2$ statistics suggest that these models explain considerably more variance than specifications without this control, highlighting the importance of courses taken together in referral decisions. Nevertheless, low-SES participants still show a strong same-SES bias relative to referring middle-SES peers at the average number of courses taken together. This same-SES bias is not observed among middle-SES or high-SES referrers, who also display no statistically significant bias toward low-SES candidates. No referrer group shows a positive bias for high-SES candidates relative to middle-SES candidates. 
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{SES bias in referral decisions by referrer SES group}\label{tab:ses-heterogeneity-extended}
-\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
-\toprule
-& \multicolumn{3}{c}{Referrer SES} \\
-& Low & Middle & High \\
-& (1) & (2) & (3) \\
-\midrule
-Low-SES candidate & 0.348*** & -0.064 & -0.489 \\
-& (0.123) & (0.115) & (0.337) \\
-High-SES candidate & -0.366 & -0.165 & -0.140 \\
-& (0.223) & (0.157) & (0.286) \\
-Courses taken (z-score) & 0.856*** & 0.931*** & 1.049*** \\
-& (0.035) & (0.037) & (0.126) \\
-\midrule
-$\chi^2$ & 626.15 & 636.10 & 71.43 \\
-Observations & 110,142 & 127,088 & 19,767 \\
-Individuals & 301 & 366 & 67 \\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]
-\footnotesize
-\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring candidates from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-We add standardized entry exam scores (Math and Reading average) as a second control variable and describe our results in Table \ref{tab:ses-heterogeneity-scores}. A one standard deviation increase in the entry exam score proves highly significant across all models, with coefficients ranging from 0.587 to 0.883. This shows merit-based considerations due to the incentive structure of the experiment remained central to referral decisions. The slightly higher $\chi^2$ statistics compared to the earlier specification suggests that entry exam scores improve model fit. The inclusion of standardized entry exam scores strengthens SES biases. Low-SES referrers maintain their same-SES bias, with now a significant negative bias against high-SES. Middle-SES referrers, previously showing no SES bias, now show marginal negative bias against high-SES. Finally, high-SES referrers exhibit marginal negative bias against low-SES candidates. 
-
-The evidence of a bias becoming significant when controlling for entry exam scores has a nuanced interpretation. While at the university-level, low-SES typically score lower in the entry exam, low-SES students appearing in high-SES networks are positively selected, scoring about 0.14 standard deviations higher than middle-SES students (see Appendix Table \ref{tab:network_connections}). Controlling for performance thus removes this positive selection and reveals the ``pure'' SES bias that was previously underestimated by above average performance of low-SES. Vice versa, high-SES in low-SES networks perform 0.12 standard deviations better than middle-SES students. The same bias was underestimated as high-SES candidates' better performance relative to middle-SES in the same networks provided a meritocratic justification for getting more referrals. Controlling for exam scores reveal that both high- and low-SES referrers have negative SES bias towards one another that operates independently of - and counter to - performance-based considerations. What makes interpretation difficult is that while biased against low-SES, high-SES referrers do not under any specification display a positive bias towards their in-group. For this final reason, we do not dig any further in this direction.
-
-To conclude, we conduct joint significance tests, testing whether low- and high-SES regression coefficients are jointly different from middle-SES for each regression specification. For low-SES referrers, the joint test remains highly significant across all three specifications ($\chi^2 = 10.20$, $p = 0.006$ in the final model), indicating persistent SES bias across all specifications. In contrast, middle-SES referrers display no significant joint SES bias in any specification, with the test becoming increasingly non-significant as controls are added ($\chi^2 = 4.13$, $p = 0.127$ in the final model). High-SES referrers similarly show no significant joint SES bias across all three models ($\chi^2 = 4.28$, $p = 0.118$ in the final model). These results suggest that SES bias in referrals is primarily driven by low-SES. There is no sufficient evidence to conclude that middle- and high-SES referrers systematically discriminate against other-SES peers once we take into account the large differences in their network compositions due to program selection.
-
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{SES bias in referral decisions by referrer SES group with academic performance controls}\label{tab:ses-heterogeneity-scores}
-\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}}l c c c@{}}
-\toprule
-& \multicolumn{3}{c}{Referrer SES} \\
-& Low & Middle & High \\
-& (1) & (2) & (3) \\
-\midrule
-Low-SES candidate & 0.242** & -0.159 & -0.600* \\
-& (0.123) & (0.114) & (0.327) \\
-High-SES candidate& -0.445** & -0.274* & -0.345 \\
-& (0.222) & (0.157) & (0.287) \\
-Courses taken (z-score) & 0.859*** & 0.948*** & 1.043*** \\
-& (0.036) & (0.038) & (0.118) \\
-Entry exam (candidate z-score) & 0.607*** & 0.587*** & 0.883*** \\
-& (0.052) & (0.047) & (0.111) \\
-\midrule
-$\chi^2$ & 789.87 & 756.06 & 120.54 \\
-Observations & 110,142 & 127,088 & 19,767 \\
-Individuals & 301 & 366 & 67 \\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]
-\footnotesize
-\item[] \textit{Note:} Individual-level clustered standard errors in parentheses. * $p < 0.1$, ** $p < 0.05$, *** $p < 0.01$. Each column represents a separate conditional logit regression estimated on the subsample of referrers from the indicated SES group. Coefficients represent log-odds of referring candidates from the specified SES group relative to referring middle-SES candidates. All models include individual fixed effects that control for each referrer's choice set composition.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
 
 \section{Robustness check} \label{s6}
 
-Does the number of courses taken together have an independent effect that goes beyond identifying peers in the same academic program? To evaluate this question we leverage our administrative data, and identify peers within the same program: In each individual network we observe the participant-specific academic program for the participant making the referral and alternative-specific academic program for each referral candidate. We add this new variable in our specification and describe our findings in Table \ref{tab:ses-heterogeneity-program}. Being in the same academic program has a substantial positive effect on referral likelihood, with coefficients ranging from 1.257 to 2.198 across all referrer SES groups. This confirms that program affiliation serves as a strong predictor of referral decisions, reflecting increased familiarity. Our comparison of interest is the point estimate for the standardized number of courses taken. Across all three referrer groups, the standardized number of courses taken together maintains its statistical significance after controlling for same program membership. The coefficient magnitudes are expectedly smaller compared to specifications without program controls (ranging from 0.688 to 0.930) as the newly added variable is a moderator: Matching academic programs leads to taking more courses together. The remaining estimates in our model remain robust to the inclusion of the same-program variable with little change in point estimates. The persistence of statistical significance (all $p < 0.001$) suggests that the number of courses taken together has an independent effect on referral decisions. To sum, our measure of tie strength seems to capture meaningful social interaction patterns that lead to referrals, and go beyond simply identifying matching academic programs. 
+Does the number of courses taken together have an independent effect that goes beyond identifying peers in the same academic program? To evaluate this question we leverage our administrative data, and identify peers within the same program: In each individual network we observe the participant-specific academic program for the participant making the referral and alternative-specific academic program for each referral candidate. We add this new variable in our specification and describe our findings in Table \ref{tab:ses-heterogeneity-program}. Being in the same academic program has a substantial positive effect on referral likelihood, with coefficients ranging from 1.257 to 2.198 across all referrer SES groups. This confirms that program affiliation serves as a strong predictor of referral decisions, reflecting increased familiarity. Our comparison of interest is the point estimate for the standardized number of courses taken. Across all three referrer groups, the standardized number of courses taken together maintains its statistical significance after controlling for same program membership. The coefficient magnitudes are expectedly smaller compared to specifications without program controls (ranging from 0.688 to 0.930) as the newly added variable is a moderator: Matching academic programs leads to taking more courses together. The remaining estimates in our model remain robust to the inclusion of the same-program variable with little change in point estimates. The persistence of statistical significance (all $p < 0.001$) suggests that the number of courses taken together has an independent effect on referral decisions. To sum, our measure of contact intensity seems to capture meaningful social interaction patterns that lead to referrals, and go beyond simply identifying matching academic programs. 
 
 \begin{table}[H]
 \centering
@@ -637,11 +649,11 @@ Does the number of courses taken together have an independent effect that goes b
 & Low & Middle & High \\
 & (1) & (2) & (3) \\
 \midrule
-Low-SES candidate & 0.236** & -0.140 & -0.567* \\
+Low-SES referral & 0.236** & -0.140 & -0.567* \\
 & (0.119) & (0.111) & (0.331) \\
-High-SES candidate& -0.421* & -0.249 & -0.383 \\
+High-SES referral& -0.421* & -0.249 & -0.383 \\
 & (0.220) & (0.158) & (0.281) \\
-Entry exam (candidate z-score) & 0.623*** & 0.590*** & 0.892*** \\
+Entry exam (referral z-score) & 0.623*** & 0.590*** & 0.892*** \\
 & (0.054) & (0.048) & (0.114) \\
 Courses taken (z-score) & 0.688*** & 0.760*** & 0.930*** \\
 & (0.032) & (0.035) & (0.119) \\

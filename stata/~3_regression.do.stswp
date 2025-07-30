@@ -57,7 +57,7 @@ egen area_id = group(own_id area)
 save "appended.dta", replace
 
 use "appended.dta", clear
-// Run models
+// treatment
 preserve
 keep if nomination == 1
 anova z_other_score treat
