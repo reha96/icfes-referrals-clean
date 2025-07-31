@@ -167,7 +167,7 @@ xlabel(1 "Med." 2 "Law" 3 "BioMed" 4 "Pharma." 5 "B.Admin" 6 "Psych." 7 "Comm." 
 graphregion(color(white)) bgcolor(white) title("Programs by popularity") ///
 name(program_share, replace)
 
-graph export "${fpath}program_share.png", replace
+graph export "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/program_share.png", replace
 
 // top 5 programs are 100 200 210 340 10 (over 5 percent each)
 use "dataset_z.dta", clear

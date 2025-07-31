@@ -56,7 +56,7 @@ egen area_id = group(own_id area)
 
 save "appended.dta", replace
 
-use "appended.dta", clear
+use "${dpath}appended.dta", clear
 // Run models
 preserve
 keep if nomination == 1
@@ -81,8 +81,6 @@ esttab b1*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) s
 esttab b2*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty
 esttab b3*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty
 esttab b4*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty
-
-
 
 test 1.other_estrato = 2.other_estrato = 3.other_estrato // **
 
