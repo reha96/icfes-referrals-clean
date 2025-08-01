@@ -1,8 +1,8 @@
 /*******************************************************************************
     Project: icfes referrals 
     Author: Reha Tuncer
-    Date: 30.07.2025
-    Description: figure network composition by SES - 3 graphs 
+    Date: 01.08.2025
+    Description: figure network composition by SES at tie >12 - 3 separate graphs
 *******************************************************************************/
 global dpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/stata/"
 global fpath "/Users/reha.tuncer/Documents/GitHub/icfes-referrals/figures/"
@@ -22,8 +22,9 @@ foreach own in low middle high {
 }
 
 use "${dpath}dataset_z.dta", clear
+keep if tie > 12
 
-// Calculate proportions for each SES group
+// Calculate proportions for each SES group using confidence intervals
 foreach i in 1 2 3 {
     local ses_name = cond(`i'==1, "low", cond(`i'==2, "middle", "high"))
     
@@ -45,7 +46,7 @@ foreach i in 1 2 3 {
     restore
 }
 
-// Calculate university-level proportions
+// Calculate university-level proportions (baseline comparison)
 preserve
 bysort other_id: gen counter = _n
 keep if counter == 1
@@ -55,18 +56,6 @@ global prop_A_low = props_A[1,1]
 global prop_A_middle = props_A[1,2]
 global prop_A_high = props_A[1,3]
 restore
-
-// Statistical tests (optional - can be commented out if not needed)
-foreach own in low middle high {
-    display "=========================================="
-    display upper("`own'") "-SES REFERRERS: NETWORK vs UNIVERSITY"
-    display "=========================================="
-    foreach other in low middle high {
-        display "  `other' recipients:"
-        ttesti ${n_`own'} ${prop_`own'_`other'} ${se_`own'_`other'} ${prop_A_`other'}
-    }
-    display ""
-}
 
 // Create data for plotting
 clear
@@ -126,12 +115,11 @@ twoway (bar prop_to_low xpos, barw(0.6) fcolor(gs11) lcolor(gs4)) ///
        ylabel(0(0.1)0.8, angle(0) gmin gmax labsize(medium)) ///
        ytitle("", size(medium)) ///
        xtitle("Referrer SES") ///
-	   title("Low-SES peers in network", size(medlarge)) ///
+       title("Low-SES peers in network (courses>12)", size(medlarge)) ///
        legend(order(2 "University share") ring(0) pos(12) region(lcolor(none)) size(medium)) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) xsize(1) ysize(1) ///
-       name(to_low_ses, replace)  
-graph export "${fpath}connections_to_low_ses.png", name(to_low_ses) replace
+       name(to_low_ses, replace)
 
 // Plot 2: Connections TO MIDDLE-SES recipients
 twoway (bar prop_to_middle xpos, barw(0.6) fcolor(gs11) lcolor(gs4)) ///
@@ -141,13 +129,13 @@ twoway (bar prop_to_middle xpos, barw(0.6) fcolor(gs11) lcolor(gs4)) ///
        xlabel(1 "Low" 2 "Middle" 3 "High", labsize(medium)) ///
        ylabel(0(0.1)0.8, angle(0) gmin gmax labsize(medium)) ///
        xtitle("Referrer SES") ///
-	   ytitle("Proportion", size(medium)) ///
-       title("Middle-SES peers in network", size(medlarge)) ///
+       ytitle("Proportion", size(medium)) ///
+       title("Middle-SES peers in network (courses>12)", size(medlarge)) ///
        legend(order(2 "University share") ring(0) pos(12) region(lcolor(none)) size(medium)) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) xsize(1) ysize(1) ///
-       name(to_middle_ses, replace) 
-graph export "${fpath}connections_to_middle_ses.png", name(to_middle_ses) replace  
+       name(to_middle_ses, replace)
+
 // Plot 3: Connections TO HIGH-SES recipients
 twoway (bar prop_to_high xpos, barw(0.6) fcolor(gs11) lcolor(gs4)) ///
        (function y=${prop_A_high}, range(0.5 3.5) lpattern(dash) lcolor(red) lwidth(medthick)) ///
@@ -155,25 +143,25 @@ twoway (bar prop_to_high xpos, barw(0.6) fcolor(gs11) lcolor(gs4)) ///
        , ///
        xlabel(1 "Low" 2 "Middle" 3 "High", labsize(medium)) ///
        ylabel(0(0.1)0.8, angle(0) gmin gmax labsize(medium)) ///
-       ytitle("Proportion", size(medium)) ///
-	   xtitle("Referrer SES") ///
-       title("High-SES peers in network", size(medlarge)) ///
+       ytitle("", size(medium)) ///
+       xtitle("Referrer SES") ///
+       title("High-SES peers in network (courses>12)", size(medlarge)) ///
        legend(order(2 "University share") ring(0) pos(12) region(lcolor(none)) size(medium)) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 3.5)) xsize(1) ysize(1) ///
-       name(to_high_ses, replace) 
-graph export "${fpath}connections_to_high_ses.png", name(to_high_ses) replace
+       name(to_high_ses, replace)
+
+// Export individual plots
+graph export "${fpath}connections_to_low_ses_tie12.png", name(to_low_ses) replace
+graph export "${fpath}connections_to_middle_ses_tie12.png", name(to_middle_ses) replace
+graph export "${fpath}connections_to_high_ses_tie12.png", name(to_high_ses) replace
 
 // Combine all three plots
 graph combine to_low_ses to_middle_ses to_high_ses, ///
     rows(1) cols(3) ///
-    title("")  ///
-    b1title("Referrer SES", size(medium))  ///
-	graphregion(color(white) margin(0))
-graph export "${fpath}combined_ses_network_composition.png", replace
-// Export individual plots
-
-
+    title("Network composition by SES at median courses taken (>12)") ///
+    b1title("Referrer SES", size(medium)) ///
+    graphregion(color(white) margin(0))
 
 // Export combined plot
-
+graph export "${fpath}combined_ses_network_composition_tie12.png", replace
