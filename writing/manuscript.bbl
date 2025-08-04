@@ -59,32 +59,6 @@ Angulo, R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Bandiera%
-, Barankay%
-\BCBL {}\ \BBA {} Rasul%
-}{%
-Bandiera%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2009}}%
-}]{%
-bandiera2009social}
-\APACinsertmetastar {%
-bandiera2009social}%
-\begin{APACrefauthors}%
-Bandiera, O.%
-, Barankay, I.%
-\BCBL {}\ \BBA {} Rasul, I.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2009}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Social connections and incentives in the workplace: Evidence from personnel data} {Social connections and incentives in the workplace: Evidence from personnel data}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Econometrica}{77}{4}{1047--1094}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Beaman%
 , Keleher%
 \BCBL {}\ \BBA {} Magruder%
@@ -961,28 +935,6 @@ Stansbury, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Topa%
-}{%
-Topa%
-}{%
-{\protect \APACyear {2019}}%
-}]{%
-topa2019social}
-\APACinsertmetastar {%
-topa2019social}%
-\begin{APACrefauthors}%
-Topa, G.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2019}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Social and spatial networks in labour markets} {Social and spatial networks in labour markets}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Oxford Review of Economic Policy}{35}{4}{722--745}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 {United Nations}%
 }{%
 {United Nations}%
@@ -1048,28 +1000,6 @@ Wang, S\BHBI Y.%
 {\BBOQ}\APACrefatitle {Marriage networks, nepotism, and labor market outcomes in China} {Marriage networks, nepotism, and labor market outcomes in china}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{American Economic Journal: Applied Economics}{5}{3}{91--112}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Witte%
-}{%
-Witte%
-}{%
-{\protect \APACyear {2021}}%
-}]{%
-witte2021workers}
-\APACinsertmetastar {%
-witte2021workers}%
-\begin{APACrefauthors}%
-Witte, M.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2021}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Why Do Workers Make Job Referrals? Experimental Evidence from Ethiopia} {Why do workers make job referrals? experimental evidence from ethiopia}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Working Paper}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
