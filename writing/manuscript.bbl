@@ -1,36 +1,6 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
-Alan%
-, Duysak%
-, Kubilay%
-\BCBL {}\ \BBA {} Mumcu%
-}{%
-Alan%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2023}}%
-}]{%
-alan2023troeasa}
-\APACinsertmetastar {%
-alan2023troeasa}%
-\begin{APACrefauthors}%
-Alan, S.%
-, Duysak, E.%
-, Kubilay, E.%
-\BCBL {}\ \BBA {} Mumcu, I.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2023}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Social {{Exclusion}} and {{Ethnic Segregation}} in {{Schools}}: {{The Role}} of {{Teachers}}' {{Ethnic Prejudice}}} {Social {{Exclusion}} and {{Ethnic Segregation}} in {{Schools}}: {{The Role}} of {{Teachers}}' {{Ethnic Prejudice}}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{The Review of Economics and Statistics}{105}{5}{1039--1054}.
-\newblock
-\begin{APACrefDOI} \doi{10.1162/rest_a_01111} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Angulo%
 , Gaviria%
 , P{\'a}ez%
@@ -115,28 +85,30 @@ Beaman, L.%
 
 \bibitem [\protect \citeauthoryear {%
 Bolte%
-, Immorlica%
-\BCBL {}\ \BBA {} Jackson%
+, Jackson%
+\BCBL {}\ \BBA {} Immorlica%
 }{%
 Bolte%
 \ \protect \BOthers {.}}{%
-{\protect \APACyear {2021}}%
+{\protect \APACyear {2024}}%
 }]{%
-bolte_role_2021}
+bolte2024jle}
 \APACinsertmetastar {%
-bolte_role_2021}%
+bolte2024jle}%
 \begin{APACrefauthors}%
 Bolte, L.%
-, Immorlica, N.%
-\BCBL {}\ \BBA {} Jackson, M\BPBI O.%
+, Jackson, M\BPBI O.%
+\BCBL {}\ \BBA {} Immorlica, N.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2021}{}{}.
+\APACrefYearMonthDay{2024}{}{}.
 \newblock
-\APACrefbtitle {The {Role} of {Referrals} in {Immobility}, {Inequality}, and {Ineﬃciency} in {Labor} {Markets}.} {The {Role} of {Referrals} in {Immobility}, {Inequality}, and {Ineﬃciency} in {Labor} {Markets}.}
+{\BBOQ}\APACrefatitle {The {{Role}} of {{Referrals}} in {{Immobility}}, {{Inequality}}, and {{Inefficiency}} in {{Labor Markets}}} {The {{Role}} of {{Referrals}} in {{Immobility}}, {{Inequality}}, and {{Inefficiency}} in {{Labor Markets}}}.{\BBCQ}
 \newblock
-\APACrefnote{Working Paper}
+\APACjournalVolNumPages{Journal of Labor Economics}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1086/733048} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -187,31 +159,6 @@ Brown, M.%
 {\BBOQ}\APACrefatitle {Do informal referrals lead to better matches? Evidence from a firm’s employee referral system} {Do informal referrals lead to better matches? evidence from a firm’s employee referral system}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Journal of Labor Economics}{34}{1}{161--209}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Calvo-Armengol%
-\ \BBA {} Jackson%
-}{%
-Calvo-Armengol%
-\ \BBA {} Jackson%
-}{%
-{\protect \APACyear {2004}}%
-}]{%
-calvo2004effects}
-\APACinsertmetastar {%
-calvo2004effects}%
-\begin{APACrefauthors}%
-Calvo-Armengol, A.%
-\BCBT {}\ \BBA {} Jackson, M\BPBI O.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2004}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The effects of social networks on employment and inequality} {The effects of social networks on employment and inequality}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American economic review}{94}{3}{426--454}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -275,31 +222,59 @@ Chetty, R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-D{\'\i}az%
-, Munoz%
-, Reuben%
-\BCBL {}\ \BBA {} Tuncer%
+Currarini%
+, Jackson%
+\BCBL {}\ \BBA {} Pin%
 }{%
-D{\'\i}az%
+Currarini%
 \ \protect \BOthers {.}}{%
-{\protect \APACyear {2025}}%
+{\protect \APACyear {2009}}%
 }]{%
-diaz_peer_2025}
+currarini2009e}
 \APACinsertmetastar {%
-diaz_peer_2025}%
+currarini2009e}%
 \begin{APACrefauthors}%
-D{\'\i}az, J.%
-, Munoz, M.%
-, Reuben, E.%
-\BCBL {}\ \BBA {} Tuncer, R.%
+Currarini, S.%
+, Jackson, M\BPBI O.%
+\BCBL {}\ \BBA {} Pin, P.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2025}{March}{}.
+\APACrefYearMonthDay{2009}{}{}.
 \newblock
-\APACrefbtitle {Peer skill identification and social class: Evidence from a referral field experiment.} {Peer skill identification and social class: Evidence from a referral field experiment.}
+{\BBOQ}\APACrefatitle {An {{Economic Model}} of {{Friendship}}: {{Homophily}}, {{Minorities}}, and {{Segregation}}} {An {{Economic Model}} of {{Friendship}}: {{Homophily}}, {{Minorities}}, and {{Segregation}}}.{\BBCQ}
 \newblock
-\APACrefnote{Working Paper}
+\APACjournalVolNumPages{Econometrica}{77}{4}{1003--1045}.
+\newblock
+\begin{APACrefDOI} \doi{10.3982/ECTA7528} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Currarini%
+, Jackson%
+\BCBL {}\ \BBA {} Pin%
+}{%
+Currarini%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+currarini2010pnas}
+\APACinsertmetastar {%
+currarini2010pnas}%
+\begin{APACrefauthors}%
+Currarini, S.%
+, Jackson, M\BPBI O.%
+\BCBL {}\ \BBA {} Pin, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Identifying the Roles of Race-Based Choice and Chance in High School Friendship Network Formation} {Identifying the roles of race-based choice and chance in high school friendship network formation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Proceedings of the National Academy of Sciences}{107}{11}{4857--4861}.
+\newblock
+\begin{APACrefDOI} \doi{10.1073/pnas.0911793107} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -328,6 +303,33 @@ Dustmann, C.%
 {\BBOQ}\APACrefatitle {Referral-based job search networks} {Referral-based job search networks}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{The Review of Economic Studies}{83}{2}{514--546}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Engzell%
+\ \BBA {} Wilmers%
+}{%
+Engzell%
+\ \BBA {} Wilmers%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+engzell2025ajos}
+\APACinsertmetastar {%
+engzell2025ajos}%
+\begin{APACrefauthors}%
+Engzell, P.%
+\BCBT {}\ \BBA {} Wilmers, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Firms and the {{Intergenerational Transmission}} of {{Labor Market Advantage}}} {Firms and the {{Intergenerational Transmission}} of {{Labor Market Advantage}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Journal of Sociology}{}{}{736993}.
+\newblock
+\begin{APACrefDOI} \doi{10.1086/736993} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -413,6 +415,59 @@ Friebel, G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Friedman%
+\ \BBA {} Laurison%
+}{%
+Friedman%
+\ \BBA {} Laurison%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+FriedmanLaurison2019GettingOn}
+\APACinsertmetastar {%
+FriedmanLaurison2019GettingOn}%
+\begin{APACrefauthors}%
+Friedman, S.%
+\BCBT {}\ \BBA {} Laurison, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Getting on} {Getting on}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {The Class Ceiling: Why it Pays to be Privileged} {The class ceiling: Why it pays to be privileged}\ (\BPGS\ 45--56).
+\newblock
+\APACaddressPublisher{Bristol, UK and Chicago, IL, USA}{Policy Press}.
+\newblock
+\APACrefnote{Chapter 2 of the authored book.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Galos%
+}{%
+Galos%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+galos2024esr}
+\APACinsertmetastar {%
+galos2024esr}%
+\begin{APACrefauthors}%
+Galos, D\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social Media and Hiring: A Survey Experiment on Discrimination Based on Online Social Class Cues} {Social media and hiring: A survey experiment on discrimination based on online social class cues}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{European Sociological Review}{40}{1}{116--128}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/esr/jcad012} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Garc{\'\i}a%
 , Rodr{\'\i}guez%
 , S{\'a}nchez%
@@ -476,21 +531,23 @@ Gee%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2017}}%
 }]{%
-gee2017social}
+gee2017jole}
 \APACinsertmetastar {%
-gee2017social}%
+gee2017jole}%
 \begin{APACrefauthors}%
 Gee, L\BPBI K.%
-, Jones, J\BPBI J.%
+, Jones, J.%
 \BCBL {}\ \BBA {} Burke, M.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
 \APACrefYearMonthDay{2017}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Social networks and labor markets: How strong ties relate to job finding on Facebook's social network} {Social networks and labor markets: How strong ties relate to job finding on facebook's social network}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Social {{Networks}} and {{Labor Markets}}: {{How Strong Ties Relate}} to {{Job Finding}} on {{Facebook}}'s {{Social Network}}} {Social {{Networks}} and {{Labor Markets}}: {{How Strong Ties Relate}} to {{Job Finding}} on {{Facebook}}'s {{Social Network}}}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Journal of Labor Economics}{35}{2}{485--518}.
+\newblock
+\begin{APACrefDOI} \doi{10.1086/686225} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -597,84 +654,79 @@ Hudson, R\BPBI A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-{Jaramillo-Echeverri}%
-\ \BBA {} {\'A}lvarez%
+Jackson%
 }{%
-{Jaramillo-Echeverri}%
-\ \BBA {} {\'A}lvarez%
+Jackson%
 }{%
-{\protect \APACyear {2023}}%
+{\protect \APACyear {2022}}%
 }]{%
-jaramillo-echeverri2023}
+jackson2022}
 \APACinsertmetastar {%
-jaramillo-echeverri2023}%
+jackson2022}%
 \begin{APACrefauthors}%
-{Jaramillo-Echeverri}, J.%
-\BCBT {}\ \BBA {} {\'A}lvarez, A.%
+Jackson, M\BPBI O.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2023}{}{}.
+\APACrefYearMonthDay{2022}{}{}.
 \newblock
-\APACrefbtitle {The {{Persistence}} of {{Segregation}} in {{Education}}: {{Evidence}} from {{Historical Elites}} and {{Ethnic Surnames}} in {{Colombia}}} {The {{Persistence}} of {{Segregation}} in {{Education}}: {{Evidence}} from {{Historical Elites}} and {{Ethnic Surnames}} in {{Colombia}}}\ ({{SSRN Scholarly Paper}}\ \BNUM\ 4575894).
+\APACrefbtitle {Inequality's {{Economic}} and {{Social Roots}}: {{The Role}} of {{Social Networks}} and {{Homophily}}} {Inequality's {{Economic}} and {{Social Roots}}: {{The Role}} of {{Social Networks}} and {{Homophily}}}\ ({{SSRN Scholarly Paper}}\ \BNUM\ 3795626).
 \newblock
-\APACaddressPublisher{Rochester, NY}{Social Science Research Network}.
+\APACaddressPublisher{Rochester, NY}{}.
 \newblock
-\begin{APACrefDOI} \doi{10.2139/ssrn.4575894} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Kossinets%
-\ \BBA {} Watts%
-}{%
-Kossinets%
-\ \BBA {} Watts%
-}{%
-{\protect \APACyear {2009}}%
-}]{%
-kossinets_origins_2009}
-\APACinsertmetastar {%
-kossinets_origins_2009}%
-\begin{APACrefauthors}%
-Kossinets, G.%
-\BCBT {}\ \BBA {} Watts, D\BPBI J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2009}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Origins of Homophily in an Evolving Social Network} {Origins of homophily in an evolving social network}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American Journal of Sociology}{115}{2}{405--450}.
-\newblock
-\begin{APACrefURL} \url{https://www.journals.uchicago.edu/doi/abs/10.1086/599247} \end{APACrefURL}
-\newblock
-\begin{APACrefDOI} \doi{10.1086/599247} \end{APACrefDOI}
+\begin{APACrefDOI} \doi{10.2139/ssrn.3795626} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
 Kramarz%
-\ \BBA {} Nordström~Skans%
+\ \BBA {} Skans%
 }{%
 Kramarz%
-\ \BBA {} Nordström~Skans%
+\ \BBA {} Skans%
 }{%
 {\protect \APACyear {2014}}%
 }]{%
-kramarz2014strong}
+kramarz2014res}
 \APACinsertmetastar {%
-kramarz2014strong}%
+kramarz2014res}%
 \begin{APACrefauthors}%
 Kramarz, F.%
-\BCBT {}\ \BBA {} Nordström~Skans, O.%
+\BCBT {}\ \BBA {} Skans, O\BPBI N.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
 \APACrefYearMonthDay{2014}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {When strong ties are strong: Networks and youth labour market entry} {When strong ties are strong: Networks and youth labour market entry}.{\BBCQ}
+{\BBOQ}\APACrefatitle {When Strong Ties Are Strong: {{Networks}} and Youth Labour Market Entry} {When strong ties are strong: {{Networks}} and youth labour market entry}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{The Review of Economic Studies}{81}{3}{1164--1200}.
+\APACjournalVolNumPages{Review of economic studies}{81}{3}{1164--1200}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Laurison%
+\ \BBA {} Friedman%
+}{%
+Laurison%
+\ \BBA {} Friedman%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+laurison2024sf}
+\APACinsertmetastar {%
+laurison2024sf}%
+\begin{APACrefauthors}%
+Laurison, D.%
+\BCBT {}\ \BBA {} Friedman, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{Class Ceiling}} in the {{United States}}: {{Class-Origin Pay Penalties}} in {{Higher Professional}} and {{Managerial Occupations}}} {The {{Class Ceiling}} in the {{United States}}: {{Class-Origin Pay Penalties}} in {{Higher Professional}} and {{Managerial Occupations}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Social Forces}{103}{1}{22--44}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/sf/soae025} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -758,6 +810,34 @@ McPherson, M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Michelman%
+, Price%
+\BCBL {}\ \BBA {} Zimmerman%
+}{%
+Michelman%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2022}}%
+}]{%
+michelman2022tqjoe}
+\APACinsertmetastar {%
+michelman2022tqjoe}%
+\begin{APACrefauthors}%
+Michelman, V.%
+, Price, J.%
+\BCBL {}\ \BBA {} Zimmerman, S\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Old {{Boys}}' {{Clubs}} and {{Upward Mobility Among}} the {{Educational Elite}}*} {Old {{Boys}}' {{Clubs}} and {{Upward Mobility Among}} the {{Educational Elite}}*}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Quarterly Journal of Economics}{137}{2}{845--909}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/qje/qjab047} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Montgomery%
 }{%
 Montgomery%
@@ -801,6 +881,58 @@ Mouw, T.%
 \APACjournalVolNumPages{American Sociological Review}{68}{6}{868--898}.
 \newblock
 \begin{APACrefDOI} \doi{10.1177/000312240306800604} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Núñez%
+\ \BBA {} Gutiérrez%
+}{%
+Núñez%
+\ \BBA {} Gutiérrez%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+nunez2004class}
+\APACinsertmetastar {%
+nunez2004class}%
+\begin{APACrefauthors}%
+Núñez, J.%
+\BCBT {}\ \BBA {} Gutiérrez, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Class discrimination and meritocracy in the labor market: evidence from chile} {Class discrimination and meritocracy in the labor market: evidence from chile}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Estudios de Economía}{31}{2}{113--132}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Obukhova%
+\ \BBA {} Lan%
+}{%
+Obukhova%
+\ \BBA {} Lan%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+obukhova2013ms}
+\APACinsertmetastar {%
+obukhova2013ms}%
+\begin{APACrefauthors}%
+Obukhova, E.%
+\BCBT {}\ \BBA {} Lan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Do {{Job Seekers Benefit}} from {{Contacts}}? {{A Direct Test}} with {{Contemporaneous Searches}}} {Do {{Job Seekers Benefit}} from {{Contacts}}? {{A Direct Test}} with {{Contemporaneous Searches}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Management Science}{59}{10}{2204--2216}.
+\newblock
+\begin{APACrefDOI} \doi{10.1287/mnsc.1120.1701} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -855,6 +987,57 @@ Pedulla, D\BPBI S.%
 \APACjournalVolNumPages{American Sociological Review}{84}{}{983-1012}.
 \newblock
 \begin{APACrefDOI} \doi{10.1177/0003122419883255} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rivera%
+}{%
+Rivera%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+rivera2012asr}
+\APACinsertmetastar {%
+rivera2012asr}%
+\begin{APACrefauthors}%
+Rivera, L\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Hiring as {{Cultural Matching}}: {{The Case}} of {{Elite Professional Service Firms}}} {Hiring as {{Cultural Matching}}: {{The Case}} of {{Elite Professional Service Firms}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Sociological Review}{77}{6}{999--1022}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0003122412463213} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rivera%
+\ \BBA {} Tilcsik%
+}{%
+Rivera%
+\ \BBA {} Tilcsik%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+rivera2016asr}
+\APACinsertmetastar {%
+rivera2016asr}%
+\begin{APACrefauthors}%
+Rivera, L\BPBI A.%
+\BCBT {}\ \BBA {} Tilcsik, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Class {{Advantage}}, {{Commitment Penalty}}: {{The Gendered Effect}} of {{Social Class Signals}} in an {{Elite Labor Market}}} {Class {{Advantage}}, {{Commitment Penalty}}: {{The Gendered Effect}} of {{Social Class Signals}} in an {{Elite Labor Market}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Sociological Review}{81}{6}{1097--1131}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0003122416668154} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -935,6 +1118,52 @@ Stansbury, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Sterling%
+}{%
+Sterling%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+sterling2014ms}
+\APACinsertmetastar {%
+sterling2014ms}%
+\begin{APACrefauthors}%
+Sterling, A\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Friendships and {{Search Behavior}} in {{Labor Markets}}} {Friendships and {{Search Behavior}} in {{Labor Markets}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Management Science}{60}{9}{2341--2354}.
+\newblock
+\begin{APACrefDOI} \doi{10.1287/mnsc.2013.1857} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Topa%
+}{%
+Topa%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+topa2019social}
+\APACinsertmetastar {%
+topa2019social}%
+\begin{APACrefauthors}%
+Topa, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social and spatial networks in labour markets} {Social and spatial networks in labour markets}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Oxford Review of Economic Policy}{35}{4}{722--745}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 {United Nations}%
 }{%
 {United Nations}%
@@ -987,9 +1216,9 @@ Wang%
 }{%
 {\protect \APACyear {2013}}%
 }]{%
-wang2013marriage}
+wang2013aejae}
 \APACinsertmetastar {%
-wang2013marriage}%
+wang2013aejae}%
 \begin{APACrefauthors}%
 Wang, S\BHBI Y.%
 \end{APACrefauthors}%
@@ -997,9 +1226,31 @@ Wang, S\BHBI Y.%
 \newblock
 \APACrefYearMonthDay{2013}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Marriage networks, nepotism, and labor market outcomes in China} {Marriage networks, nepotism, and labor market outcomes in china}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Marriage Networks, Nepotism, and Labor Market Outcomes in {{China}}} {Marriage networks, nepotism, and labor market outcomes in {{China}}}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{American Economic Journal: Applied Economics}{5}{3}{91--112}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Witte%
+}{%
+Witte%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+witte2021workers}
+\APACinsertmetastar {%
+witte2021workers}%
+\begin{APACrefauthors}%
+Witte, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Why Do Workers Make Job Referrals? Experimental Evidence from Ethiopia} {Why do workers make job referrals? experimental evidence from ethiopia}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Working Paper}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
