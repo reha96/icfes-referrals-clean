@@ -174,7 +174,7 @@ twoway (bar proportion2 xpos, barw(0.4) fcolor(gs8) lcolor(gs4)) ///
 	   xtitle("") ///
        title("Referral rates compared to network shares") ///
        legend(order(1 "Network" 3 "Referral") ///
-              ring(1) pos(6) rows(1) region(lcolor(none)) ) ///
+              ring(1) pos(12) rows(1) region(lcolor(none)) ) ///
        graphregion(color(white)) bgcolor(white) ///
        xscale(range(0.5 10.5)) ///
        name(referral_rates, replace)
