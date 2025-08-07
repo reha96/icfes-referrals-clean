@@ -1,6 +1,33 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Alan%
+\ \BBA {} Kubilay%
+}{%
+Alan%
+\ \BBA {} Kubilay%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+alan2025aer}
+\APACinsertmetastar {%
+alan2025aer}%
+\begin{APACrefauthors}%
+Alan, S.%
+\BCBT {}\ \BBA {} Kubilay, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Empowering {{Adolescents}} to {{Transform Schools}}: {{Lessons}} from a {{Behavioral Targeting}}} {Empowering {{Adolescents}} to {{Transform Schools}}: {{Lessons}} from a {{Behavioral Targeting}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Economic Review}{115}{2}{365--407}.
+\newblock
+\begin{APACrefDOI} \doi{10.1257/aer.20240374} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Angulo%
 , Gaviria%
 , P{\'a}ez%
@@ -675,6 +702,35 @@ Jackson, M\BPBI O.%
 \APACaddressPublisher{Rochester, NY}{}.
 \newblock
 \begin{APACrefDOI} \doi{10.2139/ssrn.3795626} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kossinets%
+\ \BBA {} Watts%
+}{%
+Kossinets%
+\ \BBA {} Watts%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+kossinets_origins_2009}
+\APACinsertmetastar {%
+kossinets_origins_2009}%
+\begin{APACrefauthors}%
+Kossinets, G.%
+\BCBT {}\ \BBA {} Watts, D\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Origins of Homophily in an Evolving Social Network} {Origins of homophily in an evolving social network}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Journal of Sociology}{115}{2}{405--450}.
+\newblock
+\begin{APACrefURL} \url{https://www.journals.uchicago.edu/doi/abs/10.1086/599247} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1086/599247} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
