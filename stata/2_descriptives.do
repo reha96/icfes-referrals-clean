@@ -635,3 +635,25 @@ sum subst
 
 use "${dpath}appended.dta", clear
 keep area_id own_id nomination other_estrato z_other_score  z_tie same_program 
+
+// MAIN REGRESSION
+nlogitgen ses = other_estrato(1,2,3) 
+nlogit nomination other_estrato z_tie || ses:, base(ses2) case(own_id)
+
+forvalues ses = 1/3 {
+    preserve		
+		keep if own_estrato == `ses'
+		eststo b1`ses': clogit nomination ib(2).other_estrato  , group(area_id) vce(cluster own_id)
+		eststo b2`ses': clogit nomination ib(2).other_estrato z_tie , group(area_id) vce(cluster own_id)
+		eststo b3`ses': clogit nomination ib(2).other_estrato z_other_score z_tie  , group(area_id) vce(cluster own_id)
+		eststo b4`ses': clogit nomination ib(2).other_estrato z_other_score z_tie i.same_program, group(area_id) vce(cluster own_id)
+		test 1.other_estrato = 2.other_estrato = 3.other_estrato // *** only for low-SES
+		test 1.other_estrato = 3.other_estrato // *** only for low-SES
+	restore
+}
+esttab b1*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty
+esttab b2*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty
+esttab b3*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty
+esttab b4*, cells(b(star fmt(3)) se(par fmt(3))) star(* 0.10 ** 0.05 *** 0.01) scalars("N Obs." "N_clust Ind." "chi2 Chi-test") sfmt(0 0 2) nodep nomti label ty
+
+
