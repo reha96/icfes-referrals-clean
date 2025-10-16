@@ -40,14 +40,14 @@
 \newcommand{\footrecall}[1]{%
     \footnotemark[\value{#1}]%
 } 
-\usepackage{lineno}
-\makeatletter
-\def\makeLineNumberLeft{%
-  \linenumberfont\llap{\hb@xt@\linenumberwidth{\LineNumber\hss}\hskip\linenumbersep}% left line number
-  \hskip\columnwidth% skip over column of text
-  \rlap{\hskip\linenumbersep\hb@xt@\linenumberwidth{\hss\LineNumber}}\hss}% right line number
-\leftlinenumbers% Re-issue [left] option
-\makeatother
+% \usepackage{lineno}
+% \makeatletter
+% \def\makeLineNumberLeft{%
+%   \linenumberfont\llap{\hb@xt@\linenumberwidth{\LineNumber\hss}\hskip\linenumbersep}% left line number
+%   \hskip\columnwidth% skip over column of text
+%   \rlap{\hskip\linenumbersep\hb@xt@\linenumberwidth{\hss\LineNumber}}\hss}% right line number
+% \leftlinenumbers% Re-issue [left] option
+% \makeatother
 
 \usepackage{blindtext}
 \usepackage[colorlinks=true, citecolor=blue, linkcolor=blue, urlcolor=blue,breaklinks]{hyperref}
@@ -63,7 +63,7 @@
 \author{Manuel Munoz\footremember{liser}{Luxembourg Institute of Socio-Economic Research}, Ernesto Reuben\footnote{Division of Social Science, New York University Abu Dhabi} \footrecall{liser}, Reha Tuncer\footnote{University of Luxembourg}}  
 % \footnote{Center for Behavioral Institutional Design at New York University Abu Dhabi} 
 \begin{document}
-\linenumbers 
+% \linenumbers 
 % HERE FOR LINES
 \maketitle
 
