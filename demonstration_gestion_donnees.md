@@ -1,149 +1,149 @@
-# Démonstration de Gestion des Données – Projet de Recherche
+# Data Governance Demonstration – Research Project
 
-**Candidat :** Reha Tuncer  
-**Poste visé :** Data Steward – Administration fiscale luxembourgeoise  
-**Date :** 22 mai 2026  
-**Référentiel analysé :** [`icfes-referrals-clean`](https://github.com/reha96/icfes-referrals-clean)  
-
----
-
-## Table des matières
-
-1. [Vue d'ensemble et inventaire du référentiel](#1-vue-densemble-et-inventaire-du-référentiel)
-2. [Document de traçabilité des données (Data Lineage)](#2-document-de-traçabilité-des-données-data-lineage)
-3. [Dictionnaire des données (Data Dictionary)](#3-dictionnaire-des-données-data-dictionary)
-4. [Indicateurs de qualité des données](#4-indicateurs-de-qualité-des-données)
-5. [Notes de conformité (Gouvernance)](#5-notes-de-conformité-gouvernance)
-6. [Note de synthèse](#6-note-de-synthèse)
+**Candidate:** Reha Tuncer  
+**Target Role:** Data Steward – Luxembourg Tax Administration  
+**Date:** 22 May 2026  
+**Repository Analyzed:** [`icfes-referrals-clean`](https://github.com/reha96/icfes-referrals-clean)  
 
 ---
 
-## 1. Vue d'ensemble et inventaire du référentiel
+## Table of Contents
 
-### 1.1 Structure du référentiel
+1. [Repository Overview and Inventory](#1-repository-overview-and-inventory)
+2. [Data Lineage Document](#2-data-lineage-document)
+3. [Data Dictionary](#3-data-dictionary)
+4. [Data Quality Indicators](#4-data-quality-indicators)
+5. [Governance Compliance Notes](#5-governance-compliance-notes)
+6. [Closing Note](#6-closing-note)
+
+---
+
+## 1. Repository Overview and Inventory
+
+### 1.1 Repository Structure
 
 ```
 icfes-referrals-clean/
-├── README.md                          # Documentation du projet
-├── LICENSE                            # Licence MIT
-├── .gitignore                         # Exclusion des fichiers de données
-├── stata/                             # Scripts d'analyse (52 fichiers .do)
-│   ├── 0_top_decile.do                # Nettoyage : création des déciles
-│   ├── 1_standardize.do               # Standardisation, variables SES, frais
-│   ├── 1_referrals_analysis_new.do    # Analyse réseau et genre
-│   ├── 1_referrals_analysis_regs_fe.do# Régression avec effets fixes
-│   ├── 2_descriptives.do              # Statistiques descriptives, balance
-│   ├── 3_regression.do                # Régression principale (logit conditionnel)
-│   ├── f_*.do                         # 38 scripts de génération de figures
-│   └── figureLoop.do                  # Utilitaire de boucle pour figures
-├── figures/                           # Graphiques produits (PNG)
-├── slides/                            # Présentations Beamer LaTeX
+├── README.md                          # Project documentation
+├── LICENSE                            # MIT License
+├── .gitignore                         # Data file exclusion rules
+├── stata/                             # Analysis scripts (52 .do files)
+│   ├── 0_top_decile.do                # Cleaning: top-decile flag creation
+│   ├── 1_standardize.do               # Standardization, SES variables, fees
+│   ├── 1_referrals_analysis_new.do    # Network and gender analysis
+│   ├── 1_referrals_analysis_regs_fe.do# Regression with fixed effects
+│   ├── 2_descriptives.do              # Descriptive statistics, balance tests
+│   ├── 3_regression.do                # Main regression (conditional logit)
+│   ├── f_*.do                         # 38 figure-generation scripts
+│   └── figureLoop.do                  # Figure-loop utility
+├── figures/                           # Output graphs (PNG)
+├── slides/                            # Beamer LaTeX presentations
 │   └── internal/
-│       ├── 1 hour/                    # Séminaire complet
-│       ├── 5 min/                     # Présentation courte
-│       └── 8 min/                     # Présentation conférence
-└── writing/                           # Manuscrit académique
-    ├── manuscript.tex                 # Article complet en LaTeX
-    ├── manuscript.bbl                 # Bibliographie
-    └── referrals.bib                  # Références BibTeX
+│       ├── 1 hour/                    # Full seminar
+│       ├── 5 min/                     # Short presentation
+│       └── 8 min/                     # Conference presentation
+└── writing/                           # Academic manuscript
+    ├── manuscript.tex                 # Full LaTeX article
+    ├── manuscript.bbl                 # Bibliography
+    └── referrals.bib                  # BibTeX references
 ```
 
-### 1.2 Résumé du projet (2-3 phrases)
+### 1.2 Project Summary (2–3 sentences)
 
-Ce projet de recherche en économie appliquée étudie les biais de classe socio-économique (SES) dans la sélection de références (referrals) entre pairs, à travers une expérience de terrain menée auprès de 734 étudiants d'une université colombienne. Les participants effectuent des recommandations incitatives de leurs camarades pour deux domaines d'un examen national, à partir de leurs réseaux de cours — reconstitués via des données administratives couvrant plus de 4 500 étudiants. L'analyse utilise des modèles logit conditionnels avec effets fixes individuels pour séparer la composition du réseau (opportunités de contact) des biais de sélection liés au statut socio-économique.
+This applied economics research project investigates socioeconomic status (SES) bias in peer referral selection through a lab-in-the-field experiment conducted with 734 students at a Colombian university. Participants make incentivized referrals of classmates for two national-exam domains, drawing from their course-enrolment networks — reconstructed from administrative data covering over 4,500 students. The analysis uses conditional logit models with individual fixed effects to separate network composition (contact opportunities) from SES-driven selection biases.
 
-### 1.3 Sources de données principales
+### 1.3 Main Data Sources
 
 | Source | Description | Type |
 |--------|-------------|------|
-| **Données administratives universitaires** | Inscriptions aux cours de 4 417 étudiants de premier cycle (programme, semestre, cours partagés) | Source administrative |
-| **Examen national SABER 11** | Scores standardisés en mathématiques et lecture critique pour tous les étudiants | Source administrative nationale |
-| **Enquête expérimentale (Qualtrics)** | Références, croyances (beliefs), données démographiques récoltées via Qualtrics | Source expérimentale |
-| **Grille tarifaire des programmes** | Frais de scolarité annuels par programme académique (32 programmes), codés en pesos colombiens (COP) | Source institutionnelle |
+| **University administrative data** | Course enrolments for 4,417 undergraduate students (programme, semester, shared courses) | Administrative source |
+| **National SABER 11 exam** | Standardised scores in mathematics and critical reading for all students | National administrative source |
+| **Experimental survey (Qualtrics)** | Referrals, beliefs, and demographic data collected via Qualtrics | Experimental source |
+| **Programme fee schedule** | Annual tuition fees per academic programme (32 programmes), encoded in Colombian pesos (COP) | Institutional source |
 
-### 1.4 Variables clés
+### 1.4 Key Variables
 
-| Catégorie | Variable dépendante | Variables indépendantes principales |
-|-----------|---------------------|-------------------------------------|
-| **Décision de référence** | `nomination` (0/1) — le candidat est-il choisi comme référence ? | `other_estrato` (SES du candidat), `z_tie` (nombre de cours partagés, standardisé), `z_other_score` (score examen, standardisé) |
-| **Traitement** | — | `treat` (1 = Baseline, 2 = Bonus) |
-| **Contrôles** | — | `own_female`/`other_female` (genre), `same_program` (même programme), `own_semester` (semestre d'études) |
+| Category | Dependent Variable | Main Independent Variables |
+|----------|-------------------|---------------------------|
+| **Referral decision** | `nomination` (0/1) — is the candidate chosen as a referral? | `other_estrato` (candidate SES), `z_tie` (courses taken together, standardized), `z_other_score` (exam score, standardized) |
+| **Treatment** | — | `treat` (1 = Baseline, 2 = Bonus) |
+| **Controls** | — | `own_female` / `other_female` (gender), `same_program` (same academic programme), `own_semester` (semester of study) |
 
-### 1.5 Méthode analytique
+### 1.5 Analytical Method
 
-Régression logit conditionnelle (*conditional logit*) avec effets fixes individuels, estimée séparément par groupe SES du référent. Les écarts-types sont clusterisés au niveau du référent (`own_id`). L'équation estimée est :
+Conditional logit regression with individual fixed effects, estimated separately by referrer SES group. Standard errors are clustered at the referrer level (`own_id`). The estimated equation is:
 
 $$Y_{ij} = \alpha_i + \beta_1 SES_{ij} + \beta X_{ij} + \varepsilon_{ij}$$
 
-où $Y_{ij} = 1$ si le référent $i$ choisit le candidat $j$, et $X_{ij}$ inclut le nombre de cours partagés et les scores d'examen standardisés.
+where $Y_{ij} = 1$ if referrer $i$ selects candidate $j$, and $X_{ij}$ includes the number of courses taken together and standardized exam scores.
 
 ---
 
-## 2. Document de traçabilité des données (Data Lineage)
+## 2. Data Lineage Document
 
-### 2.1 Description textuelle
+### 2.1 Textual Description
 
 #### Sources
 
-1. **Données administratives universitaires** : Fichier source unique `dataset_reha.dta` contenant, pour chaque participant (`own_id`), l'ensemble des autres étudiants (`other_id`) avec lesquels il a partagé au moins un cours. Chaque ligne représente une dyade (référent-candidat) avec les caractéristiques des deux individus (SES, scores SABER 11, GPA, programme, semestre, genre, âge) et le nombre de cours partagés (`tie`). Le fichier contient également les réponses expérimentales (références choisies, croyances, traitement).
-2. **Grille tarifaire** : Encodée directement dans le script `1_standardize.do` sous forme de correspondances nom de programme → frais annuels en COP.
-3. **Examen SABER 11** : Scores déjà fusionnés dans `dataset_reha.dta` (variables `own_score_math`, `own_score_reading`, `other_score_math`, `other_score_reading`).
+1. **University administrative data**: A single source file, `dataset_reha.dta`, containing — for each participant (`own_id`) — all other students (`other_id`) with whom they have taken at least one course. Each row is a referrer–candidate dyad holding characteristics of both individuals (SES, SABER 11 scores, GPA, programme, semester, gender, age) and the number of courses taken together (`tie`). The file also includes experimental responses (chosen referrals, beliefs, treatment assignment).
+2. **Fee schedule**: Hard-coded in the script `1_standardize.do` as programme-name → annual-fee (COP) mappings.
+3. **SABER 11 exam**: Scores are already merged into `dataset_reha.dta` (variables `own_score_math`, `own_score_reading`, `other_score_math`, `other_score_reading`).
 
-#### Points d'ingestion
+#### Ingestion Points
 
-- **Ingestion unique** : toutes les données sont chargées depuis `dataset_reha.dta` au début de chaque script Stata via la commande `use "dataset_reha.dta", clear`.
-- Les fichiers de données brutes (`.dta`, `.csv`, `.xlsx`, `.json`) sont exclus du dépôt Git par le `.gitignore`.
+- **Single ingestion**: All data are loaded from `dataset_reha.dta` at the start of each Stata script via `use "dataset_reha.dta", clear`.
+- Raw data files (`.dta`, `.csv`, `.xlsx`, `.json`) are excluded from the Git repository by the `.gitignore`.
 
 #### Transformations
 
-| Étape | Script d'entrée | Transformation | Sortie |
-|-------|-----------------|---------------|--------|
-| **T0 – Nettoyage initial** | `0_top_decile.do` | Ajout d'un étudiant manquant (`own_id == 3856`), création des indicateurs de top décile pour GPA, score math, score lecture ; fusion dans le jeu principal | `dataset_z.dta` |
-| **T1 – Standardisation** | `1_standardize.do` | Création des variables indicatrices SES (`own_low_ses`, `own_med_ses`, `own_high_ses`, et équivalents `other_*`), encodage des frais de programme (`own_fee`, `other_fee`), standardisation du nombre de cours partagés (`z_tie`) en calculant moyenne et écart-type par réseau individuel puis en moyennant sur l'échantillon | `dataset_z.dta` (écrasé) |
-| **T2 – Standardisation des scores** | `3_regression.do` (début) | Chargement de `reading.dta` et `math.dta`, concaténation (`append`), création des scores standardisés (`z_other_score`), termes d'interaction (`scoreXtie`, `scoreXgpa`), indicateurs de même programme/SES (`same_program`, `same_low`, etc.) | `appended.dta` |
-| **T3 – Analyses descriptives** | `2_descriptives.do` | Tests de balance entre traitements (t-tests, tests de proportion), calcul des tailles de réseau, statistiques descriptives par SES, calcul des écarts de référence | Tables descriptives |
-| **T4 – Régression principale** | `3_regression.do` | Estimation des modèles logit conditionnels par groupe SES du référent (4 spécifications), tests d'hypothèses, extraction des coefficients pour graphiques | Tables de régression + figures |
-| **T5 – Hétérogénéité genre** | `1_referrals_analysis_regs_fe.do` | Régression avec interactions genre (`other_female × score`, `× tie`), modèles séparés par genre du référent | Tables + figures |
-| **T6 – Génération de figures** | `f_*.do` (38 scripts) | Chaque script produit un graphique spécifique (distribution, histogramme, barres) exporté en PNG | `figures/*.png` |
+| Step | Input Script | Transformation | Output |
+|------|-------------|----------------|--------|
+| **T0 – Initial cleaning** | `0_top_decile.do` | Addition of a missing student (`own_id == 3856`), creation of top-decile indicators for GPA, math score, reading score; merged into the main dataset | `dataset_z.dta` |
+| **T1 – Standardization** | `1_standardize.do` | Creation of SES indicator variables (`own_low_ses`, `own_med_ses`, `own_high_ses`, and equivalent `other_*`), encoding of programme fees (`own_fee`, `other_fee`), standardization of courses taken (`z_tie`) by computing within-network means and SDs, then averaging across the sample | `dataset_z.dta` (overwritten) |
+| **T2 – Score standardization** | `3_regression.do` (beginning) | Loading of `reading.dta` and `math.dta`, concatenation (`append`), creation of standardized scores (`z_other_score`), interaction terms (`scoreXtie`, `scoreXgpa`), same-programme/SES indicators (`same_program`, `same_low`, etc.) | `appended.dta` |
+| **T3 – Descriptive analysis** | `2_descriptives.do` | Balance tests between treatments (t-tests, proportion tests), network-size calculations, descriptive statistics by SES, referral-gap calculations | Descriptive tables |
+| **T4 – Main regression** | `3_regression.do` | Estimation of conditional logit models by referrer SES group (4 specifications), hypothesis tests, coefficient extraction for graphs | Regression tables + figures |
+| **T5 – Gender heterogeneity** | `1_referrals_analysis_regs_fe.do` | Regression with gender interactions (`other_female × score`, `× tie`), separate models by referrer gender | Tables + figures |
+| **T6 – Figure generation** | `f_*.do` (38 scripts) | Each script produces one specific graph (distribution, histogram, bar chart) exported as PNG | `figures/*.png` |
 
-#### Sorties
+#### Outputs
 
-- **Jeux de données d'analyse** : `dataset_z.dta`, `appended.dta`, `cmb_tmp.dta`
-- **Tables de régression** : Exportées via `esttab` (format LaTeX)
-- **Figures** : 40+ graphiques PNG dans `figures/`
-- **Manuscrit** : `writing/manuscript.pdf` compilé depuis `manuscript.tex`
+- **Analysis datasets**: `dataset_z.dta`, `appended.dta`, `cmb_tmp.dta`
+- **Regression tables**: Exported via `esttab` (LaTeX format)
+- **Figures**: 40+ PNG graphs in `figures/`
+- **Manuscript**: `writing/manuscript.pdf`, compiled from `manuscript.tex`
 
-#### Conservation et archivage
+#### Retention and Archiving
 
-Le dépôt ne contient pas de politique explicite de conservation. **Recommandation** : les données brutes (non présentes dans le dépôt) devraient être archivées dans un entrepôt institutionnel (ex. Zenodo, Dataverse) avec embargo si nécessaire. Les données dérivées (`dataset_z.dta`, `appended.dta`) devraient être versionnées et accompagnées d'un fichier `datapackage.json` décrivant le schéma. Le code est archivé via Git et GitHub (licence MIT).
+The repository contains no explicit retention policy. **Recommendation**: Raw data (not present in the repository) should be archived in an institutional repository (e.g., Zenodo, Dataverse) with an embargo if necessary. Derived datasets (`dataset_z.dta`, `appended.dta`) should be versioned and accompanied by a `datapackage.json` file describing the schema. The code is archived via Git and GitHub (MIT License).
 
-### 2.2 Diagramme de traçabilité (Mermaid)
+### 2.2 Lineage Diagram (Mermaid)
 
 ```mermaid
 graph LR
-    A[(Données administratives<br/>universitaires)] --> D
-    B[(Scores SABER 11<br/>examen national)] --> D
-    C[(Données expérimentales<br/>Qualtrics)] --> D
-    G[Grille tarifaire<br/>programmes] --> S1
+    A[(University<br/>Administrative Data)] --> D
+    B[(SABER 11<br/>National Exam Scores)] --> D
+    C[(Qualtrics<br/>Experimental Data)] --> D
+    G[Programme<br/>Fee Schedule] --> S1
 
-    D["dataset_reha.dta<br/>(fichier source unique)"] --> S0
+    D["dataset_reha.dta<br/>(single source file)"] --> S0
     D --> S1
     D --> S2
     D --> S3
 
-    S0("0_top_decile.do<br/>Nettoyage + déciles") --> Z["dataset_z.dta"]
+    S0("0_top_decile.do<br/>Cleaning + deciles") --> Z["dataset_z.dta"]
     
-    S1("1_standardize.do<br/>SES + frais + z-scores") --> Z
+    S1("1_standardize.do<br/>SES + fees + z-scores") --> Z
 
     Z --> S2
     Z --> S3
 
-    S2("2_descriptives.do<br/>Balance + descriptives") --> T2[Tables descriptives]
+    S2("2_descriptives.do<br/>Balance + descriptives") --> T2[Descriptive Tables]
     
-    S3("3_regression.do<br/>Logit conditionnel") --> T3[Tables de régression]
-    S3 --> F[Figures PNG]
+    S3("3_regression.do<br/>Conditional Logit") --> T3[Regression Tables]
+    S3 --> F[PNG Figures]
     
-    S4("f_*.do<br/>38 scripts de figures") --> F
+    S4("f_*.do<br/>38 figure scripts") --> F
 
     F --> M["manuscript.tex"]
     T2 --> M
@@ -154,118 +154,118 @@ graph LR
 
 ---
 
-## 3. Dictionnaire des données (Data Dictionary)
+## 3. Data Dictionary
 
-Les 15 variables les plus critiques apparaissant dans les résultats principaux. Les définitions sont fournies en français (conformément à l'environnement de l'administration luxembourgeoise), avec le nom technique en anglais conservé entre parenthèses pour la traçabilité.
+The 15 most critical variables appearing in the main results. Definitions are provided in English, with technical names preserved for traceability. The variable names match those found in the Stata scripts and the manuscript.
 
-| N° | Nom technique | Définition complète (FR) | Type | Valeurs autorisées / Étendue | Variable(s) source / Règle de transformation | Règle métier / Contexte | Notes qualité |
-|----|--------------|--------------------------|------|----------------------------|----------------------------------------------|------------------------|---------------|
-| 1 | `nomination` | Variable binaire indiquant si le candidat `j` a été choisi comme référence (referral) par le référent `i` pour un domaine d'examen donné. | Numérique (binaire) | 0 = Non référé ; 1 = Référé | Extraite de `dataset_reha.dta` ; filtrée pour `nomination==1` dans les modèles de régression. | Il s'agit de la variable dépendante principale. Elle capture la décision de sélection d'un pair dans le réseau de cours. | 1 342 références valides sur 734 participants. Les participants avec 2 références non valides (12% de l'échantillon initial) sont exclus. |
-| 2 | `own_estrato` | Catégorie socio-économique (estrato) du référent selon la classification officielle colombienne (1 à 6). Regroupé en trois niveaux. | Catégorielle ordinale | 1 = Bas-SES (estratos 1-2) ; 2 = Moyen-SES (estratos 3-4) ; 3 = Haut-SES (estratos 5-6) | Variable source : `own_estrato` dans `dataset_reha.dta`. Regroupement : 1-2 → Bas, 3-4 → Moyen, 5-6 → Haut. | L'estrato est un système national colombien de stratification utilisé pour les subventions aux services publics. Il est corrélé avec le revenu, l'éducation et le réseau social. | Distribution dans l'échantillon : 41% Bas, 50% Moyen, 9% Haut. Cohérent avec la population universitaire (34/51/15%). |
-| 3 | `other_estrato` | Catégorie socio-économique du candidat à la référence. Même codage que `own_estrato`. | Catégorielle ordinale | 1 = Bas-SES ; 2 = Moyen-SES ; 3 = Haut-SES | Variable source : `other_estrato` dans `dataset_reha.dta`. | Variable indépendante clé dans le logit conditionnel. La catégorie de référence est Moyen-SES (`ib(2).other_estrato`). | La distribution varie par réseau : les référents bas-SES ont 38,4% de contacts bas-SES ; les hauts-SES ont 20,4% de contacts hauts-SES. |
-| 4 | `tie` | Nombre de cours que le référent et le candidat ont suivis ensemble à l'université. | Numérique (comptage) | Entiers ≥ 1 ; Médiane = 2,8 pour le réseau ; Médiane = 12 pour les références | Calculé à partir des données administratives d'inscription aux cours. | Mesure l'intensité de la connexion entre deux étudiants. 93% des références vont à des pairs du même programme académique. | Forte asymétrie : 75% des références prennent plus de 7,5 cours ensemble contre seulement 25% du réseau. |
-| 5 | `z_tie` | Version standardisée de `tie`. Moyenne et écart-type calculés par réseau individuel, puis moyennés sur l'échantillon. | Numérique (continu) | Environ −2 à +3 (distribution standardisée) | `z_tie = (tie - avgt) / sdt` où `avgt` et `sdt` sont calculés dans `1_standardize.do`. | Utilisé comme contrôle principal dans tous les modèles de régression. Un écart-type supplémentaire augmente la probabilité de référence de 0,86 à 1,05 en log-odds. | La standardisation par réseau (within-network) puis moyennage sur l'échantillon (between-network) est documentée dans le manuscrit. |
-| 6 | `other_score` | Score moyen du candidat à l'examen national SABER 11 (moyenne math + lecture critique), sur une échelle de 0 à 100. | Numérique (continu) | 0–100 ; Moyenne ≈ 64,5 (réseau), ≈ 69,5 (référés) | `other_score_math` et `other_score_reading` depuis `dataset_reha.dta`. | Mesure la performance académique objective du candidat. Les incitations monétaires sont liées au score. | Les références ont un score moyen supérieur de 5 points à celui du réseau (t = 18,97, p < 0,001). |
-| 7 | `z_other_score` | Version standardisée de `other_score`. Calculée séparément par domaine (lecture, math) puis combinée. | Numérique (continu) | Environ −3 à +3 | `z_other_score = z_other_score_reading` pour area==1, `= z_other_score_math` pour area==2. Créé dans `3_regression.do`. | Contrôle pour la performance dans les modèles de régression. Un écart-type supplémentaire augmente la probabilité de référence de 0,59 à 0,88 en log-odds. | La standardisation est cohérente avec celle de `z_tie` (within-network puis between-network). |
-| 8 | `treat` | Assignation aléatoire au traitement expérimental. | Catégorielle binaire | 1 = Baseline (incitations performance uniquement) ; 2 = Bonus (prime fixe de $25 pour le référé) | Assignation aléatoire via Qualtrics. | Le traitement Bonus ajoute une prime fixe au destinataire de la référence, indépendante de sa performance. | Bien équilibré entre traitements (tous les p > 0,1 dans les tests de balance). N = 382 (Baseline), N = 352 (Bonus). |
-| 9 | `own_female` / `other_female` | Genre du référent / du candidat. | Numérique (binaire) | 0 = Homme ; 1 = Femme | Variable source dans `dataset_reha.dta`. | Utilisé dans les analyses d'hétérogénéité de genre (`1_referrals_analysis_regs_fe.do`). | Distribution non précisée dans les extraits consultés. Les tests de balance confirment l'absence de différence significative entre traitements. |
-| 10 | `same_program` | Indicateur binaire : le candidat est-il dans le même programme académique que le référent ? | Numérique (binaire) | 0 = Programme différent ; 1 = Même programme | `same_program = (other_program == own_program)`. Créé dans `3_regression.do`. | 93% des références vont à des pairs du même programme. Utilisé comme contrôle de robustesse (Table 7 du manuscrit). | Corrélé avec `tie` : au-delà de 5 cours partagés, >90% des contacts sont du même programme. |
-| 11 | `own_belief` / `other_belief` | Croyance du référent sur son propre classement / le classement de son référé en percentile à l'université. | Numérique (continu) | 0–100 (percentile) | Récoltée via Qualtrics. | Les participants gagnent $5 par croyance correcte (marge de ±7 percentiles). Mesure la précision des connaissances sur les performances. | Variable utilisée pour calculer `delta_own_belief` et `delta_other_belief` (écart entre croyance et score réel). |
-| 12 | `own_gpa` / `other_gpa` | Moyenne générale universitaire (Grade Point Average) du référent / du candidat. | Numérique (continu) | 0–5 (système colombien) | Variable source dans `dataset_reha.dta`. | Utilisé comme mesure complémentaire de performance et dans les tests de balance. | Équilibré entre traitements (Baseline : 4,003 ; Bonus : 4,021 ; p = 0,445). |
-| 13 | `own_low_ses` / `own_med_ses` / `own_high_ses` | Variables indicatrices du groupe SES du référent. | Numérique (binaire) | 0/1 pour chaque catégorie | `own_low_ses = (own_estrato == 1)`, etc. Créées dans `1_standardize.do`. | Permettent de partitionner l'échantillon pour les régressions par groupe SES. | Mutuellement exclusives et exhaustives. |
-| 14 | `own_fee` / `other_fee` | Frais de scolarité annuels du programme du référent / du candidat, en pesos colombiens (COP). | Numérique (continu) | 147 530 – 569 830 COP | Encodés manuellement dans `1_standardize.do` par correspondance nom de programme → frais. | Utilisé pour l'analyse du mécanisme de ségrégation par programme. Les programmes coûtent jusqu'à 6 fois plus que d'autres. | 32 programmes avec frais distincts. La médecine est une valeur aberrante à 569 830 COP. |
-| 15 | `scoreXtie` | Terme d'interaction entre le score standardisé et le nombre de cours standardisé. | Numérique (continu) | Produit de deux variables standardisées | `scoreXtie = z_other_score * z_tie`. Créé dans `3_regression.do`. | Utilisé pour tester si l'effet de la performance sur la probabilité de référence varie avec l'intensité de la connexion. | Inclus dans les spécifications avec interaction traitement-SES. |
+| # | Variable Name | Full Definition | Data Type | Allowed Values / Range | Source Variable(s) / Transformation Rule | Business Rule / Context | Quality Notes |
+|---|--------------|-----------------|-----------|------------------------|------------------------------------------|------------------------|---------------|
+| 1 | `nomination` | Binary indicator: whether candidate `j` was chosen as a referral by referrer `i` for a given exam domain. | Numeric (binary) | 0 = Not referred ; 1 = Referred | Source: `dataset_reha.dta`; filtered for `nomination==1` in regression models. | Primary dependent variable. Captures the peer-selection decision within the course network. | 1,342 valid referrals from 734 participants. Participants with two non-valid referrals (12% of the initial sample) are excluded. |
+| 2 | `own_estrato` | Socioeconomic stratum (estrato) of the referrer, per Colombia's official classification (1–6). Grouped into three levels. | Categorical (ordinal) | 1 = Low-SES (estratos 1–2) ; 2 = Middle-SES (estratos 3–4) ; 3 = High-SES (estratos 5–6) | Source: `own_estrato` in `dataset_reha.dta`. Grouping: 1–2 → Low, 3–4 → Middle, 5–6 → High. | Estrato is Colombia's national stratification system, used for utility-bill subsidies and correlated with income, education, and social network. | Sample distribution: 41% Low, 50% Middle, 9% High. Consistent with the university population (34/51/15%). |
+| 3 | `other_estrato` | Socioeconomic stratum of the referral candidate. Same coding as `own_estrato`. | Categorical (ordinal) | 1 = Low-SES ; 2 = Middle-SES ; 3 = High-SES | Source: `other_estrato` in `dataset_reha.dta`. | Key independent variable in the conditional logit. The reference category is Middle-SES (`ib(2).other_estrato`). | Distribution varies by network: low-SES referrers have 38.4% low-SES contacts; high-SES referrers have 20.4% high-SES contacts. |
+| 4 | `tie` | Number of courses that the referrer and the candidate have taken together at the university. | Numeric (count) | Integers ≥ 1 ; Median = 2.8 (network), Median = 12 (referrals) | Computed from administrative course-enrolment records. | Measures connection intensity between two students. 93% of referrals go to same-programme peers. | Strong right skew: 75% of referrals share >7.5 courses vs. only 25% of the network. |
+| 5 | `z_tie` | Standardized version of `tie`. Mean and SD computed per individual network, then averaged across the sample. | Numeric (continuous) | Approximately −2 to +3 (standardized distribution) | `z_tie = (tie - avgt) / sdt`, where `avgt` and `sdt` are computed in `1_standardize.do`. | Used as the primary control in all regression models. A one-SD increase raises referral log-odds by 0.86 to 1.05. | The within-network-then-between-network standardization is documented in the manuscript. |
+| 6 | `other_score` | Candidate's average score on the national SABER 11 exam (mean of math + critical reading), on a 0–100 scale. | Numeric (continuous) | 0–100 ; Mean ≈ 64.5 (network), ≈ 69.5 (referred) | `other_score_math` and `other_score_reading` from `dataset_reha.dta`. | Measures objective academic performance of the candidate. Monetary incentives are tied to this score. | Referred students score 5 points higher on average than the network (t = 18.97, p < 0.001). |
+| 7 | `z_other_score` | Standardized version of `other_score`. Computed separately by exam domain (reading, math) then combined. | Numeric (continuous) | Approximately −3 to +3 | `z_other_score = z_other_score_reading` for area==1, `= z_other_score_math` for area==2. Created in `3_regression.do`. | Controls for performance in regression models. A one-SD increase raises referral log-odds by 0.59 to 0.88. | Standardization is consistent with `z_tie` (within-network then between-network). |
+| 8 | `treat` | Random assignment to experimental treatment. | Categorical (binary) | 1 = Baseline (performance-only incentives) ; 2 = Bonus (fixed \$25 reward for the referred peer) | Random assignment via Qualtrics. | The Bonus treatment adds a fixed payment to the referral recipient, independent of their performance. | Well balanced between treatments (all p > 0.1 in balance tests). N = 382 (Baseline), N = 352 (Bonus). |
+| 9 | `own_female` / `other_female` | Gender of the referrer / candidate. | Numeric (binary) | 0 = Male ; 1 = Female | Source variable in `dataset_reha.dta`. | Used in gender-heterogeneity analyses (`1_referrals_analysis_regs_fe.do`). | Distribution not specified in the excerpts consulted. Balance tests confirm no significant treatment differences. |
+| 10 | `same_program` | Binary indicator: is the candidate in the same academic programme as the referrer? | Numeric (binary) | 0 = Different programme ; 1 = Same programme | `same_program = (other_program == own_program)`. Created in `3_regression.do`. | 93% of referrals go to same-programme peers. Used as a robustness control (manuscript Table 7). | Correlated with `tie`: beyond 5 shared courses, >90% of contacts are in the same programme. |
+| 11 | `own_belief` / `other_belief` | Referrer's belief about their own / their nominee's percentile ranking at the university. | Numeric (continuous) | 0–100 (percentile) | Collected via Qualtrics. | Participants earn \$5 per correct belief (±7 percentile margin). Measures accuracy of performance knowledge. | Used to compute `delta_own_belief` and `delta_other_belief` (belief minus actual score). |
+| 12 | `own_gpa` / `other_gpa` | University Grade Point Average of the referrer / candidate. | Numeric (continuous) | 0–5 (Colombian system) | Source variable in `dataset_reha.dta`. | Used as a supplementary performance measure and in balance tests. | Balanced between treatments (Baseline: 4.003 ; Bonus: 4.021 ; p = 0.445). |
+| 13 | `own_low_ses` / `own_med_ses` / `own_high_ses` | Indicator variables for the referrer's SES group. | Numeric (binary) | 0/1 for each category | `own_low_ses = (own_estrato == 1)`, etc. Created in `1_standardize.do`. | Allow partitioning the sample for SES-group regressions. | Mutually exclusive and exhaustive. |
+| 14 | `own_fee` / `other_fee` | Annual tuition fees of the referrer's / candidate's programme, in Colombian pesos (COP). | Numeric (continuous) | 147,530 – 569,830 COP | Manually encoded in `1_standardize.do` via programme-name → fee mappings. | Used for the programme-segregation mechanism analysis. Some programmes cost up to 6× more than others. | 32 programmes with distinct fees. Medicine is an outlier at 569,830 COP. |
+| 15 | `scoreXtie` | Interaction term: standardized score × standardized courses taken. | Numeric (continuous) | Product of two standardized variables | `scoreXtie = z_other_score * z_tie`. Created in `3_regression.do`. | Tests whether the effect of performance on referral probability varies with connection intensity. | Included in treatment–SES interaction specifications. |
 
 ---
 
-## 4. Indicateurs de qualité des données
+## 4. Data Quality Indicators
 
-### 4.1 Contrôles de qualité identifiés dans le code
+### 4.1 Quality Checks Identified in the Code
 
-Les scripts Stata contiennent plusieurs vérifications de qualité, implicites ou explicites :
+The Stata scripts contain several quality checks, both implicit and explicit:
 
-1. **Filtrage des valeurs manquantes** : `keep if tie != .` ( suppression des observations résiduelles sans lien de cours), `drop if other_score == .` (suppression des candidats sans score d'examen).
-2. **Exclusion des outliers** : Suppression de l'individu `own_id == 3856` après correction (doublon administratif).
-3. **Validation des références** : Exclusion des participants avec deux références non valides (12% de l'échantillon initial), filtrage `treat <= 2` pour les traitements valides.
-4. **Winsorisation** : `centile avgtie, c(3 97)` puis plafonnement au 97ème percentile pour les graphiques de distribution.
-5. **Tests de balance** : Tests t (variables continues) et tests de proportion (variables binaires) entre traitements Baseline et Bonus pour 8 variables (scores, GPA, connexions, cours, SES).
-6. **Tests de distribution** : Tests de Kolmogorov-Smirnov pour comparer les distributions des scores et des cours entre référés et non-référés.
-7. **Validation des jointures (merges)** : Vérification de `_merge` après chaque opération `merge` pour identifier les observations non appariées.
-8. **Double-comptage** : Utilisation de `bysort other_id: gen counter =_n` et `keep if counter == 1` pour ne conserver que la première occurrence de chaque individu dans les statistiques descriptives.
-9. **Tests d'hypothèses post-estimation** : Tests de Wald (commande `test`) pour vérifier l'égalité des coefficients dans les modèles logit conditionnels.
-10. **Standardisation cohérente** : Vérification que la standardisation est calculée sur les statistiques du réseau entier (within-network) avant moyennage (between-network), documentée dans le manuscrit.
+1. **Missing-value filtering**: `keep if tie != .` (removes residual observations with no course tie), `drop if other_score == .` (removes candidates without an exam score).
+2. **Outlier exclusion**: Removal of individual `own_id == 3856` after correction (administrative duplicate).
+3. **Referral validation**: Exclusion of participants with two non-valid referrals (12% of the initial sample), filtering `treat <= 2` for valid treatment arms.
+4. **Winsorization**: `centile avgtie, c(3 97)` then capping at the 97th percentile for distribution graphs.
+5. **Balance tests**: t-tests (continuous variables) and proportion tests (binary variables) between Baseline and Bonus treatments for 8 variables (scores, GPA, connections, courses, SES).
+6. **Distribution tests**: Kolmogorov–Smirnov tests comparing score and course distributions between referred and non-referred students.
+7. **Merge validation**: Inspection of `_merge` after each `merge` operation to identify unmatched observations.
+8. **Deduplication**: Use of `bysort other_id: gen counter =_n` and `keep if counter == 1` to retain only the first occurrence of each individual in descriptive statistics.
+9. **Post-estimation hypothesis tests**: Wald tests (`test` command) to check coefficient equality in conditional logit models.
+10. **Consistent standardization**: Verification that standardization uses within-network statistics before between-network averaging, as documented in the manuscript.
 
-### 4.2 Tableau des indicateurs de qualité proposés
+### 4.2 Proposed Quality Indicator Table
 
-| N° | Nom du KPI | Dimension | Règle de mesure | Cible attendue | Statut actuel |
-|----|-----------|-----------|-----------------|----------------|---------------|
-| KPI-01 | **Complétude_Scores_Examen** | Complétude | Pourcentage de valeurs non-nulles dans `other_score_math` et `other_score_reading` après fusion | ≥ 99% | À vérifier |
-| KPI-02 | **Complétude_SES** | Complétude | Pourcentage de valeurs non-nulles dans `own_estrato` et `other_estrato` | ≥ 99% | À vérifier |
-| KPI-03 | **Unicité_Référents** | Unicité | Nombre de `own_id` distincts dans le jeu final vs. nombre attendu (734) | = 734 | 734 (confirmé dans le manuscrit) |
-| KPI-04 | **Validité_Références** | Cohérence (consistency) | Pourcentage de références où `tie ≥ 1` (cours partagé) parmi les références `nomination == 1` | 100% | À vérifier (condition expérimentale) |
-| KPI-05 | **Cohérence_Traitements** | Cohérence | Pourcentage d'observations avec `treat ∈ {1, 2}` | 100% | À vérifier |
-| KPI-06 | **Balance_Traitements** | Cohérence | Nombre de variables de balance avec p > 0,10 sur le total testé | ≥ 90% | 8/8 (100%) — tous les p > 0,1 |
-| KPI-07 | **Intégrité_Fusions** | Cohérence | Pourcentage de lignes avec `_merge == 3` (appariement parfait) lors des fusions de données | ≥ 95% | À vérifier |
-| KPI-08 | **Plausibilité_Scores** | Exactitude (accuracy) | Pourcentage de `other_score` dans l'intervalle [0, 100] | 100% | À vérifier |
-| KPI-09 | **Plausibilité_Frais** | Exactitude | Pourcentage de `own_fee` correspondant exactement à la grille tarifaire encodée | 100% | À vérifier (32 programmes mappés) |
-| KPI-10 | **Exactitude_Croyances** | Exactitude | Écart moyen entre `own_belief` et le percentile réel, par groupe SES | ≤ 10 percentiles | À vérifier |
+| # | KPI Name | Dimension | Measurement Rule | Expected Target | Current Status |
+|---|---------|-----------|------------------|-----------------|----------------|
+| KPI-01 | **Exam_Score_Completeness** | Completeness | Percentage of non-null values in `other_score_math` and `other_score_reading` after merge | ≥ 99% | To be verified |
+| KPI-02 | **SES_Completeness** | Completeness | Percentage of non-null values in `own_estrato` and `other_estrato` | ≥ 99% | To be verified |
+| KPI-03 | **Referrer_Uniqueness** | Uniqueness | Number of distinct `own_id` in the final dataset vs. expected count (734) | = 734 | 734 (confirmed in manuscript) |
+| KPI-04 | **Referral_Validity** | Consistency | Percentage of referrals where `tie ≥ 1` (shared course) among `nomination == 1` | 100% | To be verified (experimental condition) |
+| KPI-05 | **Treatment_Consistency** | Consistency | Percentage of observations with `treat ∈ {1, 2}` | 100% | To be verified |
+| KPI-06 | **Treatment_Balance** | Consistency | Number of balance variables with p > 0.10 out of total tested | ≥ 90% | 8/8 (100%) — all p > 0.1 |
+| KPI-07 | **Merge_Integrity** | Consistency | Percentage of rows with `_merge == 3` (perfect match) during data merges | ≥ 95% | To be verified |
+| KPI-08 | **Score_Plausibility** | Accuracy | Percentage of `other_score` within the [0, 100] range | 100% | To be verified |
+| KPI-09 | **Fee_Plausibility** | Accuracy | Percentage of `own_fee` exactly matching the encoded fee schedule | 100% | To be verified (32 programmes mapped) |
+| KPI-10 | **Belief_Accuracy** | Accuracy | Mean absolute gap between `own_belief` and actual percentile, by SES group | ≤ 10 percentiles | To be verified |
 
-### 4.3 Rapport de qualité simulé (français)
+### 4.3 Mock Data Quality Report
 
-> **Rapport de qualité des données — Projet ICFES Referrals — 22 mai 2026**
+> **Data Quality Report — ICFES Referrals Project — 22 May 2026**
 >
-> Dans le cadre du contrôle mensuel de la qualité des données expérimentales, une anomalie a été détectée concernant l'individu `own_id = 3856`, qui apparaissait uniquement comme candidat (`other_id`) mais jamais comme référent dans le fichier source `dataset_reha.dta`. Après investigation, il s'est avéré que cet étudiant avait bien participé à l'expérience mais que son enregistrement était incomplet dans la table principale. La correction a consisté à dupliquer ses caractéristiques depuis la table des candidats vers la table des référents via le script `0_top_decile.do`, puis à le réintégrer dans le jeu complet. Un test de balance post-correction confirme que l'ajout de cet individu ne modifie pas significativement les distributions des variables clés (SES, scores, genre). Le KPI-03 (Unicité_Référents) est maintenu à 734. Nous recommandons la mise en place d'un contrôle automatique de complétude croisée (référents vs. candidats) pour prévenir ce type d'anomalie à l'avenir.
+> During the monthly experimental-data quality review, an anomaly was detected concerning individual `own_id = 3856`, who appeared only as a candidate (`other_id`) but never as a referrer in the source file `dataset_reha.dta`. Upon investigation, it was found that this student had indeed participated in the experiment but their record was incomplete in the main table. The correction consisted of duplicating their characteristics from the candidate table to the referrer table via the `0_top_decile.do` script, then re-integrating them into the full dataset. A post-correction balance test confirms that adding this individual does not significantly alter the distributions of key variables (SES, scores, gender). KPI-03 (Referrer_Uniqueness) remains at 734. We recommend implementing an automated cross-completeness check (referrers vs. candidates) to prevent this type of anomaly in the future.
 
 ---
 
-## 5. Notes de conformité (Gouvernance)
+## 5. Governance Compliance Notes
 
-### 5.1 Constats
+### 5.1 Findings
 
-| Critère | Présence dans le dépôt | Commentaire |
-|---------|----------------------|-------------|
-| **Consentement éclairé** | Non documenté | Aucun formulaire de consentement ou mention de processus de consentement visible dans le dépôt. Le manuscrit mentionne que l'expérience a été menée en ligne via Qualtrics avec recrutement par email, ce qui suggère un consentement implicite, mais aucune documentation formelle n'est présente. |
-| **Anonymisation / Pseudonymisation** | Partielle | Les identifiants étudiants (`own_id`, `other_id`) sont numériques et non nominatifs dans les scripts, ce qui suggère une pseudonymisation. Les noms réels étaient utilisés dans l'interface Qualtrics (autocomplétion) mais n'apparaissent pas dans les données analysées. |
-| **Suppression des PII (Personally Identifiable Information)** | Partielle | Aucune variable directement identifiante (nom, email, adresse) n'est visible dans les scripts d'analyse. Les données brutes étant exclues du dépôt, il est impossible de vérifier si elles contenaient des PII. |
-| **Contrôle d'accès aux données** | Présent | Le `.gitignore` exclut tous les fichiers de données : `*.csv`, `*.dta`, `*.xlsx`, `*.json`. Seuls les scripts et les sorties publiques (figures, manuscrit) sont versionnés. |
-| **Principes FAIR** | Partiel | **Findable** : le dépôt est sur GitHub avec un README détaillé. **Accessible** : les scripts sont en libre accès (MIT), mais les données brutes ne sont pas accessibles. **Interoperable** : Stata (.dta) et LaTeX sont des formats standard mais non ouverts. **Reusable** : la licence MIT autorise la réutilisation du code. La documentation est en anglais uniquement. |
-| **GDPR / RGPD** | Insuffisant | Le projet traite des données personnelles (scores, catégorie socio-économique, parcours universitaire) d'étudiants colombiens. Bien que la Colombie ne soit pas dans l'UE, les standards GDPR seraient applicables si le projet est affilié à des institutions européennes (LISER, Université du Luxembourg, NYU Abu Dhabi). Aucune mention de base légale, de durée de conservation, ou de droit des personnes n'est présente. |
+| Criterion | Presence in Repository | Comment |
+|-----------|----------------------|---------|
+| **Informed consent** | Not documented | No consent form or mention of a consent process is visible in the repository. The manuscript states the experiment was conducted online via Qualtrics with email recruitment, which suggests implicit consent, but no formal documentation is present. |
+| **Anonymization / Pseudonymization** | Partial | Student identifiers (`own_id`, `other_id`) are numeric and non-nominative in the scripts, suggesting pseudonymization. Real names were used in the Qualtrics interface (autocomplete) but do not appear in the analysed data. |
+| **PII (Personally Identifiable Information) removal** | Partial | No directly identifying variables (name, email, address) are visible in the analysis scripts. As raw data are excluded from the repository, it is impossible to verify whether they contained PII. |
+| **Data access control** | Present | The `.gitignore` excludes all data files: `*.csv`, `*.dta`, `*.xlsx`, `*.json`. Only scripts and public outputs (figures, manuscript) are version-controlled. |
+| **FAIR principles** | Partial | **Findable**: the repository is on GitHub with a detailed README. **Accessible**: scripts are open access (MIT), but raw data are not accessible. **Interoperable**: Stata (.dta) and LaTeX are standard but not fully open formats. **Reusable**: the MIT license allows code reuse. Documentation is in English only. |
+| **GDPR** | Insufficient | The project processes personal data (scores, socioeconomic category, academic history) of Colombian students. Although Colombia is not in the EU, GDPR standards would be applicable if the project is affiliated with European institutions (LISER, University of Luxembourg, NYU Abu Dhabi). No mention of legal basis, retention period, or data-subject rights is present. |
 
-### 5.2 Recommandations pour la conformité GDPR et FAIR
+### 5.2 Recommendations for GDPR and FAIR Compliance
 
-En tant que Data Steward, je formulerais les trois recommandations suivantes pour ce projet :
+As a Data Steward, I would formulate the following three recommendations for this project:
 
-#### Recommandation 1 — Documenter le consentement et la base légale
-Créer un fichier `DATA_PROTECTION.md` à la racine du dépôt documentant :
-- La base légale du traitement (consentement éclairé ou intérêt légitime de la recherche)
-- Le formulaire de consentement utilisé (annexé ou lié)
-- L'information donnée aux participants sur l'utilisation de leurs données administratives
-- La durée de conservation prévue et la procédure de suppression
-- Le contact du Délégué à la Protection des Données (DPO) des institutions partenaires
+#### Recommendation 1 — Document consent and legal basis
+Create a `DATA_PROTECTION.md` file at the repository root documenting:
+- The legal basis for processing (informed consent or legitimate research interest)
+- The consent form used (attached or linked)
+- The information provided to participants about the use of their administrative data
+- The planned retention period and deletion procedure
+- The contact details of the Data Protection Officer (DPO) of the partner institutions
 
-#### Recommandation 2 — Mettre en place un Data Package standardisé
-Créer un fichier `datapackage.json` (standard Frictionless Data) décrivant :
-- Le schéma complet de chaque jeu de données (noms, types, contraintes, descriptions des champs)
-- La licence des données (distincte de la licence MIT du code)
-- Les informations de provenance (source, date de collecte, méthode)
-- Les règles de validation (contraintes d'intégrité, plages autorisées)
+#### Recommendation 2 — Implement a standardized Data Package
+Create a `datapackage.json` file (Frictionless Data standard) describing:
+- The full schema of each dataset (names, types, constraints, field descriptions)
+- The data license (distinct from the MIT code license)
+- Provenance information (source, collection date, method)
+- Validation rules (integrity constraints, allowed ranges)
 
-Cela renforcerait les principes FAIR **Interoperable** (format JSON standard) et **Reusable** (schéma auto-documenté).
+This would strengthen the **Interoperable** (standard JSON format) and **Reusable** (self-documenting schema) FAIR principles.
 
-#### Recommandation 3 — Renforcer la pseudonymisation et le contrôle d'accès
-- Vérifier que les identifiants `own_id` et `other_id` ne permettent pas de ré-identification indirecte (par croisement avec la taille de programme ou le semestre)
-- Ajouter au `.gitignore` les fichiers temporaires (`.stswp`, `.fls`, `.aux`, `.log`, `.fdb_latexmk`) pour éviter toute fuite accidentelle de données
-- Si les données brutes doivent être partagées avec des relecteurs ou collaborateurs, utiliser un entrepôt sécurisé avec accord de partage de données (Data Sharing Agreement)
-
----
-
-## 6. Note de synthèse
-
-### Pourquoi cet exercice démontre ma capacité à exercer les fonctions de Data Steward auprès de l'administration fiscale luxembourgeoise
-
-Ce travail illustre ma capacité à analyser un projet de recherche complexe sous l'angle de la gouvernance des données, en documentant systématiquement la traçabilité, le dictionnaire des variables, les indicateurs de qualité, et la conformité réglementaire — exactement comme un Data Steward le ferait pour un patrimoine de données administratives. J'ai démontré ma compétence à naviguer entre la compréhension technique des scripts d'analyse (Stata), la formalisation de règles métier, la proposition d'indicateurs de qualité mesurables, et l'évaluation de la maturité de conformité (GDPR/FAIR). Le dictionnaire de données bilingue (français/anglais) reflète ma capacité à servir de pont entre les équipes techniques et les métiers dans un environnement multilingue comme l'administration luxembourgeoise. Enfin, les recommandations concrètes que j'ai formulées — documentation du consentement, adoption du standard Frictionless Data, renforcement de la pseudonymisation — sont directement transposables aux défis de gouvernance rencontrés dans la gestion des données fiscales.
+#### Recommendation 3 — Strengthen pseudonymization and access control
+- Verify that the `own_id` and `other_id` identifiers do not allow indirect re-identification (e.g., by cross-referencing with programme size or semester)
+- Add temporary files to `.gitignore` (`.stswp`, `.fls`, `.aux`, `.log`, `.fdb_latexmk`) to prevent accidental data leakage
+- If raw data must be shared with reviewers or collaborators, use a secure repository with a Data Sharing Agreement
 
 ---
 
-*Document produit le 22 mai 2026 dans le cadre d'une candidature au poste de Data Steward — Administration fiscale luxembourgeoise.*  
-*Analyse basée exclusivement sur le contenu visible du dépôt GitHub [`reha96/icfes-referrals-clean`](https://github.com/reha96/icfes-referrals-clean).*
+## 6. Closing Note
+
+### Why this exercise demonstrates my ability to perform Data Steward duties for the Luxembourg Tax Administration
+
+This work illustrates my ability to analyse a complex research project through a data governance lens — systematically documenting lineage, a data dictionary, quality indicators, and regulatory compliance — exactly as a Data Steward would for an administrative data estate. I have demonstrated competence in navigating between technical understanding of analysis scripts (Stata), formalising business rules, proposing measurable quality KPIs, and assessing compliance maturity (GDPR/FAIR). The bilingual data dictionary (English/French) reflects my ability to bridge technical teams and business stakeholders in a multilingual environment such as the Luxembourg administration. Finally, the concrete recommendations I have formulated — consent documentation, adoption of the Frictionless Data standard, and stronger pseudonymization — are directly transposable to the governance challenges encountered in managing tax data.
+
+---
+
+*Document produced on 22 May 2026 as part of an application for the Data Steward role — Luxembourg Tax Administration.*  
+*Analysis based exclusively on the visible content of the GitHub repository [`reha96/icfes-referrals-clean`](https://github.com/reha96/icfes-referrals-clean).*
